@@ -17,7 +17,7 @@
     <article>
         <h1>{{ .Title }}</h1>
         <nav class="breadcrumb">
-            <a href="../index.html">Home</a> &gt; <a href="index.html">Releases</a>
+            <a href="../index.html">Home</a> &gt; <a href="/releases.html">Releases</a>
         </nav>
         {{ if .Date }}
             <time class="release-date" datetime="{{ .Date | isodate }}">{{ .Date | strdate }}</time>

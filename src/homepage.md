@@ -3,7 +3,6 @@ description: Miniflux is a minimalist and opinionated feed reader
 template: homepage
 uri: index.html
 ---
-
 <article id="overview">
     <h1>Miniflux</h1>
     <p><em>Miniflux is a minimalist and opinionated feed reader.</em></p>
@@ -22,8 +21,8 @@ uri: index.html
         <li><a href="#donations">Donations</a></li>
         <li><a href="miniflux.1.html">Man Page</a></li>
         <li><a href="docs/index.html">Documentation</a></li>
+        <li><a href="faq.html">Frequently Asked Questions</a></li>
         <li><strong><a href="hosting.html">Paid Hosting</a></strong></li>
-        <li><a href="https://reader.miniflux.app/">Login</a> (Hosted Version)</li>
     </ul>
 </nav>
 <article>
@@ -76,7 +75,7 @@ uri: index.html
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="JDEP88DQJ632E">
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal <li>The safer, easier way to pay online!">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal <li>The safer, easier way to pay online!">
     </form>
 </article>
 <article>

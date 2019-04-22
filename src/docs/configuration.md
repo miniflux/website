@@ -56,5 +56,5 @@ You could also use the URL format `postgres://postgres:postgres@localhost/minifl
 
 <div class="warning">
 Password that contains special characters like ^ might be rejected since Miniflux 2.0.3. <a href="https://go-review.googlesource.com/c/go/+/87038">Golang v1.10 is now validating the password</a> and will return this error: <code>net/url: invalid userinfo</code>.
-To avoid this issue, do not use the URL format for `DATABASE_URL` or make sure the password is URL encoded.
+To avoid this issue, do not use the URL format for <code>DATABASE_URL</code> or make sure the password is URL encoded.
 </div>
