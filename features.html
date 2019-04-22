@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Features</title>
+    
+        <meta name="description" content="List of Features">
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Features</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Go Back</a>
+        </nav>
+        <h2 id="reader">Reader <a class="anchor" href="#reader" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Supported feed formats: Atom, RSS 1.0/2.0, RDF and JSON</li>
+<li><a href="https://en.wikipedia.org/wiki/OPML">OPML</a> import/export</li>
+<li>Support multiple enclosures/attachments (Podcasts, videos, music, and images)</li>
+<li>Play videos from YouTube channels directly inside Miniflux</li>
+<li>Categories</li>
+<li>Bookmarks</li>
+<li>Fetch website icons (favicons)</li>
+<li>Save articles to third-party services</li>
+<li>Available in Chinese, Dutch, English, French, German, Italian, Polish, Russian, and Spanish</li>
+</ul>
+
+<h2 id="privacy">Privacy <a class="anchor" href="#privacy" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Remove pixel trackers</li>
+<li>Fetch original links when the feed is coming from FeedBurner</li>
+<li>Open external links with the attributes <code>rel=&quot;noopener noreferrer&quot; referrerpolicy=&quot;no-referrer&quot;</code></li>
+<li>Image proxy to avoid mixed content warnings with HTTPS</li>
+<li>Play Youtube videos by using the domain <code>youtube-nocookie.com</code></li>
+<li>Block any external Javascript code to avoid tracking</li>
+</ul>
+
+<h2 id="content-manipulation">Content Manipulation <a class="anchor" href="#content-manipulation" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Fetch original article and returns only relevant contents (Readability parser)</li>
+<li>Custom scraper rules based on <abbr title="Cascading Style Sheets">CSS</abbr> selectors</li>
+<li>Custom rewriting rules</li>
+<li>Override default user agent to bypass websites restrictions</li>
+</ul>
+
+<h2 id="ui">User Interface <a class="anchor" href="#ui" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Stylesheet optimized for readability</li>
+<li>Responsive design (works on desktop, tablet, and mobile devices)</li>
+<li>No fancy user interface</li>
+<li>Doesn&rsquo;t require to download an application from the App/Play Store</li>
+<li>You could add Miniflux to the home screen</li>
+<li>Keyboard shortcuts</li>
+<li>Touch events on mobile devices</li>
+<li>Themes: Default (light), Black (Dark mode) and Sans-Serif</li>
+</ul>
+
+<h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Send articles to <a href="https://pinboard.in/">Pinboard</a>, <a href="https://www.instapaper.com/">Instapaper</a>, <a href="https://getpocket.com/">Pocket</a>, <a href="https://www.wallabag.org/">Wallabag</a>, or Nunux Keeper</li>
+<li>Bookmarklet to subscribe to a website directly from any web browser</li>
+<li>Use existing mobile applications to read your feeds by using the Fever API</li>
+<li>REST API with clients written in <a href="https://github.com/miniflux/miniflux/tree/master/client">Go</a> and <a href="https://github.com/miniflux/miniflux-python">Python</a></li>
+</ul>
+
+<h2 id="auth">Authentication <a class="anchor" href="#auth" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Username/password</li>
+<li>Google (OAuth2)</li>
+</ul>
+
+<h2 id="tech">Technical Stuff <a class="anchor" href="#tech" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Self-hosted</li>
+<li>Written in <a href="https://golang.org/">Go (Golang)</a></li>
+<li>Compatible only with <a href="https://www.postgresql.org/">Postgresql</a></li>
+<li>There is no dependency, only a <strong>static binary</strong></li>
+<li>Automatic HTTPS configuration with Let&rsquo;s Encrypt</li>
+<li>Use your own <abbr title="Secure Sockets Layer">SSL</abbr> certificate</li>
+<li>Supports <a href="https://en.wikipedia.org/wiki/HTTP/2">HTTP/2</a> if TLS is configured</li>
+<li>Feeds are updated in the background by an internal scheduler</li>
+<li>External content is sanitized before being displayed</li>
+<li>Uses a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a> that allows only application Javascript and block inline code and styles</li>
+<li>Works only in modern browsers</li>
+<li>Follows the <a href="https://12factor.net/">Twelve-Factor App</a> principle</li>
+</ul>
+
+    </article>
+</body>
+</html>

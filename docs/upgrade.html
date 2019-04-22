@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Upgrading Miniflux - Documentation</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Upgrading Miniflux</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <div class="warning">
+Please, do not update the software blindly without reading the <a href="https://github.com/miniflux/miniflux/blob/master/ChangeLog">Change Log</a>.
+Always check for breaking changes if any.
+</div>
+
+<h2 id="instructions">Instructions <a class="anchor" href="#instructions" title="Permalink">¶</a></h2>
+
+<ol>
+<li>Export the environment variable <code>DATABASE_URL</code> if not already done</li>
+<li>Disconnect all users by flushing all sessions: <code>miniflux -flush-sessions</code></li>
+<li>Stop the process</li>
+<li>Backup your database</li>
+<li>Check that your backup is really working</li>
+<li>Run database migrations: <code>miniflux -migrate</code></li>
+<li>Start the process again</li>
+</ol>
+
+<h2 id="deb">Debian Systems <a class="anchor" href="#deb" title="Permalink">¶</a></h2>
+
+<p>Follow instructions mentioned above and run: <code>dpkg -i miniflux_2.x.x_amd64.deb</code>.</p>
+
+<h2 id="rpm">RPM Systems <a class="anchor" href="#rpm" title="Permalink">¶</a></h2>
+
+<p>Follow instructions mentioned above and run: <code>rpm -Uvh miniflux-2.x.x-1.0.x86_64.rpm</code>.</p>
+
+<h2 id="docker">Docker Containers <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Pull the new image with the new tag: <code>docker pull miniflux/miniflux:2.x.x</code></li>
+<li>Stop and remove the old container: <code>docker stop &lt;container_name&gt; &amp;&amp; docker rm &lt;container_name&gt;</code></li>
+<li>Start a new container with the latest tag: <code>docker run -d -p 80:8080 miniflux/miniflux:2.x.x</code></li>
+</ul>
+
+<p>If you use Docker Compose, define the new tag in the YAML file and restart the container.
+Don&rsquo;t forget to run the database migrations if necessary.</p>
+
+    </article>
+</body>
+</html>

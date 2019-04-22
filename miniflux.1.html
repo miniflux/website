@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <style>
+    table.head, table.foot { width: 100%; }
+    td.head-rtitle, td.foot-os { text-align: right; }
+    td.head-vol { text-align: center; }
+    div.Pp { margin: 1ex 0ex; }
+  </style>
+  <link rel="stylesheet" href="/mandoc.css" type="text/css" media="all"/>
+  <title>MINIFLUX(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">MINIFLUX(1)</td>
+    <td class="head-vol">&#x00A0;</td>
+    <td class="head-rtitle">MINIFLUX(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="selflink" href="#NAME">NAME</a></h1>
+miniflux - Minimalist and opinionated feed reader
+<div style="height: 1.00em;">&#x00A0;</div>
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="selflink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>miniflux</b> [-vi] [-create-admin] [-debug] [-flush-sessions] [-info]
+  [-migrate]
+<br/>
+ [-reset-feed-errors] [-reset-password] [-version]
+<div style="height: 1.00em;">&#x00A0;</div>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="selflink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<b>miniflux</b> is a minimalist and opinionated feed reader.
+<div style="height: 1.00em;">&#x00A0;</div>
+<h1 class="Sh" title="Sh" id="OPTIONS"><a class="selflink" href="#OPTIONS">OPTIONS</a></h1>
+<b>-create-admin</b>
+<div style="margin-left: 4.00ex;">Create admin user.</div>
+<div class="Pp"></div>
+<b>-debug</b>
+<div style="margin-left: 4.00ex;">Show debug logs.</div>
+<div class="Pp"></div>
+<b>-flush-sessions</b>
+<div style="margin-left: 4.00ex;">Flush all sessions (disconnect users).</div>
+<div class="Pp"></div>
+<b>-i</b>
+<div style="margin-left: 4.00ex;">Show application information.</div>
+<div class="Pp"></div>
+<b>-info</b>
+<div style="margin-left: 4.00ex;">Show application information.</div>
+<div class="Pp"></div>
+<b>-migrate</b>
+<div style="margin-left: 4.00ex;">Run SQL migrations.</div>
+<div class="Pp"></div>
+<b>-reset-feed-errors</b>
+<div style="margin-left: 4.00ex;">Clear all feed errors for all users.</div>
+<div class="Pp"></div>
+<b>-reset-password</b>
+<div style="margin-left: 4.00ex;">Reset user password.</div>
+<div class="Pp"></div>
+<b>-v</b>
+<div style="margin-left: 4.00ex;">Show application version.</div>
+<div class="Pp"></div>
+<b>-version</b>
+<div style="margin-left: 4.00ex;">Show application version.</div>
+<div style="height: 1.00em;">&#x00A0;</div>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT"><a class="selflink" href="#ENVIRONMENT">ENVIRONMENT</a></h1>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>DEBUG</b></dt>
+  <dd class="It-tag">Set the value to 1 to enable debug logs.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>WORKER_POOL_SIZE</b></dt>
+  <dd class="It-tag">Number of background workers (default is 5).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>POLLING_FREQUENCY</b></dt>
+  <dd class="It-tag">Refresh interval in minutes for feeds (default is 60
+      minutes).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>BATCH_SIZE</b></dt>
+  <dd class="It-tag">Number of feeds to send to the queue for each interval
+      (default is 10).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>DATABASE_URL</b></dt>
+  <dd class="It-tag">Postgresql connection parameters.
+    <div>&#x00A0;</div>
+    Default is &quot;user=postgres password=postgres dbname=miniflux2
+      sslmode=disable&quot;.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>DATABASE_MAX_CONNS</b></dt>
+  <dd class="It-tag">Maximum number of database connections (default is
+    20).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>DATABASE_MIN_CONNS</b></dt>
+  <dd class="It-tag">Minimum number of database connections (default is 1).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>LISTEN_ADDR</b></dt>
+  <dd class="It-tag">Address to listen on. Default is 127.0.0.1:8080.
+    <div>&#x00A0;</div>
+    Use absolute path to listen on Unix socket (/var/run/miniflux.sock).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>PORT</b></dt>
+  <dd class="It-tag">Override LISTEN_ADDR to 0.0.0.0:$PORT.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>BASE_URL</b></dt>
+  <dd class="It-tag">Base URL to generate HTML links and base path for cookies.
+    <div>&#x00A0;</div>
+    Default is http://localhost/.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>CLEANUP_FREQUENCY</b></dt>
+  <dd class="It-tag">Cleanup job frequency, remove old sessions and archive read
+      entries.
+    <div>&#x00A0;</div>
+    Default is 24 hours.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>ARCHIVE_READ_DAYS</b></dt>
+  <dd class="It-tag">Number of days after marking read items as removed.
+    <div>&#x00A0;</div>
+    Default is 60 days.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>HTTPS</b></dt>
+  <dd class="It-tag">Forces cookies to use secure flag and send HSTS
+    header.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>DISABLE_HSTS</b></dt>
+  <dd class="It-tag">Disable HTTP Strict Transport Security header if
+      <b>HTTPS</b> is set.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>DISABLE_HTTP_SERVICE</b></dt>
+  <dd class="It-tag">Set the value to 1 to disable the HTTP service.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>DISABLE_SCHEDULER_SERVICE</b></dt>
+  <dd class="It-tag">Set the value to 1 to disable the internal scheduler
+      service.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>CERT_FILE</b></dt>
+  <dd class="It-tag">Path to SSL certificate.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>KEY_FILE</b></dt>
+  <dd class="It-tag">Path to SSL private key.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>CERT_DOMAIN</b></dt>
+  <dd class="It-tag">Use Let's Encrypt to get automatically a certificate for
+      this domain.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>CERT_CACHE</b></dt>
+  <dd class="It-tag">Let's Encrypt cache directory (default is
+    /tmp/cert_cache).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>OAUTH2_PROVIDER</b></dt>
+  <dd class="It-tag">OAuth2 provider to use. Only google is supported.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>OAUTH2_CLIENT_ID</b></dt>
+  <dd class="It-tag">OAuth2 client ID.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>OAUTH2_CLIENT_SECRET</b></dt>
+  <dd class="It-tag">OAuth2 client secret.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>OAUTH2_REDIRECT_URL</b></dt>
+  <dd class="It-tag">OAuth2 redirect URL.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>OAUTH2_USER_CREATION</b></dt>
+  <dd class="It-tag">Set to 1 to authorize OAuth2 user creation.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>RUN_MIGRATIONS</b></dt>
+  <dd class="It-tag">Set to 1 to run database migrations.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>CREATE_ADMIN</b></dt>
+  <dd class="It-tag">Set to 1 to create an admin user from environment
+      variables.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>ADMIN_USERNAME</b></dt>
+  <dd class="It-tag">Admin user login, used only if <b>CREATE_ADMIN</b> is
+      enabled.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>ADMIN_PASSWORD</b></dt>
+  <dd class="It-tag">Admin user password, used only if <b>CREATE_ADMIN</b> is
+      enabled.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>POCKET_CONSUMER_KEY</b></dt>
+  <dd class="It-tag">Pocket consumer API key for all users.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt class="It-tag"><b>PROXY_IMAGES</b></dt>
+  <dd class="It-tag">Avoids mixed content warnings for external images:
+      http-only, all, or none.
+    <div>&#x00A0;</div>
+    Default is http-only.
+    <div style="height: 1.00em;">&#x00A0;</div>
+  </dd>
+</dl>
+<h1 class="Sh" title="Sh" id="AUTHORS"><a class="selflink" href="#AUTHORS">AUTHORS</a></h1>
+Miniflux is written and maintained by Fr&#x00E9;d&#x00E9;ric Guillot.
+<div style="height: 1.00em;">&#x00A0;</div>
+<h1 class="Sh" title="Sh" id="COPYRIGHT"><a class="selflink" href="#COPYRIGHT">COPYRIGHT</a></h1>
+Miniflux is released under the Apache 2.0 license.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">November 9, 2018</td>
+    <td class="foot-os">&#x00A0;</td>
+  </tr>
+</table>
+</body>
+</html>

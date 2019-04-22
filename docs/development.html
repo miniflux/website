@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Development - Documentation</title>
+    
+        <meta name="description" content="Working with Miniflux&#39;s source code">
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Development</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Git</li>
+<li>Go &gt;= 1.11</li>
+</ul>
+
+<h2 id="source-code">Checkout the Source Code <a class="anchor" href="#source-code" title="Permalink">¶</a></h2>
+
+<p>Fork the project and clone the repository locally.</p>
+
+<p>Since Go 1.11, you don&rsquo;t need to work inside the <code>$GOPATH</code>.
+You can checkout the source code anywhere on your filesystem.</p>
+
+<p>Miniflux is using <a href="https://github.com/golang/go/wiki/Modules">Go Modules</a> to manage dependencies.</p>
+
+<h2 id="compilation">Compilation <a class="anchor" href="#compilation" title="Permalink">¶</a></h2>
+
+<p>Build the application for the actual platform:</p>
+
+<pre><code class="language-bash">make miniflux
+</code></pre>
+
+<p>To define a specific version number:</p>
+
+<pre><code class="language-bash">make miniflux VERSION=2.0.13
+</code></pre>
+
+<p>Cross compilation:</p>
+
+<pre><code class="language-bash"># Build all binaries for all supported platforms
+make build
+
+# Build Linux binary for amd64 architecture
+make linux-amd64
+
+# ARM 64 bits (arm64v8)
+make linux-armv8
+
+# ARM 32 bits variant 7 (arm32v7)
+make linux-armv7
+
+# ARM 32 bits variant 6 (arm32v6)
+make linux-armv6
+
+# ARM 32 bits variant 5 (arm32v5)
+make linux-armv5
+
+# Mac OS (amd64)
+make darwin-amd64
+
+# FreeBSD (amd64)
+make freebsd-amd64
+
+# OpenBSD (amd64)
+make openbsd-amd64
+
+# Windows (amd64)
+make windows-amd64
+</code></pre>
+
+<h2 id="cleanup">Remove Precompiled Binaries <a class="anchor" href="#cleanup" title="Permalink">¶</a></h2>
+
+<pre><code class="language-bash">make clean
+</code></pre>
+
+<h2 id="run">Run the Software Locally <a class="anchor" href="#run" title="Permalink">¶</a></h2>
+
+<pre><code class="language-bash">make run
+</code></pre>
+
+<p>This command executes <code>go generate</code> and <code>go run main.go</code>.</p>
+
+<h2 id="generate">Regenerate Embedded Files <a class="anchor" href="#generate" title="Permalink">¶</a></h2>
+
+<p>To avoid any dependencies, all assets (Javascript, CSS, images, translations) are automatically included in the source code.</p>
+
+<pre><code class="language-bash">make generate
+</code></pre>
+
+<h2 id="linter">Linter <a class="anchor" href="#linter" title="Permalink">¶</a></h2>
+
+<pre><code class="language-bash">make lint
+</code></pre>
+
+<h2 id="unit-tests">Unit Tests <a class="anchor" href="#unit-tests" title="Permalink">¶</a></h2>
+
+<pre><code class="language-bash">make test
+</code></pre>
+
+<h2 id="integration-tests">Integration Tests <a class="anchor" href="#integration-tests" title="Permalink">¶</a></h2>
+
+<p>Integration tests are testing API endpoints with a real database.</p>
+
+<p>You need to have Postgresql installed locally preconfigured with the user &ldquo;postgres&rdquo; and the password &ldquo;postgres&rdquo;.</p>
+
+<p>To run integration tests, execute the following command:</p>
+
+<pre><code class="language-bash">make integration-test ; make clean-integration-test
+</code></pre>
+
+<p>If the test suite fail, you will see the logs of Miniflux.</p>
+
+<h2 id="docker-image">Build Docker Image <a class="anchor" href="#docker-image" title="Permalink">¶</a></h2>
+
+<p>Miniflux supports three different architectures for Docker containers: <code>amd64</code>, <code>arm32v6</code>, and <code>arm64v8</code>.
+There is one image for each architecture and a manifest.</p>
+
+<p>Here an example to build your own image:</p>
+
+<pre><code class="language-bash">make docker-images DOCKER_IMAGE=your-namespace/miniflux
+</code></pre>
+
+<p>To override the build version:</p>
+
+<pre><code class="language-bash">make docker-images DOCKER_IMAGE=your-namespace/miniflux VERSION=42
+</code></pre>
+
+<p>To create the manifest and push the images:</p>
+
+<pre><code class="language-bash">make docker-manifest DOCKER_IMAGE=your-namespace/miniflux
+</code></pre>
+
+    </article>
+</body>
+</html>

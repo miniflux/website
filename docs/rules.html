@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rewrite and Scraper Rules - Documentation</title>
+    
+        <meta name="description" content="How to write custom scraper and rewrite rules">
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Rewrite and Scraper Rules</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
+
+<p>To improve the reading experience, it&rsquo;s possible to alter the content of feed items.</p>
+
+<p>For example, if you are reading a popular comic website like <a href="https://xkcd.com/">XKCD</a>,
+it&rsquo;s nice to have the image title (the <code>alt</code> attribute) added under the image.
+Especially on mobile devices where there is no <code>hover</code> event.</p>
+
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>add_dynamic_image</code></td>
+<td>Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size).</td>
+</tr>
+
+<tr>
+<td><code>add_image_title</code></td>
+<td>Add each image&rsquo;s title as a caption under the image.</td>
+</tr>
+
+<tr>
+<td><code>add_youtube_video</code></td>
+<td>Insert Youtube video inside the article (automatic for Youtube.com).</td>
+</tr>
+</tbody>
+</table>
+<p>Miniflux includes a set of default rules for some websites, but you could define your own rules.</p>
+
+<p>On the feed edit page, enter your custom rules in the field &ldquo;Rewrite Rules&rdquo; like this:</p>
+
+<pre><code>rule1,rule2
+</code></pre>
+
+<p>Separate each rule by a comma.</p>
+
+<h2 id="scraper-rules">Scraper Rules <a class="anchor" href="#scraper-rules" title="Permalink">¶</a></h2>
+
+<p>When an article contains only an extract of the content, you could fetch
+the original web page and apply a set of rules to get relevant contents.</p>
+
+<p>Miniflux uses CSS selectors for custom rules. These custom rules can be
+saved in the feed properties (Select a feed and click on edit).</p>
+
+<table>
+<thead>
+<tr>
+<th>CSS Selector</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>div#articleBody</code></td>
+<td>Fetch a <code>div</code> element with the ID <code>articleBody</code></td>
+</tr>
+
+<tr>
+<td><code>div.content</code></td>
+<td>Fetch all <code>div</code> elements with the class <code>content</code></td>
+</tr>
+
+<tr>
+<td><code>article, div.article</code></td>
+<td>Use a comma to define multiple rules</td>
+</tr>
+</tbody>
+</table>
+<p>Miniflux includes a list of predefined rules for popular websites.
+You could contribute to the project to keep them up to date.</p>
+
+<p>Under the hood, Miniflux uses the library <a href="https://github.com/PuerkitoBio/goquery">Goquery</a>.</p>
+
+    </article>
+</body>
+</html>

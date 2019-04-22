@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 1.0.8</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 1.0.8</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2013-06-02">June 2, 2013</time>
+        
+        <ul>
+<li>Add workaround for PHP with deprecated libxml (Debian Lenny)</li>
+<li>Improve encoding detection/conversion</li>
+<li>Change redirect after feed importation</li>
+<li>Encode <code>item_id</code> in base64 rather than <code>urlencode</code></li>
+<li>Rename templates</li>
+<li>Improve autoflush of read items</li>
+<li>Update PicoDb</li>
+<li>Update PicoTools</li>
+<li>Change labels for autoflush</li>
+<li>Add an auto flush function while reaching <code>action=default</code> or <code>action=history</code>. It will flush all read items older than the specified number of days in the preferences</li>
+<li>Ignore XML parsing error (old libxml issues)</li>
+<li>Minor code refactoring</li>
+<li>Fix cronjob example link</li>
+<li>Update documentation for cronjob</li>
+<li>Fix documentation for <code>--limit</code> argument</li>
+<li>Allow <code>cronjob.php</code> to be called from web</li>
+<li>Add <code>pdo_sqlite</code> extension check</li>
+<li>Add feature to disable SSL certificates validation</li>
+<li>Move everything to the top-level directory</li>
+<li>Minors cleanup</li>
+<li>Fix bug (wrong order in <code>get_feeds_id</code>)</li>
+<li>Empty feed titles are filled with the URL</li>
+<li>Add &lsquo;mark read&rsquo; shortcut.</li>
+</ul>
+
+    </article>
+</body>
+</html>

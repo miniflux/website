@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Integration with External Services - Documentation</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Integration with External Services</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <h2 id="fever">Fever API <a class="anchor" href="#fever" title="Permalink">¶</a></h2>
+
+<p>Miniflux implements the Fever API in addition to its own REST API. The
+Fever API allows you to use existing mobile applications to read your
+feeds instead of the web user interface.</p>
+
+<p>To activate the Fever API, go into the integration section and choose a
+username/password.</p>
+
+<p><img src="/images/fever.png" alt="Fever" /></p>
+
+<p>The API endpoint is <code>https://example.org/fever/</code></p>
+
+<h3>Compatible Apps</h3>
+
+<ul>
+<li><a href="http://reederapp.com/">Reeder</a> (iOS/Mac OS)</li>
+<li><a href="https://www.goldenhillsoftware.com/unread/">Unread</a> (iOS)</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.isaiasmatewos.readably">Readably</a>
+(Android)</li>
+</ul>
+
+<div class="note">
+<ul>
+  <li>Saving an entry will add a new bookmark and save the article</li>
+  <li>Only the JSON format is supported</li>
+  <li>Refreshing feeds is not possible with Reeder because no user information is sent</li>
+  <li>Links, sparks, and kindlings are not supported</li>
+</ul>
+</div>
+
+<h2 id="pinboard">Pinboard <a class="anchor" href="#pinboard" title="Permalink">¶</a></h2>
+
+<p>You could save articles to <a href="https://pinboard.in/">Pinboard</a>.</p>
+
+<p><img src="/images/pinboard.png" alt="Pinboard" /></p>
+
+<p>To activate this service, go to the integration section and enter your
+Pinboard API credentials. You must use the API token, not your password.</p>
+
+<h2 id="instapaper">Instapaper <a class="anchor" href="#instapaper" title="Permalink">¶</a></h2>
+
+<p>You could save articles to <a href="https://www.instapaper.com/">Instapaper</a>.</p>
+
+<p><img src="/images/instapaper.png" alt="Instapaper" /></p>
+
+<p>To activate this service, go to the integration section and enter your
+Instapaper credentials.</p>
+
+<h2 id="pocket">Pocket <a class="anchor" href="#pocket" title="Permalink">¶</a></h2>
+
+<p>To configure the Pocket integration on your own Miniflux instance, you
+need to create an application on Pocket&rsquo;s website.</p>
+
+<p>Go to <a href="https://getpocket.com/developer/apps/new">https://getpocket.com/developer/apps/new</a> and create a new
+application.</p>
+
+<ul>
+<li>You can define the <em>Pocket Consumer Key</em> for all users by using the environment variable <code>POCKET_CONSUMER_KEY</code>.</li>
+<li>Or, you can set the <em>Pocket Consumer Key</em> only for your user by using the form.</li>
+</ul>
+
+<p><img src="/images/pocket_1.png" alt="Pocket" /></p>
+
+<p>If the environment variable is defined, the text field for the <em>Pocket
+Consumer API key</em> will be hidden.</p>
+
+<p>Make sure the environment variable <code>BASE_URL</code> is defined properly to
+allow the authorization flow to work afterward.</p>
+
+<p>Once the consumer key is configured, you need to get a <em>Pocket Access
+Token</em>. This token could be fetched automatically by using the
+authorization flow or manually by making some HTTP calls.</p>
+
+<p><img src="/images/pocket_2.png" alt="Pocket Connection" /></p>
+
+<p>The simplest solution is to use the link, <strong>&ldquo;Connect your Pocket
+account&rdquo;</strong>. This method redirects the end user to Pocket&rsquo;s website and
+ask for authorization.</p>
+
+<p><img src="/images/pocket_3.png" alt="Pocket Authorization" /></p>
+
+<p>After the authorization is given, Miniflux will fetch the <em>Pocket Access
+Token</em> for you.</p>
+
+<p>If you prefer to fetch <em>Pocket Access Token</em> manually, the process is
+described in <a href="https://getpocket.com/developer/docs/authentication">Pocket&rsquo;s developer
+documentation</a>.</p>
+
+<h2 id="wallabag">Wallabag <a class="anchor" href="#wallabag" title="Permalink">¶</a></h2>
+
+<p><a href="https://wallabag.org/">Wallabag</a> is a self-hosted application for
+saving web pages.</p>
+
+<p><img src="/images/wallabag.png" alt="Wallabag" /></p>
+
+<ul>
+<li>The API URL is the root URL of your instance, for example, if you have the hosted version use: <code>https://app.wallabag.it/</code>.</li>
+<li>To create a new API client, go to the section &ldquo;API clients management&rdquo; and choose &ldquo;Create a new client&rdquo;.</li>
+</ul>
+
+<h2 id="nunux-keeper">Nunux Keeper <a class="anchor" href="#nunux-keeper" title="Permalink">¶</a></h2>
+
+<p><a href="https://keeper.nunux.org/">Nunux Keeper</a> is a <em>&ldquo;personal content
+curation service&rdquo;</em>. It&rsquo;s an alternative to Pocket or Wallabag.</p>
+
+<p><img src="/images/nunux_reader.png" alt="Nunux Reader" /></p>
+
+<ul>
+<li>The API URL is the root URL of your instance, for example, if you are using the hosted version: <code>https://api.nunux.org/keeper</code>.</li>
+<li>To create a new API key, go to the settings tab: &ldquo;API key&rdquo; and choose &ldquo;Regenerate API key&rdquo;.</li>
+</ul>
+
+<p><img src="/images/nunux_reader_api_key.png" alt="Nunux Reader API Key" /></p>
+
+    </article>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 2.0.13</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 2.0.13</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2018-11-25">November 25, 2018</time>
+        
+        <ul>
+<li>Add man page</li>
+<li>Add support for Systemd Socket Activation (experimental)</li>
+<li>Add the possiblity to listen on Unix sockets</li>
+<li>Add config options to disable HTTP and scheduler services</li>
+<li>Archive more read entries in cleanup job</li>
+<li>Change default database connection string (backward compatible)</li>
+<li>Improve logging messages in ui package</li>
+<li>Improve overall Simplified Chinese translations</li>
+<li>Improve time since post date displays:
+
+<ul>
+<li>&ldquo;15 days&rdquo; now is &ldquo;15 days&rdquo; rather than &ldquo;3 weeks&rdquo; ago</li>
+<li>&ldquo;32 days&rdquo; is now &ldquo;1 month&rdquo; rather than &ldquo;2 months&rdquo; ago</li>
+<li>&ldquo;366 days&rdquo; is now &ldquo;1 year&rdquo; rather than &ldquo;2 years&rdquo; ago</li>
+</ul></li>
+<li>Allow the scraper to parse XHTML documents</li>
+<li>Remove charset=utf-8 from JSON responses</li>
+<li>Ignore hotkeys containing Control, Alt or Meta keys</li>
+<li>Handle more encoding conversion edge cases</li>
+<li>Disable go test caching</li>
+<li>Avoid duplication of ldflags in Makefile</li>
+<li>Fix wrong translation key for category pages</li>
+<li>Code refactoring:
+
+<ul>
+<li>Simplify application HTTP middlewares</li>
+<li>Replace daemon and scheduler package with service package</li>
+<li>Move UI middlewares and routes to ui package</li>
+<li>Move API middleware and routes to api package</li>
+<li>Move Fever middleware and routes to fever package</li>
+</ul></li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.13">Downloads</a></p>
+
+    </article>
+</body>
+</html>

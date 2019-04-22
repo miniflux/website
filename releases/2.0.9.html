@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 2.0.9</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 2.0.9</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2018-07-01">July 1, 2018</time>
+        
+        <ul>
+<li>Avoid Chrome to autocomplete no-login password fields</li>
+<li>Add cli flag to reset all feed errors</li>
+<li>Do not ignore errored feeds when a user refresh feeds manually</li>
+<li>Add specific 404 and 401 error messages</li>
+<li>Strip binaries to reduce size</li>
+<li>Make sure we always get the pagination in unread mode</li>
+<li>Fix incorrect data value when toggling bookmark flag on entry page</li>
+<li>Set opener to null when opening original URL with JavaScript</li>
+<li>Remove unnecessary style</li>
+<li>Refactor AddImageTitle rewriter
+
+<ul>
+<li>Only processes images with <code>src</code> <strong>and</strong> <code>title</code> attributes (others are ignored)</li>
+<li>Processes <strong>all</strong> images in the document (not just the first one)</li>
+<li>Wraps the image and its title attribute in a <code>figure</code> tag with the title attribute&rsquo;s contents in a <code>figcaption</code> tag</li>
+</ul></li>
+<li>Improve sanitizer to remove <code>style</code>, <code>noscript</code> and <code>script</code> tag contents</li>
+<li>Improve feed and user API updates with optional values</li>
+<li>Add new fields for feed username/password</li>
+<li>Improve memory usage debug log</li>
+<li>Disable keep-alive for HTTP client</li>
+<li>Close HTTP response body even for failed requests</li>
+<li>Add Sans-Serif theme</li>
+<li>Rewrite iframe Youtube URLs to <a href="https://www.youtube-nocookie.com">https://www.youtube-nocookie.com</a></li>
+<li>Add more filters for API call <code>/entries</code>:
+
+<ul>
+<li>before (unix timestamp)</li>
+<li>before_entry_id (int64)</li>
+<li>after (unix timestamp)</li>
+<li>after_entry_id (int64)</li>
+<li>starred (boolean)</li>
+</ul></li>
+<li>Rewrite individual entry pagination SQL queries</li>
+<li>Simplify entry query builder</li>
+<li>Prevent items from sticking on touchend</li>
+<li>Extended horizontal overflow to feed and category views</li>
+<li>Translate missing strings</li>
+<li>Update German translation</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.9">Downloads</a></p>
+
+    </article>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>How-To&#39;s - Documentation</title>
+    
+        <meta name="description" content="Examples and Tutorials">
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>How-To&#39;s</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
+
+<p>If you would like to connect via a Unix socket to Postgresql, set the parameter <code>host=/path/to/socket/folder</code>.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-bash">export DATABASE_URL=&quot;user=postgres password=postgres dbname=miniflux2 sslmode=disable host=/path/to/socket/folder&quot;
+./miniflux
+</code></pre>
+
+<h2 id="privileged-ports">How to run Miniflux on port 443 or 80 <a class="anchor" href="#privileged-ports" title="Permalink">¶</a></h2>
+
+<p>Ports less than 1024 are reserved for privileged users.
+If you have installed Miniflux with the RPM or Debian package, systemd run the process as the <code>miniflux</code> user.</p>
+
+<p>To give Miniflux the ability to bind to privileged ports as a non-root user, add the capability <code>CAP_NET_BIND_SERVICE</code> to the binary:</p>
+
+<pre><code class="language-bash">setcap cap_net_bind_service=+ep /usr/bin/miniflux
+</code></pre>
+
+<p>Check that the capability is added:</p>
+
+<pre><code class="language-bash">getcap /usr/bin/miniflux
+/usr/bin/miniflux = cap_net_bind_service+ep
+</code></pre>
+
+<div class="info">
+Another way of doing this is to use the Systemd Socket Activation or a reverse-proxy like Nginx.
+</div>
+
+<h2 id="reverse-proxy">Reverse-Proxy Configuration <a class="anchor" href="#reverse-proxy" title="Permalink">¶</a></h2>
+
+<p>You can use the reverse-proxy software of your choice, here an example with Nginx:</p>
+
+<pre><code class="language-bash">server {
+    server_name     my.domain.tld;
+    listen          80;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+</code></pre>
+
+<p>This example assumes that you are running the Miniflux daemon on <code>127.0.0.1:8080</code>.</p>
+
+<h2 id="reverse-proxy-subfolder">Reverse-Proxy with a subfolder <a class="anchor" href="#reverse-proxy-subfolder" title="Permalink">¶</a></h2>
+
+<p>Since version 2.0.2, you can host your Miniflux instance under a subfolder.</p>
+
+<p>You must define the environment variable <code>BASE_URL</code> for Miniflux, for example:</p>
+
+<pre><code class="language-bash">export BASE_URL=http://example.org/rss/
+</code></pre>
+
+<h3>Nginx Example</h3>
+
+<pre><code class="language-bash">server {
+    server_name     my.domain.tld;
+    listen          80;
+
+    location /rss/ {
+        proxy_pass http://127.0.0.1:8080/rss/;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+</code></pre>
+
+<h3>Alternative Nginx Configuration</h3>
+
+<pre><code class="language-bash">server {
+    server_name     my.domain.tld;
+    listen          80;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+</code></pre>
+
+<p>This example assumes that you are running the Miniflux daemon on <code>127.0.0.1:8080</code>.</p>
+
+<p>Now you can access your Miniflux instance at <code>http://example.org/rss/</code>.
+In this configuration, cookies are using the path <code>/rss</code>.</p>
+
+<h3>Apache 2.4 Example</h3>
+
+<p>This configuration assumes the same base-url as the nginx-example.</p>
+
+<pre><code>ProxyRequests Off
+&lt;Proxy *&gt;
+    Order allow,deny
+    Allow from all
+&lt;/Proxy&gt;
+
+&lt;Location &quot;/rss/&quot;&gt;
+    ProxyPreserveHost On
+    ProxyPass http://127.0.0.1:8080/rss/
+    ProxyPassReverse http://127.0.0.1:8080/rss/
+&lt;/Location&gt;
+</code></pre>
+
+<p>Place this snippet inside your vhosts config, needed modules: <code>mod_proxy</code> and <code>mod_proxy_http</code>.</p>
+
+<h2 id="reverse-proxy-unix-socket">Reverse-Proxy with a Unix socket <a class="anchor" href="#reverse-proxy-unix-socket" title="Permalink">¶</a></h2>
+
+<p>If you prefer to use a Unix socket, change the environment variable <code>LISTEN_ADDR</code> to the path of your socket.</p>
+
+<p>Configure Miniflux to use a Unix socket:</p>
+
+<pre><code class="language-bash">LISTEN_ADDR=/run/miniflux/miniflux.sock
+</code></pre>
+
+<p>The socket folder must be writeable by the miniflux user:</p>
+
+<pre><code class="language-bash">sudo mkdir /run/miniflux
+sudo chown miniflux: /run/miniflux
+</code></pre>
+
+<p>Example with Nginx as reverse-proxy:</p>
+
+<pre><code class="language-bash">server {
+    server_name     my.domain.tld;
+    listen          80;
+
+    location / {
+        proxy_pass  http://unix:/run/miniflux/miniflux.sock;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+</code></pre>
+
+<ul>
+<li>By default, the socket has the permissions <code>0666</code> to make it accessible from other processes like Nginx or others.</li>
+<li>If you don&rsquo;t set the header <code>X-Forwarded-For</code>, Miniflux won&rsquo;t be able to determine the remote IP address.</li>
+<li>Listening on Unix socket is available only since Miniflux v2.0.13.</li>
+</ul>
+
+<h2 id="systemd-socket-activation">Systemd Socket Activation <a class="anchor" href="#systemd-socket-activation" title="Permalink">¶</a></h2>
+
+<div class="warning">
+This feature is experimental.
+</div>
+
+<p>In this example, we are going to expose Miniflux on port 80 via Systemd.</p>
+
+<p>Miniflux will be started by systemd at boot or on-demand.
+The process is running under an unprivileged user <code>miniflux</code> and we load the environment variables from <code>/etc/miniflux.conf</code>.</p>
+
+<p>Create a file <code>/etc/systemd/system/miniflux.socket</code>:</p>
+
+<pre><code>[Unit]
+Description=Miniflux Socket
+
+[Socket]
+NoDelay=true
+
+# Listen on port 80.
+# To use a unix socket, define the absolute path here.
+ListenStream=80
+
+[Install]
+WantedBy=sockets.target
+</code></pre>
+
+<p>Create a file <code>/etc/systemd/system/miniflux.service</code>:</p>
+
+<pre><code>[Unit]
+Description=Miniflux Service
+Requires=mniflux.socket
+
+[Service]
+ExecStart=/usr/bin/miniflux
+EnvironmentFile=/etc/miniflux.conf
+User=miniflux
+NonBlocking=true
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>Enable this:</p>
+
+<pre><code>sudo systemctl enable miniflux.socket
+sudo systemctl enable miniflux.service
+</code></pre>
+
+<p>Tell systemd to listen on port 80 for us:</p>
+
+<pre><code>sudo systemctl start miniflux.socket
+</code></pre>
+
+<p>If you go to <code>http://127.0.0.1/</code>, systemd will start the Miniflux service automatically.</p>
+
+<p>If you watch the logs with <code>journalctl -u miniflux.service</code>, you will see <code>[INFO] Listening on systemd socket</code>.</p>
+
+<div class="info">
+<ul>
+    <li>Systemd socket activation is available only since Miniflux v2.0.13.</li>
+    <li>When using this feature, Miniflux ignores <code>LISTEN_ADDR</code>.</li>
+</ul>
+</div>
+
+<h2 id="lets-encrypt">Let's Encrypt Configuration <a class="anchor" href="#lets-encrypt" title="Permalink">¶</a></h2>
+
+<p>You could use Let&rsquo;s Encrypt to manage the SSL certificate automatically and activate HTTP/2.</p>
+
+<pre><code class="language-bash">export CERT_DOMAIN=my.domain.tld
+miniflux
+</code></pre>
+
+<ul>
+<li>Your server must be reachable publicly on port 443 and port 80 (http-01 challenge)</li>
+<li>In this mode, <code>LISTEN_ADDR</code> is automatically set to <code>:https</code></li>
+<li>A cache directory is required, by default <code>/tmp/cert_cache</code> is used, it could be overrided by using the variable <code>CERT_CACHE</code></li>
+</ul>
+
+<div class="note">
+Miniflux supports http-01 challenge since the version 2.0.2.
+</div>
+
+<h2 id="https">Manual HTTPS Configuration <a class="anchor" href="#https" title="Permalink">¶</a></h2>
+
+<p>Here an example to generate a self-signed certificate:</p>
+
+<pre><code class="language-bash"># Generate the private key:
+openssl genrsa -out server.key 2048
+openssl ecparam -genkey -name secp384r1 -out server.key
+
+# Generate the certificate:
+openssl req -new -x509 -sha256 -key server.key -out server.crt -days 3650
+</code></pre>
+
+<p>Start the server like this:</p>
+
+<pre><code class="language-bash"># Configure the environment variables:
+export CERT_FILE=/path/to/server.crt
+export KEY_FILE=/path/to/server.key
+export LISTEN_ADDR=&quot;:https&quot;
+
+# Start the server:
+miniflux
+</code></pre>
+
+<p>Then you can access to your server by using an encrypted connection with the HTTP/2 protocol.</p>
+
+<h2 id="oauth2">OAuth2 Authentication <a class="anchor" href="#oauth2" title="Permalink">¶</a></h2>
+
+<p>OAuth2 allows you to sign in with an external provider.
+As of now, only Google is supported.</p>
+
+<ol>
+<li>Create a new project in Google Console</li>
+<li>Create a new OAuth2 client</li>
+<li>Set an authorized redirect URL, for example <code>https://my.domain.tld/oauth2/google/callback</code></li>
+<li>Define the OAuth2 environment variables and start the process</li>
+</ol>
+
+<pre><code class="language-bash">export OAUTH2_PROVIDER=google
+export OAUTH2_CLIENT_ID=replace_me
+export OAUTH2_CLIENT_SECRET=replace_me
+export OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/google/callback
+
+miniflux
+</code></pre>
+
+<p>Now from the settings page, you can link your existing user to your Google account.</p>
+
+<p>If you would like to authorize anyone to create a user account, you must set <code>OAUTH2_USER_CREATION=1</code>.
+Since Google do not have the concept of username, the email address is used as username.</p>
+
+    </article>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 1.2.0</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 1.2.0</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2017-01-05">January 5, 2017</time>
+        
+        <p>This version brings a major change to the Miniflux database management.</p>
+
+<p>Until now, Miniflux was designed to work for only one user.
+Handling multiple users was possible by using a Sqlite database for each user.</p>
+
+<p>Now, the database schema and the code base have been modified to handle several users with only one database.
+Moreover, Miniflux supports Postgresql in addition to Sqlite.</p>
+
+<p>Using Postgres could avoid some potential issues when the concurrency on the database is too high (locking problems).
+That also facilitates the deployment of Miniflux to some cloud providers that does not allow software to store persistent data on the local file system.</p>
+
+<ul>
+<li>Major change to the database structure to have a single database for multiple users</li>
+<li>Web access token for the cronjob</li>
+<li>New config parameter to disable web access for the cronjob</li>
+<li>Debug mode parameter is moved to the config file</li>
+<li>The console web page has been removed</li>
+<li>Remove automatic software update from the user interface</li>
+<li>New API methods (not backward compatible)</li>
+<li>Fever API tokens are longer than before</li>
+<li>Always update feed URL to avoid useless redirection for future requests</li>
+<li>Add support for Wallabag service</li>
+<li>Show last parsing error message in user interface</li>
+<li>Disable a feed automatically after too many failures</li>
+<li>Add support for Expires and Cache-Control headers (HTTP cache)</li>
+<li>Flush all users remember me sessions when changing password</li>
+<li>Update Docker image to Ubuntu 16.04 and PHP 7.0</li>
+<li>Add Docker compose file</li>
+<li>Add functional tests (Json-RPC API and Fever API)</li>
+<li>Add unit tests</li>
+<li>Minify Javascript and add automated syntax check on the CI</li>
+<li>Minify CSS</li>
+</ul>
+
+    </article>
+</body>
+</html>

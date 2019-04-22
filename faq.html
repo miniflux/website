@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Frequently Asked Questions</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Frequently Asked Questions</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Go Back</a>
+        </nav>
+        <h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Developing a software takes a lot of time.</li>
+<li>This is a free and open source project, no one owes you anything.</li>
+<li>If you miss something, contribute to the project.</li>
+<li>Don&rsquo;t expect anyone to work for free.</li>
+<li>As mentioned previously, the number of features is voluntarily limited. Nobody likes bloatware.</li>
+<li>Improving existing features is more important than adding new ones.</li>
+</ul>
+
+<h2 id="missing-feature-v2">Feature X was available in Miniflux v1? <a class="anchor" href="#missing-feature-v2" title="Permalink">¶</a></h2>
+
+<p>Miniflux 2 doesn&rsquo;t try to reimplement all features of Miniflux 1.
+The minimalist approach is pushed a little bit further.</p>
+
+<p>If you really miss something, <strong>you must contribute to the project</strong>, but remember, <strong>you have to keep the minimalist philosophy of Miniflux</strong>.</p>
+
+<h2 id="favicons-storage">Why Miniflux stores favicons into the database? <a class="anchor" href="#favicons-storage" title="Permalink">¶</a></h2>
+
+<p>Miniflux follows the <a href="https://12factor.net/">the Twelve Factors principle</a>.
+Nothing is stored on the local file system.
+The application is designed to run on ephemeral containers without persistent storage.</p>
+
+<h2 id="themes">How to create themes for Miniflux 2? <a class="anchor" href="#themes" title="Permalink">¶</a></h2>
+
+<p>As of now, Miniflux 2 doesn&rsquo;t have any mechanism to load external stylesheets to avoid dependencies.
+Themes are embedded into the binary.</p>
+
+<p>If you would like to submit a new official theme, you must send a pull-request.
+But do not forget that <strong>you will have to maintain your theme over the time</strong>, otherwise, your theme will be removed from the code base.</p>
+
+<h2 id="plugins">Why there is no plugin system? <a class="anchor" href="#plugins" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Because this software has a minimalist approach.</li>
+<li>Because implementing a plugin system increase the complexity of the software.</li>
+<li>Because people do not maintain their plugins after a while.</li>
+</ul>
+
+<h2 id="save-article">What is "Save this article"? <a class="anchor" href="#save-article" title="Permalink">¶</a></h2>
+
+<p>&ldquo;Save&rdquo; sends the feed entry to third-party services like Pinboard or Instapaper if configured.</p>
+
+<h2 id="entries-suppression">How are items removed from the database? <a class="anchor" href="#entries-suppression" title="Permalink">¶</a></h2>
+
+<p>When a subscription is refreshed, entries marked as &ldquo;removed&rdquo; and not visible anymore in the XML feed are removed from the database.</p>
+
+<h2 id="flush-history">What "Flush History" does? <a class="anchor" href="#flush-history" title="Permalink">¶</a></h2>
+
+<p>&ldquo;Flush History&rdquo; changes the status of entries from &ldquo;read&rdquo; to &ldquo;removed&rdquo; (except for bookmarks).
+Entries with the status &ldquo;removed&rdquo; are not visible in the user interface.</p>
+
+<h2 id="arm-pi">Which binary do I need to use on my Raspberry Pi? <a class="anchor" href="#arm-pi" title="Permalink">¶</a></h2>
+
+<table>
+<thead>
+<tr>
+<th>Raspberry Pi Model</th>
+<th>Miniflux Binary</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>A, A+, B, B+, Zero</td>
+<td>miniflux-linux-armv6</td>
+</tr>
+
+<tr>
+<td>2 and 3</td>
+<td>miniflux-linux-armv7</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="arm-scaleway">Which binary do I need to use on Scaleway ARM machines? <a class="anchor" href="#arm-scaleway" title="Permalink">¶</a></h2>
+
+<table>
+<thead>
+<tr>
+<th>Server Type</th>
+<th>Miniflux Binary</th>
+<th>uname -m</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Scaleway C1</td>
+<td>miniflux-linux-armv6</td>
+<td>armv7l</td>
+</tr>
+
+<tr>
+<td>Scaleway ARM64</td>
+<td>miniflux-linux-armv8</td>
+<td>aarch6</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="docker-arch">Which Docker architecture should I use? <a class="anchor" href="#docker-arch" title="Permalink">¶</a></h2>
+
+<p>Pulling the <code>latest</code> tag or a specific version should download the correct image according to your machine.</p>
+
+<table>
+<thead>
+<tr>
+<th>Docker Architecture</th>
+<th>uname -m</th>
+<th>Example</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>amd64</td>
+<td>x86_64</td>
+<td></td>
+</tr>
+
+<tr>
+<td>arm32v6</td>
+<td>armhf</td>
+<td>Raspberry Pi</td>
+</tr>
+
+<tr>
+<td>arm32v6</td>
+<td>armv7l</td>
+<td>Scaleway C1</td>
+</tr>
+
+<tr>
+<td>arm64v8</td>
+<td>aarch6</td>
+<td>Scaleway ARM64</td>
+</tr>
+</tbody>
+</table>
+<p>If you use the wrong architecture, Docker will returns an error like this one:</p>
+
+<pre><code>standard_init_linux.go:178: exec user process caused &quot;exec format error&quot;
+</code></pre>
+
+<p class="info">Multi-arch Docker images are available only since Miniflux 2.0.12.</p>
+
+<h2 id="sql-migrations">Why SQL migrations are not executed automatically? <a class="anchor" href="#sql-migrations" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Because it&rsquo;s a source of problems.</li>
+<li>Only one process should manipulate the database schema at once.</li>
+<li>If you run multiple containers with an orchestrator that may cause issues.</li>
+<li>You can still run the migrations by defining the variable <code>RUN_MIGRATIONS=1</code>.</li>
+</ul>
+
+<h2 id="backup">How to backup my data? <a class="anchor" href="#backup" title="Permalink">¶</a></h2>
+
+<p>Just use standard Postgresql tools: <a href="https://www.postgresql.org/docs/current/app-pgdump.html">pgdump</a></p>
+
+    </article>
+</body>
+</html>

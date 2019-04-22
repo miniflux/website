@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Configuration Parameters - Documentation</title>
+    
+        <meta name="description" content="List of configuration parameters for Miniflux">
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Configuration Parameters</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <p>Miniflux doesn’t use any configuration file, <strong>only environment variables</strong>.</p>
+
+<h2 id="env-variables">Environment Variables <a class="anchor" href="#env-variables" title="Permalink">¶</a></h2>
+
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>DEBUG</code></td>
+<td>Set the value to <code>1</code> to enable debug logs</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>WORKER_POOL_SIZE</code></td>
+<td>Number of background workers</td>
+<td>5</td>
+</tr>
+
+<tr>
+<td><code>POLLING_FREQUENCY</code></td>
+<td>Refresh interval in minutes for feeds</td>
+<td>60 (minutes)</td>
+</tr>
+
+<tr>
+<td><code>BATCH_SIZE</code></td>
+<td>Number of feeds to send to the queue for each interval</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>Postgresql connection parameters</td>
+<td><code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code></td>
+</tr>
+
+<tr>
+<td><code>DATABASE_MAX_CONNS</code></td>
+<td>Maximum number of database connections</td>
+<td>20</td>
+</tr>
+
+<tr>
+<td><code>DATABASE_MIN_CONNS</code></td>
+<td>Minimum number of database connections</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td><code>ARCHIVE_READ_DAYS</code></td>
+<td>Number of days after which marking read items as removed</td>
+<td><code>60</code></td>
+</tr>
+
+<tr>
+<td><code>LISTEN_ADDR</code></td>
+<td>Address to listen on (use absolute path for Unix socket)</td>
+<td><code>127.0.0.1:8080</code></td>
+</tr>
+
+<tr>
+<td><code>PORT</code></td>
+<td>Override <code>LISTEN_ADDR</code> to <code>0.0.0.0:$PORT</code> (PaaS)</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>BASE_URL</code></td>
+<td>Base URL to generate HTML links and base path for cookies</td>
+<td><code>http://localhost/</code></td>
+</tr>
+
+<tr>
+<td><code>CLEANUP_FREQUENCY</code></td>
+<td>Cleanup job frequency, remove old sessions and archive read entries</td>
+<td>24 (hours)</td>
+</tr>
+
+<tr>
+<td><code>HTTPS</code></td>
+<td>Forces cookies to use secure flag and send HSTS headers</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>DISABLE_HSTS</code></td>
+<td>Disable HTTP Strict Transport Security header if HTTPS is set</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>DISABLE_HTTP_SERVICE</code></td>
+<td>Disable HTTP service</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>DISABLE_SCHEDULER_SERVICE</code></td>
+<td>Disable scheduler service</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>CERT_FILE</code></td>
+<td>Path to SSL certificate</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>KEY_FILE</code></td>
+<td>Path to SSL private key</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>CERT_DOMAIN</code></td>
+<td>Use Let&rsquo;s Encrypt to get automatically a certificate for this domain</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>CERT_CACHE</code></td>
+<td>Let&rsquo;s Encrypt cache directory</td>
+<td><code>/tmp/cert_cache</code></td>
+</tr>
+
+<tr>
+<td><code>OAUTH2_PROVIDER</code></td>
+<td>OAuth2 provider to use, at this time only <code>google</code> is supported</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>OAUTH2_CLIENT_ID</code></td>
+<td>OAuth2 client ID</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>OAUTH2_CLIENT_SECRET</code></td>
+<td>OAuth2 client secret</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>OAUTH2_REDIRECT_URL</code></td>
+<td>OAuth2 redirect URL</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>OAUTH2_USER_CREATION</code></td>
+<td>Set to <code>1</code> to authorize OAuth2 user creation</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>RUN_MIGRATIONS</code></td>
+<td>Set to <code>1</code> to run database migrations</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>CREATE_ADMIN</code></td>
+<td>Set to <code>1</code> to create an admin user from environment variables</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>ADMIN_USERNAME</code></td>
+<td>Admin user login, used only if <code>CREATE_ADMIN</code> is enabled</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>ADMIN_PASSWORD</code></td>
+<td>Admin user password, used only if <code>CREATE_ADMIN</code> is enabled</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>POCKET_CONSUMER_KEY</code></td>
+<td>Pocket consumer API key for all users</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td><code>PROXY_IMAGES</code></td>
+<td>Avoids mixed content warnings for external images: <code>http-only</code>, <code>all</code>, or <code>none</code></td>
+<td><code>http-only</code></td>
+</tr>
+</tbody>
+</table>
+
+<p class="info">
+Systemd uses the file `/etc/miniflux.conf` to populate environment variables.
+</p>
+
+<h2 id="dsn">Database Connection Parameters <a class="anchor" href="#dsn" title="Permalink">¶</a></h2>
+
+<p>Miniflux uses the Golang library <a href="https://github.com/lib/pq">pq</a> to communicate with PostgreSQL.
+The list of connection parameters are available on <a href="https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters">this page</a>.</p>
+
+<p>The default value for <code>DATABASE_URL</code> is <code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code>.</p>
+
+<p>You could also use the URL format <code>postgres://postgres:postgres@localhost/miniflux2?sslmode=disable</code>.</p>
+
+<div class="warning">
+Password that contains special characters like ^ might be rejected since Miniflux 2.0.3. <a href="https://go-review.googlesource.com/c/go/+/87038">Golang v1.10 is now validating the password</a> and will return this error: <code>net/url: invalid userinfo</code>.
+To avoid this issue, do not use the URL format for `DATABASE_URL` or make sure the password is URL encoded.
+</div>
+
+    </article>
+</body>
+</html>

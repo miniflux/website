@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Installation Instructions - Documentation</title>
+    
+        <meta name="description" content="Instructions to install Miniflux on your own server">
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Installation Instructions</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <h2 id="packages">Packages <a class="anchor" href="#packages" title="Permalink">¶</a></h2>
+
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Type</th>
+<th>Repository URL</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Debian/Ubuntu</td>
+<td>Upstream (Binary)</td>
+<td><a href="https://github.com/miniflux/package-deb">https://github.com/miniflux/package-deb</a></td>
+</tr>
+
+<tr>
+<td>RHEL/Fedora</td>
+<td>Upstream (Binary)</td>
+<td><a href="https://github.com/miniflux/package-rpm">https://github.com/miniflux/package-rpm</a></td>
+</tr>
+
+<tr>
+<td>Arch Linux</td>
+<td>Community (Source)</td>
+<td><a href="https://aur.archlinux.org/packages/miniflux/">https://aur.archlinux.org/packages/miniflux/</a></td>
+</tr>
+
+<tr>
+<td>FreeBSD Port</td>
+<td>Community (Source)</td>
+<td><a href="https://svnweb.freebsd.org/ports/head/www/miniflux/">https://svnweb.freebsd.org/ports/head/www/miniflux/</a></td>
+</tr>
+
+<tr>
+<td>Nix</td>
+<td>Community (Source)</td>
+<td><a href="https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux">https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux</a></td>
+</tr>
+</tbody>
+</table>
+<p>You can download precompiled binaries and packages on the releases page: <a href="https://github.com/miniflux/miniflux/releases">https://github.com/miniflux/miniflux/releases</a>.</p>
+
+<p>You could also <a href="development.html">build the application from the source code</a>.</p>
+
+<h2 id="database">Database Configuration <a class="anchor" href="#database" title="Permalink">¶</a></h2>
+
+<h3>Creating the Database</h3>
+
+<p>Here an example from the command line:</p>
+
+<pre><code># Switch to the postgres user
+$ su - postgres
+
+# Create a database user for Miniflux
+$ createuser -P miniflux
+Enter password for new role: ******
+Enter it again: ******
+
+# Create a database for miniflux that belongs to our user
+$ createdb -O miniflux miniflux
+
+# Create the extension hstore as superuser
+$ psql miniflux -c 'create extension hstore'
+CREATE EXTENSION
+</code></pre>
+
+<h3>Enabling HSTORE extension for Postgresql</h3>
+
+<p>Creating Postgresql extensions requires the <code>SUPERUSER</code> privilege.
+Several solutions are available:</p>
+
+<p>1) Give <code>SUPERUSER</code> privileges to the miniflux user only during the schema migration:</p>
+
+<pre><code class="language-sql">ALTER USER miniflux WITH SUPERUSER;
+-- Run the migrations (miniflux -migrate)
+ALTER USER miniflux WITH NOSUPERUSER;
+</code></pre>
+
+<p>2) You could <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html">create the hstore extension</a> with another user that have the <code>SUPERUSER</code> privileges before running the migrations.</p>
+
+<pre><code>sudo -u postgres psql $MINIFLUX_DATABASE
+&gt; CREATE EXTENSION hstore;
+</code></pre>
+
+<h2 id="binary">Manual Installation <a class="anchor" href="#binary" title="Permalink">¶</a></h2>
+
+<ol>
+<li>Copy the precompiled binary somewhere on your server, for example in <code>/usr/local/bin</code></li>
+<li>Make the file executable: <code>chmod +x miniflux</code></li>
+<li>Define the environment variable <code>DATABASE_URL</code> if necessary</li>
+<li>Run the SQL migrations: <code>miniflux -migrate</code></li>
+<li>Create an admin user: <code>miniflux -create-admin</code></li>
+<li>Start the application: <code>miniflux</code></li>
+</ol>
+
+<p class="info">
+You should configure a process manager like systemd or supervisord to supervise the Miniflux daemon.
+</p>
+
+<h2 id="debian">Debian Package Installation <a class="anchor" href="#debian" title="Permalink">¶</a></h2>
+
+<p>You must have Debian &gt;= 8 or Ubuntu &gt;= 16.04.
+When using the Debian package, the Miniflux daemon is supervised by systemd.</p>
+
+<ol>
+<li>Install Debian package: <code>dpkg -i miniflux_2.0.13_amd64.deb</code></li>
+<li>Check process status: <code>systemctl status miniflux</code></li>
+<li>Define the environment variable <code>DATABASE_URL</code> if necessary</li>
+<li>Run the SQL migrations: <code>miniflux -migrate</code></li>
+<li>Create an admin user: <code>miniflux -create-admin</code></li>
+</ol>
+
+<p class="info">
+Systemd reads the environment variables from the file `/etc/miniflux.conf`.
+You must restart the service to take the new values into consideration.
+</p>
+
+<h2 id="rpm">RPM Package Installation <a class="anchor" href="#rpm" title="Permalink">¶</a></h2>
+
+<p>You must have Fedora or Centos/Redhat &gt;= 7.
+When you use the RPM package, the Miniflux daemon is supervised by systemd.</p>
+
+<ol>
+<li>Install Miniflux RPM: <code>rpm -ivh miniflux-2.0.13-1.0.x86_64.rpm</code></li>
+<li>Define the environment variable <code>DATABASE_URL</code> if necessary</li>
+<li>Run the SQL migrations: <code>miniflux -migrate</code></li>
+<li>Create an admin user: <code>miniflux -create-admin</code></li>
+<li>Enable the systemd service: <code>systemctl enable miniflux</code></li>
+<li>Start the process with systemd: <code>systemctl start miniflux</code></li>
+<li>Check process status: <code>systemctl status miniflux</code></li>
+</ol>
+
+<p class="info">
+Systemd reads the environment variables from the file `/etc/miniflux.conf`.
+You must restart the service to take the new values into consideration.
+</p>
+
+<h2 id="docker">Docker Installation <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
+
+<p>Pull the image and run the container: <code>docker run -d -p 80:8080 miniflux/miniflux:latest</code>.
+You will probably need to pass some environment variables like the <code>DATABASE_URL</code>.</p>
+
+<p>You could also use Docker Compose. Here an example of <code>docker-compose.yml</code> file:</p>
+
+<pre><code class="language-yaml">version: '3'
+services:
+    miniflux:
+    image: miniflux/miniflux:latest
+    ports:
+        - &quot;80:8080&quot;
+    depends_on:
+        - db
+    environment:
+        - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+    db:
+    image: postgres:10.1
+    environment:
+        - POSTGRES_USER=miniflux
+        - POSTGRES_PASSWORD=secret
+    volumes:
+        - miniflux-db:/var/lib/postgresql/data
+volumes:
+    miniflux-db:
+</code></pre>
+
+<p>Remember that you still need to run the database migrations and create the first user:</p>
+
+<pre><code class="language-bash"># Run database migrations
+docker exec -ti &lt;container-name&gt; /usr/bin/miniflux -migrate
+
+# Create the first user
+docker exec -ti &lt;container-name&gt; /usr/bin/miniflux -create-admin
+</code></pre>
+
+<p>Another way of doing the same thing is to populate the variables <code>RUN_MIGRATIONS</code>, <code>CREATE_ADMIN</code>, <code>ADMIN_USERNAME</code> and <code>ADMIN_PASSWORD</code>.</p>
+
+    </article>
+</body>
+</html>

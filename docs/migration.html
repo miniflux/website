@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Migration from Older Versions - Documentation</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Migration from Older Versions</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <p>This page describes the migration procedures between major version changes in Miniflux.</p>
+
+<ul>
+<li><a href="#migrate-v2">Migration from v1.2 to v2</a></li>
+<li><a href="#migrate-v1.2">Migration from v1.1 to v1.2</a></li>
+</ul>
+
+<h2 id="migrate-v2">Migration from v1.2 to v2 <a class="anchor" href="#migrate-v2" title="Permalink">¶</a></h2>
+
+<p>Miniflux 2.x is not backward compatible with Miniflux 1.x.</p>
+
+<h3>Differences between Miniflux 1.2 and Miniflux 2.0</h3>
+
+<ul>
+<li>Miniflux 2 supports multiple attachments.</li>
+<li>Miniflux 2 uses categories instead of groups, only one category can be assigned to a feed.</li>
+<li>Miniflux 2 have fewer settings.</li>
+<li>Miniflux 2 doesn&rsquo;t have public RSS feed or cronjobs.</li>
+<li>Miniflux 2 doesn&rsquo;t use API tokens anymore, for the Fever API, choose your own password and for the REST API use your account password.</li>
+<li>Miniflux 2 stores favicons into the database instead of using the local filesystem.</li>
+<li>Miniflux 2 themes are embedded into the application.</li>
+<li>Miniflux 2 doesn&rsquo;t support RTL languages.</li>
+<li>Miniflux 2 supports only Postgresql.</li>
+<li>Miniflux 2 is written in Go (Golang) instead of PHP.</li>
+</ul>
+
+<h3>OPML Import</h3>
+
+<p>If you don&rsquo;t care about your previous data, export your feeds from Miniflux 1.x in OPML and import them into Miniflux 2.</p>
+
+<h3>Migration Script</h3>
+
+<p>There is a migration script in the <a href="https://github.com/miniflux/miniflux-legacy">archived repository</a>: <code>scripts/migrate-v2.php</code>.</p>
+
+<ul>
+<li>This script requires direct access to the old and the new database.</li>
+<li>The first group linked to a feed will become the category associated with the imported feed.</li>
+<li>Only bookmarked items are migrated.</li>
+<li>Since entries are not identified in the same way in Miniflux 2, you may have duplicated entries when refreshing your imported feeds.</li>
+</ul>
+
+<h4>Step 1</h4>
+
+<p>Make sure you are using the latest version of Miniflux 1.2.x.</p>
+
+<h4>Step 2</h4>
+
+<p>Install Miniflux 2 without creating any users. Create only the database
+schema (just run the migrations).</p>
+
+<h4>Step 3</h4>
+
+<p>Go into the Miniflux 1.2.x directory and run the script:</p>
+
+<pre><code class="language-bash">php scripts/migrate-v2.php --dsn=&quot;pgsql:host=localhost;dbname=miniflux2;user=postgres;password=postgres&quot;
+
+Destination is &quot;pgsql:host=localhost;dbname=miniflux2;user=postgres;password=postgres&quot;
+* 2 user(s) to migrate
+* Migrating user: #254 =&gt; #284
+* Migrating integrations
+* Migrating categories
+* Migrating feeds
+* Migrating entries
+[...]
+</code></pre>
+
+<p>The script takes the <a href="http://php.net/manual/en/ref.pdo-pgsql.connection.php#refsect1-ref.pdo-pgsql.connection-examples">PDO DSN</a> of Miniflux 2 database as argument. Adjust the parameters to your own environment.</p>
+
+<h2 id="migrate-v1.2">Migration from v1.1 to v1.2 <a class="anchor" href="#migrate-v1.2" title="Permalink">¶</a></h2>
+
+<p>To import your old database to the new database format, use this script:</p>
+
+<pre><code class="language-bash">php scripts/migrate-db.php --sqlite-db=/path/to/my/db.sqlite --admin=1
+</code></pre>
+
+<p>The script is located in the Git repository (not in the archive).</p>
+
+    </article>
+</body>
+</html>

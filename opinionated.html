@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Opinionated?</title>
+    
+        <meta name="description" content="What makes this software different?">
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Opinionated?</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Go Back</a>
+        </nav>
+        <p>Miniflux is a minimalist software. <strong>The purpose of this application is to read feeds</strong>. <em>Nothing else</em>.</p>
+
+<h2 id="simplicity">Focus on Simplicity <a class="anchor" href="#simplicity" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Having a gazillion of features makes the software hard to maintain, hard to troubleshoot and increase the number of bugs.</li>
+<li>This software doesn&rsquo;t try to satisfy the needs of everyone.</li>
+</ul>
+
+<h2 id="ui">Why the user interface is ugly? <a class="anchor" href="#ui" title="Permalink">¶</a></h2>
+
+<ul>
+<li>The Miniflux layout is optimized to scan entries quickly.</li>
+<li>The design of Miniflux is inspired by <a href="https://news.ycombinator.com/">Hacker News</a>, <a href="https://lobste.rs/">Lobsters</a> and <a href="https://pinboard.in/">Pinboard</a>.</li>
+</ul>
+
+<h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
+
+<ul>
+<li>Developing a software takes a lot of time. Don&rsquo;t expect anyone to work for free.</li>
+<li>As mentioned above, the number of features is voluntarily limited. Nobody likes bloatware.</li>
+<li>Improving existing features is more important than adding new ones.</li>
+</ul>
+
+<h2 id="golang">Why choose Golang as programming language? <a class="anchor" href="#golang" title="Permalink">¶</a></h2>
+
+<p><a href="https://golang.org/">Go</a> is probably the best choice for self-hosted software:</p>
+
+<ul>
+<li>Go is a simple programming language.</li>
+<li>Running code concurrently is part of the language.</li>
+<li>It&rsquo;s faster than a scripting language like PHP or Python.</li>
+<li>The final application is a binary compiled statically without any dependency.</li>
+<li>You just need to drop the executable on your server to deploy the application.</li>
+<li>You don&rsquo;t have to worry about what version of PHP/Python is installed on your machine.</li>
+<li>Packaging the software using RPM/Debian/Docker is straightforward.</li>
+<li>No dependency hell.</li>
+</ul>
+
+<h2 id="postgresql">Why Postgresql? <a class="anchor" href="#postgresql" title="Permalink">¶</a></h2>
+
+<p>Miniflux is compatible only with Postgres.</p>
+
+<ul>
+<li>Supporting multiple databases increases the complexity of the software.</li>
+<li>We do not have the resources to test the software with all major versions of MySQL, MariaDB, Sqlite, and so on.</li>
+<li>ORM abstracts some interesting features provided by your database.</li>
+<li>Managing schema migrations with Sqlite is painful.</li>
+<li>Postgresql is powerful, rock solid and battle tested.</li>
+<li>Postgresql is a great independent open source software.</li>
+<li>Miniflux uses <code>hstore/jsonb/inet</code> data types, window functions, full-text search and handles user timezones with Postgres.</li>
+</ul>
+
+<h2 id="js-framework">Why no Javascript framework? <a class="anchor" href="#js-framework" title="Permalink">¶</a></h2>
+
+<p>Miniflux uses Javascript only where it&rsquo;s necessary.</p>
+
+<ul>
+<li>Server side template rendering is very simple and fast enough for that kind of application.</li>
+<li>Using Javascript frameworks increase complexity.</li>
+<li>The Javascript ecosystem is moving all the time, sticking to the standard is probably more sustainable.</li>
+<li>Having too many dependencies is painful to maintain and update on the long term.</li>
+</ul>
+
+<h2 id="es6">Why only ECMAScript 6? <a class="anchor" href="#es6" title="Permalink">¶</a></h2>
+
+<p>Miniflux uses <a href="https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015">ECMAScript 6</a> and the Fetch API.</p>
+
+<ul>
+<li>All modern browsers support ES6 nowadays.</li>
+<li>Only Internet Explorer doesn&rsquo;t support ES6, but who cares?</li>
+<li>Using a Javascript transpiler introduce another set of useless dependencies.</li>
+</ul>
+
+<h2 id="mobile-app">Why there is no mobile application? <a class="anchor" href="#mobile-app" title="Permalink">¶</a></h2>
+
+<p>Using the web UI on your smartphone is not so bad:</p>
+
+<ul>
+<li>Miniflux is a <a href="https://developer.mozilla.org/en-US/Apps/Progressive">progressive web app</a></li>
+<li>The layout adapts to the screen size (responsive design)</li>
+<li>You could add the application to the home screen like any native application</li>
+<li>You can swipe entries horizontally to change their status</li>
+<li>The web browser is a pretty good sandbox, the application cannot access to the data stored on your phone</li>
+<li>It&rsquo;s cross platform: works on iOS and Android</li>
+</ul>
+
+<p>The development of mobile clients is left to the open source community:</p>
+
+<ul>
+<li>Developing a native mobile application for each platform (iOS and Android) and different devices (smartphones and tablets) takes a lot of work</li>
+<li>The main developer of Miniflux is not a mobile application developer</li>
+<li>You have to pay a fee to publish your app on the store even if your app doesn&rsquo;t make any money</li>
+</ul>
+
+    </article>
+</body>
+</html>

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>API Reference - Documentation</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>API Reference</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
+        </nav>
+        <h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
+
+<p>The Miniflux API uses HTTP Basic authentication. The credentials are the
+username/password of your account.</p>
+
+<h2 id="clients">Clients <a class="anchor" href="#clients" title="Permalink">¶</a></h2>
+
+<p>There are two official API clients, one written in Go and another one
+written in Python.</p>
+
+<h3 id="go-client">Golang Client <a class="anchor" href="#go-client" title="Permalink">¶</a></h3>
+
+<ul>
+<li>Repository: <a href="https://github.com/miniflux/miniflux/tree/master/client">https://github.com/miniflux/miniflux/tree/master/client</a></li>
+<li>Reference: <a href="https://godoc.org/miniflux.app/client">https://godoc.org/miniflux.app/client</a></li>
+</ul>
+
+<p>Installation:</p>
+
+<pre><code class="language-bash">go get -u miniflux.app/client
+</code></pre>
+
+<p>Usage Example:</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+
+    miniflux &quot;miniflux.app/client&quot;
+)
+
+func main() {
+    client := miniflux.New(&quot;https://miniflux.example.org&quot;, &quot;admin&quot;, &quot;secret&quot;)
+
+    // Fetch all feeds.
+    feeds, err := client.Feeds()
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(feeds)
+}
+</code></pre>
+
+<h3 id="python-client">Python Client <a class="anchor" href="#python-client" title="Permalink">¶</a></h3>
+
+<ul>
+<li>Repository: <a href="https://github.com/miniflux/miniflux-python">https://github.com/miniflux/miniflux-python</a></li>
+<li>PyPi: <a href="https://pypi.org/project/miniflux/">https://pypi.org/project/miniflux/</a></li>
+</ul>
+
+<p>Installation:</p>
+
+<pre><code class="language-bash">pip install miniflux
+</code></pre>
+
+<p>Usage example:</p>
+
+<pre><code class="language-python">import miniflux
+
+client = miniflux.Client(&quot;https://miniflux.example.org&quot;, &quot;my_username&quot;, &quot;my_secret_password&quot;)
+
+# Get all feeds
+feeds = client.get_feeds()
+
+# Refresh a feed
+client.refresh_feed(123)
+
+# Discover subscriptions from a website
+subscriptions = client.discover(&quot;https://example.org&quot;)
+
+# Create a new feed, with a personalized user agent and with the crawler enabled
+feed_id = client.create_feed(&quot;http://example.org/feed.xml&quot;, 42, crawler=True, user_agent=&quot;GoogleBot&quot;)
+
+# Fetch 10 starred entries
+entries = client.get_entries(starred=True, limit=10)
+
+# Fetch last 5 feed entries
+feed_entries = client.get_feed_entries(123, direction='desc', order='published_at', limit=5)
+
+# Update a feed category
+client.update_Feed(123, category_id=456)
+</code></pre>
+
+<h2 id="reference">API Reference <a class="anchor" href="#reference" title="Permalink">¶</a></h2>
+
+<h3 id="status-codes">Status Codes <a class="anchor" href="#status-codes" title="Permalink">¶</a></h3>
+
+<ul>
+<li><code>200</code>: Everything is OK</li>
+<li><code>201</code>: Resource created/modified</li>
+<li><code>204</code>: Resource removed/modified</li>
+<li><code>400</code>: Bad request</li>
+<li><code>401</code>: Unauthorized (bad username/password)</li>
+<li><code>403</code>: Forbidden (access not allowed)</li>
+<li><code>500</code>: Internal server error</li>
+</ul>
+
+<h3 id="error-response">Error Response <a class="anchor" href="#error-response" title="Permalink">¶</a></h3>
+
+<pre><code class="language-json">{
+    &quot;error_message&quot;: &quot;Some error&quot;
+}
+</code></pre>
+
+<h3 id="endpoint-discover">Discover Subscriptions <a class="anchor" href="#endpoint-discover" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>POST /v1/discover
+Content-Type: application/json
+
+{
+    &quot;url&quot;: &quot;http://example.org&quot;
+}
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">[
+    {
+        &quot;url&quot;: &quot;http://example.org/feed.atom&quot;,
+        &quot;title&quot;: &quot;Atom Feed&quot;,
+        &quot;type&quot;: &quot;atom&quot;
+    },
+    {
+        &quot;url&quot;: &quot;http://example.org/feed.rss&quot;,
+        &quot;title&quot;: &quot;RSS Feed&quot;,
+        &quot;type&quot;: &quot;rss&quot;
+    }
+]
+</code></pre>
+
+<p>Optional fields:</p>
+
+<ul>
+<li><code>username</code>: Feed username (string)</li>
+<li><code>password</code>: Feed password (string)</li>
+<li><code>user_agent</code>: Custom user agent (string)</li>
+</ul>
+
+<h3 id="endpoint-get-feeds">Get Feeds <a class="anchor" href="#endpoint-get-feeds" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/feeds
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: 42,
+        &quot;user_id&quot;: 123,
+        &quot;title&quot;: &quot;Example Feed&quot;,
+        &quot;site_url&quot;: &quot;http://example.org&quot;,
+        &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+        &quot;rewrite_rules&quot;: &quot;&quot;,
+        &quot;scraper_rules&quot;: &quot;&quot;,
+        &quot;crawler&quot;: false,
+        &quot;checked_at&quot;: &quot;2017-12-22T21:06:03.133839-05:00&quot;,
+        &quot;etag_header&quot;: &quot;KyLxEflwnTGF5ecaiqZ2G0TxBCc&quot;,
+        &quot;last_modified_header&quot;: &quot;Sat, 23 Dec 2017 01:04:21 GMT&quot;,
+        &quot;parsing_error_count&quot;: 0,
+        &quot;parsing_error_message&quot;: &quot;&quot;,
+        &quot;category&quot;: {
+            &quot;id&quot;: 793,
+            &quot;user_id&quot;: 123,
+            &quot;title&quot;: &quot;Some category&quot;
+        },
+        &quot;icon&quot;: {
+            &quot;feed_id&quot;: 42,
+            &quot;icon_id&quot;: 84
+        }
+    }
+]
+</code></pre>
+
+<p>Notes:</p>
+
+<ul>
+<li><code>icon</code> is <code>null</code> when the feed doesn&rsquo;t have any favicon.</li>
+</ul>
+
+<h3 id="endpoint-get-feed">Get Feed <a class="anchor" href="#endpoint-get-feed" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/feeds/42
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 42,
+    &quot;user_id&quot;: 123,
+    &quot;title&quot;: &quot;Example Feed&quot;,
+    &quot;site_url&quot;: &quot;http://example.org&quot;,
+    &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+    &quot;rewrite_rules&quot;: &quot;&quot;,
+    &quot;scraper_rules&quot;: &quot;&quot;,
+    &quot;crawler&quot;: false,
+    &quot;checked_at&quot;: &quot;2017-12-22T21:06:03.133839-05:00&quot;,
+    &quot;etag_header&quot;: &quot;KyLxEflwnTGF5ecaiqZ2G0TxBCc&quot;,
+    &quot;last_modified_header&quot;: &quot;Sat, 23 Dec 2017 01:04:21 GMT&quot;,
+    &quot;parsing_error_count&quot;: 0,
+    &quot;parsing_error_message&quot;: &quot;&quot;,
+    &quot;category&quot;: {
+        &quot;id&quot;: 793,
+        &quot;user_id&quot;: 123,
+        &quot;title&quot;: &quot;Some category&quot;
+    },
+    &quot;icon&quot;: {
+        &quot;feed_id&quot;: 42,
+        &quot;icon_id&quot;: 84
+    }
+}
+</code></pre>
+
+<p>Notes:</p>
+
+<ul>
+<li><code>icon</code> is <code>null</code> when the feed doesn&rsquo;t have any favicon.</li>
+</ul>
+
+<h3 id="endpoint-get-feed-icon">Get Feed Icon <a class="anchor" href="#endpoint-get-feed-icon" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/feeds/42/icon
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 262,
+    &quot;data&quot;: &quot;image/png;base64,iVBORw0KGgoAAA....&quot;,
+    &quot;mime_type&quot;: &quot;image/png&quot;
+}
+</code></pre>
+
+<p>If the feed doesn&rsquo;t have any favicon, a 404 is returned.</p>
+
+<h3 id="endpoint-create-feed">Create Feed <a class="anchor" href="#endpoint-create-feed" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>POST /v1/feeds
+Content-Type: application/json
+
+{
+    &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+    &quot;category_id&quot;: 22
+}
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;feed_id&quot;: 262,
+}
+</code></pre>
+
+<p>Required fields:</p>
+
+<ul>
+<li><code>feed_url</code>: Feed URL (string)</li>
+<li><code>category_id</code>: Category ID (int)</li>
+</ul>
+
+<p>Optional fields:</p>
+
+<ul>
+<li><code>username</code>: Feed username (string)</li>
+<li><code>password</code>: Feed password (string)</li>
+<li><code>crawler</code>: Enable/Disable scraper (boolean)</li>
+<li><code>user_agent</code>: Custom user agent for the feed (string)</li>
+</ul>
+
+<h3 id="endpoint-update-feed">Update Feed <a class="anchor" href="#endpoint-update-feed" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/feeds/42
+Content-Type: application/json
+
+{
+    &quot;title&quot;: &quot;New Feed Title&quot;,
+    &quot;category&quot;: {
+        &quot;id&quot;: 22
+    }
+}
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 42,
+    &quot;user_id&quot;: 123,
+    &quot;title&quot;: &quot;New Feed Title&quot;,
+    &quot;site_url&quot;: &quot;http://example.org&quot;,
+    &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+    &quot;rewrite_rules&quot;: &quot;&quot;,
+    &quot;scraper_rules&quot;: &quot;&quot;,
+    &quot;crawler&quot;: false,
+    &quot;checked_at&quot;: &quot;2017-12-22T21:06:03.133839-05:00&quot;,
+    &quot;etag_header&quot;: &quot;KyLxEflwnTGF5ecaiqZ2G0TxBCc&quot;,
+    &quot;last_modified_header&quot;: &quot;Sat, 23 Dec 2017 01:04:21 GMT&quot;,
+    &quot;parsing_error_count&quot;: 0,
+    &quot;parsing_error_message&quot;: &quot;&quot;,
+    &quot;category&quot;: {
+        &quot;id&quot;: 22,
+        &quot;user_id&quot;: 123,
+        &quot;title&quot;: &quot;Another category&quot;
+    },
+    &quot;icon&quot;: {
+        &quot;feed_id&quot;: 42,
+        &quot;icon_id&quot;: 84
+    }
+}
+</code></pre>
+
+<p>Available fields:</p>
+
+<ul>
+<li><code>feed_url</code>: (string)</li>
+<li><code>site_url</code>: (string)</li>
+<li><code>title</code>: (string)</li>
+<li><code>category_id</code>: (int)</li>
+<li><code>scraper_rules</code>: (string)</li>
+<li><code>rewrite_rules</code>: (string)</li>
+<li><code>crawler</code>: (boolean)</li>
+<li><code>username</code>: (string)</li>
+<li><code>password</code>: (string)</li>
+<li><code>user_agent</code>: Custom user agent for the feed (string)</li>
+</ul>
+
+<h3 id="endpoint-refresh-feed">Refresh Feed <a class="anchor" href="#endpoint-refresh-feed" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/feeds/42/refresh
+</code></pre>
+
+<div class="info">
+<ul>
+    <li>Returns `204` status code for success.</li>
+    <li>This API call is synchronous and can takes hundred of milliseconds.</li>
+</ul>
+</div>
+
+<h3 id="endpoint-remove-feed">Remove Feed <a class="anchor" href="#endpoint-remove-feed" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>DELETE /v1/feeds/42
+</code></pre>
+
+<h3 id="endpoint-get-feed-entry">Get Feed Entry <a class="anchor" href="#endpoint-get-feed-entry" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/feeds/42/entries/888
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 888,
+    &quot;user_id&quot;: 123,
+    &quot;feed_id&quot;: 42,
+    &quot;title&quot;: &quot;Entry Title&quot;,
+    &quot;url&quot;: &quot;http://example.org/article.html&quot;,
+    &quot;comments_url&quot;: &quot;&quot;,
+    &quot;author&quot;: &quot;Foobar&quot;,
+    &quot;content&quot;: &quot;&lt;p&gt;HTML contents&lt;/p&gt;&quot;,
+    &quot;hash&quot;: &quot;29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb&quot;,
+    &quot;published_at&quot;: &quot;2016-12-12T16:15:19Z&quot;,
+    &quot;status&quot;: &quot;read&quot;,
+    &quot;starred&quot;: false,
+    &quot;feed&quot;: {
+        &quot;id&quot;: 42,
+        &quot;user_id&quot;: 123,
+        &quot;title&quot;: &quot;New Feed Title&quot;,
+        &quot;site_url&quot;: &quot;http://example.org&quot;,
+        &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+        &quot;rewrite_rules&quot;: &quot;&quot;,
+        &quot;scraper_rules&quot;: &quot;&quot;,
+        &quot;crawler&quot;: false,
+        &quot;checked_at&quot;: &quot;2017-12-22T21:06:03.133839-05:00&quot;,
+        &quot;etag_header&quot;: &quot;KyLxEflwnTGF5ecaiqZ2G0TxBCc&quot;,
+        &quot;last_modified_header&quot;: &quot;Sat, 23 Dec 2017 01:04:21 GMT&quot;,
+        &quot;parsing_error_count&quot;: 0,
+        &quot;parsing_error_message&quot;: &quot;&quot;,
+        &quot;category&quot;: {
+            &quot;id&quot;: 22,
+            &quot;user_id&quot;: 123,
+            &quot;title&quot;: &quot;Another category&quot;
+        },
+        &quot;icon&quot;: {
+            &quot;feed_id&quot;: 42,
+            &quot;icon_id&quot;: 84
+        }
+    }
+}
+</code></pre>
+
+<div class="info">
+The field <code>comments_url</code> is available since Miniflux v2.0.5.
+</div>
+
+<h3 id="endpoint-get-entry">Get Entry <a class="anchor" href="#endpoint-get-entry" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/entries/888
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 888,
+    &quot;user_id&quot;: 123,
+    &quot;feed_id&quot;: 42,
+    &quot;title&quot;: &quot;Entry Title&quot;,
+    &quot;url&quot;: &quot;http://example.org/article.html&quot;,
+    &quot;comments_url&quot;: &quot;&quot;,
+    &quot;author&quot;: &quot;Foobar&quot;,
+    &quot;content&quot;: &quot;&lt;p&gt;HTML contents&lt;/p&gt;&quot;,
+    &quot;hash&quot;: &quot;29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb&quot;,
+    &quot;published_at&quot;: &quot;2016-12-12T16:15:19Z&quot;,
+    &quot;status&quot;: &quot;read&quot;,
+    &quot;starred&quot;: false,
+    &quot;feed&quot;: {
+        &quot;id&quot;: 42,
+        &quot;user_id&quot;: 123,
+        &quot;title&quot;: &quot;New Feed Title&quot;,
+        &quot;site_url&quot;: &quot;http://example.org&quot;,
+        &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+        &quot;rewrite_rules&quot;: &quot;&quot;,
+        &quot;scraper_rules&quot;: &quot;&quot;,
+        &quot;crawler&quot;: false,
+        &quot;checked_at&quot;: &quot;2017-12-22T21:06:03.133839-05:00&quot;,
+        &quot;etag_header&quot;: &quot;KyLxEflwnTGF5ecaiqZ2G0TxBCc&quot;,
+        &quot;last_modified_header&quot;: &quot;Sat, 23 Dec 2017 01:04:21 GMT&quot;,
+        &quot;parsing_error_count&quot;: 0,
+        &quot;parsing_error_message&quot;: &quot;&quot;,
+        &quot;category&quot;: {
+            &quot;id&quot;: 22,
+            &quot;user_id&quot;: 123,
+            &quot;title&quot;: &quot;Another category&quot;
+        },
+        &quot;icon&quot;: {
+            &quot;feed_id&quot;: 42,
+            &quot;icon_id&quot;: 84
+        }
+    }
+}
+</code></pre>
+
+<h3 id="endpoint-get-feed-entries">Get Feed Entries <a class="anchor" href="#endpoint-get-feed-entries" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/feeds/42/entries?limit=1&amp;order=id&amp;direction=asc
+</code></pre>
+
+<p>Available filters:</p>
+
+<ul>
+<li><code>status</code>: Entry status (read, unread or removed)</li>
+<li><code>offset</code></li>
+<li><code>limit</code></li>
+<li><code>order</code>: &ldquo;id&rdquo;, &ldquo;status&rdquo;, &ldquo;published_at&rdquo;, &ldquo;category_title&rdquo;,
+&ldquo;category_id&rdquo;</li>
+<li><code>direction</code>: &ldquo;asc&rdquo; or &ldquo;desc&rdquo;</li>
+<li><code>before</code> (unix timestamp, available since Miniflux 2.0.9)</li>
+<li><code>after</code> (unix timestamp, available since Miniflux 2.0.9)</li>
+<li><code>before_entry_id</code> (int64, available since Miniflux 2.0.9)</li>
+<li><code>after_entry_id</code> (int64, available since Miniflux 2.0.9)</li>
+<li><code>starred</code> (boolean, available since Miniflux 2.0.9)</li>
+<li><code>search</code>: search query (text, available since Miniflux 2.0.10)</li>
+</ul>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;total&quot;: 10,
+    &quot;entries&quot;: [
+        {
+            &quot;id&quot;: 888,
+            &quot;user_id&quot;: 123,
+            &quot;feed_id&quot;: 42,
+            &quot;title&quot;: &quot;Entry Title&quot;,
+            &quot;url&quot;: &quot;http://example.org/article.html&quot;,
+            &quot;comments_url&quot;: &quot;&quot;,
+            &quot;author&quot;: &quot;Foobar&quot;,
+            &quot;content&quot;: &quot;&lt;p&gt;HTML contents&lt;/p&gt;&quot;,
+            &quot;hash&quot;: &quot;29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb&quot;,
+            &quot;published_at&quot;: &quot;2016-12-12T16:15:19Z&quot;,
+            &quot;status&quot;: &quot;read&quot;,
+            &quot;starred&quot;: false,
+            &quot;feed&quot;: {
+                &quot;id&quot;: 42,
+                &quot;user_id&quot;: 123,
+                &quot;title&quot;: &quot;New Feed Title&quot;,
+                &quot;site_url&quot;: &quot;http://example.org&quot;,
+                &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+                &quot;rewrite_rules&quot;: &quot;&quot;,
+                &quot;scraper_rules&quot;: &quot;&quot;,
+                &quot;crawler&quot;: false,
+                &quot;checked_at&quot;: &quot;2017-12-22T21:06:03.133839-05:00&quot;,
+                &quot;etag_header&quot;: &quot;KyLxEflwnTGF5ecaiqZ2G0TxBCc&quot;,
+                &quot;last_modified_header&quot;: &quot;Sat, 23 Dec 2017 01:04:21 GMT&quot;,
+                &quot;parsing_error_count&quot;: 0,
+                &quot;parsing_error_message&quot;: &quot;&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 22,
+                    &quot;user_id&quot;: 123,
+                    &quot;title&quot;: &quot;Another category&quot;
+                },
+                &quot;icon&quot;: {
+                    &quot;feed_id&quot;: 42,
+                    &quot;icon_id&quot;: 84
+                }
+            }
+        }
+    ]
+</code></pre>
+
+<h3 id="endpoint-get-entries">Get Entries <a class="anchor" href="#endpoint-get-entries" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/entries?status=unread&amp;direction=desc
+</code></pre>
+
+<p>Available filters:</p>
+
+<ul>
+<li><code>status</code>: Entry status (read, unread or removed)</li>
+<li><code>offset</code></li>
+<li><code>limit</code></li>
+<li><code>order</code>: &ldquo;id&rdquo;, &ldquo;status&rdquo;, &ldquo;published_at&rdquo;, &ldquo;category_title&rdquo;,
+&ldquo;category_id&rdquo;</li>
+<li><code>direction</code>: &ldquo;asc&rdquo; or &ldquo;desc&rdquo;</li>
+<li><code>before</code> (unix timestamp, available since Miniflux 2.0.9)</li>
+<li><code>after</code> (unix timestamp, available since Miniflux 2.0.9)</li>
+<li><code>before_entry_id</code> (int64, available since Miniflux 2.0.9)</li>
+<li><code>after_entry_id</code> (int64, available since Miniflux 2.0.9)</li>
+<li><code>starred</code> (boolean, available since Miniflux 2.0.9)</li>
+<li><code>search</code>: search query (text, available since Miniflux 2.0.10)</li>
+</ul>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;total&quot;: 10,
+    &quot;entries&quot;: [
+        {
+            &quot;id&quot;: 888,
+            &quot;user_id&quot;: 123,
+            &quot;feed_id&quot;: 42,
+            &quot;title&quot;: &quot;Entry Title&quot;,
+            &quot;url&quot;: &quot;http://example.org/article.html&quot;,
+            &quot;comments_url&quot;: &quot;&quot;,
+            &quot;author&quot;: &quot;Foobar&quot;,
+            &quot;content&quot;: &quot;&lt;p&gt;HTML contents&lt;/p&gt;&quot;,
+            &quot;hash&quot;: &quot;29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb&quot;,
+            &quot;published_at&quot;: &quot;2016-12-12T16:15:19Z&quot;,
+            &quot;status&quot;: &quot;unread&quot;,
+            &quot;starred&quot;: false,
+            &quot;feed&quot;: {
+                &quot;id&quot;: 42,
+                &quot;user_id&quot;: 123,
+                &quot;title&quot;: &quot;New Feed Title&quot;,
+                &quot;site_url&quot;: &quot;http://example.org&quot;,
+                &quot;feed_url&quot;: &quot;http://example.org/feed.atom&quot;,
+                &quot;rewrite_rules&quot;: &quot;&quot;,
+                &quot;scraper_rules&quot;: &quot;&quot;,
+                &quot;crawler&quot;: false,
+                &quot;checked_at&quot;: &quot;2017-12-22T21:06:03.133839-05:00&quot;,
+                &quot;etag_header&quot;: &quot;KyLxEflwnTGF5ecaiqZ2G0TxBCc&quot;,
+                &quot;last_modified_header&quot;: &quot;Sat, 23 Dec 2017 01:04:21 GMT&quot;,
+                &quot;parsing_error_count&quot;: 0,
+                &quot;parsing_error_message&quot;: &quot;&quot;,
+                &quot;category&quot;: {
+                    &quot;id&quot;: 22,
+                    &quot;user_id&quot;: 123,
+                    &quot;title&quot;: &quot;Another category&quot;
+                },
+                &quot;icon&quot;: {
+                    &quot;feed_id&quot;: 42,
+                    &quot;icon_id&quot;: 84
+                }
+            }
+        }
+    ]
+</code></pre>
+
+<h3 id="endpoint-update-entries">Update Entries <a class="anchor" href="#endpoint-update-entries" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/entries
+Content-Type: application/json
+
+{
+    &quot;entry_ids&quot;: [1234, 4567],
+    &quot;status&quot;: &quot;read&quot;
+}
+</code></pre>
+
+<p>Returns <code>204</code> status code for success.</p>
+
+<h3 id="endpoint-toggle-bookmark">Toggle Entry Bookmark <a class="anchor" href="#endpoint-toggle-bookmark" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/entries/1234/bookmark
+</code></pre>
+
+<p>Returns <code>204</code> status code for success.</p>
+
+<h3 id="endpoint-get-categories">Get Categories <a class="anchor" href="#endpoint-get-categories" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/categories
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">[
+    {&quot;title&quot;: &quot;All&quot;, &quot;user_id&quot;: 267, &quot;id&quot;: 792},
+    {&quot;title&quot;: &quot;Engineering Blogs&quot;, &quot;user_id&quot;: 267, &quot;id&quot;: 793}
+]
+</code></pre>
+
+<h3 id="endpoint-create-category">Create Category <a class="anchor" href="#endpoint-create-category" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>POST /v1/categories
+Content-Type: application/json
+
+{
+    &quot;title&quot;: &quot;My category&quot;
+}
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 802,
+    &quot;user_id&quot;: 267,
+    &quot;title&quot;: &quot;My category&quot;
+}
+</code></pre>
+
+<h3 id="endpoint-update-category">Update Category <a class="anchor" href="#endpoint-update-category" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/categories/802
+Content-Type: application/json
+
+{
+    &quot;title&quot;: &quot;My new title&quot;
+}
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 802,
+    &quot;user_id&quot;: 267,
+    &quot;title&quot;: &quot;My new title&quot;
+}
+</code></pre>
+
+<h3 id="endpoint-delete-category">Delete Category <a class="anchor" href="#endpoint-delete-category" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>DELETE /v1/categories/802
+</code></pre>
+
+<p>Returns a <code>204</code> status code when successful.</p>
+
+<h3 id="endpoint-export">OPML Export <a class="anchor" href="#endpoint-export" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/export
+</code></pre>
+
+<p>The response is a XML document (OPML file).</p>
+
+<div class="info">
+This API call is available since Miniflux v2.0.1.
+</div>
+
+<h3 id="endpoint-import">OPML Import <a class="anchor" href="#endpoint-import" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>POST /v1/import
+
+XML data
+</code></pre>
+
+<ul>
+<li>The body is your OPML file (XML).</li>
+<li>Returns <code>201 Created</code> if imported successfully.</li>
+</ul>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;Feeds imported successfully&quot;
+}
+</code></pre>
+
+<div class="info">
+This API call is available since Miniflux v2.0.7.
+</div>
+
+<h3 id="endpoint-create-user">Create User <a class="anchor" href="#endpoint-create-user" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>POST /v1/users
+Content-Type: application/json
+
+{
+    &quot;username&quot;: &quot;bob&quot;,
+    &quot;password&quot;: &quot;test123&quot;,
+    &quot;is_admin&quot;: false
+}
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 270,
+    &quot;username&quot;: &quot;bob&quot;,
+    &quot;language&quot;: &quot;en_US&quot;,
+    &quot;timezone&quot;: &quot;UTC&quot;,
+    &quot;theme&quot;: &quot;default&quot;,
+    &quot;entry_sorting_direction&quot;: &quot;asc&quot;
+}
+</code></pre>
+
+<div class="info">
+You must be an administrator to create users.
+</div>
+
+<h3 id="endpoint-update-user">Update User <a class="anchor" href="#endpoint-update-user" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/users/270
+Content-Type: application/json
+
+{
+    &quot;username&quot;: &quot;joe&quot;
+}
+</code></pre>
+
+<p>Available fields:</p>
+
+<ul>
+<li><code>username</code>: (string)</li>
+<li><code>password</code>: (string)</li>
+<li><code>is_admin</code>: (boolean)</li>
+<li><code>theme</code>: (string)</li>
+<li><code>language</code>: (string)</li>
+<li><code>timezone</code>: (string)</li>
+<li><code>entry_sorting_direction</code>: &ldquo;desc&rdquo; or &ldquo;asc&rdquo; (available since Miniflux
+2.0.9)</li>
+</ul>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 270,
+    &quot;username&quot;: &quot;joe&quot;,
+    &quot;language&quot;: &quot;en_US&quot;,
+    &quot;timezone&quot;: &quot;UTC&quot;,
+    &quot;theme&quot;: &quot;default&quot;,
+    &quot;entry_sorting_direction&quot;: &quot;asc&quot;
+}
+</code></pre>
+
+<div class="info">
+You must be an administrator to update users.
+</div>
+
+<h3 id="endpoint-me">Get Current User <a class="anchor" href="#endpoint-me" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/me
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 1,
+    &quot;username&quot;: &quot;admin&quot;,
+    &quot;is_admin&quot;: true,
+    &quot;theme&quot;: &quot;default&quot;,
+    &quot;language&quot;: &quot;en_US&quot;,
+    &quot;timezone&quot;: &quot;America/Vancouver&quot;,
+    &quot;entry_sorting_direction&quot;: &quot;desc&quot;,
+    &quot;last_login_at&quot;: &quot;2018-06-01T19:54:30.723051-07:00&quot;,
+    &quot;extra&quot;: {}
+}
+</code></pre>
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.8.
+</div>
+
+<h3 id="endpoint-get-user">Get User <a class="anchor" href="#endpoint-get-user" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code># Get user by user ID
+GET /v1/users/270
+
+# Get user by username
+GET /v1/users/foobar
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: 270,
+    &quot;username&quot;: &quot;bob&quot;,
+    &quot;is_admin&quot;: false,
+    &quot;language&quot;: &quot;en_US&quot;,
+    &quot;timezone&quot;: &quot;UTC&quot;,
+    &quot;theme&quot;: &quot;default&quot;,
+    &quot;entry_sorting_direction&quot;: &quot;asc&quot;,
+    &quot;last_login_at&quot;: &quot;2017-12-27T16:40:58.841841-05:00&quot;,
+    &quot;extra&quot;: {
+        &quot;google_id&quot;: &quot;42424242424242&quot;
+    }
+}
+</code></pre>
+
+<div class="info">
+You must be an administrator to fetch users. The extra field is a dictionary of optional values.
+</div>
+
+<h3 id="endpoint-get-users">Get Users <a class="anchor" href="#endpoint-get-users" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>GET /v1/users
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: 270,
+        &quot;username&quot;: &quot;bob&quot;,
+        &quot;is_admin&quot;: false,
+        &quot;language&quot;: &quot;en_US&quot;,
+        &quot;timezone&quot;: &quot;UTC&quot;,
+        &quot;theme&quot;: &quot;default&quot;,
+        &quot;entry_sorting_direction&quot;: &quot;asc&quot;,
+        &quot;last_login_at&quot;: &quot;2017-12-27T16:40:58.841841-05:00&quot;,
+        &quot;extra&quot;: {}
+    }
+]
+</code></pre>
+
+<div class="info">
+You must be an administrator to fetch users.
+The extra field is a dictionary of optional values.
+</div>
+
+<h3 id="endpoint-delete-user">Delete User <a class="anchor" href="#endpoint-delete-user" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>DELETE /v1/users/270
+</code></pre>
+
+<div class="info">
+You must be an administrator to delete users.
+</div>
+
+<h3 id="endpoint-healthcheck">Healthcheck <a class="anchor" href="#endpoint-healthcheck" title="Permalink">¶</a></h3>
+
+<p>The healthcheck endpoint is useful for monitoring and load-balancer
+configuration.</p>
+
+<p>Request:</p>
+
+<pre><code>GET /healthcheck
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code>OK
+</code></pre>
+
+<p>Returns a status code 200 when the service is up.</p>
+
+    </article>
+</body>
+</html>

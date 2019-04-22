@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 2.0.10</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 2.0.10</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="index.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2018-07-22">July 22, 2018</time>
+        
+        <ul>
+<li>Avoid browser caching issues when assets changes</li>
+<li>Add Gzip/Deflate compression for HTML, JSON, CSS and Javascript responses</li>
+<li>Improve themes handling
+
+<ul>
+<li>Store user theme in session</li>
+<li>Logged out users will keep their theme</li>
+<li>Add theme background color to web manifest and meta tag</li>
+</ul></li>
+<li>Update application icon with different sizes</li>
+<li>Add support for published tag in Atom feeds</li>
+<li>Add tooltip to feed domain in feeds list (title attribute)</li>
+<li>Prevent vertical scrolling on swipe</li>
+<li>Show feed title instead of domain in items list</li>
+<li>Add service worker to cache feed icons</li>
+<li>Make image proxy configurable via <code>IMAGE_PROXY</code> environment variable:
+
+<ul>
+<li>none = No proxy</li>
+<li>http-only = Proxy only non-HTTPS images (default)</li>
+<li>all = Proxy everything</li>
+</ul></li>
+<li>Add alt attribute for feed icons</li>
+<li>Update CI jshint check</li>
+<li>Add <code>embedly.com</code> to iframe whitelist</li>
+<li>Use passive event listeners for touch events</li>
+<li>Add <code>add_dynamic_image</code> rewriter for JavaScript-loaded images</li>
+<li>Change feed password field type to text to avoid auto-completion with Firefox
+
+<ul>
+<li>Using <code>autocomplete=&quot;off&quot;</code> or <code>autocomplete=&quot;new-password&quot;</code> doesn&rsquo;t change anything</li>
+<li>Changing the input ID doesn&rsquo;t change anything</li>
+<li>Using a different input name doesn&rsquo;t change anything</li>
+<li>Only Chrome supports <code>autocomplete=&quot;new-password&quot;</code></li>
+</ul></li>
+<li>Add base URL validation</li>
+<li>Update default stylesheet name in HTML layout</li>
+<li>Pre-generate themes stylesheets at build time</li>
+<li>Update vendor dependencies</li>
+<li>Refactor assets bundler and split Javascript files</li>
+<li>Run sanitizer after all processing and entry content rewrite</li>
+<li>Remove timestamp from generated files</li>
+<li>Add support for protocol relative YouTube URLs</li>
+<li>Add Postgres full-text search for entries</li>
+<li>Add search form in user interface</li>
+<li>Add search parameter to the API</li>
+<li>Improve Dutch locales</li>
+<li>Sandbox iframes when sanitizing</li>
+<li>Keep consistent text size on mobile orientation change</li>
+<li>Change permission of <code>/etc/miniflux.conf</code> to 600 instead of 644 in RPM package</li>
+<li>Add <code>tzdata</code> package to Docker image</li>
+<li>Update Docker image to Alpine Linux 3.8</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.10">Downloads</a></p>
+
+    </article>
+</body>
+</html>
