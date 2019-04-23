@@ -3,6 +3,43 @@ template: doc
 uri: docs/api.html
 ---
 
+Table of Contents:
+
+- [Authentication](#authentication)
+- [Clients](#clients)
+    - [Golang Client](#go-client)
+    - [Python Client](#python-client)
+- [API Endpoints](#endpoints)
+    - [Status Codes](#status-codes)
+    - [Error Response](#error-response)
+    - [Discover Subscriptions](#endpoint-discover)
+    - [Get Feeds](#endpoint-get-feeds)
+    - [Get Feed](#endpoint-get-feed)
+    - [Get Feed Icon](#endpoint-get-feed-icon)
+    - [Create Feed](#endpoint-create-feed)
+    - [Update Feed](#endpoint-update-feed)
+    - [Refresh Feed](#endpoint-refresh-feed)
+    - [Remove Feed](#endpoint-remove-feed)
+    - [Get Feed Entry](#endpoint-get-feed-entry)
+    - [Get Entry](#endpoint-get-entry)
+    - [Get Feed Entries](#endpoint-get-feed-entries)
+    - [Get Entries](#endpoint-get-entries)
+    - [Update Entries](#endpoint-update-entries)
+    - [Toggle Entry Bookmark](#endpoint-toggle-bookmark)
+    - [Get Categories](#endpoint-get-categories)
+    - [Create Category](#endpoint-create-category)
+    - [Update Category](#endpoint-update-category)
+    - [Delete Category](#endpoint-delete-category)
+    - [OPML Export](#endpoint-export)
+    - [OPML Import](#endpoint-import)
+    - [Create User](#endpoint-create-user)
+    - [Update User](#endpoint-update-user)
+    - [Get Current User](#endpoint-me)
+    - [Get User](#endpoint-get-user)
+    - [Get Users](#endpoint-get-users)
+    - [Delete User](#endpoint-delete-user)
+    - [Healthcheck](#endpoint-healthcheck)
+
 <h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
 
 The Miniflux API uses HTTP Basic authentication. The credentials are the
@@ -88,7 +125,7 @@ feed_entries = client.get_feed_entries(123, direction='desc', order='published_a
 client.update_Feed(123, category_id=456)
 ```
 
-<h2 id="reference">API Reference <a class="anchor" href="#reference" title="Permalink">¶</a></h2>
+<h2 id="endpoints">API Endpoints <a class="anchor" href="#endpoints" title="Permalink">¶</a></h2>
 
 <h3 id="status-codes">Status Codes <a class="anchor" href="#status-codes" title="Permalink">¶</a></h3>
 

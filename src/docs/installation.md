@@ -3,6 +3,15 @@ description: Instructions to install Miniflux on your own server
 template: doc
 uri: docs/installation.html
 ---
+Installing Miniflux is straightforward if you have some basic sysadmin knowledge.
+
+- [Packages](#packages)
+- [Database Configuration](#database)
+- [Manual Installation](#binary)
+- [Debian Package Installation](#debian)
+- [RPM Package Installation](#rpm)
+- [Docker Installation](#docker)
+
 <h2 id="packages">Packages <a class="anchor" href="#packages" title="Permalink">¶</a></h2>
 
 Platform       |  Type               |  Repository URL
@@ -109,7 +118,12 @@ You must restart the service to take the new values into consideration.
 
 <h2 id="docker">Docker Installation <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
 
-Pull the image and run the container: `docker run -d -p 80:8080 miniflux/miniflux:latest`.
+Pull the image and run the container:
+
+```bash
+docker run -d -p 80:8080 miniflux/miniflux:latest
+```
+
 You will probably need to pass some environment variables like the `DATABASE_URL`.
 
 You could also use Docker Compose. Here an example of `docker-compose.yml` file:

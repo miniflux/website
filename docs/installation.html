@@ -19,7 +19,18 @@
         <nav class="breadcrumb">
             <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
         </nav>
-        <h2 id="packages">Packages <a class="anchor" href="#packages" title="Permalink">¶</a></h2>
+        <p>Installing Miniflux is straightforward if you have some basic sysadmin knowledge.</p>
+
+<ul>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#database">Database Configuration</a></li>
+<li><a href="#binary">Manual Installation</a></li>
+<li><a href="#debian">Debian Package Installation</a></li>
+<li><a href="#rpm">RPM Package Installation</a></li>
+<li><a href="#docker">Docker Installation</a></li>
+</ul>
+
+<h2 id="packages">Packages <a class="anchor" href="#packages" title="Permalink">¶</a></h2>
 
 <table>
 <thead>
@@ -161,8 +172,12 @@ You must restart the service to take the new values into consideration.
 
 <h2 id="docker">Docker Installation <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
 
-<p>Pull the image and run the container: <code>docker run -d -p 80:8080 miniflux/miniflux:latest</code>.
-You will probably need to pass some environment variables like the <code>DATABASE_URL</code>.</p>
+<p>Pull the image and run the container:</p>
+
+<pre><code class="language-bash">docker run -d -p 80:8080 miniflux/miniflux:latest
+</code></pre>
+
+<p>You will probably need to pass some environment variables like the <code>DATABASE_URL</code>.</p>
 
 <p>You could also use Docker Compose. Here an example of <code>docker-compose.yml</code> file:</p>
 

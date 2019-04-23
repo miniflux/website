@@ -3,6 +3,18 @@ description: Working with Miniflux's source code
 template: doc
 uri: docs/development.html
 ---
+Working with Miniflux's code base is pretty simple:
+
+- [Requirements](#requirements)
+- [Checkout the Source Code](#source-code)
+- [Compilation](#compilation)
+- [Remove Precompiled Binaries](#cleanup)
+- [Run the Software Locally](#run)
+- [Regenerate Embedded Files](#generate)
+- [Linter](#linter)
+- [Unit Tests](#unit-tests)
+- [Integration Tests](#integration-tests)
+- [Build Docker Image](#docker-image)
 
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 

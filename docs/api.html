@@ -17,7 +17,52 @@
         <nav class="breadcrumb">
             <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
         </nav>
-        <h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
+        <p>Table of Contents:</p>
+
+<ul>
+<li><a href="#authentication">Authentication</a></li>
+<li><a href="#clients">Clients</a>
+
+<ul>
+<li><a href="#go-client">Golang Client</a></li>
+<li><a href="#python-client">Python Client</a></li>
+</ul></li>
+<li><a href="#endpoints">API Endpoints</a>
+
+<ul>
+<li><a href="#status-codes">Status Codes</a></li>
+<li><a href="#error-response">Error Response</a></li>
+<li><a href="#endpoint-discover">Discover Subscriptions</a></li>
+<li><a href="#endpoint-get-feeds">Get Feeds</a></li>
+<li><a href="#endpoint-get-feed">Get Feed</a></li>
+<li><a href="#endpoint-get-feed-icon">Get Feed Icon</a></li>
+<li><a href="#endpoint-create-feed">Create Feed</a></li>
+<li><a href="#endpoint-update-feed">Update Feed</a></li>
+<li><a href="#endpoint-refresh-feed">Refresh Feed</a></li>
+<li><a href="#endpoint-remove-feed">Remove Feed</a></li>
+<li><a href="#endpoint-get-feed-entry">Get Feed Entry</a></li>
+<li><a href="#endpoint-get-entry">Get Entry</a></li>
+<li><a href="#endpoint-get-feed-entries">Get Feed Entries</a></li>
+<li><a href="#endpoint-get-entries">Get Entries</a></li>
+<li><a href="#endpoint-update-entries">Update Entries</a></li>
+<li><a href="#endpoint-toggle-bookmark">Toggle Entry Bookmark</a></li>
+<li><a href="#endpoint-get-categories">Get Categories</a></li>
+<li><a href="#endpoint-create-category">Create Category</a></li>
+<li><a href="#endpoint-update-category">Update Category</a></li>
+<li><a href="#endpoint-delete-category">Delete Category</a></li>
+<li><a href="#endpoint-export">OPML Export</a></li>
+<li><a href="#endpoint-import">OPML Import</a></li>
+<li><a href="#endpoint-create-user">Create User</a></li>
+<li><a href="#endpoint-update-user">Update User</a></li>
+<li><a href="#endpoint-me">Get Current User</a></li>
+<li><a href="#endpoint-get-user">Get User</a></li>
+<li><a href="#endpoint-get-users">Get Users</a></li>
+<li><a href="#endpoint-delete-user">Delete User</a></li>
+<li><a href="#endpoint-healthcheck">Healthcheck</a></li>
+</ul></li>
+</ul>
+
+<h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
 
 <p>The Miniflux API uses HTTP Basic authentication. The credentials are the
 username/password of your account.</p>
@@ -102,7 +147,7 @@ feed_entries = client.get_feed_entries(123, direction='desc', order='published_a
 client.update_Feed(123, category_id=456)
 </code></pre>
 
-<h2 id="reference">API Reference <a class="anchor" href="#reference" title="Permalink">¶</a></h2>
+<h2 id="endpoints">API Endpoints <a class="anchor" href="#endpoints" title="Permalink">¶</a></h2>
 
 <h3 id="status-codes">Status Codes <a class="anchor" href="#status-codes" title="Permalink">¶</a></h3>
 

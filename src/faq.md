@@ -3,6 +3,22 @@ template: page
 uri: faq.html
 ---
 
+Table of Contents:
+
+- [Why are you not developing my feature request?](#feature-request)
+- [Feature X was available in Miniflux v1?](#missing-feature-v2)
+- [Why Miniflux stores favicons into the database?](#favicons-storage)
+- [How to create themes for Miniflux 2?](#themes)
+- [Why there is no plugin system?](#plugins)
+- [What is "Save this article"?](#save-article)
+- [How are items removed from the database?](#entries-suppression)
+- [What "Flush History" does?](#flush-history)
+- [Which binary do I need to use on my Raspberry Pi?](#arm-pi)
+- [Which binary do I need to use on Scaleway ARM machines?](#arm-scaleway)
+- [Which Docker architecture should I use?](#docker-arch)
+- [Why SQL migrations are not executed automatically?](#sql-migrations)
+- [How to backup my data?](#backup)
+
 <h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
 
 - Developing a software takes a lot of time.
@@ -77,7 +93,7 @@ arm32v6             |  armhf   | Raspberry Pi
 arm32v6             |  armv7l  | Scaleway C1
 arm64v8             |  aarch6  | Scaleway ARM64
 
-If you use the wrong architecture, Docker will returns an error like this one: 
+If you use the wrong architecture, Docker will returns an error like this one:
 
 ```
 standard_init_linux.go:178: exec user process caused "exec format error"

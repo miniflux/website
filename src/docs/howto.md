@@ -4,6 +4,18 @@ template: doc
 uri: docs/howto.html
 ---
 
+Here are some examples of configuration:
+
+- [Use a Unix socket for Postgresql](#pg-unix-socket)
+- [How to run Miniflux on port 443 or 80](#privileged-ports)
+- [Reverse-Proxy Configuration](#reverse-proxy)
+- [Reverse-Proxy with a subfolder](#reverse-proxy-subfolder)
+- [Reverse-Proxy with a Unix socket](#reverse-proxy-unix-socket)
+- [Systemd Socket Activation](#systemd-socket-activation)
+- [Let's Encrypt Configuration](#lets-encrypt)
+- [Manual HTTPS Configuration](#https)
+- [OAuth2 Authentication](#oauth2)
+
 <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 
 If you would like to connect via a Unix socket to Postgresql, set the parameter `host=/path/to/socket/folder`.

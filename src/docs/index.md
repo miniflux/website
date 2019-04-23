@@ -9,7 +9,7 @@ uri: docs/index.html
 - [Configuration Parameters](configuration.html)
 - [Command Line Usage](cli.html)
 - [Installation Instructions](installation.html)
-- [Upgrade the Application](upgrade.html)
+- [Upgrading the Application](upgrade.html)
 - [How-To's](howto.html)
 - [Migration from Older Versions](migration.html)
 

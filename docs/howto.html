@@ -19,7 +19,21 @@
         <nav class="breadcrumb">
             <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
         </nav>
-        <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
+        <p>Here are some examples of configuration:</p>
+
+<ul>
+<li><a href="#pg-unix-socket">Use a Unix socket for Postgresql</a></li>
+<li><a href="#privileged-ports">How to run Miniflux on port 443 or 80</a></li>
+<li><a href="#reverse-proxy">Reverse-Proxy Configuration</a></li>
+<li><a href="#reverse-proxy-subfolder">Reverse-Proxy with a subfolder</a></li>
+<li><a href="#reverse-proxy-unix-socket">Reverse-Proxy with a Unix socket</a></li>
+<li><a href="#systemd-socket-activation">Systemd Socket Activation</a></li>
+<li><a href="#lets-encrypt">Let&rsquo;s Encrypt Configuration</a></li>
+<li><a href="#https">Manual HTTPS Configuration</a></li>
+<li><a href="#oauth2">OAuth2 Authentication</a></li>
+</ul>
+
+<h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 
 <p>If you would like to connect via a Unix socket to Postgresql, set the parameter <code>host=/path/to/socket/folder</code>.</p>
 
