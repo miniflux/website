@@ -15,6 +15,8 @@ Here are some examples of configuration:
 - [Let's Encrypt Configuration](#lets-encrypt)
 - [Manual HTTPS Configuration](#https)
 - [OAuth2 Authentication](#oauth2)
+- [Deploy Miniflux on Heroku](#heroku)
+- [Deploy Miniflux on Google App Engine](#gae)
 
 <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 
@@ -309,3 +311,80 @@ Now from the settings page, you can link your existing user to your Google accou
 
 If you would like to authorize anyone to create a user account, you must set `OAUTH2_USER_CREATION=1`.
 Since Google do not have the concept of username, the email address is used as username.
+
+<h2 id="heroku">Deploy Miniflux on Heroku <a class="anchor" href="#heroku" title="Permalink">¶</a></h2>
+
+Since the version 2.0.6, you can deploy Miniflux on [Heroku](https://www.heroku.com/) in few seconds.
+
+- Clone the repository on your machine: `git clone https://github.com/miniflux/miniflux.git`
+- Switch to a stable version, for example `git checkout 2.0.15` (master is the development branch)
+- Create a new Heroku application: `heroku apps:create`
+- Add the Postgresql addon: `heroku addons:create heroku-postgresql:hobby-dev`
+
+Defines the environment variables to configure the application:
+
+```
+# Creates all tables in the database.
+heroku config:set RUN_MIGRATIONS=1
+
+# Creates the first user.
+heroku config:set CREATE_ADMIN=1
+heroku config:set ADMIN_USERNAME=admin
+heroku config:set ADMIN_PASSWORD=test123
+```
+
+Then, deploy the application to Heroku:
+
+```
+git push heroku master
+```
+
+Once the application is deployed successfully, you don't need these variables anymore:
+
+```
+heroku config:unset CREATE_ADMIN
+heroku config:unset ADMIN_USERNAME
+heroku config:unset ADMIN_PASSWORD
+```
+
+- To watch the logs, use `heroku logs`.
+- You can also run a one-off container to run the commands manually: `heroku run bash`.
+  The Miniflux binary will be located into the `bin` folder.
+- To update Miniflux, pull the new version from the repository and push to Heroku again.
+
+<h2 id="gae">Deploy Miniflux on Google App Engine <a class="anchor" href="#gae" title="Permalink">¶</a></h2>
+
+- Create a Postgresql instance via Google Cloud SQL, then create a user and a new database
+- Clone the repository and create a `app.yaml` file in the project root directory
+
+```yaml
+runtime: go111
+env_variables:
+    CLOUDSQL_CONNECTION_NAME: INSTANCE_CONNECTION_NAME
+    CLOUDSQL_USER: replace-me
+    CLOUDSQL_PASSWORD: top-secret
+
+    CREATE_ADMIN: 1
+    ADMIN_USERNAME: foobar
+    ADMIN_PASSWORD: test123
+    RUN_MIGRATIONS: 1
+    DATABASE_URL: "user=replace-me password=top-secret host=/cloudsql/INSTANCE_CONNECTION_NAME dbname=miniflux"
+```
+
+Replace the values according to your project configuration.
+As you can see, the database connection is made over a Unix socket on App Engine.
+
+Last step, deploy your application:
+
+```
+gcloud app deploy
+```
+
+Refer to Google Cloud documentation for more details:
+
+- <https://cloud.google.com/appengine/docs/standard/go111/building-app/>
+- <https://cloud.google.com/appengine/docs/standard/go111/using-cloud-sql>
+
+<div class="warning">
+Running Miniflux on Google App Engine should work but it's considered experimental.
+</div>
