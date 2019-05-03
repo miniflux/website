@@ -16,8 +16,8 @@ Installing Miniflux is straightforward if you have some basic sysadmin knowledge
 
 Platform       |  Type               |  Repository URL
 ---------------|---------------------|---------------------------------------------------------------------
-Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/package-deb
-RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/package-rpm
+Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/deb-package
+RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/rpm-package
 Arch Linux     |  Community (Source) |  https://aur.archlinux.org/packages/miniflux/
 FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/www/miniflux/
 Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux
@@ -94,7 +94,7 @@ When using the Debian package, the Miniflux daemon is supervised by systemd.
 5. Create an admin user: `miniflux -create-admin`
 
 <p class="info">
-Systemd reads the environment variables from the file `/etc/miniflux.conf`.
+Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
 You must restart the service to take the new values into consideration.
 </p>
 
@@ -111,8 +111,10 @@ When you use the RPM package, the Miniflux daemon is supervised by systemd.
 6. Start the process with systemd: `systemctl start miniflux`
 7. Check process status: `systemctl status miniflux`
 
+Note that you could also use the [Miniflux RPM repository](howto.html#rpm-repo) instead of downloading manually the RPM package.
+
 <p class="info">
-Systemd reads the environment variables from the file `/etc/miniflux.conf`.
+Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
 You must restart the service to take the new values into consideration.
 </p>
 

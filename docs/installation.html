@@ -45,13 +45,13 @@
 <tr>
 <td>Debian/Ubuntu</td>
 <td>Upstream (Binary)</td>
-<td><a href="https://github.com/miniflux/package-deb">https://github.com/miniflux/package-deb</a></td>
+<td><a href="https://github.com/miniflux/deb-package">https://github.com/miniflux/deb-package</a></td>
 </tr>
 
 <tr>
 <td>RHEL/Fedora</td>
 <td>Upstream (Binary)</td>
-<td><a href="https://github.com/miniflux/package-rpm">https://github.com/miniflux/package-rpm</a></td>
+<td><a href="https://github.com/miniflux/rpm-package">https://github.com/miniflux/rpm-package</a></td>
 </tr>
 
 <tr>
@@ -146,7 +146,7 @@ When using the Debian package, the Miniflux daemon is supervised by systemd.</p>
 </ol>
 
 <p class="info">
-Systemd reads the environment variables from the file `/etc/miniflux.conf`.
+Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
 You must restart the service to take the new values into consideration.
 </p>
 
@@ -165,8 +165,10 @@ When you use the RPM package, the Miniflux daemon is supervised by systemd.</p>
 <li>Check process status: <code>systemctl status miniflux</code></li>
 </ol>
 
+<p>Note that you could also use the <a href="howto.html#rpm-repo">Miniflux RPM repository</a> instead of downloading manually the RPM package.</p>
+
 <p class="info">
-Systemd reads the environment variables from the file `/etc/miniflux.conf`.
+Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
 You must restart the service to take the new values into consideration.
 </p>
 

@@ -22,6 +22,7 @@
         <p>Here are some examples of configuration:</p>
 
 <ul>
+<li><a href="#rpm-repo">How to Configure the RPM Repository</a></li>
 <li><a href="#pg-unix-socket">Use a Unix socket for Postgresql</a></li>
 <li><a href="#privileged-ports">How to run Miniflux on port 443 or 80</a></li>
 <li><a href="#reverse-proxy">Reverse-Proxy Configuration</a></li>
@@ -34,6 +35,22 @@
 <li><a href="#heroku">Deploy Miniflux on Heroku</a></li>
 <li><a href="#gae">Deploy Miniflux on Google App Engine</a></li>
 </ul>
+
+<h2 id="rpm-repo">How to Configure the RPM Repository <a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
+
+<p>Create the file <code>/etc/yum.repos.d/miniflux.repo</code>:</p>
+
+<pre><code>[miniflux]
+name=Miniflux Repository
+baseurl=https://rpm.miniflux.app/x86_64/
+enabled=1
+gpgcheck=0
+</code></pre>
+
+<p>Then install the package:</p>
+
+<pre><code class="language-bash">yum install -y miniflux
+</code></pre>
 
 <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 
