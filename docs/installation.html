@@ -63,13 +63,13 @@
 <tr>
 <td>FreeBSD Port</td>
 <td>Community (Source)</td>
-<td><a href="https://svnweb.freebsd.org/ports/head/www/miniflux/">https://svnweb.freebsd.org/ports/head/www/miniflux/</a></td>
+<td><a href="https://svnweb.freebsd.org/ports/head/www/miniflux/">ports/www/miniflux</a></td>
 </tr>
 
 <tr>
 <td>Nix</td>
 <td>Community (Source)</td>
-<td><a href="https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux">https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux</a></td>
+<td><a href="https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux">pkgs/servers/miniflux</a></td>
 </tr>
 </tbody>
 </table>
@@ -144,6 +144,8 @@ When using the Debian package, the Miniflux daemon is supervised by systemd.</p>
 <li>Run the SQL migrations: <code>miniflux -migrate</code></li>
 <li>Create an admin user: <code>miniflux -create-admin</code></li>
 </ol>
+
+<p>Note that you could also use the <a href="howto.html#apt-repo">Miniflux APT repository</a> instead of downloading manually the Debian package.</p>
 
 <p class="info">
 Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.

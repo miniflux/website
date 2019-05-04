@@ -19,8 +19,8 @@ Platform       |  Type               |  Repository URL
 Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/deb-package
 RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/rpm-package
 Arch Linux     |  Community (Source) |  https://aur.archlinux.org/packages/miniflux/
-FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/www/miniflux/
-Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux
+FreeBSD Port   |  Community (Source) |  [ports/www/miniflux](https://svnweb.freebsd.org/ports/head/www/miniflux/)
+Nix            |  Community (Source) |  [pkgs/servers/miniflux](https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux)
 
 You can download precompiled binaries and packages on the releases page: https://github.com/miniflux/miniflux/releases.
 
@@ -92,6 +92,8 @@ When using the Debian package, the Miniflux daemon is supervised by systemd.
 3. Define the environment variable `DATABASE_URL` if necessary
 4. Run the SQL migrations: `miniflux -migrate`
 5. Create an admin user: `miniflux -create-admin`
+
+Note that you could also use the [Miniflux APT repository](howto.html#apt-repo) instead of downloading manually the Debian package.
 
 <p class="info">
 Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.

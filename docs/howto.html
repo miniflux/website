@@ -22,6 +22,7 @@
         <p>Here are some examples of configuration:</p>
 
 <ul>
+<li><a href="#apt-repo">How to Configure the APT Repository</a></li>
 <li><a href="#rpm-repo">How to Configure the RPM Repository</a></li>
 <li><a href="#pg-unix-socket">Use a Unix socket for Postgresql</a></li>
 <li><a href="#privileged-ports">How to run Miniflux on port 443 or 80</a></li>
@@ -35,6 +36,18 @@
 <li><a href="#heroku">Deploy Miniflux on Heroku</a></li>
 <li><a href="#gae">Deploy Miniflux on Google App Engine</a></li>
 </ul>
+
+<h2 id="apt-repo">How to Configure the APT Repository <a class="anchor" href="#apt-repo" title="Permalink">¶</a></h2>
+
+<pre><code class="language-bash">curl -s https://apt.miniflux.app/KEY.gpg | sudo apt-key add -
+echo &quot;deb https://apt.miniflux.app/ /&quot; &gt; /etc/apt/sources.list.d/miniflux.list
+apt update
+</code></pre>
+
+<p>Then install the package:</p>
+
+<pre><code class="language-bash">apt install miniflux
+</code></pre>
 
 <h2 id="rpm-repo">How to Configure the RPM Repository <a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
 
