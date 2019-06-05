@@ -280,6 +280,10 @@ If you watch the logs with `journalctl -u miniflux.service`, you will see `[INFO
 
 <h2 id="lets-encrypt">Let's Encrypt Configuration <a class="anchor" href="#lets-encrypt" title="Permalink">¶</a></h2>
 
+<div class="info">
+<b>Note:</b> This does not work if you're running miniflux behind a reverse proxy using Nginx or Apache. To use Let's Encrypt in that setting, please refer to the documentation over at <a href="https://letsencrypt.org">letsencrypt.org</a>
+</div>
+
 You could use Let's Encrypt to manage the SSL certificate automatically and activate HTTP/2.
 
 ```bash
@@ -296,6 +300,10 @@ Miniflux supports http-01 challenge since the version 2.0.2.
 </div>
 
 <h2 id="https">Manual HTTPS Configuration <a class="anchor" href="#https" title="Permalink">¶</a></h2>
+
+<div class="info">
+<b>Note:</b> This does not work if you're running miniflux behind a reverse proxy using Nginx or Apache. To use Let's Encrypt in that setting, please refer to the documentation over at <a href="https://letsencrypt.org">letsencrypt.org</a>
+</div>
 
 Here an example to generate a self-signed certificate:
 
