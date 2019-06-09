@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 2.0.16</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 2.0.16</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="/releases.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2019-06-08">June 8, 2019</time>
+        
+        <ul>
+<li>Add option to toggle date/time in log messages</li>
+<li>Add optional config file parser in addition to environment variables</li>
+<li>Make HTTP Client timeout and max body size configurable</li>
+<li>Refactor config package:
+
+<ul>
+<li>Parse configuration only once during startup time</li>
+<li>Store configuration values in a global variable</li>
+</ul></li>
+<li>Flip behavior of <code>j</code> and <code>k</code> keyboard shortcuts</li>
+<li>Bump Postgresql client library to v1.1.1 to bring in SCRAM-SHA-256 authentication</li>
+<li>Add option to enable/disable keyboard shortcuts</li>
+<li>Add missing translation</li>
+<li>Improve page reload when showing unread/all entries:
+
+<ul>
+<li>Show only unread entries = refresh current page</li>
+<li>Show all entries = go to next page</li>
+</ul></li>
+<li>Always display feed entries even when there is a feed error</li>
+<li>Use loading label instead of saving when submitting login form</li>
+<li>Add OPML v1 support during importation</li>
+<li>Add <code>allow-popups</code> to iframe sandbox permissions</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.16">Downloads</a></p>
+
+    </article>
+</body>
+</html>

@@ -3,13 +3,14 @@ description: List of configuration parameters for Miniflux
 template: doc
 uri: docs/configuration.html
 ---
-Miniflux doesn’t use any configuration file, **only environment variables**.
+Since version 2.0.16, Miniflux can use a configuration file and/or environment variables.
 
 <h2 id="env-variables">Environment Variables <a class="anchor" href="#env-variables" title="Permalink">¶</a></h2>
 
 | Variable Name               | Description                                                                      | Default Value                                                      |
 | --------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `DEBUG`                     | Set the value to `1` to enable debug logs                                        | None                                                               |
+| `DEBUG`                     | Set the value to `1` to enable debug logs                                        | Off                                                                |
+| `LOG_DATE_TIME`             | Set the value to `1` to show date/time in log messages                           | Off                                                                |
 | `WORKER_POOL_SIZE`          | Number of background workers                                                     | 5                                                                  |
 | `POLLING_FREQUENCY`         | Refresh interval in minutes for feeds                                            | 60 (minutes)                                                       |
 | `BATCH_SIZE`                | Number of feeds to send to the queue for each interval                           | 10                                                                 |
@@ -40,10 +41,36 @@ Miniflux doesn’t use any configuration file, **only environment variables**.
 | `ADMIN_PASSWORD`            | Admin user password, used only if `CREATE_ADMIN` is enabled                      | None                                                               |
 | `POCKET_CONSUMER_KEY`       | Pocket consumer API key for all users                                            | None                                                               |
 | `PROXY_IMAGES`              | Avoids mixed content warnings for external images: `http-only`, `all`, or `none` | `http-only`                                                        |
+| `HTTP_CLIENT_TIMEOUT`       | Time limit in seconds before the HTTP client cancel the request                  | 20s                                                                |
+| `HTTP_CLIENT_MAX_BODY_SIZE` | Maximum body size for HTTP requests in Mebibyte (MiB)                            | 15 MiB                                                             |
 
 <p class="info">
-Systemd uses the file `/etc/miniflux.conf` to populate environment variables.
+Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
 </p>
+
+<h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
+
+The configuration file is optional. It's a text file that follow these rules:
+
+- Miniflux expects each line to be in `KEY=VALUE` format.
+- Lines beginning with `#` are processed as comments and ignored.
+- Blank lines are ignored.
+- There is no variable interpolation.
+
+Keys are the same as the environment variables described above.
+
+Example:
+
+```
+DEBUG=on
+WORKER_POOL_SIZE=20
+```
+
+Environment variables override the values defined in the config file.
+
+To specify a configuration file, use the command line argument `-config-file` or `-c`.
+
+You can also dump interpreted values with the flag `-config-dump` for debugging.
 
 <h2 id="dsn">Database Connection Parameters <a class="anchor" href="#dsn" title="Permalink">¶</a></h2>
 

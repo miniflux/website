@@ -80,3 +80,21 @@ Flushing all sessions (disconnect users)
 ```bash
 miniflux -reset-feed-errors
 ```
+
+<h2 id="config-file">Use a Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
+
+```bash
+miniflux -config-file /etc/miniflux.conf
+```
+
+or 
+
+```bash
+miniflux -c /etc/miniflux.conf
+```
+
+<h2 id="config-dump">Show Interpreted Configuration Values <a class="anchor" href="#config-dump" title="Permalink">¶</a></h2>
+
+```bash
+miniflux -config-dump
+```

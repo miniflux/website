@@ -19,7 +19,7 @@
         <nav class="breadcrumb">
             <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
         </nav>
-        <p>Miniflux doesn’t use any configuration file, <strong>only environment variables</strong>.</p>
+        <p>Since version 2.0.16, Miniflux can use a configuration file and/or environment variables.</p>
 
 <h2 id="env-variables">Environment Variables <a class="anchor" href="#env-variables" title="Permalink">¶</a></h2>
 
@@ -36,7 +36,13 @@
 <tr>
 <td><code>DEBUG</code></td>
 <td>Set the value to <code>1</code> to enable debug logs</td>
-<td>None</td>
+<td>Off</td>
+</tr>
+
+<tr>
+<td><code>LOG_DATE_TIME</code></td>
+<td>Set the value to <code>1</code> to show date/time in log messages</td>
+<td>Off</td>
 </tr>
 
 <tr>
@@ -218,12 +224,49 @@
 <td>Avoids mixed content warnings for external images: <code>http-only</code>, <code>all</code>, or <code>none</code></td>
 <td><code>http-only</code></td>
 </tr>
+
+<tr>
+<td><code>HTTP_CLIENT_TIMEOUT</code></td>
+<td>Time limit in seconds before the HTTP client cancel the request</td>
+<td>20s</td>
+</tr>
+
+<tr>
+<td><code>HTTP_CLIENT_MAX_BODY_SIZE</code></td>
+<td>Maximum body size for HTTP requests in Mebibyte (MiB)</td>
+<td>15 MiB</td>
+</tr>
 </tbody>
 </table>
 
 <p class="info">
-Systemd uses the file `/etc/miniflux.conf` to populate environment variables.
+Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
 </p>
+
+<h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
+
+<p>The configuration file is optional. It&rsquo;s a text file that follow these rules:</p>
+
+<ul>
+<li>Miniflux expects each line to be in <code>KEY=VALUE</code> format.</li>
+<li>Lines beginning with <code>#</code> are processed as comments and ignored.</li>
+<li>Blank lines are ignored.</li>
+<li>There is no variable interpolation.</li>
+</ul>
+
+<p>Keys are the same as the environment variables described above.</p>
+
+<p>Example:</p>
+
+<pre><code>DEBUG=on
+WORKER_POOL_SIZE=20
+</code></pre>
+
+<p>Environment variables override the values defined in the config file.</p>
+
+<p>To specify a configuration file, use the command line argument <code>-config-file</code> or <code>-c</code>.</p>
+
+<p>You can also dump interpreted values with the flag <code>-config-dump</code> for debugging.</p>
 
 <h2 id="dsn">Database Connection Parameters <a class="anchor" href="#dsn" title="Permalink">¶</a></h2>
 

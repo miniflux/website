@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Miniflux</title>
   <id>https://miniflux.app/</id>
-  <updated>2019-05-03T20:10:24-07:00</updated>
+  <updated>2019-06-08T21:09:42-07:00</updated>
   <author>
     <name>Frédéric Guillot</name>
   </author>
@@ -10,6 +10,41 @@
   <link rel="alternate" type="text/html" href="https://miniflux.app/"/>
   <link rel="self" type="application/atom+xml" href="https://miniflux.app/feed.xml"/>
 
+  
+  <entry>
+    <title>Miniflux 2.0.16</title>
+    <link rel="alternate" type="text/html" href="https://miniflux.app/releases/2.0.16.html"/>
+    <id>https://miniflux.app/releases/2.0.16.html</id>
+    <updated>2019-06-08T00:00:00Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>Add option to toggle date/time in log messages</li>
+<li>Add optional config file parser in addition to environment variables</li>
+<li>Make HTTP Client timeout and max body size configurable</li>
+<li>Refactor config package:
+
+<ul>
+<li>Parse configuration only once during startup time</li>
+<li>Store configuration values in a global variable</li>
+</ul></li>
+<li>Flip behavior of <code>j</code> and <code>k</code> keyboard shortcuts</li>
+<li>Bump Postgresql client library to v1.1.1 to bring in SCRAM-SHA-256 authentication</li>
+<li>Add option to enable/disable keyboard shortcuts</li>
+<li>Add missing translation</li>
+<li>Improve page reload when showing unread/all entries:
+
+<ul>
+<li>Show only unread entries = refresh current page</li>
+<li>Show all entries = go to next page</li>
+</ul></li>
+<li>Always display feed entries even when there is a feed error</li>
+<li>Use loading label instead of saving when submitting login form</li>
+<li>Add OPML v1 support during importation</li>
+<li>Add <code>allow-popups</code> to iframe sandbox permissions</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.16">Downloads</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title>Miniflux 2.0.15</title>
@@ -1190,7 +1225,7 @@ The content will be displayed correctly regardless of the language specified in 
     <content type="html"><![CDATA[<ul>
 <li>Add <code>.gitignore</code></li>
 <li>Update PicoFeed</li>
-<li>Do not save an item if the ID is empty</li>
+<li>Do not save item if the ID is empty</li>
 <li>Update readme</li>
 <li>Mark as read when &ldquo;direct link&rdquo; is clicked</li>
 <li>Fix Newsbeuter OPML import</li>
