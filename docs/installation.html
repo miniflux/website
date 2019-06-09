@@ -189,22 +189,24 @@ You must restart the service to take the new values into consideration.
 services:
     miniflux:
     image: miniflux/miniflux:latest
-    ports:
-        - &quot;80:8080&quot;
-    depends_on:
-        - db
-    environment:
-        - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+        ports:
+            - &quot;80:8080&quot;
+        depends_on:
+            - db
+        environment:
+            - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
     db:
-    image: postgres:10.1
-    environment:
-        - POSTGRES_USER=miniflux
-        - POSTGRES_PASSWORD=secret
-    volumes:
-        - miniflux-db:/var/lib/postgresql/data
+        image: postgres:latest
+        environment:
+            - POSTGRES_USER=miniflux
+            - POSTGRES_PASSWORD=secret
+        volumes:
+            - miniflux-db:/var/lib/postgresql/data
 volumes:
     miniflux-db:
 </code></pre>
+
+<p>Start the database first <code>docker-compose up db</code> and then the application <code>docker-compose up miniflux</code>.</p>
 
 <p>Remember that you still need to run the database migrations and create the first user:</p>
 
@@ -216,6 +218,33 @@ docker exec -ti &lt;container-name&gt; /usr/bin/miniflux -create-admin
 </code></pre>
 
 <p>Another way of doing the same thing is to populate the variables <code>RUN_MIGRATIONS</code>, <code>CREATE_ADMIN</code>, <code>ADMIN_USERNAME</code> and <code>ADMIN_PASSWORD</code>.</p>
+
+<p>For example:</p>
+
+<pre><code class="language-yaml">version: '3'
+services:
+    miniflux:
+        image: miniflux/miniflux:latest
+        ports:
+            - &quot;80:8080&quot;
+        depends_on:
+            - db
+        environment:
+            - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+            - RUN_MIGRATIONS=1
+            - CREATE_ADMIN=1
+            - ADMIN_USERNAME=admin
+            - ADMIN_PASSWORD=test123
+    db:
+        image: postgres:latest
+        environment:
+            - POSTGRES_USER=miniflux
+            - POSTGRES_PASSWORD=secret
+        volumes:
+            - miniflux-db:/var/lib/postgresql/data
+volumes:
+    miniflux-db:
+</code></pre>
 
     </article>
 </body>

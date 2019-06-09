@@ -137,22 +137,24 @@ version: '3'
 services:
     miniflux:
     image: miniflux/miniflux:latest
-    ports:
-        - "80:8080"
-    depends_on:
-        - db
-    environment:
-        - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+        ports:
+            - "80:8080"
+        depends_on:
+            - db
+        environment:
+            - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
     db:
-    image: postgres:10.1
-    environment:
-        - POSTGRES_USER=miniflux
-        - POSTGRES_PASSWORD=secret
-    volumes:
-        - miniflux-db:/var/lib/postgresql/data
+        image: postgres:latest
+        environment:
+            - POSTGRES_USER=miniflux
+            - POSTGRES_PASSWORD=secret
+        volumes:
+            - miniflux-db:/var/lib/postgresql/data
 volumes:
     miniflux-db:
 ```
+
+Start the database first `docker-compose up db` and then the application `docker-compose up miniflux`.
 
 Remember that you still need to run the database migrations and create the first user:
 
@@ -165,3 +167,31 @@ docker exec -ti <container-name> /usr/bin/miniflux -create-admin
 ```
 
 Another way of doing the same thing is to populate the variables `RUN_MIGRATIONS`, `CREATE_ADMIN`, `ADMIN_USERNAME` and `ADMIN_PASSWORD`.
+
+For example:
+
+```yaml
+version: '3'
+services:
+    miniflux:
+        image: miniflux/miniflux:latest
+        ports:
+            - "80:8080"
+        depends_on:
+            - db
+        environment:
+            - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+            - RUN_MIGRATIONS=1
+            - CREATE_ADMIN=1
+            - ADMIN_USERNAME=admin
+            - ADMIN_PASSWORD=test123
+    db:
+        image: postgres:latest
+        environment:
+            - POSTGRES_USER=miniflux
+            - POSTGRES_PASSWORD=secret
+        volumes:
+            - miniflux-db:/var/lib/postgresql/data
+volumes:
+    miniflux-db:
+```
