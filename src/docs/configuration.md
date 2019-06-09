@@ -5,6 +5,10 @@ uri: docs/configuration.html
 ---
 Since version 2.0.16, Miniflux can use a configuration file and/or environment variables.
 
+- [Environment Variables](#env-variables)
+- [Configuration File](#config-file)
+- [Database Connection Parameters](#dsn)
+
 <h2 id="env-variables">Environment Variables <a class="anchor" href="#env-variables" title="Permalink">¶</a></h2>
 
 | Variable Name               | Description                                                                      | Default Value                                                      |
