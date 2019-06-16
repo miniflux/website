@@ -10,6 +10,7 @@ Installing Miniflux is straightforward if you have some basic sysadmin knowledge
 - [Manual Installation](#binary)
 - [Debian Package Installation](#debian)
 - [RPM Package Installation](#rpm)
+- [Alpine Linux Installation](#alpine-linux)
 - [Docker Installation](#docker)
 
 <h2 id="packages">Packages <a class="anchor" href="#packages" title="Permalink">¶</a></h2>
@@ -18,6 +19,7 @@ Platform       |  Type               |  Repository URL
 ---------------|---------------------|---------------------------------------------------------------------
 Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/deb-package
 RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/rpm-package
+Alpine Linux   |  Community (Source) |  [aports/testing/miniflux](https://git.alpinelinux.org/aports/tree/testing/miniflux)
 Arch Linux     |  Community (Source) |  https://aur.archlinux.org/packages/miniflux/
 FreeBSD Port   |  Community (Source) |  [ports/www/miniflux](https://svnweb.freebsd.org/ports/head/www/miniflux/)
 Nix            |  Community (Source) |  [pkgs/servers/miniflux](https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux)
@@ -119,6 +121,54 @@ Note that you could also use the [Miniflux RPM repository](howto.html#rpm-repo) 
 Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
 You must restart the service to take the new values into consideration.
 </p>
+
+<h2 id="alpine-linux">Alpine Linux Installation <a class="anchor" href="#alpine-linux" title="Permalink">¶</a></h2>
+
+[Alpine Linux](https://alpinelinux.org/) is a lightweight Linux distribution that is perfectly suited for running Miniflux.
+
+An APK package is available from the Edge repository.
+
+Edit the file `/etc/apk/repositories` to enable the Edge repository: `http://dl-cdn.alpinelinux.org/alpine/edge/testing`. And then run `apk update`.
+
+The Miniflux installation is simple as running:
+
+```bash
+apk add miniflux
+```
+
+Do not forget to install Postgresql:
+
+```
+apk add postgresql postgresql-contrib
+```
+
+Configure the database and enable the `HSTORE` extension as [mentioned previously](#database).
+
+On Alpine Linux, the Miniflux process is supervised by `supervise-daemon` from [OpenRC](https://github.com/OpenRC/openrc) (there is no Systemd).
+The log file `/var/log/miniflux.log` is rotated by `logrotate`.
+
+In this context, the configuration file `/etc/miniflux.conf` is used instead of environment variables:
+
+```
+# /etc/miniflux.conf
+
+LOG_DATE_TIME=yes
+LISTEN_ADDR=127.0.0.1:8080
+DATABASE_URL=user=postgres dbname=miniflux sslmode=disable
+```
+
+To finalize the installation, create the database schema and a first user:
+
+```bash
+miniflux -c /etc/miniflux.conf -migrate
+miniflux -c /etc/miniflux.conf -create-admin
+```
+
+And finally, start the application:
+
+```bash
+service miniflux start
+```
 
 <h2 id="docker">Docker Installation <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
 

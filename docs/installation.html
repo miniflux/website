@@ -27,6 +27,7 @@
 <li><a href="#binary">Manual Installation</a></li>
 <li><a href="#debian">Debian Package Installation</a></li>
 <li><a href="#rpm">RPM Package Installation</a></li>
+<li><a href="#alpine-linux">Alpine Linux Installation</a></li>
 <li><a href="#docker">Docker Installation</a></li>
 </ul>
 
@@ -52,6 +53,12 @@
 <td>RHEL/Fedora</td>
 <td>Upstream (Binary)</td>
 <td><a href="https://github.com/miniflux/rpm-package">https://github.com/miniflux/rpm-package</a></td>
+</tr>
+
+<tr>
+<td>Alpine Linux</td>
+<td>Community (Source)</td>
+<td><a href="https://git.alpinelinux.org/aports/tree/testing/miniflux">aports/testing/miniflux</a></td>
 </tr>
 
 <tr>
@@ -173,6 +180,49 @@ When you use the RPM package, the Miniflux daemon is supervised by systemd.</p>
 Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
 You must restart the service to take the new values into consideration.
 </p>
+
+<h2 id="alpine-linux">Alpine Linux Installation <a class="anchor" href="#alpine-linux" title="Permalink">¶</a></h2>
+
+<p><a href="https://alpinelinux.org/">Alpine Linux</a> is a lightweight Linux distribution that is perfectly suited for running Miniflux.</p>
+
+<p>An APK package is available from the Edge repository.</p>
+
+<p>Edit the file <code>/etc/apk/repositories</code> to enable the Edge repository: <code>http://dl-cdn.alpinelinux.org/alpine/edge/testing</code>. And then run <code>apk update</code>.</p>
+
+<p>The Miniflux installation is simple as running:</p>
+
+<pre><code class="language-bash">apk add miniflux
+</code></pre>
+
+<p>Do not forget to install Postgresql:</p>
+
+<pre><code>apk add postgresql postgresql-contrib
+</code></pre>
+
+<p>Configure the database and enable the <code>HSTORE</code> extension as <a href="#database">mentioned previously</a>.</p>
+
+<p>On Alpine Linux, the Miniflux process is supervised by <code>supervise-daemon</code> from <a href="https://github.com/OpenRC/openrc">OpenRC</a> (there is no Systemd).
+The log file <code>/var/log/miniflux.log</code> is rotated by <code>logrotate</code>.</p>
+
+<p>In this context, the configuration file <code>/etc/miniflux.conf</code> is used instead of environment variables:</p>
+
+<pre><code># /etc/miniflux.conf
+
+LOG_DATE_TIME=yes
+LISTEN_ADDR=127.0.0.1:8080
+DATABASE_URL=user=postgres dbname=miniflux sslmode=disable
+</code></pre>
+
+<p>To finalize the installation, create the database schema and a first user:</p>
+
+<pre><code class="language-bash">miniflux -c /etc/miniflux.conf -migrate
+miniflux -c /etc/miniflux.conf -create-admin
+</code></pre>
+
+<p>And finally, start the application:</p>
+
+<pre><code class="language-bash">service miniflux start
+</code></pre>
 
 <h2 id="docker">Docker Installation <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
 
