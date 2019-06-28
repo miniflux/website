@@ -12,9 +12,6 @@ _The hosted version is for people who don't want to manage their own server._
 
 <div class="signup-button">
     <a href="https://hosting.miniflux.app/signup" class="button button-primary">Try Miniflux for free</a>
-    <div class="oauth2">
-        <p><strong><a href="https://reader.miniflux.app/oauth2/google/redirect">Sign up in one click with your Google account</a></strong></p>
-    </div>
 </div>
 
 <h2 id="why">Why use the hosted version? <a class="anchor" href="#why" title="Permalink">¶</a></h2>
@@ -66,9 +63,6 @@ _The hosted version is for people who don't want to manage their own server._
 
 <div class="signup-button">
     <a href="https://hosting.miniflux.app/signup" class="button button-primary">Sign Up Now</a>
-    <div class="oauth2">
-        <p><strong><a href="https://reader.miniflux.app/oauth2/google/redirect">Sign up with Google</a></strong></p>
-    </div>
 </div>
 
 <h2 id="faq">Frequently Asked Questions <a class="anchor" href="#faq" title="Permalink">¶</a></h2>

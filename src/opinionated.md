@@ -35,17 +35,17 @@ Miniflux is a minimalist software. **The purpose of this application is to read 
 - Packaging the software using RPM/Debian/Docker is straightforward.
 - No dependency hell.
 
-<h2 id="postgresql">Why Postgresql? <a class="anchor" href="#postgresql" title="Permalink">¶</a></h2>
+<h2 id="postgresql">Why PostgreSQL? <a class="anchor" href="#postgresql" title="Permalink">¶</a></h2>
 
-Miniflux is compatible only with Postgres.
+Miniflux is compatible only with [PostgreSQL](https://www.postgresql.org/).
 
 - Supporting multiple databases increases the complexity of the software.
-- We do not have the resources to test the software with all major versions of MySQL, MariaDB, Sqlite, and so on.
-- ORM abstracts some interesting features provided by your database.
-- Managing schema migrations with Sqlite is painful.
-- Postgresql is powerful, rock solid and battle tested.
-- Postgresql is a great independent open source software.
-- Miniflux uses `hstore/jsonb/inet` data types, window functions, full-text search and handles user timezones with Postgres.
+- We do not have the resources to test the software with all major versions of MySQL, MariaDB, SQLite, and so on.
+- [SQLite](https://www.sqlite.org/) is very good but there is a limited support of `ALTER TABLE` and the [Golang driver](https://github.com/mattn/go-sqlite3) requires [CGO](https://golang.org/cmd/cgo/) and [GCC](https://gcc.gnu.org/).
+- PostgreSQL is powerful, rock solid and battle tested.
+- PostgreSQL is a great independent open source software.
+- ORM abstracts interesting features provided by the database.
+- Miniflux uses `hstore/jsonb/inet` data types, window functions, full-text search and handles user timezones with PostgreSQL.
 
 <h2 id="js-framework">Why no Javascript framework? <a class="anchor" href="#js-framework" title="Permalink">¶</a></h2>
 

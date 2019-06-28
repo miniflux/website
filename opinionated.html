@@ -58,18 +58,18 @@
 <li>No dependency hell.</li>
 </ul>
 
-<h2 id="postgresql">Why Postgresql? <a class="anchor" href="#postgresql" title="Permalink">¶</a></h2>
+<h2 id="postgresql">Why PostgreSQL? <a class="anchor" href="#postgresql" title="Permalink">¶</a></h2>
 
-<p>Miniflux is compatible only with Postgres.</p>
+<p>Miniflux is compatible only with <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
 
 <ul>
 <li>Supporting multiple databases increases the complexity of the software.</li>
-<li>We do not have the resources to test the software with all major versions of MySQL, MariaDB, Sqlite, and so on.</li>
-<li>ORM abstracts some interesting features provided by your database.</li>
-<li>Managing schema migrations with Sqlite is painful.</li>
-<li>Postgresql is powerful, rock solid and battle tested.</li>
-<li>Postgresql is a great independent open source software.</li>
-<li>Miniflux uses <code>hstore/jsonb/inet</code> data types, window functions, full-text search and handles user timezones with Postgres.</li>
+<li>We do not have the resources to test the software with all major versions of MySQL, MariaDB, SQLite, and so on.</li>
+<li><a href="https://www.sqlite.org/">SQLite</a> is very good but there is a limited support of <code>ALTER TABLE</code> and the <a href="https://github.com/mattn/go-sqlite3">Golang driver</a> requires <a href="https://golang.org/cmd/cgo/">CGO</a> and <a href="https://gcc.gnu.org/">GCC</a>.</li>
+<li>PostgreSQL is powerful, rock solid and battle tested.</li>
+<li>PostgreSQL is a great independent open source software.</li>
+<li>ORM abstracts interesting features provided by the database.</li>
+<li>Miniflux uses <code>hstore/jsonb/inet</code> data types, window functions, full-text search and handles user timezones with PostgreSQL.</li>
 </ul>
 
 <h2 id="js-framework">Why no Javascript framework? <a class="anchor" href="#js-framework" title="Permalink">¶</a></h2>
