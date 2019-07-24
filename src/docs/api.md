@@ -87,7 +87,7 @@ func main() {
 
 <h3 id="python-client">Python Client <a class="anchor" href="#python-client" title="Permalink">¶</a></h3>
 
-- Repository: <https://github.com/miniflux/miniflux-python>
+- Repository: <https://github.com/miniflux/python-client>
 - PyPi: <https://pypi.org/project/miniflux/>
 
 Installation:
@@ -122,7 +122,7 @@ entries = client.get_entries(starred=True, limit=10)
 feed_entries = client.get_feed_entries(123, direction='desc', order='published_at', limit=5)
 
 # Update a feed category
-client.update_Feed(123, category_id=456)
+client.update_feed(123, category_id=456)
 ```
 
 <h2 id="endpoints">API Endpoints <a class="anchor" href="#endpoints" title="Permalink">¶</a></h2>
