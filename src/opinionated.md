@@ -41,7 +41,7 @@ Miniflux is compatible only with [PostgreSQL](https://www.postgresql.org/).
 
 - Supporting multiple databases increases the complexity of the software.
 - We do not have the resources to test the software with all major versions of MySQL, MariaDB, SQLite, and so on.
-- [SQLite](https://www.sqlite.org/) is very good but there is a limited support of `ALTER TABLE` and the [Golang driver](https://github.com/mattn/go-sqlite3) requires [CGO](https://golang.org/cmd/cgo/) and [GCC](https://gcc.gnu.org/).
+- [SQLite](https://www.sqlite.org/) is excellent but there is a limited support of `ALTER TABLE` and the [Golang driver](https://github.com/mattn/go-sqlite3) requires [CGO](https://golang.org/cmd/cgo/) and [GCC](https://gcc.gnu.org/). Miniflux 2 was initially designed as [Twelve-Factor App](https://12factor.net/) to run in ephemeral containers.
 - PostgreSQL is powerful, rock solid and battle tested.
 - PostgreSQL is a great independent open source software.
 - ORM abstracts interesting features provided by the database.
