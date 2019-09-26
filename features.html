@@ -23,7 +23,8 @@
 
 <ul>
 <li>Supported feed formats: Atom, RSS 1.0/2.0, RDF and JSON</li>
-<li><a href="https://en.wikipedia.org/wiki/OPML">OPML</a> import/export</li>
+<li><a href="https://en.wikipedia.org/wiki/OPML">OPML</a> file import/export</li>
+<li>OPML URL import</li>
 <li>Support multiple enclosures/attachments (Podcasts, videos, music, and images)</li>
 <li>Play videos from YouTube channels directly inside Miniflux</li>
 <li>Categories</li>
@@ -41,7 +42,7 @@
 <li>Open external links with the attributes <code>rel=&quot;noopener noreferrer&quot; referrerpolicy=&quot;no-referrer&quot;</code></li>
 <li>Image proxy to avoid mixed content warnings with HTTPS</li>
 <li>Play Youtube videos by using the domain <code>youtube-nocookie.com</code></li>
-<li>Block any external Javascript code to avoid tracking</li>
+<li>Block external Javascript code to avoid tracking</li>
 </ul>
 
 <h2 id="content-manipulation">Content Manipulation <a class="anchor" href="#content-manipulation" title="Permalink">¶</a></h2>
@@ -63,7 +64,16 @@
 <li>You could add Miniflux to the home screen</li>
 <li>Keyboard shortcuts</li>
 <li>Touch events on mobile devices</li>
-<li>Themes: Default (light), Black (Dark mode) and Sans-Serif</li>
+<li>Themes:
+
+<ul>
+<li>Light (Sans-Serif)</li>
+<li>Light (Serif)</li>
+<li>Dark (Sans-Serif)</li>
+<li>Dark (Serif)</li>
+<li>System (Sans-Serif) - Switch between Dark and Light themes according to system preferences</li>
+<li>System (Serif)</li>
+</ul></li>
 </ul>
 
 <h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
@@ -95,6 +105,7 @@
 <li>Feeds are updated in the background by an internal scheduler</li>
 <li>External content is sanitized before being displayed</li>
 <li>Uses a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a> that allows only application Javascript and block inline code and styles</li>
+<li>Support <strong>native</strong> lazy loading for images and iframes</li>
 <li>Works only in modern browsers</li>
 <li>Follows the <a href="https://12factor.net/">Twelve-Factor App</a> principle</li>
 </ul>

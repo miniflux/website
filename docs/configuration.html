@@ -88,12 +88,6 @@
 </tr>
 
 <tr>
-<td><code>ARCHIVE_READ_DAYS</code></td>
-<td>Number of days after which marking read items as removed</td>
-<td><code>60</code></td>
-</tr>
-
-<tr>
 <td><code>LISTEN_ADDR</code></td>
 <td>Address to listen on (use absolute path for Unix socket)</td>
 <td><code>127.0.0.1:8080</code></td>
@@ -112,9 +106,21 @@
 </tr>
 
 <tr>
-<td><code>CLEANUP_FREQUENCY</code></td>
+<td><code>CLEANUP_FREQUENCY_HOURS</code></td>
 <td>Cleanup job frequency, remove old sessions and archive read entries</td>
 <td>24 (hours)</td>
+</tr>
+
+<tr>
+<td><code>CLEANUP_ARCHIVE_READ_DAYS</code></td>
+<td>Number of days after which marking read items as removed</td>
+<td><code>60</code></td>
+</tr>
+
+<tr>
+<td><code>CLEANUP_REMOVE_SESSIONS_DAYS</code></td>
+<td>Number of days after removing old sessions from the database</td>
+<td><code>30</code></td>
 </tr>
 
 <tr>

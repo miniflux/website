@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 2.0.18</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 2.0.18</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="/releases.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2019-09-25">September 25, 2019</time>
+        
+        <ul>
+<li>Add Docker image variant for <code>arm32v7</code></li>
+<li>Add theme variants
+
+<ul>
+<li>Use CSS variables instead of inherence</li>
+<li>Rename default theme to &ldquo;Light - Serif&rdquo;</li>
+<li>Rename Black theme to &ldquo;Dark - Serif&rdquo;</li>
+<li>Rename &ldquo;Sans-Serif&rdquo; theme to &ldquo;Light - Sans Serif&rdquo;</li>
+<li>Add &ldquo;System&rdquo; theme that use system preferences: Dark or Light</li>
+<li>Add Serif and Sans-Serif variants for each color theme</li>
+</ul></li>
+<li>Avoid constraint error when having duplicate entries during feed creation</li>
+<li>Disable strict XML parsing</li>
+<li>Ignore invalid content type</li>
+<li>Update man page</li>
+<li>Replace Travis by GitHub Actions</li>
+<li>Rename cleanup config variables and deprecate old ones
+
+<ul>
+<li><code>CLEANUP_FREQUENCY_HOURS</code> instead of <code>CLEANUP_FREQUENCY</code></li>
+<li><code>CLEANUP_ARCHIVE_READ_DAYS</code> instead of <code>ARCHIVE_READ_DAYS</code></li>
+</ul></li>
+<li>Make configurable the number of days to remove old sessions</li>
+<li>Add native lazy loading for images and iframes</li>
+<li>Do not buffer responses in the image proxy</li>
+<li>Update dependencies</li>
+<li>Add Go 1.13 to test matrix</li>
+<li>Replace link border by outline to avoid slight content shift</li>
+<li>New rewrite function: <code>add_mailto_subject</code></li>
+<li>Import OPML from URL</li>
+<li>Fix HTML injection in addImageTitle</li>
+<li>Accept HTML entities when parsing XML</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.18">Downloads</a></p>
+
+    </article>
+</body>
+</html>

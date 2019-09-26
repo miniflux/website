@@ -7,7 +7,8 @@ uri: features.html
 <h2 id="reader">Reader <a class="anchor" href="#reader" title="Permalink">¶</a></h2>
 
 - Supported feed formats: Atom, RSS 1.0/2.0, RDF and JSON
-- [OPML](https://en.wikipedia.org/wiki/OPML) import/export
+- [OPML](https://en.wikipedia.org/wiki/OPML) file import/export
+- OPML URL import
 - Support multiple enclosures/attachments (Podcasts, videos, music, and images)
 - Play videos from YouTube channels directly inside Miniflux
 - Categories
@@ -23,7 +24,7 @@ uri: features.html
 - Open external links with the attributes `rel="noopener noreferrer" referrerpolicy="no-referrer"`
 - Image proxy to avoid mixed content warnings with HTTPS
 - Play Youtube videos by using the domain `youtube-nocookie.com`
-- Block any external Javascript code to avoid tracking
+- Block external Javascript code to avoid tracking
 
 <h2 id="content-manipulation">Content Manipulation <a class="anchor" href="#content-manipulation" title="Permalink">¶</a></h2>
 
@@ -41,7 +42,13 @@ uri: features.html
 - You could add Miniflux to the home screen
 - Keyboard shortcuts
 - Touch events on mobile devices
-- Themes: Default (light), Black (Dark mode) and Sans-Serif
+- Themes:
+    - Light (Sans-Serif)
+    - Light (Serif)
+    - Dark (Sans-Serif)
+    - Dark (Serif)
+    - System (Sans-Serif) - Switch between Dark and Light themes according to system preferences
+    - System (Serif)
 
 <h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
 
@@ -67,5 +74,6 @@ uri: features.html
 - Feeds are updated in the background by an internal scheduler
 - External content is sanitized before being displayed
 - Uses a [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) that allows only application Javascript and block inline code and styles
+- Support **native** lazy loading for images and iframes
 - Works only in modern browsers
 - Follows the [Twelve-Factor App](https://12factor.net/) principle

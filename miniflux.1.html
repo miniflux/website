@@ -114,14 +114,18 @@ The configuration file is a text file that follow these rules:
   <dd>Base URL to generate HTML links and base path for cookies.
     <br/>
     Default is http://localhost/.</dd>
-  <dt><b>CLEANUP_FREQUENCY</b></dt>
+  <dt><b>CLEANUP_FREQUENCY_HOURS</b></dt>
   <dd>Cleanup job frequency, remove old sessions and archive read entries.
     <br/>
     Default is 24 hours.</dd>
-  <dt><b>ARCHIVE_READ_DAYS</b></dt>
+  <dt><b>CLEANUP_ARCHIVE_READ_DAYS</b></dt>
   <dd>Number of days after marking read items as removed.
     <br/>
     Default is 60 days.</dd>
+  <dt><b>CLEANUP_REMOVE_SESSIONS_DAYS</b></dt>
+  <dd>Number of days after removing old sessions from the database.
+    <br/>
+    Default is 30 days.</dd>
   <dt><b>HTTPS</b></dt>
   <dd>Forces cookies to use secure flag and send HSTS header.</dd>
   <dt><b>DISABLE_HSTS</b></dt>

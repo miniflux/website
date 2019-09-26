@@ -16,6 +16,7 @@ Especially on mobile devices where there is no `hover` event.
 | `add_dynamic_image` | Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size). |
 | `add_image_title` | Add each image's title as a caption under the image. |
 | `add_youtube_video` | Insert Youtube video inside the article (automatic for Youtube.com). |
+| `add_mailto_subject` | Insert mailto links subject into the article. |
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.
 

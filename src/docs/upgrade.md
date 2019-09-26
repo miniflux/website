@@ -32,4 +32,4 @@ Follow instructions mentioned above and run: `rpm -Uvh miniflux-2.x.x-1.0.x86_64
 - Start a new container with the latest tag: `docker run -d -p 80:8080 miniflux/miniflux:2.x.x`
 
 If you use Docker Compose, define the new tag in the YAML file and restart the container.
-Don't forget to run the database migrations if necessary.
+Do not forget to run the database migrations if necessary.

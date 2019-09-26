@@ -17,10 +17,10 @@ The API endpoint is `https://example.org/fever/`
 
 ### Compatible Apps
 
-  - [Reeder](http://reederapp.com/) (iOS/Mac OS)
-  - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS)
-  - [Readably](https://play.google.com/store/apps/details?id=com.isaiasmatewos.readably)
-    (Android)
+- [Reeder](http://reederapp.com/) (iOS/Mac OS)
+- [Unread](https://www.goldenhillsoftware.com/unread/) (iOS)
+- [Readably](https://play.google.com/store/apps/details?id=com.isaiasmatewos.readably)
+  (Android)
 
 <div class="note">
 <ul>

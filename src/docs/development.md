@@ -128,7 +128,7 @@ If the test suite fail, you will see the logs of Miniflux.
 
 <h2 id="docker-image">Build Docker Image <a class="anchor" href="#docker-image" title="Permalink">¶</a></h2>
 
-Miniflux supports three different architectures for Docker containers: `amd64`, `arm32v6`, and `arm64v8`.
+Miniflux supports three different architectures for Docker containers: `amd64`, `arm32v6`, `arm32v7` and `arm64v8`.
 There is one image for each architecture and a manifest.
 
 Here an example to build your own image:
