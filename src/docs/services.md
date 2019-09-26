@@ -19,17 +19,14 @@ The API endpoint is `https://example.org/fever/`
 
 - [Reeder](http://reederapp.com/) (iOS/Mac OS)
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS)
-- [Readably](https://play.google.com/store/apps/details?id=com.isaiasmatewos.readably)
-  (Android)
+- [Readably](https://play.google.com/store/apps/details?id=com.isaiasmatewos.readably) (Android)
 
-<div class="note">
-<ul>
-  <li>Saving an entry will add a new bookmark and save the article</li>
-  <li>Only the JSON format is supported</li>
-  <li>Refreshing feeds is not possible with Reeder because no user information is sent</li>
-  <li>Links, sparks, and kindlings are not supported</li>
-</ul>
-</div>
+### Notes
+
+- Saving an entry will add a new bookmark and save the article
+- Only the JSON format is supported
+- Refreshing feeds is not possible with Reeder because no user information is sent
+- Links, sparks, and kindlings are not supported
 
 <h2 id="pinboard">Pinboard <a class="anchor" href="#pinboard" title="Permalink">¶</a></h2>
 
