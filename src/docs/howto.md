@@ -24,7 +24,7 @@ Here are some examples of configuration:
 
 ```bash
 curl -s https://apt.miniflux.app/KEY.gpg | sudo apt-key add -
-echo "deb https://apt.miniflux.app/ /" > /etc/apt/sources.list.d/miniflux.list
+echo "deb https://apt.miniflux.app/ /" | sudo tee /etc/apt/sources.list.d/miniflux.list > /dev/null
 apt update
 ```
 
