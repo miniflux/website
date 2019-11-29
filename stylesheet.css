@@ -96,11 +96,22 @@ th {
     border-bottom-width: 2px;
 }
 
+code {
+    background: rgba(27,31,35,.05);
+    padding: 3px;
+    border-radius: 3px;
+}
+
 pre {
-    border: 1px solid #e1e4e5;
+    border: 1px solid #687550;
     background: #eeffcc;
     overflow: auto;
     padding: 3px;
+}
+
+pre > code {
+    border: none;
+    background: #eeffcc;
 }
 
 ul {
@@ -169,6 +180,7 @@ img {
     padding: 12px;
     line-height: 24px;
     margin-bottom: 24px;
+    border: 1px solid #e7c17b;
 }
 
 .info {
@@ -176,6 +188,12 @@ img {
     padding: 12px;
     line-height: 24px;
     margin-bottom: 24px;
+    border: 1px solid #7d9bb1;
+}
+
+.warning li:last-child,
+.info li:last-child {
+    margin-bottom: 0;
 }
 
 .alert {

@@ -308,6 +308,8 @@ Optional fields:
 - `password`: Feed password (string)
 - `crawler`: Enable/Disable scraper (boolean)
 - `user_agent`: Custom user agent for the feed (string)
+- `scraper_rules`: List of scraper rules (string) - Available since Miniflux 2.0.19
+- `rewrite_rules`: List of rewrite rules (string) - Available since Miniflux 2.0.19
 
 <h3 id="endpoint-update-feed">Update Feed <a class="anchor" href="#endpoint-update-feed" title="Permalink">¶</a></h3>
 
@@ -373,7 +375,7 @@ Request:
 
 <div class="info">
 <ul>
-    <li>Returns `204` status code for success.</li>
+    <li>Returns <code>204</code> status code for success.</li>
     <li>This API call is synchronous and can takes hundred of milliseconds.</li>
 </ul>
 </div>
@@ -494,18 +496,19 @@ Request:
 
 Available filters:
 
-  - `status`: Entry status (read, unread or removed)
-  - `offset`
-  - `limit`
-  - `order`: "id", "status", "published\_at", "category\_title",
-    "category\_id"
-  - `direction`: "asc" or "desc"
-  - `before` (unix timestamp, available since Miniflux 2.0.9)
-  - `after` (unix timestamp, available since Miniflux 2.0.9)
-  - `before_entry_id` (int64, available since Miniflux 2.0.9)
-  - `after_entry_id` (int64, available since Miniflux 2.0.9)
-  - `starred` (boolean, available since Miniflux 2.0.9)
-  - `search`: search query (text, available since Miniflux 2.0.10)
+- `status`: Entry status (read, unread or removed)
+- `offset`
+- `limit`
+- `order`: "id", "status", "published\_at", "category\_title",
+"category\_id"
+- `direction`: "asc" or "desc"
+- `before` (unix timestamp, available since Miniflux 2.0.9)
+- `after` (unix timestamp, available since Miniflux 2.0.9)
+- `before_entry_id` (int64, available since Miniflux 2.0.9)
+- `after_entry_id` (int64, available since Miniflux 2.0.9)
+- `starred` (boolean, available since Miniflux 2.0.9)
+- `search`: search query (text, available since Miniflux 2.0.10)
+- `category_id`: filter by category (int, available since Miniflux 2.0.19)
 
 Response:
 

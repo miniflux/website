@@ -28,7 +28,7 @@ Fork the project and clone the repository locally.
 Since Go 1.11, you don't need to work inside the `$GOPATH`.
 You can checkout the source code anywhere on your filesystem.
 
-Miniflux is using [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies.
+Miniflux uses [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies.
 
 <h2 id="compilation">Compilation <a class="anchor" href="#compilation" title="Permalink">¶</a></h2>
 
@@ -131,7 +131,13 @@ If the test suite fail, you will see the logs of Miniflux.
 Miniflux supports three different architectures for Docker containers: `amd64`, `arm32v6`, `arm32v7` and `arm64v8`.
 There is one image for each architecture and a manifest.
 
-Here an example to build your own image:
+Here an example to build only the `amd64` image:
+
+```bash
+make docker-image
+```
+
+To build all images and override the image name:
 
 ```bash
 make docker-images DOCKER_IMAGE=your-namespace/miniflux

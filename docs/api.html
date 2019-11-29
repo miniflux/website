@@ -340,6 +340,8 @@ Content-Type: application/json
 <li><code>password</code>: Feed password (string)</li>
 <li><code>crawler</code>: Enable/Disable scraper (boolean)</li>
 <li><code>user_agent</code>: Custom user agent for the feed (string)</li>
+<li><code>scraper_rules</code>: List of scraper rules (string) - Available since Miniflux 2.0.19</li>
+<li><code>rewrite_rules</code>: List of rewrite rules (string) - Available since Miniflux 2.0.19</li>
 </ul>
 
 <h3 id="endpoint-update-feed">Update Feed <a class="anchor" href="#endpoint-update-feed" title="Permalink">¶</a></h3>
@@ -409,7 +411,7 @@ Content-Type: application/json
 
 <div class="info">
 <ul>
-    <li>Returns `204` status code for success.</li>
+    <li>Returns <code>204</code> status code for success.</li>
     <li>This API call is synchronous and can takes hundred of milliseconds.</li>
 </ul>
 </div>
@@ -545,6 +547,7 @@ The field <code>comments_url</code> is available since Miniflux v2.0.5.
 <li><code>after_entry_id</code> (int64, available since Miniflux 2.0.9)</li>
 <li><code>starred</code> (boolean, available since Miniflux 2.0.9)</li>
 <li><code>search</code>: search query (text, available since Miniflux 2.0.10)</li>
+<li><code>category_id</code>: filter by category (int, available since Miniflux 2.0.19)</li>
 </ul>
 
 <p>Response:</p>

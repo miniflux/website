@@ -42,6 +42,6 @@ uri: docs/keyboard_shortcuts.html
 
 <p class="warning">
 Mozilla Firefox blocks the opening of a new tab if you use the
-shortcut `v`. You must authorize Miniflux to open new tabs in your
+shortcut <code>v</code>. You must authorize Miniflux to open new tabs in your
 Firefox settings.
 </p>

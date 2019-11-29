@@ -3,7 +3,7 @@ description: Instructions to install Miniflux on your own server
 template: doc
 uri: docs/installation.html
 ---
-Installing Miniflux is straightforward if you have some basic sysadmin knowledge.
+Installing Miniflux is straightforward if you have some basic system administration knowledge.
 
 - [Packages](#packages)
 - [Database Configuration](#database)
@@ -24,9 +24,7 @@ Arch Linux     |  Community (Source) |  https://aur.archlinux.org/packages/minif
 FreeBSD Port   |  Community (Source) |  [ports/www/miniflux](https://svnweb.freebsd.org/ports/head/www/miniflux/)
 Nix            |  Community (Source) |  [pkgs/servers/miniflux](https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux)
 
-You can download precompiled binaries and packages on the releases page: https://github.com/miniflux/miniflux/releases.
-
-You could also [build the application from the source code](development.html).
+You can download precompiled binaries and packages on the [GitHub Releases page](https://github.com/miniflux/miniflux/releases). You could also [build the application from the source code](development.html).
 
 <h2 id="database">Database Configuration <a class="anchor" href="#database" title="Permalink">¶</a></h2>
 

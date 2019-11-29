@@ -4,7 +4,7 @@ uri: docs/services.html
 ---
 <h2 id="fever">Fever API <a class="anchor" href="#fever" title="Permalink">¶</a></h2>
 
-Miniflux implements the Fever API in addition to its own REST API. The
+Miniflux implements the [Fever API](https://feedafever.com/api) in addition to its own [REST API](api.html). The
 Fever API allows you to use existing mobile applications to read your
 feeds instead of the web user interface.
 

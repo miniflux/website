@@ -107,6 +107,12 @@ _The hosted version is for people who don't want to manage their own server._
         Subscriptions are updated every hour.
         Sometimes, it might take a little bit longer depending on the size of the queue.
     </dd>
+    <dt>How do I reset my password?</dt>
+    <dd>
+        At the moment, there is no feature to re-initialize your password. 
+        If you forgot your password, send an email to <a href="mailto:support@miniflux.net">support@miniflux.net</a>.
+        It's strongly advised to use a password manager.
+    </dd>
     <dt>Where are the terms of service?</dt>
     <dd>
         <a href="tos.html">Terms of Service and Privacy</a>
