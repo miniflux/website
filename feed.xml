@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Miniflux</title>
   <id>https://miniflux.app/</id>
-  <updated>2019-11-29T13:28:48-08:00</updated>
+  <updated>2019-12-01T12:22:34-08:00</updated>
   <author>
     <name>Frédéric Guillot</name>
   </author>
@@ -10,6 +10,44 @@
   <link rel="alternate" type="text/html" href="https://miniflux.app/"/>
   <link rel="self" type="application/atom+xml" href="https://miniflux.app/feed.xml"/>
 
+  
+  <entry>
+    <title>Miniflux 2.0.19</title>
+    <link rel="alternate" type="text/html" href="https://miniflux.app/releases/2.0.19.html"/>
+    <id>https://miniflux.app/releases/2.0.19.html</id>
+    <updated>2019-12-01T00:00:00Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>Add shortcut <code>V</code> to open original link in current tab</li>
+<li>Add the possibility to add rules during feed creation</li>
+<li>Wrap attachments into <code>&lt;details&gt;</code> disclosure element</li>
+<li>Show attachment size on entry page</li>
+<li>Add support of RSS Media elements (group, description, peer link, and thumbnails)</li>
+<li>Add rewrite functions: <code>convert_text_link</code> and <code>nl2br</code></li>
+<li>Add scraper rule for openingsource.org</li>
+<li>Add Makefile target to build only amd64 Docker image</li>
+<li>Make sure to remove integration settings when removing a user</li>
+<li>Add API parameter to filter entries by category</li>
+<li>Display list of feeds per category</li>
+<li>Show the number of read and unread entries for each feed</li>
+<li>Make sure settings menu is consistent</li>
+<li>Remove fixed table-layout for entry content</li>
+<li>Update autocert lib because ACME v1 is EOL</li>
+<li>Do not lighten blockquote font color</li>
+<li>Update <code>de_DE</code> translation</li>
+<li>Send a response when changing status of removed entries in Fever API</li>
+<li>Add meta tag to disable Google Translate</li>
+<li>Improve storage module</li>
+<li>Improve XML decoder to remove illegal characters</li>
+<li>Compare Fever token case-insensitively</li>
+<li>Make sure integration tests are marked as failed in Github Actions</li>
+<li>Add new formats to date parser</li>
+<li>Add notification message when using keyboard shortcuts: <code>f</code>, <code>s</code>, and <code>m</code>.</li>
+<li>Avoid keyboard shortcuts to conflict with Firefox’s &ldquo;Find as you type&rdquo; feature</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.19">Downloads</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title>Miniflux 2.0.18</title>

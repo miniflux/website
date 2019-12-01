@@ -31,6 +31,7 @@ uri: docs/keyboard_shortcuts.html
 
 - `o`: Open selected item
 - `v`: Open original link to a new tab
+- `V`: Open original link into current tab (entry view only)
 - `m`: Mark selected item as read/unread
 - `A`: Mark current page as read
 - `d`: Fetch original web page and apply scraper rules or readability
