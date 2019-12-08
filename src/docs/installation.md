@@ -184,7 +184,7 @@ You could also use Docker Compose. Here an example of `docker-compose.yml` file:
 version: '3'
 services:
     miniflux:
-    image: miniflux/miniflux:latest
+        image: miniflux/miniflux:latest
         ports:
             - "80:8080"
         depends_on:
@@ -208,10 +208,10 @@ Remember that you still need to run the database migrations and create the first
 
 ```bash
 # Run database migrations
-docker exec -ti <container-name> /usr/bin/miniflux -migrate
+docker-compose exec miniflux /usr/bin/miniflux -migrate
 
 # Create the first user
-docker exec -ti <container-name> /usr/bin/miniflux -create-admin
+docker-compose exec miniflux /usr/bin/miniflux -create-admin
 ```
 
 Another way of doing the same thing is to populate the variables `RUN_MIGRATIONS`, `CREATE_ADMIN`, `ADMIN_USERNAME` and `ADMIN_PASSWORD`.
