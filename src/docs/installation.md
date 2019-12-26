@@ -184,7 +184,7 @@ You could also use Docker Compose. Here an example of `docker-compose.yml` file:
 version: '3'
 services:
     miniflux:
-    image: miniflux/miniflux:latest
+        image: miniflux/miniflux:latest
         ports:
             - "80:8080"
         depends_on:
