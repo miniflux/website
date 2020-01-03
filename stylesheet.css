@@ -112,6 +112,7 @@ pre {
 pre > code {
     border: none;
     background: #eeffcc;
+    padding: 0;
 }
 
 ul {
