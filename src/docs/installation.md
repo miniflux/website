@@ -183,23 +183,23 @@ You could also use Docker Compose. Here an example of `docker-compose.yml` file:
 ```yaml
 version: '3'
 services:
-    miniflux:
-        image: miniflux/miniflux:latest
-        ports:
-            - "80:8080"
-        depends_on:
-            - db
-        environment:
-            - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
-    db:
-        image: postgres:latest
-        environment:
-            - POSTGRES_USER=miniflux
-            - POSTGRES_PASSWORD=secret
-        volumes:
-            - miniflux-db:/var/lib/postgresql/data
+  miniflux:
+    image: miniflux/miniflux:latest
+    ports:
+      - "80:8080"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=miniflux
+      - POSTGRES_PASSWORD=secret
+    volumes:
+      - miniflux-db:/var/lib/postgresql/data
 volumes:
-    miniflux-db:
+  miniflux-db:
 ```
 
 Start the database first `docker-compose up db` and then the application `docker-compose up miniflux`.
@@ -221,25 +221,25 @@ For example:
 ```yaml
 version: '3'
 services:
-    miniflux:
-        image: miniflux/miniflux:latest
-        ports:
-            - "80:8080"
-        depends_on:
-            - db
-        environment:
-            - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
-            - RUN_MIGRATIONS=1
-            - CREATE_ADMIN=1
-            - ADMIN_USERNAME=admin
-            - ADMIN_PASSWORD=test123
-    db:
-        image: postgres:latest
-        environment:
-            - POSTGRES_USER=miniflux
-            - POSTGRES_PASSWORD=secret
-        volumes:
-            - miniflux-db:/var/lib/postgresql/data
+  miniflux:
+    image: miniflux/miniflux:latest
+    ports:
+      - "80:8080"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+      - RUN_MIGRATIONS=1
+      - CREATE_ADMIN=1
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=test123
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=miniflux
+      - POSTGRES_PASSWORD=secret
+    volumes:
+      - miniflux-db:/var/lib/postgresql/data
 volumes:
-    miniflux-db:
+  miniflux-db:  
 ```
