@@ -259,10 +259,10 @@ volumes:
 <p>Remember that you still need to run the database migrations and create the first user:</p>
 
 <pre><code class="language-bash"># Run database migrations
-docker exec -ti &lt;container-name&gt; /usr/bin/miniflux -migrate
+docker-compose exec miniflux /usr/bin/miniflux -migrate
 
 # Create the first user
-docker exec -ti &lt;container-name&gt; /usr/bin/miniflux -create-admin
+docker-compose exec miniflux /usr/bin/miniflux -create-admin
 </code></pre>
 
 <p>Another way of doing the same thing is to populate the variables <code>RUN_MIGRATIONS</code>, <code>CREATE_ADMIN</code>, <code>ADMIN_USERNAME</code> and <code>ADMIN_PASSWORD</code>.</p>

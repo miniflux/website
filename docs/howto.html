@@ -40,7 +40,7 @@
 <h2 id="apt-repo">How to Configure the APT Repository <a class="anchor" href="#apt-repo" title="Permalink">¶</a></h2>
 
 <pre><code class="language-bash">curl -s https://apt.miniflux.app/KEY.gpg | sudo apt-key add -
-echo &quot;deb https://apt.miniflux.app/ /&quot; &gt; /etc/apt/sources.list.d/miniflux.list
+echo &quot;deb https://apt.miniflux.app/ /&quot; | sudo tee /etc/apt/sources.list.d/miniflux.list &gt; /dev/null
 apt update
 </code></pre>
 
