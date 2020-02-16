@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Miniflux</title>
   <id>https://miniflux.app/</id>
-  <updated>2019-12-01T12:22:34-08:00</updated>
+  <updated>2020-02-15T18:38:59-08:00</updated>
   <author>
     <name>Frédéric Guillot</name>
   </author>
@@ -10,6 +10,46 @@
   <link rel="alternate" type="text/html" href="https://miniflux.app/"/>
   <link rel="self" type="application/atom+xml" href="https://miniflux.app/feed.xml"/>
 
+  
+  <entry>
+    <title>Miniflux 2.0.20</title>
+    <link rel="alternate" type="text/html" href="https://miniflux.app/releases/2.0.20.html"/>
+    <id>https://miniflux.app/releases/2.0.20.html</id>
+    <updated>2020-02-15T00:00:00Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>Add Japanese translation</li>
+<li>History: show entries in the order in which they were read</li>
+<li>Add button to add to Home screen</li>
+<li>Ignore enclosures without URL</li>
+<li>Correct spelling of &ldquo;toggle&rdquo;</li>
+<li>List view: align information to the left side, and the actionable buttons to the right</li>
+<li>Redirect to /unread when getting a 404 for an unread expired entry</li>
+<li>Do not advance to the next item when using the &lsquo;v&rsquo; shortcut on the list of starred items</li>
+<li>Wrap around when navigating with keyboard shortcuts on a list view</li>
+<li>Remove unused Feed.Entries and Entry.Category from API client</li>
+<li>Add comments link keyboard shortcut</li>
+<li>Allow application/xhtml+xml links as comments URL in Atom replies</li>
+<li>Allow only absolute URLs in comments URL</li>
+<li>Use internal XML workarounds to detect feed format</li>
+<li>Make menu consistent across feed pages</li>
+<li>Make sure external URLs are not encoded incorrectly by Go template engine</li>
+<li>Make sure whitelisted URI schemes are handled properly by the sanitizer</li>
+<li>Use white background for favicon (Improve legibility when using a dark theme)</li>
+<li>Remove dependency on Sed to build Docker images</li>
+<li>Normalize URL query string before executing HTTP requests</li>
+<li>Improve Dublin Core support for RDF feeds</li>
+<li>Improve Podcast support (iTunes and Google Play feeds)</li>
+<li>Add support for Atom 0.3</li>
+<li>Add support for Atom &ldquo;replies&rdquo; link relation</li>
+<li>Return outer HTML when scraping elements</li>
+<li>Update scraper rule for &ldquo;Le Monde&rdquo;</li>
+<li>Filter valid XML characters for UTF-8 XML documents before decoding</li>
+<li>Trim spaces for RDF entry links</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.20">Downloads</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title>Miniflux 2.0.19</title>
