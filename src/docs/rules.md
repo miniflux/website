@@ -15,7 +15,9 @@ Especially on mobile devices where there is no `hover` event.
 |---|---|
 | `add_dynamic_image` | Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size). |
 | `add_image_title` | Add each image's title as a caption under the image. |
-| `add_youtube_video` | Insert Youtube video inside the article (automatic for Youtube.com). |
+| `add_youtube_video` | Insert Youtube video to the article (automatic for Youtube.com). |
+| `add_invidious_video` | Insert Invidious player to the article (automatic for https://invidio.us). |
+| `add_youtube_video_using_invidious_player` | Insert Invidious player to the article for Youtube feeds. |
 | `add_mailto_subject` | Insert mailto links subject into the article. |
 | `nl2br` | Convert new lines `\n` to `<br>` (useful for non-HTML contents). |
 | `convert_text_links` | Convert text link to HTML links (useful for non-HTML contents). |

@@ -150,6 +150,8 @@ The configuration file is a text file that follow these rules:
   <dd>OAuth2 client secret.</dd>
   <dt><b>OAUTH2_REDIRECT_URL</b></dt>
   <dd>OAuth2 redirect URL.</dd>
+  <dt><b>OAUTH2_OIDC_DISCOVERY_ENDPOINT</b></dt>
+  <dd>OpenID Connect discovery endpoint.</dd>
   <dt><b>OAUTH2_USER_CREATION</b></dt>
   <dd>Set to 1 to authorize OAuth2 user creation.</dd>
   <dt><b>RUN_MIGRATIONS</b></dt>
@@ -174,7 +176,11 @@ The configuration file is a text file that follow these rules:
   <dt><b>HTTP_CLIENT_MAX_BODY_SIZE</b></dt>
   <dd>Maximum body size for HTTP requests in Mebibyte (MiB).
     <br/>
-    Default is 15 MiB.
+    Default is 15 MiB.</dd>
+  <dt><b>AUTH_PROXY_HEADER</b></dt>
+  <dd>Proxy authentication HTTP header.</dd>
+  <dt><b>AUTH_PROXY_USER_CREATION</b></dt>
+  <dd>Set to 1 to create users based on proxy authentication information.
     <p class="Pp"></p>
   </dd>
 </dl>

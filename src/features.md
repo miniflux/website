@@ -15,7 +15,7 @@ uri: features.html
 - Bookmarks
 - Fetch website icons (favicons)
 - Save articles to third-party services
-- Available in Chinese, Dutch, English, French, German, Italian, Polish, Russian, and Spanish
+- Available in Chinese, Dutch, English, French, German, Italian, Japanese, Polish, Russian, and Spanish
 
 <h2 id="privacy">Privacy <a class="anchor" href="#privacy" title="Permalink">¶</a></h2>
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Miniflux</title>
   <id>https://miniflux.app/</id>
-  <updated>2020-02-15T18:38:59-08:00</updated>
+  <updated>2020-03-28T15:41:33-07:00</updated>
   <author>
     <name>Frédéric Guillot</name>
   </author>
@@ -10,6 +10,38 @@
   <link rel="alternate" type="text/html" href="https://miniflux.app/"/>
   <link rel="self" type="application/atom+xml" href="https://miniflux.app/feed.xml"/>
 
+  
+  <entry>
+    <title>Miniflux 2.0.21</title>
+    <link rel="alternate" type="text/html" href="https://miniflux.app/releases/2.0.21.html"/>
+    <id>https://miniflux.app/releases/2.0.21.html</id>
+    <updated>2020-03-28T00:00:00Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>Add SVG icons to entry actions</li>
+<li>Add support for Invidious
+
+<ul>
+<li>Embed Invidious player for <a href="http://invidio.us">http://invidio.us</a> feeds</li>
+<li>Add new rewrite rule to use Invidious player for Youtube feeds</li>
+</ul></li>
+<li>Check during application startup if the database schema is up to date</li>
+<li>Change default theme for public pages to &ldquo;System Serif&rdquo;</li>
+<li>Add feature to share an article (create a public link of a feed entry)</li>
+<li>Fix SQL injection in full-text search rank ordering</li>
+<li>Add generic OpenID Connect provider (OAuth2)</li>
+<li>Use more secure TLS configuration for autocert server (increase SSL Labs score from B to A+)</li>
+<li>Add feature to create per-application API Keys</li>
+<li>Add Go 1.14 to GitHub Actions</li>
+<li>Add scraper rule for wdwnt.com</li>
+<li>Add API client function to refresh all feeds</li>
+<li>Add API endpoint to refresh all feeds</li>
+<li>Add Auth Proxy authentication</li>
+<li>Use <code>rel=&quot;prev/next&quot;</code> on pagination links</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.21">Downloads</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title>Miniflux 2.0.20</title>

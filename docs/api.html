@@ -39,6 +39,7 @@
 <li><a href="#endpoint-create-feed">Create Feed</a></li>
 <li><a href="#endpoint-update-feed">Update Feed</a></li>
 <li><a href="#endpoint-refresh-feed">Refresh Feed</a></li>
+<li><a href="#endpoint-refresh-all-feeds">Refresh all Feeds</a></li>
 <li><a href="#endpoint-remove-feed">Remove Feed</a></li>
 <li><a href="#endpoint-get-feed-entry">Get Feed Entry</a></li>
 <li><a href="#endpoint-get-entry">Get Entry</a></li>
@@ -64,8 +65,14 @@
 
 <h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
 
-<p>The Miniflux API uses HTTP Basic authentication. The credentials are the
-username/password of your account.</p>
+<p>The API supports two authentication mechanisms:</p>
+
+<ul>
+<li>HTTP Basic authentication with the account username/password</li>
+<li>Per-application API keys (since version 2.0.21)</li>
+</ul>
+
+<p>To generate a new API token, got to &ldquo;Settings &gt; API Keys &gt; Create a new API key&rdquo;.</p>
 
 <h2 id="clients">Clients <a class="anchor" href="#clients" title="Permalink">¶</a></h2>
 
@@ -95,7 +102,11 @@ import (
 )
 
 func main() {
+    // Authentication using username/password.
     client := miniflux.New(&quot;https://miniflux.example.org&quot;, &quot;admin&quot;, &quot;secret&quot;)
+
+    // Authentication using API token.
+    client := miniflux.New(&quot;https://miniflux.example.org&quot;, &quot;My secret token&quot;)
 
     // Fetch all feeds.
     feeds, err := client.Feeds()
@@ -123,7 +134,11 @@ func main() {
 
 <pre><code class="language-python">import miniflux
 
+# Authentication using username/password
 client = miniflux.Client(&quot;https://miniflux.example.org&quot;, &quot;my_username&quot;, &quot;my_secret_password&quot;)
+
+# Authentication using an API token
+client = miniflux.Client(&quot;https://miniflux.example.org&quot;, &quot;My Secret Token&quot;)
 
 # Get all feeds
 feeds = client.get_feeds()
@@ -413,6 +428,21 @@ Content-Type: application/json
 <ul>
     <li>Returns <code>204</code> status code for success.</li>
     <li>This API call is synchronous and can takes hundred of milliseconds.</li>
+</ul>
+</div>
+
+<h3 id="endpoint-refresh-all-feeds">Refresh all Feeds <a class="anchor" href="#endpoint-refresh-all-feeds" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/feeds/refresh
+</code></pre>
+
+<div class="info">
+<ul>
+    <li>Returns <code>204</code> status code for success.</li>
+    <li>Feeds are refreshed in a background process.</li>
+    <li>Available since Miniflux 2.0.21</li>
 </ul>
 </div>
 

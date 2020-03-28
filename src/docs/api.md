@@ -19,6 +19,7 @@ Table of Contents:
     - [Create Feed](#endpoint-create-feed)
     - [Update Feed](#endpoint-update-feed)
     - [Refresh Feed](#endpoint-refresh-feed)
+    - [Refresh all Feeds](#endpoint-refresh-all-feeds)
     - [Remove Feed](#endpoint-remove-feed)
     - [Get Feed Entry](#endpoint-get-feed-entry)
     - [Get Entry](#endpoint-get-entry)
@@ -42,8 +43,12 @@ Table of Contents:
 
 <h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
 
-The Miniflux API uses HTTP Basic authentication. The credentials are the
-username/password of your account.
+The API supports two authentication mechanisms:
+
+- HTTP Basic authentication with the account username/password
+- Per-application API keys (since version 2.0.21)
+
+To generate a new API token, got to "Settings > API Keys > Create a new API key".
 
 <h2 id="clients">Clients <a class="anchor" href="#clients" title="Permalink">¶</a></h2>
 
@@ -73,7 +78,11 @@ import (
 )
 
 func main() {
+    // Authentication using username/password.
     client := miniflux.New("https://miniflux.example.org", "admin", "secret")
+
+    // Authentication using API token.
+    client := miniflux.New("https://miniflux.example.org", "My secret token")
 
     // Fetch all feeds.
     feeds, err := client.Feeds()
@@ -101,7 +110,11 @@ Usage example:
 ```python
 import miniflux
 
+# Authentication using username/password
 client = miniflux.Client("https://miniflux.example.org", "my_username", "my_secret_password")
+
+# Authentication using an API token
+client = miniflux.Client("https://miniflux.example.org", "My Secret Token")
 
 # Get all feeds
 feeds = client.get_feeds()
@@ -377,6 +390,20 @@ Request:
 <ul>
     <li>Returns <code>204</code> status code for success.</li>
     <li>This API call is synchronous and can takes hundred of milliseconds.</li>
+</ul>
+</div>
+
+<h3 id="endpoint-refresh-all-feeds">Refresh all Feeds <a class="anchor" href="#endpoint-refresh-all-feeds" title="Permalink">¶</a></h3>
+
+Request:
+
+    PUT /v1/feeds/refresh
+
+<div class="info">
+<ul>
+    <li>Returns <code>204</code> status code for success.</li>
+    <li>Feeds are refreshed in a background process.</li>
+    <li>Available since Miniflux 2.0.21</li>
 </ul>
 </div>
 

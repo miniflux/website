@@ -202,7 +202,7 @@ volumes:
   miniflux-db:
 ```
 
-Start the database first `docker-compose up db` and then the application `docker-compose up miniflux`.
+Start the database first `docker-compose up -d db` and then the application `docker-compose up miniflux`.
 
 Remember that you still need to run the database migrations and create the first user:
 
