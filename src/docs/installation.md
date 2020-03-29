@@ -19,10 +19,10 @@ Platform       |  Type               |  Repository URL
 ---------------|---------------------|---------------------------------------------------------------------
 Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/deb-package
 RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/rpm-package
-Alpine Linux   |  Community (Source) |  [aports/testing/miniflux](https://git.alpinelinux.org/aports/tree/testing/miniflux)
+Alpine Linux   |  Community (Source) |  https://git.alpinelinux.org/aports/tree/community/miniflux
 Arch Linux     |  Community (Source) |  https://aur.archlinux.org/packages/miniflux/
-FreeBSD Port   |  Community (Source) |  [ports/www/miniflux](https://svnweb.freebsd.org/ports/head/www/miniflux/)
-Nix            |  Community (Source) |  [pkgs/servers/miniflux](https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux)
+FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/www/miniflux/
+Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux
 
 You can download precompiled binaries and packages on the [GitHub Releases page](https://github.com/miniflux/miniflux/releases). You could also [build the application from the source code](development.html).
 
