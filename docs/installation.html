@@ -188,13 +188,13 @@ You must restart the service to take the new values into consideration.
 
 <p><a href="https://alpinelinux.org/">Alpine Linux</a> is a lightweight Linux distribution that is perfectly suited for running Miniflux.</p>
 
-<p>An APK package is available from the Edge repository.</p>
+<p>An APK package is available from the Edge community repository (it was in testing before).</p>
 
-<p>Edit the file <code>/etc/apk/repositories</code> to enable the Edge repository: <code>http://dl-cdn.alpinelinux.org/alpine/edge/testing</code>. And then run <code>apk update</code>.</p>
+<p>Edit the file <code>/etc/apk/repositories</code> to enable the Edge repository: <code>http://dl-cdn.alpinelinux.org/alpine/edge/community</code>. And then run <code>apk update</code>.</p>
 
 <p>The Miniflux installation is simple as running:</p>
 
-<pre><code class="language-bash">apk add miniflux
+<pre><code class="language-bash">apk add miniflux miniflux-openrc miniflux-doc
 </code></pre>
 
 <p>Do not forget to install Postgresql:</p>
@@ -205,7 +205,7 @@ You must restart the service to take the new values into consideration.
 <p>Configure the database and enable the <code>HSTORE</code> extension as <a href="#database">mentioned previously</a>.</p>
 
 <p>On Alpine Linux, the Miniflux process is supervised by <code>supervise-daemon</code> from <a href="https://github.com/OpenRC/openrc">OpenRC</a> (there is no Systemd).
-The log file <code>/var/log/miniflux.log</code> is rotated by <code>logrotate</code>.</p>
+The log file <code>/var/log/miniflux.log</code> is rotated with <code>logrotate</code>.</p>
 
 <p>In this context, the configuration file <code>/etc/miniflux.conf</code> is used instead of environment variables:</p>
 
@@ -213,7 +213,10 @@ The log file <code>/var/log/miniflux.log</code> is rotated by <code>logrotate</c
 
 LOG_DATE_TIME=yes
 LISTEN_ADDR=127.0.0.1:8080
-DATABASE_URL=user=postgres dbname=miniflux sslmode=disable
+DATABASE_URL=user=postgres password=secret dbname=miniflux sslmode=disable
+
+# Run SQL migrations automatically:
+# RUN_MIGRATIONS=1
 </code></pre>
 
 <p>To finalize the installation, create the database schema and a first user:</p>
