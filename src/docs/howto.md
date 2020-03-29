@@ -34,6 +34,8 @@ Then install the package:
 apt install miniflux
 ```
 
+To upgrade Miniflux, run `apt upgrade miniflux`, and don't forget to run the database migrations.
+
 <h2 id="rpm-repo">How to Configure the RPM Repository <a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
 
 Create the file `/etc/yum.repos.d/miniflux.repo`:
@@ -80,6 +82,8 @@ Check that the capability is added:
 getcap /usr/bin/miniflux
 /usr/bin/miniflux = cap_net_bind_service+ep
 ```
+
+Note that you will have to do this operation each time you upgrade Miniflux.
 
 <div class="info">
 Another way of doing this is to use the Systemd Socket Activation or a reverse-proxy like Nginx.

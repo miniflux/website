@@ -143,14 +143,18 @@ You should configure a process manager like systemd or supervisord to supervise 
 When using the Debian package, the Miniflux daemon is supervised by systemd.</p>
 
 <ol>
-<li>Install Debian package: <code>dpkg -i miniflux_2.0.13_amd64.deb</code></li>
-<li>Check process status: <code>systemctl status miniflux</code></li>
+<li>Install the Debian package: <code>dpkg -i miniflux_2.0.13_amd64.deb</code></li>
 <li>Define the environment variable <code>DATABASE_URL</code> if necessary</li>
 <li>Run the SQL migrations: <code>miniflux -migrate</code></li>
 <li>Create an admin user: <code>miniflux -create-admin</code></li>
+<li>Customize your configuration file <code>/etc/miniflux.conf</code> if necessary</li>
+<li>Restart the process: <code>systemctl restart miniflux</code></li>
+<li>Check the process status: <code>systemctl status miniflux</code></li>
 </ol>
 
 <p>Note that you could also use the <a href="howto.html#apt-repo">Miniflux APT repository</a> instead of downloading manually the Debian package.</p>
+
+<p>If you don&rsquo;t want to run the SQL migrations manually each time you upgrade Miniflux, set the environment variable: <code>RUN_MIGRATIONS=1</code> in <code>/etc/miniflux.conf</code>.</p>
 
 <p class="info">
 Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
@@ -163,13 +167,14 @@ You must restart the service to take the new values into consideration.
 When you use the RPM package, the Miniflux daemon is supervised by systemd.</p>
 
 <ol>
-<li>Install Miniflux RPM: <code>rpm -ivh miniflux-2.0.13-1.0.x86_64.rpm</code></li>
+<li>Install the Miniflux RPM package: <code>rpm -ivh miniflux-2.0.13-1.0.x86_64.rpm</code></li>
 <li>Define the environment variable <code>DATABASE_URL</code> if necessary</li>
 <li>Run the SQL migrations: <code>miniflux -migrate</code></li>
 <li>Create an admin user: <code>miniflux -create-admin</code></li>
+<li>Customize your configuration file <code>/etc/miniflux.conf</code> if necessary</li>
 <li>Enable the systemd service: <code>systemctl enable miniflux</code></li>
 <li>Start the process with systemd: <code>systemctl start miniflux</code></li>
-<li>Check process status: <code>systemctl status miniflux</code></li>
+<li>Check the process status: <code>systemctl status miniflux</code></li>
 </ol>
 
 <p>Note that you could also use the <a href="howto.html#rpm-repo">Miniflux RPM repository</a> instead of downloading manually the RPM package.</p>

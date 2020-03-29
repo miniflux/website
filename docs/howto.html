@@ -49,6 +49,8 @@ apt update
 <pre><code class="language-bash">apt install miniflux
 </code></pre>
 
+<p>To upgrade Miniflux, run <code>apt upgrade miniflux</code>, and don&rsquo;t forget to run the database migrations.</p>
+
 <h2 id="rpm-repo">How to Configure the RPM Repository <a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
 
 <p>Create the file <code>/etc/yum.repos.d/miniflux.repo</code>:</p>
@@ -90,6 +92,8 @@ If you have installed Miniflux with the RPM or Debian package, systemd run the p
 <pre><code class="language-bash">getcap /usr/bin/miniflux
 /usr/bin/miniflux = cap_net_bind_service+ep
 </code></pre>
+
+<p>Note that you will have to do this operation each time you upgrade Miniflux.</p>
 
 <div class="info">
 Another way of doing this is to use the Systemd Socket Activation or a reverse-proxy like Nginx.
