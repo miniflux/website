@@ -333,9 +333,7 @@ Request:
 
     {
         "title": "New Feed Title",
-        "category": {
-            "id": 22
-        }
+        "category_id": 22
     }
 
 Response:
