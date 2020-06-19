@@ -60,6 +60,7 @@
 <li><a href="#endpoint-get-users">Get Users</a></li>
 <li><a href="#endpoint-delete-user">Delete User</a></li>
 <li><a href="#endpoint-healthcheck">Healthcheck</a></li>
+<li><a href="#endpoint-version">Version</a></li>
 </ul></li>
 </ul>
 
@@ -1007,6 +1008,24 @@ configuration.</p>
 </code></pre>
 
 <p>Returns a status code 200 when the service is up.</p>
+
+<h3 id="endpoint-version">Version <a class="anchor" href="#endpoint-version" title="Permalink">¶</a></h3>
+
+<p>The version endpoint returns Miniflux build version.</p>
+
+<p>Request:</p>
+
+<pre><code>GET /version
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code>2.0.22
+</code></pre>
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.22.
+</div>
 
     </article>
 </body>

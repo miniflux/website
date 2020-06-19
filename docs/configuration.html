@@ -70,6 +70,24 @@
 </tr>
 
 <tr>
+<td><code>POLLING_SCHEDULER</code></td>
+<td>Scheduler used for polling feeds. Possible values are <code>round_robin</code> or <code>entry_frequency</code></td>
+<td><code>round_robin</code></td>
+</tr>
+
+<tr>
+<td><code>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</code></td>
+<td>Maximum interval in minutes for the entry frequency scheduler</td>
+<td>24*60</td>
+</tr>
+
+<tr>
+<td><code>SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL</code></td>
+<td>Minimum interval in minutes for the entry frequency scheduler</td>
+<td>5</td>
+</tr>
+
+<tr>
 <td><code>DATABASE_URL</code></td>
 <td>Postgresql connection parameters</td>
 <td><code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code></td>

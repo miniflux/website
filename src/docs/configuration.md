@@ -18,6 +18,9 @@ Since version 2.0.16, Miniflux can use a configuration file and/or environment v
 | `WORKER_POOL_SIZE`          | Number of background workers                                                     | 5                                                                  |
 | `POLLING_FREQUENCY`         | Refresh interval in minutes for feeds                                            | 60 (minutes)                                                       |
 | `BATCH_SIZE`                | Number of feeds to send to the queue for each interval                           | 10                                                                 |
+| `POLLING_SCHEDULER`         | Scheduler used for polling feeds. Possible values are `round_robin` or `entry_frequency` | `round_robin`                                                    |
+| `SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL` | Maximum interval in minutes for the entry frequency scheduler       | 24*60                                                              |
+| `SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL` | Minimum interval in minutes for the entry frequency scheduler       | 5                                                                  |
 | `DATABASE_URL`              | Postgresql connection parameters                                                 | `user=postgres password=postgres dbname=miniflux2 sslmode=disable` |
 | `DATABASE_MAX_CONNS`        | Maximum number of database connections                                           | 20                                                                 |
 | `DATABASE_MIN_CONNS`        | Minimum number of database connections                                           | 1                                                                  |
@@ -26,7 +29,7 @@ Since version 2.0.16, Miniflux can use a configuration file and/or environment v
 | `BASE_URL`                  | Base URL to generate HTML links and base path for cookies                        | `http://localhost/`                                                |
 | `CLEANUP_FREQUENCY_HOURS`   | Cleanup job frequency, remove old sessions and archive read entries              | 24 (hours)                                                         |
 | `CLEANUP_ARCHIVE_READ_DAYS` | Number of days after which marking read items as removed                         | `60`                                                               |
-| `CLEANUP_REMOVE_SESSIONS_DAYS` | Number of days after removing old sessions from the database                         | `30`                                                               |
+| `CLEANUP_REMOVE_SESSIONS_DAYS` | Number of days after removing old sessions from the database                  | `30`                                                               |
 | `HTTPS`                     | Forces cookies to use secure flag and send HSTS headers                          | None                                                               |
 | `DISABLE_HSTS`              | Disable HTTP Strict Transport Security header if HTTPS is set                    | None                                                               |
 | `DISABLE_HTTP_SERVICE`      | Disable HTTP service                                                             | None                                                               |

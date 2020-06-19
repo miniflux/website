@@ -95,6 +95,15 @@ The configuration file is a text file that follow these rules:
   <dt><b>BATCH_SIZE</b></dt>
   <dd>Number of feeds to send to the queue for each interval (default is
     10).</dd>
+  <dt><b>POLLING_SCHEDULER</b></dt>
+  <dd>Scheduler used for polling feeds. Possible values are
+      &quot;round_robin&quot; (default) or &quot;entry_frequency&quot;.</dd>
+  <dt><b>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</b></dt>
+  <dd>Maximum interval in minutes for the entry frequency scheduler (default is
+      24 hours).</dd>
+  <dt><b>SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL</b></dt>
+  <dd>Minimum interval in minutes for the entry frequency scheduler (default is
+      5 minutes).</dd>
   <dt><b>DATABASE_URL</b></dt>
   <dd>Postgresql connection parameters.
     <br/>

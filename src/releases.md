@@ -7,6 +7,7 @@ uri: releases.html
 List of Miniflux releases:
 
 <ul>
+    <li><time>2020-06-19</time> - <a href="/releases/2.0.22.html">Miniflux 2.0.22</a></li>
     <li><time>2020-03-28</time> - <a href="/releases/2.0.21.html">Miniflux 2.0.21</a></li>
     <li><time>2020-02-15</time> - <a href="/releases/2.0.20.html">Miniflux 2.0.20</a></li>
     <li><time>2019-12-01</time> - <a href="/releases/2.0.19.html">Miniflux 2.0.19</a></li>

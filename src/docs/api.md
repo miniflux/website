@@ -40,6 +40,7 @@ Table of Contents:
     - [Get Users](#endpoint-get-users)
     - [Delete User](#endpoint-delete-user)
     - [Healthcheck](#endpoint-healthcheck)
+    - [Version](#endpoint-version)
 
 <h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
 
@@ -954,3 +955,21 @@ OK
 ```
 
 Returns a status code 200 when the service is up.
+
+<h3 id="endpoint-version">Version <a class="anchor" href="#endpoint-version" title="Permalink">¶</a></h3>
+
+The version endpoint returns Miniflux build version.
+
+Request:
+
+    GET /version
+
+Response:
+
+```
+2.0.22
+```
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.22.
+</div>
