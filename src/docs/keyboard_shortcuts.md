@@ -14,13 +14,8 @@ uri: docs/keyboard_shortcuts.html
 
 <h2 id="items">Items Navigation <a class="anchor" href="#items" title="Permalink">¶</a></h2>
 
-- `Left Arrow`: Go to previous item
-- `j`: Go to previous item
-- `p`: Go to previous item
-- `Right Arrow`: Go to next item
-- `k`: Go to next item
-- `n`: Go to next item
-- `g f`: Go to feed
+- `p` or `k` or `◄` Go to previous item
+- `n` or `j` or `►` Go to next item
 
 <h2 id="pages">Pages Navigation <a class="anchor" href="#pages" title="Permalink">¶</a></h2>
 
@@ -39,6 +34,7 @@ uri: docs/keyboard_shortcuts.html
 - `d`: Fetch original web page and apply scraper rules or readability
 - `f`: Star or unstar the current entry
 - `s`: Save article to configured third-party services
+- `R`: Refresh all feeds in the background
 - `#`: Removes current feed
 - `/`: Set focus on search form
 - `Escape`: Close modal dialogs
