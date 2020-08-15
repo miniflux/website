@@ -109,6 +109,9 @@ The configuration file is a text file that follow these rules:
     <br/>
     Default is &quot;user=postgres password=postgres dbname=miniflux2
       sslmode=disable&quot;.</dd>
+  <dt><b>DATABASE_URL_FILE</b></dt>
+  <dd>Path to a secret key exposed as a file, it should contain $DATABASE_URL
+      value.</dd>
   <dt><b>DATABASE_MAX_CONNS</b></dt>
   <dd>Maximum number of database connections (default is 20).</dd>
   <dt><b>DATABASE_MIN_CONNS</b></dt>
@@ -155,8 +158,14 @@ The configuration file is a text file that follow these rules:
   <dd>OAuth2 provider to use. Only google is supported.</dd>
   <dt><b>OAUTH2_CLIENT_ID</b></dt>
   <dd>OAuth2 client ID.</dd>
+  <dt><b>OAUTH2_CLIENT_ID_FILE</b></dt>
+  <dd>Path to a secret key exposed as a file, it should contain
+      $OAUTH2_CLIENT_ID value.</dd>
   <dt><b>OAUTH2_CLIENT_SECRET</b></dt>
   <dd>OAuth2 client secret.</dd>
+  <dt><b>OAUTH2_CLIENT_SECRET_FILE</b></dt>
+  <dd>Path to a secret key exposed as a file, it should contain
+      $OAUTH2_CLIENT_SECRET value.</dd>
   <dt><b>OAUTH2_REDIRECT_URL</b></dt>
   <dd>OAuth2 redirect URL.</dd>
   <dt><b>OAUTH2_OIDC_DISCOVERY_ENDPOINT</b></dt>
@@ -168,11 +177,20 @@ The configuration file is a text file that follow these rules:
   <dt><b>CREATE_ADMIN</b></dt>
   <dd>Set to 1 to create an admin user from environment variables.</dd>
   <dt><b>ADMIN_USERNAME</b></dt>
-  <dd>Admin user login, used only if <b>CREATE_ADMIN</b> is enabled.</dd>
+  <dd>Admin user login, used only if $CREATE_ADMIN is enabled.</dd>
+  <dt><b>ADMIN_USERNAME_FILE</b></dt>
+  <dd>Path to a secret key exposed as a file, it should contain $ADMIN_USERNAME
+      value.</dd>
   <dt><b>ADMIN_PASSWORD</b></dt>
-  <dd>Admin user password, used only if <b>CREATE_ADMIN</b> is enabled.</dd>
+  <dd>Admin user password, used only if $CREATE_ADMIN is enabled.</dd>
+  <dt><b>ADMIN_PASSWORD_FILE</b></dt>
+  <dd>Path to a secret key exposed as a file, it should contain $ADMIN_PASSWORD
+      value.</dd>
   <dt><b>POCKET_CONSUMER_KEY</b></dt>
   <dd>Pocket consumer API key for all users.</dd>
+  <dt><b>POCKET_CONSUMER_KEY_FILE</b></dt>
+  <dd>Path to a secret key exposed as a file, it should contain
+      $POCKET_CONSUMER_KEY value.</dd>
   <dt><b>PROXY_IMAGES</b></dt>
   <dd>Avoids mixed content warnings for external images: http-only, all, or
       none.

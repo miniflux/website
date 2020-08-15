@@ -40,15 +40,20 @@ Since version 2.0.16, Miniflux can use a configuration file and/or environment v
 | `CERT_CACHE`                | Let's Encrypt cache directory                                                    | `/tmp/cert_cache`                                                  |
 | `OAUTH2_PROVIDER`           | OAuth2 provider to use, at this time only `google` is supported                  | None                                                               |
 | `OAUTH2_CLIENT_ID`          | OAuth2 client ID                                                                 | None                                                               |
+| `OAUTH2_CLIENT_ID_FILE`     | Path to a secret key exposed as a file, it should contain `$OAUTH2_CLIENT_ID` value| None                                                               |
 | `OAUTH2_CLIENT_SECRET`      | OAuth2 client secret                                                             | None                                                               |
+| `OAUTH2_CLIENT_SECRET_FILE` | Path to a secret key exposed as a file, it should contain `$OAUTH2_CLIENT_SECRET` value | None                                                               |
 | `OAUTH2_REDIRECT_URL`       | OAuth2 redirect URL                                                              | None                                                               |
 | `OAUTH2_OIDC_DISCOVERY_ENDPOINT`| OpenID Connect discovery endpoint                                            | None                                                               |
 | `OAUTH2_USER_CREATION`      | Set to `1` to authorize OAuth2 user creation                                     | None                                                               |
 | `RUN_MIGRATIONS`            | Set to `1` to run database migrations                                            | None                                                               |
 | `CREATE_ADMIN`              | Set to `1` to create an admin user from environment variables                    | None                                                               |
 | `ADMIN_USERNAME`            | Admin user login, used only if `CREATE_ADMIN` is enabled                         | None                                                               |
+| `ADMIN_USERNAME_FILE`       | Path to a secret key exposed as a file, it should contain `$ADMIN_USERNAME` value| None                                                               |
 | `ADMIN_PASSWORD`            | Admin user password, used only if `CREATE_ADMIN` is enabled                      | None                                                               |
+| `ADMIN_PASSWORD_FILE`       | Path to a secret key exposed as a file, it should contain `$ADMIN_PASSWORD` value| None                                                               |
 | `POCKET_CONSUMER_KEY`       | Pocket consumer API key for all users                                            | None                                                               |
+| `POCKET_CONSUMER_KEY_FILE`  | Path to a secret key exposed as a file, it should contain `$POCKET_CONSUMER_KEY` value | None                                                               |
 | `PROXY_IMAGES`              | Avoids mixed content warnings for external images: `http-only`, `all`, or `none` | `http-only`                                                        |
 | `HTTP_CLIENT_TIMEOUT`       | Time limit in seconds before the HTTP client cancel the request                  | 20s                                                                |
 | `HTTP_CLIENT_MAX_BODY_SIZE` | Maximum body size for HTTP requests in Mebibyte (MiB)                            | 15 MiB                                                             |

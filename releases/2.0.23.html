@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 2.0.23</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 2.0.23</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="/releases.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2020-08-15">August 15, 2020</time>
+        
+        <ul>
+<li>Try known URLs when discovering subscriptions</li>
+<li>Add workarounds to find YouTube channel feeds (YouTube doesn&rsquo;t expose RSS links anymore for new-style URLs)</li>
+<li>Increase HTTP server timeout values</li>
+<li>Use stdlib constants for HTTP methods instead of strings</li>
+<li>Add support for RTL feed content</li>
+<li>Ignore <code>&lt;media:title&gt;</code> to avoid overriding the default title if they are different</li>
+<li>Add support for secret keys exposed as a file (useful for containerized environments)</li>
+<li>Display recent entries first in search results</li>
+<li>Do not archive shared items</li>
+<li>Add option to change the number of entries per page</li>
+<li>Add Brazilian Portuguese (<code>pt_BR</code>) translation</li>
+<li>Add reading time for entries</li>
+<li>Redirect to login page if CSRF token is expired</li>
+<li>Fever API:
+
+<ul>
+<li>Use getEntryIDs instead of getEntries to reduce memory consumption</li>
+<li>Fix max_id argument logic to follow the specs</li>
+<li>Improve logging</li>
+<li>Do not send articles to external services when unsaving an item</li>
+<li>Create index to speed up API calls</li>
+<li>Log client IP in middleware</li>
+</ul></li>
+<li>API client: Do not return body for response with no content</li>
+<li>REST API:
+
+<ul>
+<li>Delete users asynchronously (Deleting large users might lock the tables)</li>
+<li>Add CORS support</li>
+</ul></li>
+<li>Align entry actions to the left
+
+<ul>
+<li>Attempt to avoid awkward alignment on smartphone screens</li>
+<li>Keep the read/star actions aligned to the left</li>
+<li>Remove CSS flex to allow easier override with custom CSS</li>
+</ul></li>
+<li>Upgrade Postgres client library</li>
+<li>Upgrade CI checks to Go 1.15</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.23">Downloads</a></p>
+
+    </article>
+</body>
+</html>

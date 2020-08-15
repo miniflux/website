@@ -19,14 +19,11 @@ Working with Miniflux's code base is pretty simple:
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 
 - Git
-- Go >= 1.11
+- Go >= 1.14
 
 <h2 id="source-code">Checkout the Source Code <a class="anchor" href="#source-code" title="Permalink">¶</a></h2>
 
 Fork the project and clone the repository locally.
-
-Since Go 1.11, you don't need to work inside the `$GOPATH`.
-You can checkout the source code anywhere on your filesystem.
 
 Miniflux uses [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies.
 
