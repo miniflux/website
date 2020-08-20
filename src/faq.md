@@ -110,4 +110,4 @@ standard_init_linux.go:178: exec user process caused "exec format error"
 
 <h2 id="backup">How to backup my data? <a class="anchor" href="#backup" title="Permalink">¶</a></h2>
 
-Just use standard Postgresql tools: [pgdump](https://www.postgresql.org/docs/current/app-pgdump.html)
+You can use standard Postgresql tools: [pgdump](https://www.postgresql.org/docs/current/app-pgdump.html)
