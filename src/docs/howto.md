@@ -329,8 +329,9 @@ Then you can access to your server by using an encrypted connection with the HTT
 <h2 id="oauth2">OAuth2 Authentication <a class="anchor" href="#oauth2" title="Permalink">¶</a></h2>
 
 OAuth2 allows you to sign in with an external provider.
-As of now, only Google is supported.
+As of now, only Google and OpenID Connect is supported.
 
+### For Google:
 1. Create a new project in Google Console
 2. Create a new OAuth2 client
 3. Set an authorized redirect URL, for example `https://my.domain.tld/oauth2/google/callback`
@@ -349,6 +350,25 @@ Now from the settings page, you can link your existing user to your Google accou
 
 If you would like to authorize anyone to create a user account, you must set `OAUTH2_USER_CREATION=1`.
 Since Google do not have the concept of username, the email address is used as username.
+
+
+### For OpenID Connect:
+1. Create a client in your OpenID Connect Provider, for example Keycloak
+2. Set Access Type confidental
+3. Set Client ID, for example `miniflux`
+4. Set valid Redirect URI, for example `https://my.domain.tld/oauth2/oidc/callback`
+5. Set valid Web Origins, for example `https://my.domain.tld/oauth2/oidc/redirect`
+6. Define the OAuth2 environment variables and start the process
+
+```bash
+export OAUTH2_PROVIDER=oidc
+export OAUTH2_CLIENT_ID=replace_me
+export OAUTH2_CLIENT_SECRET=replace_me
+export OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/oidc/callback
+
+miniflux
+```
+
 
 <h2 id="heroku">Deploy Miniflux on Heroku <a class="anchor" href="#heroku" title="Permalink">¶</a></h2>
 
