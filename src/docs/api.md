@@ -115,7 +115,7 @@ import miniflux
 client = miniflux.Client("https://miniflux.example.org", "my_username", "my_secret_password")
 
 # Authentication using an API token
-client = miniflux.Client("https://miniflux.example.org", "My Secret Token")
+client = miniflux.Client("https://miniflux.example.org", api_key="My Secret Token")
 
 # Get all feeds
 feeds = client.get_feeds()
