@@ -139,7 +139,7 @@ func main() {
 client = miniflux.Client(&quot;https://miniflux.example.org&quot;, &quot;my_username&quot;, &quot;my_secret_password&quot;)
 
 # Authentication using an API token
-client = miniflux.Client(&quot;https://miniflux.example.org&quot;, &quot;My Secret Token&quot;)
+client = miniflux.Client(&quot;https://miniflux.example.org&quot;, api_key=&quot;My Secret Token&quot;)
 
 # Get all feeds
 feeds = client.get_feeds()

@@ -336,7 +336,9 @@ miniflux
 <h2 id="oauth2">OAuth2 Authentication <a class="anchor" href="#oauth2" title="Permalink">¶</a></h2>
 
 <p>OAuth2 allows you to sign in with an external provider.
-As of now, only Google is supported.</p>
+As of now, only Google and OpenID Connect is supported.</p>
+
+<h3>For Google:</h3>
 
 <ol>
 <li>Create a new project in Google Console</li>
@@ -357,6 +359,25 @@ miniflux
 
 <p>If you would like to authorize anyone to create a user account, you must set <code>OAUTH2_USER_CREATION=1</code>.
 Since Google do not have the concept of username, the email address is used as username.</p>
+
+<h3>For OpenID Connect:</h3>
+
+<ol>
+<li>Create a client in your OpenID Connect Provider, for example Keycloak</li>
+<li>Set Access Type confidental</li>
+<li>Set Client ID, for example <code>miniflux</code></li>
+<li>Set valid Redirect URI, for example <code>https://my.domain.tld/oauth2/oidc/callback</code></li>
+<li>Set valid Web Origins, for example <code>https://my.domain.tld/oauth2/oidc/redirect</code></li>
+<li>Define the OAuth2 environment variables and start the process</li>
+</ol>
+
+<pre><code class="language-bash">export OAUTH2_PROVIDER=oidc
+export OAUTH2_CLIENT_ID=replace_me
+export OAUTH2_CLIENT_SECRET=replace_me
+export OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/oidc/callback
+
+miniflux
+</code></pre>
 
 <h2 id="heroku">Deploy Miniflux on Heroku <a class="anchor" href="#heroku" title="Permalink">¶</a></h2>
 
