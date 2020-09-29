@@ -146,8 +146,8 @@ dd {
     margin-left: 15px;
     border-left: 3px solid #eee;
     padding-left: 10px;
-    line-height: 1.4em;
-    color: #999;
+    line-height: 1.35em;
+    color: #666;
     font-weight: 300;
 }
 
@@ -242,4 +242,29 @@ a.button {
 #toc {
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+.configs dt {
+    margin-bottom: 0;
+    font-size: 1.2em;
+}
+
+.configs dt a,
+.configs dt a code {
+    color: #333;
+    text-decoration: none;
+}
+
+.configs dt a:focus code,
+.configs dt a:hover code {
+    color: red
+}
+
+.configs dd {
+    color: #555;
+    font-weight: 400;
+}
+
+.configs dd p {
+    line-height: 1.1em;
 }

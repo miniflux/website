@@ -3,66 +3,287 @@ description: List of configuration parameters for Miniflux
 template: doc
 uri: docs/configuration.html
 ---
-Since version 2.0.16, Miniflux can use a configuration file and/or environment variables.
+Miniflux can use a configuration file and environment variables.
 
-- [Environment Variables](#env-variables)
+The configuration file is loaded first if specified. Environment variables takes precedence over the options defined in the configuration file.
+
+- [Configuration Options](#options)
 - [Configuration File](#config-file)
 - [Database Connection Parameters](#dsn)
 
-<h2 id="env-variables">Environment Variables <a class="anchor" href="#env-variables" title="Permalink">¶</a></h2>
-
-| Variable Name               | Description                                                                      | Default Value                                                      |
-| --------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `DEBUG`                     | Set the value to `1` to enable debug logs                                        | Off                                                                |
-| `LOG_DATE_TIME`             | Set the value to `1` to show date/time in log messages                           | Off                                                                |
-| `WORKER_POOL_SIZE`          | Number of background workers                                                     | 5                                                                  |
-| `POLLING_FREQUENCY`         | Refresh interval in minutes for feeds                                            | 60 (minutes)                                                       |
-| `BATCH_SIZE`                | Number of feeds to send to the queue for each interval                           | 10                                                                 |
-| `POLLING_SCHEDULER`         | Scheduler used for polling feeds. Possible values are `round_robin` or `entry_frequency` | `round_robin`                                                    |
-| `SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL` | Maximum interval in minutes for the entry frequency scheduler       | 24*60                                                              |
-| `SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL` | Minimum interval in minutes for the entry frequency scheduler       | 5                                                                  |
-| `DATABASE_URL`              | Postgresql connection parameters                                                 | `user=postgres password=postgres dbname=miniflux2 sslmode=disable` |
-| `DATABASE_MAX_CONNS`        | Maximum number of database connections                                           | 20                                                                 |
-| `DATABASE_MIN_CONNS`        | Minimum number of database connections                                           | 1                                                                  |
-| `LISTEN_ADDR`               | Address to listen on (use absolute path for Unix socket)                         | `127.0.0.1:8080`                                                   |
-| `PORT`                      | Override `LISTEN_ADDR` to `0.0.0.0:$PORT` (PaaS)                                 | None                                                               |
-| `BASE_URL`                  | Base URL to generate HTML links and base path for cookies                        | `http://localhost/`                                                |
-| `CLEANUP_FREQUENCY_HOURS`   | Cleanup job frequency, remove old sessions and archive read entries              | 24 (hours)                                                         |
-| `CLEANUP_ARCHIVE_READ_DAYS` | Number of days after which marking read items as removed                         | `60`                                                               |
-| `CLEANUP_REMOVE_SESSIONS_DAYS` | Number of days after removing old sessions from the database                  | `30`                                                               |
-| `HTTPS`                     | Forces cookies to use secure flag and send HSTS headers                          | None                                                               |
-| `DISABLE_HSTS`              | Disable HTTP Strict Transport Security header if HTTPS is set                    | None                                                               |
-| `DISABLE_HTTP_SERVICE`      | Disable HTTP service                                                             | None                                                               |
-| `DISABLE_SCHEDULER_SERVICE` | Disable scheduler service                                                        | None                                                               |
-| `CERT_FILE`                 | Path to SSL certificate                                                          | None                                                               |
-| `KEY_FILE`                  | Path to SSL private key                                                          | None                                                               |
-| `CERT_DOMAIN`               | Use Let's Encrypt to get automatically a certificate for this domain             | None                                                               |
-| `CERT_CACHE`                | Let's Encrypt cache directory                                                    | `/tmp/cert_cache`                                                  |
-| `OAUTH2_PROVIDER`           | OAuth2 provider to use, at this time only `google` is supported                  | None                                                               |
-| `OAUTH2_CLIENT_ID`          | OAuth2 client ID                                                                 | None                                                               |
-| `OAUTH2_CLIENT_ID_FILE`     | Path to a secret key exposed as a file, it should contain `$OAUTH2_CLIENT_ID` value| None                                                               |
-| `OAUTH2_CLIENT_SECRET`      | OAuth2 client secret                                                             | None                                                               |
-| `OAUTH2_CLIENT_SECRET_FILE` | Path to a secret key exposed as a file, it should contain `$OAUTH2_CLIENT_SECRET` value | None                                                               |
-| `OAUTH2_REDIRECT_URL`       | OAuth2 redirect URL                                                              | None                                                               |
-| `OAUTH2_OIDC_DISCOVERY_ENDPOINT`| OpenID Connect discovery endpoint                                            | None                                                               |
-| `OAUTH2_USER_CREATION`      | Set to `1` to authorize OAuth2 user creation                                     | None                                                               |
-| `RUN_MIGRATIONS`            | Set to `1` to run database migrations                                            | None                                                               |
-| `CREATE_ADMIN`              | Set to `1` to create an admin user from environment variables                    | None                                                               |
-| `ADMIN_USERNAME`            | Admin user login, used only if `CREATE_ADMIN` is enabled                         | None                                                               |
-| `ADMIN_USERNAME_FILE`       | Path to a secret key exposed as a file, it should contain `$ADMIN_USERNAME` value| None                                                               |
-| `ADMIN_PASSWORD`            | Admin user password, used only if `CREATE_ADMIN` is enabled                      | None                                                               |
-| `ADMIN_PASSWORD_FILE`       | Path to a secret key exposed as a file, it should contain `$ADMIN_PASSWORD` value| None                                                               |
-| `POCKET_CONSUMER_KEY`       | Pocket consumer API key for all users                                            | None                                                               |
-| `POCKET_CONSUMER_KEY_FILE`  | Path to a secret key exposed as a file, it should contain `$POCKET_CONSUMER_KEY` value | None                                                               |
-| `PROXY_IMAGES`              | Avoids mixed content warnings for external images: `http-only`, `all`, or `none` | `http-only`                                                        |
-| `HTTP_CLIENT_TIMEOUT`       | Time limit in seconds before the HTTP client cancel the request                  | 20s                                                                |
-| `HTTP_CLIENT_MAX_BODY_SIZE` | Maximum body size for HTTP requests in Mebibyte (MiB)                            | 15 MiB                                                             |
-| `AUTH_PROXY_HEADER`         | Proxy authentication HTTP header                                                 | None                                                             |
-| `AUTH_PROXY_USER_CREATION`  | Set to 1 to create users based on proxy authentication information               | None                                                             |
+<h2 id="options">Configuration Options <a class="anchor" href="#options" title="Permalink">¶</a></h2>
 
 <p class="info">
 Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
 </p>
+
+<dl class="configs">
+    <dt id="debug"><a href="#debug"><code>DEBUG</code></a></dt>
+    <dd>
+        <p>Toggle debug mode (increase log level).</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
+    <dt id="log-date-time"><a href="#log-date-time"><code>LOG_DATE_TIME</code></a></dt>
+    <dd>
+        <p>Show date and time in log messages.</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
+    <dt id="worker-pool-size"><a href="#worker-pool-size"><code>WORKER_POOL_SIZE</code></a></dt>
+    <dd>
+        <p>Number of background workers to refresh feeds.</p>
+        <p><em>Default is 5 workers.</em></p>
+    </dd>
+    <dt id="polling-frequency"><a href="#polling-frequency"><code>POLLING_FREQUENCY</code></a></dt>
+    <dd>
+        <p>Refresh interval in minutes for feeds.</p>
+        <p><em>Default is 60 minutes.</em></p>
+    </dd>
+    <dt id="batch-size"><a href="#batch-size"><code>BATCH_SIZE</code></a></dt>
+    <dd>
+        <p>Number of feeds to send to the queue for each interval.</p>
+        <p><em>Default is 10 feeds.</em></p>
+    </dd>
+    <dt id="polling-scheduler"><a href="#polling-scheduler"><code>POLLING_SCHEDULER</code></a></dt>
+    <dd>
+        <p>
+            Scheduler used for polling feeds.
+            Possible values are <code>round_robin</code> or <code>entry_frequency</code>.
+        </p>
+        <p>
+            The maximum number of feeds polled for a given period is subject to <code>POLLING_FREQUENCY</code> and <code>BATCH_SIZE</code>.
+        </p>
+        <p>
+            When <code>entry_frequency</code> is selected, the refresh interval for a given feed is equal to the average updating interval of the last week of the feed.
+            The actual number of feeds polled will not exceed the maximum number of feeds that could be polled for a given period.
+        </p>
+        <p><em>Default is <code>round_robin</code>.</em></p>
+    </dd>
+    <dt id="scheduler-entry-frequency-max-interval"><a href="#scheduler-entry-frequency-max-interval"><code>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</code></a></dt>
+    <dd>
+        <p>Maximum interval in minutes for the entry frequency scheduler.</p>
+        <p><em>Default is 24 hours.</em></p>
+    </dd>
+    <dt id="scheduler-entry-frequency-min-interval"><a href="#scheduler-entry-frequency-min-interval"><code>SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL</code></a></dt>
+    <dd>
+        <p>Minimum interval in minutes for the entry frequency scheduler.</p>
+        <p><em>Default is 5 minutes.</em></p>
+    </dd>
+    <dt id="database-url"><a href="#database-url"><code>DATABASE_URL</code></a></dt>
+    <dd>
+        <p>Postgresql connection parameters. See <a href="https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters">lib/pq</a> for more details.</p>
+        <p><em>Default is <code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code></em></p>
+    </dd>
+    <dt id="database-max-conns"><a href="#database-max-conns"><code>DATABASE_MAX_CONNS</code></a></dt>
+    <dd>
+        <p>Maximum number of database connections.</p>
+        <p><em>Default is <code>20</code></em></p>
+    </dd>
+    <dt id="database-min-conns"><a href="#database-min-conns"><code>DATABASE_MIN_CONNS</code></a></dt>
+    <dd>
+        <p>Minimum number of database connections.</p>
+        <p><em>Default is <code>1</code></em></p>
+    </dd>
+    <dt id="listen-addr"><a href="#listen-addr"><code>LISTEN_ADDR</code></a></dt>
+    <dd>
+        <p>Address to listen on. Use absolute path for a Unix socket.</p>
+        <p><em>Default is <code>127.0.0.1:8080</code>.</em></p>
+    </dd>
+    <dt id="port"><a href="#port"><code>PORT</code></a></dt>
+    <dd>
+        <p>Override <code>LISTEN_ADDR</code> to <code>0.0.0.0:$PORT</code> (Automatic configuration for <abbr title="Platform as a service">PaaS</abbr>).</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="base-url"><a href="#base-url"><code>BASE_URL</code></a></dt>
+    <dd>
+        <p>Base URL to generate HTML links and base path for cookies.</p>
+        <p><em>Default is <code>http://localhost/</code>.</em></p>
+    </dd>
+    <dt id="cleanup-frequency-hours"><a href="#cleanup-frequency-hours"><code>CLEANUP_FREQUENCY_HOURS</code></a></dt>
+    <dd>
+        <p>Cleanup job frequency to remove old sessions and archive entries.</p>
+        <p><em>Default is 24 hours.</em></p>
+    </dd>
+    <dt id="cleanup-archive-unread-days"><a href="#cleanup-archive-unread-days"><code>CLEANUP_ARCHIVE_UNREAD_DAYS</code></a></dt>
+    <dd>
+        <p>Number of days after marking unread items as removed. Use <code>-1</code> to disable this feature.</p>
+        <p><em>Default is 180 days.</em></p>
+    </dd>
+    <dt id="cleanup-archive-read-days"><a href="#cleanup-archive-read-days"><code>CLEANUP_ARCHIVE_READ_DAYS</code></a></dt>
+    <dd>
+        <p>Number of days after which marking read items as removed. Use <code>-1</code> to disable this feature.</p>
+        <p><em>Default is 60 days.</em></p>
+    </dd>
+    <dt id="cleanup-remove-sessions-days"><a href="#cleanup-remove-sessions-days"><code>CLEANUP_REMOVE_SESSIONS_DAYS</code></a></dt>
+    <dd>
+        <p>Number of days after removing old user sessions from the database.</p>
+        <p><em>Default is 30 days.</em></p>
+    </dd>
+    <dt id="https"><a href="#https"><code>HTTPS</code></a></dt>
+    <dd>
+        <p>Forces cookies to use secure flag. Send <abbr title="HTTP Strict Transport Security">HSTS</abbr> HTTP header. Enabled automatically if the HTTP header <code>X-Forwarded-Proto</code> is set to <code>https</code>.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="disable-hsts"><a href="#disable-hsts"><code>DISABLE_HSTS</code></a></dt>
+    <dd>
+        <p>Disable HTTP Strict Transport Security header if <code>$HTTPS</code> is set.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="disable-http-service"><a href="#disable-http-service"><code>DISABLE_HTTP_SERVICE</code></a></dt>
+    <dd>
+        <p>Disable HTTP service.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="disable-scheduler-service"><a href="#disable-scheduler-service"><code>DISABLE_SCHEDULER_SERVICE</code></a></dt>
+    <dd>
+        <p>Disable scheduler service.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="cert-file"><a href="#cert-file"><code>CERT_FILE</code></a></dt>
+    <dd>
+        <p>Path to SSL certificate.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="key-file"><a href="#key-file"><code>KEY_FILE</code></a></dt>
+    <dd>
+        <p>Path to SSL private key.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="cert-domain"><a href="#cert-domain"><code>CERT_DOMAIN</code></a></dt>
+    <dd>
+        <p>Use <a href="https://letsencrypt.org/">Let's Encrypt</a> to get automatically a certificate for the domain specified in <code>$CERT_DOMAIN</code>.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="cert-cache"><a href="#cert-cache"><code>CERT_CACHE</code></a></dt>
+    <dd>
+        <p>Let's Encrypt cache directory.</p>
+        <p><em>Default is <code>/tmp/cert_cache</code></em></p>
+    </dd>
+    <dt id="metrics-collector"><a href="#metrics-collector"><code>METRICS_COLLECTOR</code></a></dt>
+    <dd>
+        <p>Set to <code>1</code> to enable metrics collection. It exposes a <code>/metrics</code> endpoint that can be used with <a href="https://prometheus.io/">Prometheus Monitoring software</a>.</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
+    <dt id="metrics-refresh-interval"><a href="#metrics-refresh-interval"><code>METRICS_REFRESH_INTERVAL</code></a></dt>
+    <dd>
+        <p>Refresh interval to collect database metrics.</p>
+        <p><em>Default is 60 seconds.</em></p>
+    </dd>
+    <dt id="metrics-allowed-networks"><a href="#metrics-allowed-networks"><code>METRICS_ALLOWED_NETWORKS</code></a></dt>
+    <dd>
+        <p>List of networks allowed to access the <code>/metrics</code> endpoint (comma-separated values).</p>
+        <p><em>Default is <code>127.0.0.1/8</code>.</em></p>
+    </dd>
+    <dt id="oauth2-provider"><a href="#oauth2-provider"><code>OAUTH2_PROVIDER</code></a></dt>
+    <dd>
+        <p>OAuth2 provider. At this time only <code>google</code> is supported.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-client-id"><a href="#oauth2-client-id"><code>OAUTH2_CLIENT_ID</code></a></dt>
+    <dd>
+        <p>OAuth2 client ID.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-client-id-file"><a href="#oauth2-client-id-file"><code>OAUTH2_CLIENT_ID_FILE</code></a></dt>
+    <dd>
+        <p>Path to a secret key exposed as a file, it should contain <code>$OAUTH2_CLIENT_ID</code> value.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-client-secret"><a href="#oauth2-client-secret"><code>OAUTH2_CLIENT_SECRET</code></a></dt>
+    <dd>
+        <p>OAuth2 client secret.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-client-secret-file"><a href="#oauth2-client-secret-file"><code>OAUTH2_CLIENT_SECRET_FILE</code></a></dt>
+    <dd>
+        <p>Path to a secret key exposed as a file, it should contain <code>$OAUTH2_CLIENT_SECRET</code> value.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-redirect-url"><a href="#oauth2-redirect-url"><code>OAUTH2_REDIRECT_URL</code></a></dt>
+    <dd>
+        <p>OAuth2 redirect URL.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-oidc-discovery-endpoint"><a href="#oauth2-oidc-discovery-endpoint"><code>OAUTH2_OIDC_DISCOVERY_ENDPOINT</code></a></dt>
+    <dd>
+        <p>OpenID Connect discovery endpoint.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-user-creation"><a href="#oauth2-user-creation"><code>OAUTH2_USER_CREATION</code></a></dt>
+    <dd>
+        <p>Set to <code>1</code> to authorize OAuth2 user creation.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="run-migrations"><a href="#run-migrations"><code>RUN_MIGRATIONS</code></a></dt>
+    <dd>
+        <p>Set to <code>1</code> to run database migrations during application startup.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="create-admin"><a href="#create-admin"><code>CREATE_ADMIN</code></a></dt>
+    <dd>
+        <p>Set to <code>1</code> to create an admin user from environment variables.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="admin-username"><a href="#admin-username"><code>ADMIN_USERNAME</code></a></dt>
+    <dd>
+        <p>Admin user login, it's used only if <code>CREATE_ADMIN</code> is enabled.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="admin-username-file"><a href="#admin-username-file"><code>ADMIN_USERNAME_FILE</code></a></dt>
+    <dd>
+        <p>Path to a secret key exposed as a file, it should contain <code>$ADMIN_USERNAME</code> value.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="admin-password"><a href="#admin-password"><code>ADMIN_PASSWORD</code></a></dt>
+    <dd>
+        <p>Admin user password, it's used only if <code>CREATE_ADMIN</code> is enabled.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="admin-password-file"><a href="#admin-password-file"><code>ADMIN_PASSWORD_FILE</code></a></dt>
+    <dd>
+        <p>Path to a secret key exposed as a file, it should contain <code>$ADMIN_PASSWORD</code> value.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="pocket-consumer-key"><a href="#pocket-consumer-key"><code>POCKET_CONSUMER_KEY</code></a></dt>
+    <dd>
+        <p>Pocket consumer API key for all users.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="pocket-consumer-key-file"><a href="#pocket-consumer-key-file"><code>POCKET_CONSUMER_KEY_FILE</code></a></dt>
+    <dd>
+        <p>Path to a secret key exposed as a file, it should contain <code>$POCKET_CONSUMER_KEY</code> value.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="proxy-images"><a href="#proxy-images"><code>PROXY_IMAGES</code></a></dt>
+    <dd>
+        <p>Avoids mixed content warnings for external images: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
+        <p><em>Default is <code>http-only</code>.</em></p>
+    </dd>
+    <dt id="http-client-timeout"><a href="#http-client-timeout"><code>HTTP_CLIENT_TIMEOUT</code></a></dt>
+    <dd>
+        <p>Time limit in seconds before the HTTP client cancel the request.</p>
+        <p><em>Default is 20 seconds.</em></p>
+    </dd>
+    <dt id="http-client-max-body-size"><a href="#http-client-max-body-size"><code>HTTP_CLIENT_MAX_BODY_SIZE</code></a></dt>
+    <dd>
+        <p>Maximum body size for HTTP requests in Mebibyte (MiB).</p>
+        <p><em>Default is 15 MiB.</em></p>
+    </dd>
+    <dt id="http-client-proxy"><a href="#http-client-proxy"><code>HTTP_CLIENT_PROXY</code></a></dt>
+    <dd>
+        <p>Proxy URL for HTTP client.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="auth-proxy-header"><a href="#auth-proxy-header"><code>AUTH_PROXY_HEADER</code></a></dt>
+    <dd>
+        <p>Proxy authentication HTTP header.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="auth-proxy-user-creation"><a href="#auth-proxy-user-creation"><code>AUTH_PROXY_USER_CREATION</code></a></dt>
+    <dd>
+        <p>Enable user creation based on proxy authentication information.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+</dl>
 
 <h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
 
