@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Miniflux</title>
   <id>https://miniflux.app/</id>
-  <updated>2020-08-15T16:00:31-07:00</updated>
+  <updated>2020-10-03T18:44:33-07:00</updated>
   <author>
     <name>Frédéric Guillot</name>
   </author>
@@ -10,6 +10,69 @@
   <link rel="alternate" type="text/html" href="https://miniflux.app/"/>
   <link rel="self" type="application/atom+xml" href="https://miniflux.app/feed.xml"/>
 
+  
+  <entry>
+    <title>Miniflux 2.0.24</title>
+    <link rel="alternate" type="text/html" href="https://miniflux.app/releases/2.0.24.html"/>
+    <id>https://miniflux.app/releases/2.0.24.html</id>
+    <updated>2020-10-03T00:00:00Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>Add rewrite rule to fix Medium.com images</li>
+<li>Update sanitizer to support responsive images:
+
+<ul>
+<li>Add support for <code>picture</code> HTML tag</li>
+<li>Add support for <code>srcset</code>, <code>media</code>, and <code>sizes</code> attributes to <code>img</code> and <code>source</code> tags</li>
+</ul></li>
+<li>Enhance man page formatting</li>
+<li>Add <a href="https://prometheus.io/">Prometheus</a> exporter</li>
+<li>Remove dependency on global config options in HTTP client</li>
+<li>API:
+
+<ul>
+<li>Avoid database lookup if empty credentials are provided</li>
+<li>Add the possibility to filter entries by category ID</li>
+<li>Add the possibility to filter entries by a list of statuses</li>
+</ul></li>
+<li>Add Feed ID in worker error logs</li>
+<li>Tweak default HTTP client transport timeout values to reduce the number of file descriptors</li>
+<li>CSS tweaks and optimizations:
+
+<ul>
+<li>Prevent <code>sub</code> and <code>sup</code> from affecting line-height</li>
+<li>Set <code>touch-action</code> on <code>.items</code> to prevent browser navigation</li>
+<li>Move <code>font-family</code> specific CSS to the appropriate file</li>
+<li>Update primary <code>font-family</code> for UI to be even more compatible with various operating systems</li>
+<li>Make <code>.entry-content</code> font-weight variable depending on <code>font-family</code> used</li>
+</ul></li>
+<li>Avoid Javascript minifier to break keyboard shortcuts</li>
+<li>Rename service worker script to avoid being blocked by uBlock extension</li>
+<li>Update date parser to handle Pacific Daylight Time in addition to Pacific Standard Time</li>
+<li>Create index to speed up bookmark page</li>
+<li>Do not try to update a duplicated feed after a refresh</li>
+<li>Use a transaction to refresh and create entries</li>
+<li>Speed up entries clean up with an index and a goroutine</li>
+<li>Avoid the accumulation of enclosures by keeping only what is referenced in the feed</li>
+<li>Add workarounds for parsing invalid dates</li>
+<li>Archive older entries first</li>
+<li>Update API client to support more filters</li>
+<li>Avoid code duplication between &ldquo;get feed&rdquo; entries and &ldquo;get entries&rdquo; API endpoints</li>
+<li>Enable strict slash to avoid a page not found (404) when using a trailing slash in the URLs</li>
+<li>Add a submit button to each section of the integration page</li>
+<li>Reload page after making page as read when showing unread entries</li>
+<li>Add option to archive unread entries</li>
+<li>Add option to enable maintenance mode</li>
+<li>Add HTTP proxy option for subscriptions</li>
+<li>Make <code>add_invidious_video</code> rule applicable for different invidious instances</li>
+<li>Fix reading time for <code>jp</code>, <code>ko</code> and <code>zh</code> languages</li>
+<li>Update <code>POLLING_SCHEDULER</code> description in man page</li>
+<li>Bump <code>gorilla/mux</code> from 1.7.4 to 1.8.0</li>
+<li>Add link to mark a feed as read</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.24">Downloads</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title>Miniflux 2.0.23</title>

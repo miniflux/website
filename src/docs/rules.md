@@ -21,6 +21,7 @@ Especially on mobile devices where there is no `hover` event.
 | `add_mailto_subject` | Insert mailto links subject into the article. |
 | `nl2br` | Convert new lines `\n` to `<br>` (useful for non-HTML contents). |
 | `convert_text_links` | Convert text link to HTML links (useful for non-HTML contents). |
+| `fix_medium_images` | Attempt to fix Medium's images rendered in Javascript. |
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.
 

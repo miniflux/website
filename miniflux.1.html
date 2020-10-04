@@ -98,6 +98,20 @@ The configuration file is a text file that follow these rules:
   <dt><b>POLLING_SCHEDULER</b></dt>
   <dd>Scheduler used for polling feeds. Possible values are
       &quot;round_robin&quot; (default) or &quot;entry_frequency&quot;.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>The maximum number of feeds polled for a given period is subject to
+      POLLING_FREQUENCY and BATCH_SIZE.</dd>
+  <dt></dt>
+  <dd>When &quot;entry_frequency&quot; is selected, the refresh interval for a
+      given feed is equal to the average updating interval of the last week of
+      the feed.</dd>
+  <dt></dt>
+  <dd>The actual number of feeds polled will not exceed the maximum number of
+      feeds that could be polled for a given period.</dd>
+</dl>
+<dl class="Bl-tag">
   <dt><b>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</b></dt>
   <dd>Maximum interval in minutes for the entry frequency scheduler (default is
       24 hours).</dd>
@@ -127,13 +141,17 @@ The configuration file is a text file that follow these rules:
     <br/>
     Default is http://localhost/.</dd>
   <dt><b>CLEANUP_FREQUENCY_HOURS</b></dt>
-  <dd>Cleanup job frequency, remove old sessions and archive read entries.
+  <dd>Cleanup job frequency. Remove old sessions and archive entries.
     <br/>
     Default is 24 hours.</dd>
   <dt><b>CLEANUP_ARCHIVE_READ_DAYS</b></dt>
   <dd>Number of days after marking read items as removed.
     <br/>
     Default is 60 days.</dd>
+  <dt><b>CLEANUP_ARCHIVE_UNREAD_DAYS</b></dt>
+  <dd>Number of days after marking unread items as removed.
+    <br/>
+    Default is 180 days.</dd>
   <dt><b>CLEANUP_REMOVE_SESSIONS_DAYS</b></dt>
   <dd>Number of days after removing old sessions from the database.
     <br/>
@@ -154,6 +172,18 @@ The configuration file is a text file that follow these rules:
   <dd>Use Let's Encrypt to get automatically a certificate for this domain.</dd>
   <dt><b>CERT_CACHE</b></dt>
   <dd>Let's Encrypt cache directory (default is /tmp/cert_cache).</dd>
+  <dt><b>METRICS_COLLECTOR</b></dt>
+  <dd>Set to 1 to enable metrics collector. Expose a /metrics endpoint for
+      Prometheus.
+    <br/>
+    Disabled by default.</dd>
+  <dt><b>METRICS_REFRESH_INTERVAL</b></dt>
+  <dd>Refresh interval to collect database metrics. Default is 60 seconds.</dd>
+  <dt><b>METRICS_ALLOWED_NETWORKS</b></dt>
+  <dd>List of networks allowed to access the metrics endpoint (comma-separated
+      values).
+    <br/>
+    Default is 127.0.0.1/8.</dd>
   <dt><b>OAUTH2_PROVIDER</b></dt>
   <dd>OAuth2 provider to use. Only google is supported.</dd>
   <dt><b>OAUTH2_CLIENT_ID</b></dt>
@@ -204,10 +234,18 @@ The configuration file is a text file that follow these rules:
   <dd>Maximum body size for HTTP requests in Mebibyte (MiB).
     <br/>
     Default is 15 MiB.</dd>
+  <dt><b>HTTP_CLIENT_PROXY</b></dt>
+  <dd>Proxy URL for HTTP client.
+    <br/>
+    Default is empty.</dd>
   <dt><b>AUTH_PROXY_HEADER</b></dt>
   <dd>Proxy authentication HTTP header.</dd>
   <dt><b>AUTH_PROXY_USER_CREATION</b></dt>
-  <dd>Set to 1 to create users based on proxy authentication information.
+  <dd>Set to 1 to create users based on proxy authentication information.</dd>
+  <dt><b>MAINTENANCE_MODE</b></dt>
+  <dd>Set to 1 to enable maintenance mode.</dd>
+  <dt><b>MAINTENANCE_MESSAGE</b></dt>
+  <dd>Define a custom maintenance message.
     <p class="Pp"></p>
   </dd>
 </dl>
@@ -224,7 +262,7 @@ Miniflux is released under the Apache 2.0 license.
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">June 8, 2019</td>
+    <td class="foot-date">September 28, 2020</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

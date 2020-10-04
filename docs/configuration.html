@@ -31,10 +31,6 @@
 
 <h2 id="options">Configuration Options <a class="anchor" href="#options" title="Permalink">¶</a></h2>
 
-<p class="info">
-Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
-</p>
-
 <dl class="configs">
     <dt id="debug"><a href="#debug"><code>DEBUG</code></a></dt>
     <dd>
@@ -301,6 +297,16 @@ Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment va
         <p>Enable user creation based on proxy authentication information.</p>
         <p><em>Default is empty.</em></p>
     </dd>
+    <dt id="maintenance-mode"><a href="#maintenance-mode"><code>MAINTENANCE_MODE</code></a></dt>
+    <dd>
+        <p>Set to 1 to enable maintenance mode.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="maintenance-message"><a href="#maintenance-message"><code>MAINTENANCE_MESSAGE</code></a></dt>
+    <dd>
+        <p>Define a custom maintenance message.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
 </dl>
 
 <h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
@@ -327,6 +333,10 @@ WORKER_POOL_SIZE=20
 <p>To specify a configuration file, use the command line argument <code>-config-file</code> or <code>-c</code>.</p>
 
 <p>You can also dump interpreted values with the flag <code>-config-dump</code> for debugging.</p>
+
+<p class="info">
+Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
+</p>
 
 <h2 id="dsn">Database Connection Parameters <a class="anchor" href="#dsn" title="Permalink">¶</a></h2>
 
