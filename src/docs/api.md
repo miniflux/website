@@ -522,7 +522,7 @@ Request:
 
 Available filters:
 
-- `status`: Entry status (read, unread or removed)
+- `status`: Entry status (read, unread or removed), this option can be repeated to filter by multiple statuses (version >= 2.0.24)
 - `offset`
 - `limit`
 - `order`: "id", "status", "published\_at", "category\_title",
@@ -591,7 +591,7 @@ Request:
 
 Available filters:
 
-  - `status`: Entry status (read, unread or removed)
+  - `status`: Entry status (read, unread or removed), this option can be repeated to filter by multiple statuses (version >= 2.0.24)
   - `offset`
   - `limit`
   - `order`: "id", "status", "published\_at", "category\_title",
@@ -603,6 +603,7 @@ Available filters:
   - `after_entry_id` (int64, available since Miniflux 2.0.9)
   - `starred` (boolean, available since Miniflux 2.0.9)
   - `search`: search query (text, available since Miniflux 2.0.10)
+  - `category_id`: filter by category (int, available since Miniflux 2.0.24)
 
 Response:
 

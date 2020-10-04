@@ -564,7 +564,7 @@ The field <code>comments_url</code> is available since Miniflux v2.0.5.
 <p>Available filters:</p>
 
 <ul>
-<li><code>status</code>: Entry status (read, unread or removed)</li>
+<li><code>status</code>: Entry status (read, unread or removed), this option can be repeated to filter by multiple statuses (version &gt;= 2.0.24)</li>
 <li><code>offset</code></li>
 <li><code>limit</code></li>
 <li><code>order</code>: &ldquo;id&rdquo;, &ldquo;status&rdquo;, &ldquo;published_at&rdquo;, &ldquo;category_title&rdquo;,
@@ -635,7 +635,7 @@ The field <code>comments_url</code> is available since Miniflux v2.0.5.
 <p>Available filters:</p>
 
 <ul>
-<li><code>status</code>: Entry status (read, unread or removed)</li>
+<li><code>status</code>: Entry status (read, unread or removed), this option can be repeated to filter by multiple statuses (version &gt;= 2.0.24)</li>
 <li><code>offset</code></li>
 <li><code>limit</code></li>
 <li><code>order</code>: &ldquo;id&rdquo;, &ldquo;status&rdquo;, &ldquo;published_at&rdquo;, &ldquo;category_title&rdquo;,
@@ -647,6 +647,7 @@ The field <code>comments_url</code> is available since Miniflux v2.0.5.
 <li><code>after_entry_id</code> (int64, available since Miniflux 2.0.9)</li>
 <li><code>starred</code> (boolean, available since Miniflux 2.0.9)</li>
 <li><code>search</code>: search query (text, available since Miniflux 2.0.10)</li>
+<li><code>category_id</code>: filter by category (int, available since Miniflux 2.0.24)</li>
 </ul>
 
 <p>Response:</p>
