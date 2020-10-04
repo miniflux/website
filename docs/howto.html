@@ -95,6 +95,17 @@ If you have installed Miniflux with the RPM or Debian package, systemd run the p
 
 <p>Note that you will have to do this operation each time you upgrade Miniflux.</p>
 
+<div class="warning">
+<p>If you use Systemd, these options might prevent you to listen on privileged ports:</p>
+<ul>
+    <li><code>NoNewPrivileges=true</code></li>
+    <li><code>PrivateDevices=true</code></li>
+    <li><code>ProtectKernelModules=true</code></li>
+    <li><code>ProtectKernelTunables=true</code></li>
+    <li><code>RestrictRealtime=true</code></li>
+</ul>
+</div>
+
 <div class="info">
 Another way of doing this is to use the Systemd Socket Activation or a reverse-proxy like Nginx.
 </div>
