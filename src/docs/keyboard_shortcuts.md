@@ -16,6 +16,7 @@ uri: docs/keyboard_shortcuts.html
 
 - `p` or `k` or `◄` Go to previous item
 - `n` or `j` or `►` Go to next item
+- `F`: Go to feed page
 
 <h2 id="pages">Pages Navigation <a class="anchor" href="#pages" title="Permalink">¶</a></h2>
 
