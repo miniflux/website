@@ -35,6 +35,7 @@ uri: docs/keyboard_shortcuts.html
 - `d`: Fetch original web page and apply scraper rules or readability
 - `f`: Star or unstar the current entry
 - `s`: Save article to configured third-party services
+- `z t`: Scroll item to top
 - `R`: Refresh all feeds in the background
 - `#`: Removes current feed
 - `/`: Set focus on search form
