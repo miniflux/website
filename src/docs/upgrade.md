@@ -3,7 +3,7 @@ template: doc
 uri: docs/upgrade.html
 ---
 <div class="warning">
-Please, do not update the software blindly without reading the <a href="https://github.com/miniflux/miniflux/blob/master/ChangeLog">Change Log</a>.
+Please, do not update the software blindly without reading the <a href="https://github.com/miniflux/v2/blob/master/ChangeLog">Change Log</a>.
 Always check for breaking changes if any.
 </div>
 

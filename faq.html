@@ -29,6 +29,7 @@
 <li><a href="#entries-suppression">How are items removed from the database?</a></li>
 <li><a href="#flush-history">What &ldquo;Flush History&rdquo; does?</a></li>
 <li><a href="#arm-pi">Which binary do I need to use on my Raspberry Pi?</a></li>
+<li><a href="#debian-pi-arch">Which Debian package architecture should I use for my Raspberry Pi?</a></li>
 <li><a href="#arm-scaleway">Which binary do I need to use on Scaleway ARM machines?</a></li>
 <li><a href="#docker-arch">Which Docker architecture should I use?</a></li>
 <li><a href="#sql-migrations">Why SQL migrations are not executed automatically?</a></li>
@@ -101,12 +102,45 @@ Entries with the status &ldquo;removed&rdquo; are not visible in the user interf
 <tbody>
 <tr>
 <td>A, A+, B, B+, Zero</td>
-<td>miniflux-linux-armv6</td>
+<td>miniflux-linux-armv6 (32 bits)</td>
 </tr>
 
 <tr>
 <td>2 and 3</td>
-<td>miniflux-linux-armv7</td>
+<td>miniflux-linux-armv7 (32 bits)</td>
+</tr>
+
+<tr>
+<td>3 and 4</td>
+<td>miniflux-linux-arm64 (64 bits)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="debian-pi-arch">Which Debian package architecture should I use for my Raspberry Pi? <a class="anchor" href="#debian-pi-arch" title="Permalink">¶</a></h2>
+
+<table>
+<thead>
+<tr>
+<th>Raspberry Pi Model</th>
+<th>Debian Package Architecture</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>A, A+, B, B+, Zero</td>
+<td>Not supported yet</td>
+</tr>
+
+<tr>
+<td>2 and 3</td>
+<td>armhf (32 bits)</td>
+</tr>
+
+<tr>
+<td>3 and 4</td>
+<td>arm64 (64 bits)</td>
 </tr>
 </tbody>
 </table>

@@ -32,6 +32,8 @@
 <li><a href="#unit-tests">Unit Tests</a></li>
 <li><a href="#integration-tests">Integration Tests</a></li>
 <li><a href="#docker-image">Build Docker Image</a></li>
+<li><a href="#rpm">Create RPM package</a></li>
+<li><a href="#debian">Create Debian package</a></li>
 </ul>
 
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
@@ -68,7 +70,7 @@ make build
 make linux-amd64
 
 # ARM 64 bits (arm64v8)
-make linux-armv8
+make linux-arm64
 
 # ARM 32 bits variant 7 (arm32v7)
 make linux-armv7
@@ -136,28 +138,50 @@ make windows-amd64
 
 <h2 id="docker-image">Build Docker Image <a class="anchor" href="#docker-image" title="Permalink">¶</a></h2>
 
-<p>Miniflux supports three different architectures for Docker containers: <code>amd64</code>, <code>arm32v6</code>, <code>arm32v7</code> and <code>arm64v8</code>.
-There is one image for each architecture and a manifest.</p>
+<p>Miniflux supports different architectures for Docker images: <code>amd64</code>, <code>arm32v6</code>, <code>arm32v7</code> and <code>arm64v8</code>.</p>
 
 <p>Here an example to build only the <code>amd64</code> image:</p>
 
 <pre><code class="language-bash">make docker-image
 </code></pre>
 
-<p>To build all images and override the image name:</p>
+<p>Build all images and override the image name:</p>
 
 <pre><code class="language-bash">make docker-images DOCKER_IMAGE=your-namespace/miniflux
 </code></pre>
 
-<p>To override the build version:</p>
+<p>Override the build version:</p>
 
 <pre><code class="language-bash">make docker-images DOCKER_IMAGE=your-namespace/miniflux VERSION=42
 </code></pre>
 
-<p>To create the manifest and push the images:</p>
+<p>Note that you need to enable Docker experimental features to build multi platform images.
+Miniflux uses <a href="https://docs.docker.com/buildx/working-with-buildx/">buildx</a>.</p>
 
-<pre><code class="language-bash">make docker-manifest DOCKER_IMAGE=your-namespace/miniflux
+<h2 id="rpm">Build RPM package <a class="anchor" href="#rpm" title="Permalink">¶</a></h2>
+
+<p>You can build your own RPM package by using this command:</p>
+
+<pre><code class="language-bash">make rpm
 </code></pre>
+
+<p>Note that Docker is required to generate the RPM package.
+All build operations are running inside a container.</p>
+
+<h2 id="debian">Build Debian package <a class="anchor" href="#debian" title="Permalink">¶</a></h2>
+
+<p>You can build your own Debian package by using this command:</p>
+
+<pre><code class="language-bash">make debian
+</code></pre>
+
+<p>Use the following command to build packages for all supported architectures (<code>amd64</code>, <code>arm64</code>, and <code>armhf</code>):</p>
+
+<pre><code class="language-bash">make debian-packages
+</code></pre>
+
+<p>Note that Docker is required to generate the Debian packages.
+All build operations are running inside a container.</p>
 
     </article>
 </body>

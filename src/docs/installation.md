@@ -17,14 +17,14 @@ Installing Miniflux is straightforward if you have some basic system administrat
 
 Platform       |  Type               |  Repository URL
 ---------------|---------------------|---------------------------------------------------------------------
-Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/deb-package
-RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/rpm-package
+Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/master/packaging/debian
+RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/master/packaging/rpm
 Alpine Linux   |  Community (Source) |  https://git.alpinelinux.org/aports/tree/community/miniflux
 Arch Linux     |  Community (Source) |  https://aur.archlinux.org/packages/miniflux/
 FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/www/miniflux/
 Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux
 
-You can download precompiled binaries and packages on the [GitHub Releases page](https://github.com/miniflux/miniflux/releases). You could also [build the application from the source code](development.html).
+You can download precompiled binaries and packages on the [GitHub Releases page](https://github.com/miniflux/v2/releases). You could also [build the application from the source code](development.html).
 
 <h2 id="database">Database Configuration <a class="anchor" href="#database" title="Permalink">¶</a></h2>
 

@@ -14,6 +14,7 @@ Table of Contents:
 - [How are items removed from the database?](#entries-suppression)
 - [What "Flush History" does?](#flush-history)
 - [Which binary do I need to use on my Raspberry Pi?](#arm-pi)
+- [Which Debian package architecture should I use for my Raspberry Pi?](#debian-pi-arch)
 - [Which binary do I need to use on Scaleway ARM machines?](#arm-scaleway)
 - [Which Docker architecture should I use?](#docker-arch)
 - [Why SQL migrations are not executed automatically?](#sql-migrations)
@@ -72,8 +73,17 @@ Entries with the status "removed" are not visible in the user interface.
 
 Raspberry Pi Model  | Miniflux Binary
 --------------------|---------------------
-A, A+, B, B+, Zero  | miniflux-linux-armv6
-2 and 3             | miniflux-linux-armv7
+A, A+, B, B+, Zero  | miniflux-linux-armv6 (32 bits)
+2 and 3             | miniflux-linux-armv7 (32 bits)
+3 and 4             | miniflux-linux-arm64 (64 bits)
+
+<h2 id="debian-pi-arch">Which Debian package architecture should I use for my Raspberry Pi? <a class="anchor" href="#debian-pi-arch" title="Permalink">¶</a></h2>
+
+Raspberry Pi Model  | Debian Package Architecture
+--------------------|---------------------
+A, A+, B, B+, Zero  | Not supported yet
+2 and 3             | armhf (32 bits)
+3 and 4             | arm64 (64 bits)
 
 <h2 id="arm-scaleway">Which binary do I need to use on Scaleway ARM machines? <a class="anchor" href="#arm-scaleway" title="Permalink">¶</a></h2>
 

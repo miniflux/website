@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Miniflux</title>
   <id>https://miniflux.app/</id>
-  <updated>2020-10-12T14:43:50-05:00</updated>
+  <updated>2020-10-18T21:05:46-07:00</updated>
   <author>
     <name>Frédéric Guillot</name>
   </author>
@@ -71,7 +71,7 @@
 <li>Add link to mark a feed as read</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.24">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.24">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -122,7 +122,7 @@
 <li>Upgrade CI checks to Go 1.15</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.23">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.23">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -151,7 +151,7 @@
 <li>Update dependencies and remove vendor folder</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.22">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.22">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -183,7 +183,7 @@
 <li>Use <code>rel=&quot;prev/next&quot;</code> on pagination links</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.21">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.21">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -223,7 +223,7 @@
 <li>Trim spaces for RDF entry links</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.20">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.20">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -261,7 +261,7 @@
 <li>Avoid keyboard shortcuts to conflict with Firefox’s &ldquo;Find as you type&rdquo; feature</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.19">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.19">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -305,7 +305,7 @@
 <li>Accept HTML entities when parsing XML</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.18">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.18">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -324,7 +324,7 @@
 <li>Add option to disable feeds</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.17">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.17">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -359,7 +359,7 @@
 <li>Add <code>allow-popups</code> to iframe sandbox permissions</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.16">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.16">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -384,7 +384,7 @@
 <li>Handle the case when application session is expired and not user session</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.15">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.15">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -426,7 +426,7 @@
 <li>Improve Makefile</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.14">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.14">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -469,7 +469,7 @@
 </ul></li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.13">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.13">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -513,7 +513,7 @@
 <li>Build Docker image for multiple architectures (amd64, arm32v6, arm64v8)</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.12">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.12">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -547,7 +547,7 @@
 <li>Update German translation</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.11">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.11">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -611,7 +611,7 @@
 <li>Update Docker image to Alpine Linux 3.8</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.10">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.10">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -662,7 +662,7 @@
 <li>Update German translation</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.9">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.9">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -684,7 +684,7 @@
 <li>Handle feeds with dates formatted as Unix timestamp</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.8">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.8">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -708,7 +708,7 @@
 <li>Add SoundCloud and Bandcamp iframe sources</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.7">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.7">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -731,7 +731,7 @@
 <li>Update translations</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.6">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.6">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -752,7 +752,7 @@
 <li>Fix broken OPML import when compiling with Go 1.10</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.5">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.5">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -774,7 +774,7 @@
 <li>Print info message if DATABASE_URL is not set</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.4">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.4">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -792,7 +792,7 @@
 <li>Improve error handling for HTTP client</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.3">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.3">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -814,7 +814,7 @@
 <li>Improve unread counter updates</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.2">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.2">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -841,7 +841,7 @@
 <li>Add API endpoint for OPML export</li>
 </ul>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.1">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.1">Downloads</a></p>
 ]]></content>
   </entry>
   
@@ -854,7 +854,7 @@
 
 <p>The application has been completely rewritten in Golang.</p>
 
-<p><a href="https://github.com/miniflux/miniflux/releases/tag/2.0.0">Downloads</a></p>
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.0">Downloads</a></p>
 ]]></content>
   </entry>
   
