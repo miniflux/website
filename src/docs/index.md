@@ -18,7 +18,7 @@ uri: docs/index.html
 - [User Interface](ui.html)
 - [Keyboard Shortcuts](keyboard_shortcuts.html)
 - [External Services](services.html)
-- [Rewrite and Scraper Rules](rules.html)
+- [Filter, Rewrite and Scraper Rules](rules.html)
 
 ## Development Guide
 

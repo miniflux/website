@@ -1,8 +1,31 @@
-title: Rewrite and Scraper Rules
+title: Filter, Rewrite and Scraper Rules
 description: How to write custom scraper and rewrite rules
 template: doc
 uri: docs/rules.html
 ---
+
+- [Filtering Rules](#filtering-rules)
+- [Rewrite Rules](#rewrite-rules)
+- [Scraper Rules](#scraper-rules)
+
+<h2 id="filtering-rules">Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
+
+Miniflux has a basic filtering system that allows you to ignore or keep articles.
+
+### Block Rules
+
+Block rules ignore articles with a title that match the regex.
+
+For example, the regex `(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
+
+Ignored articles won't be saved into the database.
+
+### Keep Rules
+
+Keep rules keeps only articles that matches the regex.
+
+For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
+
 <h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
 
 To improve the reading experience, it's possible to alter the content of feed items.
@@ -22,6 +45,7 @@ Especially on mobile devices where there is no `hover` event.
 | `nl2br` | Convert new lines `\n` to `<br>` (useful for non-HTML contents). |
 | `convert_text_links` | Convert text link to HTML links (useful for non-HTML contents). |
 | `fix_medium_images` | Attempt to fix Medium's images rendered in Javascript. |
+| `use_noscript_figure_images` | Use `<noscript>` content for images rendered with Javascript. |
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.
 

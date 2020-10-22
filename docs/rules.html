@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Rewrite and Scraper Rules - Documentation</title>
+    <title>Filter, Rewrite and Scraper Rules - Documentation</title>
     
         <meta name="description" content="How to write custom scraper and rewrite rules">
     
@@ -15,11 +15,35 @@
 </head>
 <body>
     <article>
-        <h1>Rewrite and Scraper Rules</h1>
+        <h1>Filter, Rewrite and Scraper Rules</h1>
         <nav class="breadcrumb">
             <a href="../index.html">Home</a> &gt; <a href="index.html">Documentation</a>
         </nav>
-        <h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
+        <ul>
+<li><a href="#filtering-rules">Filtering Rules</a></li>
+<li><a href="#rewrite-rules">Rewrite Rules</a></li>
+<li><a href="#scraper-rules">Scraper Rules</a></li>
+</ul>
+
+<h2 id="filtering-rules">Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
+
+<p>Miniflux has a basic filtering system that allows you to ignore or keep articles.</p>
+
+<h3>Block Rules</h3>
+
+<p>Block rules ignore articles with a title that match the regex.</p>
+
+<p>For example, the regex <code>(?i)miniflux</code> will ignore all articles with a title that contains the word Miniflux (case insensitive).</p>
+
+<p>Ignored articles won&rsquo;t be saved into the database.</p>
+
+<h3>Keep Rules</h3>
+
+<p>Keep rules keeps only articles that matches the regex.</p>
+
+<p>For example, the regex <code>(?i)miniflux</code> will keep only the articles with a title that contains the word Miniflux (case insensitive).</p>
+
+<h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
 
 <p>To improve the reading experience, it&rsquo;s possible to alter the content of feed items.</p>
 
@@ -79,6 +103,11 @@ Especially on mobile devices where there is no <code>hover</code> event.</p>
 <tr>
 <td><code>fix_medium_images</code></td>
 <td>Attempt to fix Medium&rsquo;s images rendered in Javascript.</td>
+</tr>
+
+<tr>
+<td><code>use_noscript_figure_images</code></td>
+<td>Use <code>&lt;noscript&gt;</code> content for images rendered with Javascript.</td>
 </tr>
 </tbody>
 </table>
