@@ -284,7 +284,9 @@
     </dd>
     <dt id="http-client-proxy"><a href="#http-client-proxy"><code>HTTP_CLIENT_PROXY</code></a></dt>
     <dd>
-        <p>Proxy URL for HTTP client.</p>
+        <p>Proxy URL for the HTTP client. For example: <code>http://127.0.0.1:8888</code>.</p>
+        <p>This proxy is used only when the feed has the option "Fetch via proxy" enabled.</p>
+        <p>If you prefer to have a proxy for all outgoing requests, use the environment variables <code>HTTP_PROXY</code> or <code>HTTPS_PROXY</code>, look at the official <a href="https://golang.org/pkg/net/http/#ProxyFromEnvironment">Golang documentation</a> for more details.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="auth-proxy-header"><a href="#auth-proxy-header"><code>AUTH_PROXY_HEADER</code></a></dt>
