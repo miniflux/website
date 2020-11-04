@@ -154,6 +154,8 @@ When using the Debian package, the Miniflux daemon is supervised by systemd.</p>
 
 <p>Note that you could also use the <a href="howto.html#apt-repo">Miniflux APT repository</a> instead of downloading manually the Debian package.</p>
 
+<p>Since Miniflux v2.0.25, the Debian package is available for multiple architectures: <code>amd64</code>, <code>arm64</code>, and <code>armhf</code>.</p>
+
 <p>If you don&rsquo;t want to run the SQL migrations manually each time you upgrade Miniflux, set the environment variable: <code>RUN_MIGRATIONS=1</code> in <code>/etc/miniflux.conf</code>.</p>
 
 <p class="info">
@@ -231,6 +233,30 @@ miniflux -c /etc/miniflux.conf -create-admin
 </code></pre>
 
 <h2 id="docker">Docker Installation <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
+
+<p><strong>Docker Registries:</strong></p>
+
+<ul>
+<li>Docker Hub: <code>docker.io/miniflux/miniflux</code></li>
+<li>GitHub Container Registry: <code>ghcr.io/miniflux/miniflux</code></li>
+</ul>
+
+<p><strong>Docker Architectures:</strong></p>
+
+<ul>
+<li><code>amd64</code></li>
+<li><code>arm64</code></li>
+<li><code>arm/v7</code></li>
+<li><code>arm/v6</code></li>
+</ul>
+
+<p><strong>Docker Tags:</strong></p>
+
+<ul>
+<li><code>latest</code>: Latest stable version</li>
+<li><code>2.0.25</code>: Specific version</li>
+<li><code>nightly</code>: Development version</li>
+</ul>
 
 <p>Pull the image and run the container:</p>
 

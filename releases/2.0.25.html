@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Miniflux 2.0.25</title>
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <link rel="alternate" type="application/atom+xml" title="Miniflux Releases" href="/feed.xml">
+</head>
+<body>
+    <article>
+        <h1>Miniflux 2.0.25</h1>
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="/releases.html">Releases</a>
+        </nav>
+        
+            <time class="release-date" datetime="2020-11-03">November 3, 2020</time>
+        
+        <ul>
+<li>Rename &ldquo;original&rdquo; link to be more explicit</li>
+<li>Do not escape HTML for Atom 1.0 text content during parsing (Avoid HTML entities issues)</li>
+<li>Do not use <code>charset.NewReader</code> if the body is a valid UTF-8 document</li>
+<li>Restore the ability to use a proxy for all HTTP requests (see <a href="https://golang.org/pkg/net/http/#ProxyFromEnvironment">https://golang.org/pkg/net/http/#ProxyFromEnvironment</a>)</li>
+<li>Show Git commit in about page</li>
+<li>Publish Docker images to GitHub Container Registry</li>
+<li>Added few Docker Compose examples in contrib folder</li>
+<li>Added Ansible Role + Playbook for Miniflux in contrib folder</li>
+<li>Add rewrite rule to use <code>noscript</code> content for images rendered with Javascript</li>
+<li>Bump <code>github.com/prometheus/client_golang</code> from 1.7.1 to 1.8.0</li>
+<li>Update contributor link and Godoc badge for API client</li>
+<li>Move Debian package builder to main repository</li>
+<li>Move RPM build files to main repository</li>
+<li>Add GitHub Action to generate Docker images</li>
+<li>Build multi-platform images with Docker Buildx</li>
+<li>Add keyboard shortcut to scroll current item to the top</li>
+<li>Add feed filters (Keeplist and Blocklist)</li>
+<li>Do not proxy image with a data URL</li>
+<li>Bump <code>github.com/PuerkitoBio/goquery</code> from 1.5.1 to 1.6.0</li>
+<li>Proxify articles crawled manually</li>
+<li>Proxify images defined in srcset attribute</li>
+<li>Remove plaintext Fever password from database</li>
+<li>Add keyboard shortcut to jump to an item&rsquo;s feed page</li>
+<li>Add option for swipe gesture on entries on mobile</li>
+</ul>
+
+<p><a href="https://github.com/miniflux/v2/releases/tag/2.0.25">Downloads</a></p>
+
+    </article>
+</body>
+</html>

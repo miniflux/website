@@ -97,6 +97,8 @@ When using the Debian package, the Miniflux daemon is supervised by systemd.
 
 Note that you could also use the [Miniflux APT repository](howto.html#apt-repo) instead of downloading manually the Debian package.
 
+Since Miniflux v2.0.25, the Debian package is available for multiple architectures: `amd64`, `arm64`, and `armhf`.
+
 If you don't want to run the SQL migrations manually each time you upgrade Miniflux, set the environment variable: `RUN_MIGRATIONS=1` in `/etc/miniflux.conf`.
 
 <p class="info">
@@ -177,6 +179,24 @@ service miniflux start
 ```
 
 <h2 id="docker">Docker Installation <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
+
+**Docker Registries:**
+
+- Docker Hub: `docker.io/miniflux/miniflux`
+- GitHub Container Registry: `ghcr.io/miniflux/miniflux`
+
+**Docker Architectures:**
+
+- `amd64`
+- `arm64`
+- `arm/v7`
+- `arm/v6`
+
+**Docker Tags:**
+
+- `latest`: Latest stable version
+- `2.0.25`: Specific version
+- `nightly`: Development version
 
 Pull the image and run the container:
 
