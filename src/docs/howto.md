@@ -376,6 +376,7 @@ export OAUTH2_PROVIDER=oidc
 export OAUTH2_CLIENT_ID=replace_me
 export OAUTH2_CLIENT_SECRET=replace_me
 export OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/oidc/callback
+export OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://my.oidc.provider.tld/auth/realms/id
 
 miniflux
 ```
