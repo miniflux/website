@@ -56,7 +56,7 @@ Go to <https://getpocket.com/developer/apps/new> and create a new
 application.
 
 - You can define the *Pocket Consumer Key* for all users by using the environment variable `POCKET_CONSUMER_KEY`.
-- Or, you can set the *Pocket Consumer Key* only for your user by using the form.
+- Or, you can set the *Pocket Consumer Key* only for your user by using the form and hitting the update button.
 
 ![Pocket](/images/pocket_1.png)
 
@@ -64,7 +64,9 @@ If the environment variable is defined, the text field for the *Pocket
 Consumer API key* will be hidden.
 
 Make sure the environment variable `BASE_URL` is defined properly to
-allow the authorization flow to work afterward.
+allow the authorization flow to work afterward, this variable should
+point to your current instance address and/or the URL you have
+set on your Pocket application.
 
 Once the consumer key is configured, you need to get a *Pocket Access
 Token*. This token could be fetched automatically by using the
