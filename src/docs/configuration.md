@@ -171,7 +171,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="oauth2-provider"><a href="#oauth2-provider"><code>OAUTH2_PROVIDER</code></a></dt>
     <dd>
-        <p>OAuth2 provider. At this time only <code>google</code> is supported.</p>
+        <p>OAuth2 provider. Possible values are <code>google</code> or <code>oidc</code> for a generic OpenID Connect provider.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-client-id"><a href="#oauth2-client-id"><code>OAUTH2_CLIENT_ID</code></a></dt>
@@ -181,7 +181,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="oauth2-client-id-file"><a href="#oauth2-client-id-file"><code>OAUTH2_CLIENT_ID_FILE</code></a></dt>
     <dd>
-        <p>Path to a secret key exposed as a file, it should contain <code>$OAUTH2_CLIENT_ID</code> value.</p>
+        <p>Path to a client ID exposed as a file, it should contain <code>$OAUTH2_CLIENT_ID</code> value.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-client-secret"><a href="#oauth2-client-secret"><code>OAUTH2_CLIENT_SECRET</code></a></dt>
@@ -196,7 +196,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="oauth2-redirect-url"><a href="#oauth2-redirect-url"><code>OAUTH2_REDIRECT_URL</code></a></dt>
     <dd>
-        <p>OAuth2 redirect URL.</p>
+        <p>OAuth2 redirect URL. This URL must be registered with the provider and is something like <code>https://miniflux.example.org/oauth2/oidc/callback</code></p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-oidc-discovery-endpoint"><a href="#oauth2-oidc-discovery-endpoint"><code>OAUTH2_OIDC_DISCOVERY_ENDPOINT</code></a></dt>
