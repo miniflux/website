@@ -69,11 +69,23 @@
 <p>The API supports two authentication mechanisms:</p>
 
 <ul>
-<li>HTTP Basic authentication with the account username/password</li>
-<li>Per-application API keys (since version 2.0.21)</li>
+<li>HTTP Basic authentication with the account username/password.</li>
+<li>Per-application API keys (since version 2.0.21) -&gt; <strong>preferred method</strong>.</li>
 </ul>
 
 <p>To generate a new API token, got to &ldquo;Settings &gt; API Keys &gt; Create a new API key&rdquo;.</p>
+
+<h3>HTTP Basic Authentication Example</h3>
+
+<pre><code class="language-bash">curl -u your-miniflux-username https://miniflux.example.org/v1/me
+</code></pre>
+
+<h3>API Token Authentication Example</h3>
+
+<p>Miniflux uses the HTTP header <code>X-Auth-Token</code> for API token authentication.</p>
+
+<pre><code class="language-bash">curl -H &quot;X-Auth-Token: your-token&quot; https://miniflux.example.org/v1/me
+</code></pre>
 
 <h2 id="clients">Clients <a class="anchor" href="#clients" title="Permalink">¶</a></h2>
 
