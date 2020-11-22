@@ -90,7 +90,7 @@ A, A+, B, B+, Zero  | Not supported yet
 Server Type    | Miniflux Binary       | uname -m
 ---------------|-----------------------|---------
 Scaleway C1    | miniflux-linux-armv6  |  armv7l
-Scaleway ARM64 | miniflux-linux-armv8  |  aarch6
+Scaleway ARM64 | miniflux-linux-armv8  |  aarch64
 
 <h2 id="docker-arch">Which Docker architecture should I use? <a class="anchor" href="#docker-arch" title="Permalink">¶</a></h2>
 
@@ -101,7 +101,7 @@ Docker Architecture | uname -m | Example
 amd64               |  x86_64  |
 arm32v6             |  armhf   | Raspberry Pi
 arm32v6             |  armv7l  | Scaleway C1
-arm64v8             |  aarch6  | Scaleway ARM64
+arm64v8             |  aarch64 | Scaleway ARM64
 
 If you use the wrong architecture, Docker will returns an error like this one:
 
