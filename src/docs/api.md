@@ -223,12 +223,19 @@ Response:
         "title": "Example Feed",
         "site_url": "http://example.org",
         "feed_url": "http://example.org/feed.atom",
+        "disabled": false,
+        "keeplist_rules": "",
+        "blocklist_rules": "",
         "rewrite_rules": "",
         "scraper_rules": "",
         "crawler": false,
+        "user_agent": "",
         "checked_at": "2017-12-22T21:06:03.133839-05:00",
+        "next_check_at": "0001-01-01T00:00:00Z",
         "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
         "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
+        "ignore_http_cache": false,
+        "fetch_via_proxy": false,
         "parsing_error_count": 0,
         "parsing_error_message": "",
         "category": {
@@ -263,12 +270,19 @@ Response:
     "title": "Example Feed",
     "site_url": "http://example.org",
     "feed_url": "http://example.org/feed.atom",
+    "disabled": false,
+    "keeplist_rules": "",
+    "blocklist_rules": "",
     "rewrite_rules": "",
     "scraper_rules": "",
     "crawler": false,
+    "user_agent": "",
     "checked_at": "2017-12-22T21:06:03.133839-05:00",
+    "next_check_at": "0001-01-01T00:00:00Z",
     "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
     "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
+    "ignore_http_cache": false,
+    "fetch_via_proxy": false,
     "parsing_error_count": 0,
     "parsing_error_message": "",
     "category": {
@@ -338,6 +352,9 @@ Optional fields:
 - `user_agent`: Custom user agent for the feed (string)
 - `scraper_rules`: List of scraper rules (string) - Available since Miniflux 2.0.19
 - `rewrite_rules`: List of rewrite rules (string) - Available since Miniflux 2.0.19
+- `fetch_via_proxy`: Enable/Disable HTTP proxy during fetching (boolean) - Available since Miniflux 2.0.24
+- `keeplist_rules`: List of keeplist rules (string) - Available since Miniflux 2.0.25
+- `blocklist_rules`: List of blocklist rules (string) - Available since Miniflux 2.0.25
 
 <h3 id="endpoint-update-feed">Update Feed <a class="anchor" href="#endpoint-update-feed" title="Permalink">¶</a></h3>
 
@@ -360,12 +377,19 @@ Response:
     "title": "New Feed Title",
     "site_url": "http://example.org",
     "feed_url": "http://example.org/feed.atom",
+    "disabled": false,
+    "keeplist_rules": "",
+    "blocklist_rules": "",
     "rewrite_rules": "",
     "scraper_rules": "",
     "crawler": false,
+    "user_agent": "",
     "checked_at": "2017-12-22T21:06:03.133839-05:00",
+    "next_check_at": "0001-01-01T00:00:00Z",
     "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
     "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
+    "ignore_http_cache": false,
+    "fetch_via_proxy": false,
     "parsing_error_count": 0,
     "parsing_error_message": "",
     "category": {
@@ -384,14 +408,18 @@ Available fields:
 
   - `feed_url`: (string)
   - `site_url`: (string)
+  - `disabled`: (boolean)
   - `title`: (string)
   - `category_id`: (int)
+  - `keeplist_rules`: (string)
+  - `blocklist_rules`: (string)
   - `scraper_rules`: (string)
   - `rewrite_rules`: (string)
   - `crawler`: (boolean)
   - `username`: (string)
   - `password`: (string)
   - `user_agent`: Custom user agent for the feed (string)
+  - `fetch_via_proxy`: (boolean)
 
 <h3 id="endpoint-refresh-feed">Refresh Feed <a class="anchor" href="#endpoint-refresh-feed" title="Permalink">¶</a></h3>
 
