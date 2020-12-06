@@ -96,7 +96,7 @@ _The hosted version is for people who don't want to manage their own server._
     </dd>
     <dt>Where is hosted Miniflux?</dt>
     <dd>
-        Miniflux is hosted on a server located in Toronto, Canada.
+        Miniflux's servers are located in Toronto, Canada.
     </dd>
     <dt>What is the Miniflux application URL?</dt>
     <dd>
@@ -116,5 +116,9 @@ _The hosted version is for people who don't want to manage their own server._
     <dt>Where are the terms of service?</dt>
     <dd>
         <a href="tos.html">Terms of Service and Privacy</a>
+    </dd>
+    <dt>Where is the status page?</dt>
+    <dd>
+        Incidents and planned maintenances are communicated here: <a href="https://status.miniflux.app/">https://status.miniflux.app/</a>
     </dd>
 </dl>

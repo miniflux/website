@@ -271,3 +271,5 @@ services:
 volumes:
   miniflux-db:  
 ```
+
+There are more examples in the Git repo: https://github.com/miniflux/v2/tree/master/contrib/docker-compose

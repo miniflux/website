@@ -34,18 +34,52 @@ For example, if you are reading a popular comic website like [XKCD](https://xkcd
 it's nice to have the image title (the `alt` attribute) added under the image.
 Especially on mobile devices where there is no `hover` event.
 
-| Rule  | Description  |
-|---|---|
-| `add_dynamic_image` | Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size). |
-| `add_image_title` | Add each image's title as a caption under the image. |
-| `add_youtube_video` | Insert Youtube video to the article (automatic for Youtube.com). |
-| `add_invidious_video` | Insert Invidious player to the article (automatic for https://invidio.us). |
-| `add_youtube_video_using_invidious_player` | Insert Invidious player to the article for Youtube feeds. |
-| `add_mailto_subject` | Insert mailto links subject into the article. |
-| `nl2br` | Convert new lines `\n` to `<br>` (useful for non-HTML contents). |
-| `convert_text_links` | Convert text link to HTML links (useful for non-HTML contents). |
-| `fix_medium_images` | Attempt to fix Medium's images rendered in Javascript. |
-| `use_noscript_figure_images` | Use `<noscript>` content for images rendered with Javascript. |
+<dl>
+    <dt><code>add_dynamic_image</code></dt>
+    <dd>
+        Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size).
+    </dd>
+    <dt><code>add_image_title</code></dt>
+    <dd>
+        Add each image's title as a caption under the image.
+    </dd>
+    <dt><code>add_youtube_video</code></dt>
+    <dd>
+        Insert Youtube video to the article (automatic for Youtube.com).
+    </dd>
+    <dt><code>add_invidious_video</code></dt>
+    <dd>
+        Insert Invidious player to the article (automatic for https://invidio.us).
+    </dd>
+    <dt><code>add_youtube_video_using_invidious_player</code></dt>
+    <dd>
+        Insert Invidious player to the article for Youtube feeds.
+    </dd>
+    <dt><code>add_mailto_subject</code></dt>
+    <dd>
+        Insert mailto links subject into the article.
+    </dd>
+    <dt><code>nl2br</code></dt>
+    <dd>
+        Convert new lines <code>\n</code> to <code>&lt;br&gt;</code> (useful for non-HTML contents).
+    </dd>
+    <dt><code>convert_text_links</code></dt>
+    <dd>
+        Convert text link to HTML links (useful for non-HTML contents).
+    </dd>
+    <dt><code>fix_medium_images</code></dt>
+    <dd>
+        Attempt to fix Medium's images rendered in Javascript.
+    </dd>
+    <dt><code>use_noscript_figure_images</code></dt>
+    <dd>
+        Use <code>&lt;noscript&gt;</code> content for images rendered with Javascript.
+    </dd>
+    <dt><code>replace("search term"|"replace term")</code></dt>
+    <dd>
+        Search and replace text.
+    </dd>
+</dl>
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.
 

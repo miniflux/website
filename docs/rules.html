@@ -51,66 +51,53 @@
 it&rsquo;s nice to have the image title (the <code>alt</code> attribute) added under the image.
 Especially on mobile devices where there is no <code>hover</code> event.</p>
 
-<table>
-<thead>
-<tr>
-<th>Rule</th>
-<th>Description</th>
-</tr>
-</thead>
+<dl>
+    <dt><code>add_dynamic_image</code></dt>
+    <dd>
+        Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size).
+    </dd>
+    <dt><code>add_image_title</code></dt>
+    <dd>
+        Add each image's title as a caption under the image.
+    </dd>
+    <dt><code>add_youtube_video</code></dt>
+    <dd>
+        Insert Youtube video to the article (automatic for Youtube.com).
+    </dd>
+    <dt><code>add_invidious_video</code></dt>
+    <dd>
+        Insert Invidious player to the article (automatic for https://invidio.us).
+    </dd>
+    <dt><code>add_youtube_video_using_invidious_player</code></dt>
+    <dd>
+        Insert Invidious player to the article for Youtube feeds.
+    </dd>
+    <dt><code>add_mailto_subject</code></dt>
+    <dd>
+        Insert mailto links subject into the article.
+    </dd>
+    <dt><code>nl2br</code></dt>
+    <dd>
+        Convert new lines <code>\n</code> to <code>&lt;br&gt;</code> (useful for non-HTML contents).
+    </dd>
+    <dt><code>convert_text_links</code></dt>
+    <dd>
+        Convert text link to HTML links (useful for non-HTML contents).
+    </dd>
+    <dt><code>fix_medium_images</code></dt>
+    <dd>
+        Attempt to fix Medium's images rendered in Javascript.
+    </dd>
+    <dt><code>use_noscript_figure_images</code></dt>
+    <dd>
+        Use <code>&lt;noscript&gt;</code> content for images rendered with Javascript.
+    </dd>
+    <dt><code>replace("search term"|"replace term")</code></dt>
+    <dd>
+        Search and replace text.
+    </dd>
+</dl>
 
-<tbody>
-<tr>
-<td><code>add_dynamic_image</code></td>
-<td>Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size).</td>
-</tr>
-
-<tr>
-<td><code>add_image_title</code></td>
-<td>Add each image&rsquo;s title as a caption under the image.</td>
-</tr>
-
-<tr>
-<td><code>add_youtube_video</code></td>
-<td>Insert Youtube video to the article (automatic for Youtube.com).</td>
-</tr>
-
-<tr>
-<td><code>add_invidious_video</code></td>
-<td>Insert Invidious player to the article (automatic for <a href="https://invidio.us">https://invidio.us</a>).</td>
-</tr>
-
-<tr>
-<td><code>add_youtube_video_using_invidious_player</code></td>
-<td>Insert Invidious player to the article for Youtube feeds.</td>
-</tr>
-
-<tr>
-<td><code>add_mailto_subject</code></td>
-<td>Insert mailto links subject into the article.</td>
-</tr>
-
-<tr>
-<td><code>nl2br</code></td>
-<td>Convert new lines <code>\n</code> to <code>&lt;br&gt;</code> (useful for non-HTML contents).</td>
-</tr>
-
-<tr>
-<td><code>convert_text_links</code></td>
-<td>Convert text link to HTML links (useful for non-HTML contents).</td>
-</tr>
-
-<tr>
-<td><code>fix_medium_images</code></td>
-<td>Attempt to fix Medium&rsquo;s images rendered in Javascript.</td>
-</tr>
-
-<tr>
-<td><code>use_noscript_figure_images</code></td>
-<td>Use <code>&lt;noscript&gt;</code> content for images rendered with Javascript.</td>
-</tr>
-</tbody>
-</table>
 <p>Miniflux includes a set of default rules for some websites, but you could define your own rules.</p>
 
 <p>On the feed edit page, enter your custom rules in the field &ldquo;Rewrite Rules&rdquo; like this:</p>

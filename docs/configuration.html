@@ -289,6 +289,14 @@
         <p>If you prefer to have a proxy for all outgoing requests, use the environment variables <code>HTTP_PROXY</code> or <code>HTTPS_PROXY</code>, look at the official <a href="https://golang.org/pkg/net/http/#ProxyFromEnvironment">Golang documentation</a> for more details.</p>
         <p><em>Default is empty.</em></p>
     </dd>
+    <dt id="http-client-user-agent"><a href="#http-client-user-agent"><code>HTTP_CLIENT_USER_AGENT</code></a></dt>
+    <dd>
+        <p>
+            The default User-Agent header to use for the HTTP client. Can be overridden in per-feed settings. 
+            When empty, Miniflux uses a default User-Agent that includes the Miniflux version.
+        </p>
+        <p><em>Default is empty.</em></p>
+    </dd>
     <dt id="auth-proxy-header"><a href="#auth-proxy-header"><code>AUTH_PROXY_HEADER</code></a></dt>
     <dd>
         <p>Proxy authentication HTTP header.</p>
@@ -301,7 +309,10 @@
     </dd>
     <dt id="maintenance-mode"><a href="#maintenance-mode"><code>MAINTENANCE_MODE</code></a></dt>
     <dd>
-        <p>Set to 1 to enable maintenance mode.</p>
+        <p>
+            Set to 1 to enable maintenance mode. 
+            Maintenance mode disables the web ui and show a text message to the users.
+        </p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="maintenance-message"><a href="#maintenance-message"><code>MAINTENANCE_MESSAGE</code></a></dt>

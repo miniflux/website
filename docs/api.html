@@ -36,6 +36,7 @@
 <li><a href="#endpoint-get-feeds">Get Feeds</a></li>
 <li><a href="#endpoint-get-feed">Get Feed</a></li>
 <li><a href="#endpoint-get-feed-icon">Get Feed Icon</a></li>
+<li><a href="#endpoint-mark-feed-entries-as-read">Mark Feed Entries as Read</a></li>
 <li><a href="#endpoint-create-feed">Create Feed</a></li>
 <li><a href="#endpoint-update-feed">Update Feed</a></li>
 <li><a href="#endpoint-refresh-feed">Refresh Feed</a></li>
@@ -51,6 +52,7 @@
 <li><a href="#endpoint-create-category">Create Category</a></li>
 <li><a href="#endpoint-update-category">Update Category</a></li>
 <li><a href="#endpoint-delete-category">Delete Category</a></li>
+<li>[Mark Category Entries as Read][#endpoint-mark-category-entries-as-read]</li>
 <li><a href="#endpoint-export">OPML Export</a></li>
 <li><a href="#endpoint-import">OPML Import</a></li>
 <li><a href="#endpoint-create-user">Create User</a></li>
@@ -59,6 +61,7 @@
 <li><a href="#endpoint-get-user">Get User</a></li>
 <li><a href="#endpoint-get-users">Get Users</a></li>
 <li><a href="#endpoint-delete-user">Delete User</a></li>
+<li><a href="#endpoint-mark-user-entries-as-read">Mark User Entries as Read</a></li>
 <li><a href="#endpoint-healthcheck">Healthcheck</a></li>
 <li><a href="#endpoint-version">Version</a></li>
 </ul></li>
@@ -637,6 +640,19 @@ The field <code>comments_url</code> is available since Miniflux v2.0.5.
     ]
 </code></pre>
 
+<h3 id="endpoint-mark-feed-entries-as-read">Mark Feed Entries as Read <a class="anchor" href="#endpoint-mark-feed-entries-as-read" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/feeds/123/mark-all-as-read
+</code></pre>
+
+<p>Returns <code>204 Not Content</code> status code for success.</p>
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.26.
+</div>
+
 <h3 id="endpoint-get-entries">Get Entries <a class="anchor" href="#endpoint-get-entries" title="Permalink">¶</a></h3>
 
 <p>Request:</p>
@@ -797,6 +813,19 @@ Content-Type: application/json
 </code></pre>
 
 <p>Returns a <code>204</code> status code when successful.</p>
+
+<h3 id="endpoint-mark-category-entries-as-read">Mark Category Entries as Read <a class="anchor" href="#endpoint-mark-category-entries-as-read" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/categories/123/mark-all-as-read
+</code></pre>
+
+<p>Returns <code>204 Not Content</code> status code for success.</p>
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.26.
+</div>
 
 <h3 id="endpoint-export">OPML Export <a class="anchor" href="#endpoint-export" title="Permalink">¶</a></h3>
 
@@ -1003,6 +1032,19 @@ The extra field is a dictionary of optional values.
 
 <div class="info">
 You must be an administrator to delete users.
+</div>
+
+<h3 id="endpoint-mark-user-entries-as-read">Mark User Entries as Read <a class="anchor" href="#endpoint-mark-user-entries-as-read" title="Permalink">¶</a></h3>
+
+<p>Request:</p>
+
+<pre><code>PUT /v1/users/123/mark-all-as-read
+</code></pre>
+
+<p>Returns <code>204 Not Content</code> status code for success.</p>
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.26.
 </div>
 
 <h3 id="endpoint-healthcheck">Healthcheck <a class="anchor" href="#endpoint-healthcheck" title="Permalink">¶</a></h3>

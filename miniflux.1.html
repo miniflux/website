@@ -238,6 +238,12 @@ The configuration file is a text file that follow these rules:
   <dd>Proxy URL for HTTP client.
     <br/>
     Default is empty.</dd>
+  <dt><b>HTTP_CLIENT_USER_AGENT</b></dt>
+  <dd>The default User-Agent header to use for the HTTP client. Can be
+      overridden in per-feed settings.
+    <br/>
+    Default is empty. When empty, Miniflux uses a default User-Agent that
+      includes the Miniflux version.</dd>
   <dt><b>AUTH_PROXY_HEADER</b></dt>
   <dd>Proxy authentication HTTP header.</dd>
   <dt><b>AUTH_PROXY_USER_CREATION</b></dt>
