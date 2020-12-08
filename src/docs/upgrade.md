@@ -14,8 +14,9 @@ Always check for breaking changes if any.
 3. Stop the process
 4. Backup your database
 5. Check that your backup is really working
-6. Run database migrations: `miniflux -migrate` or set the environment variable `RUN_MIGRATIONS=1`
-7. Start the process again
+6. Upgrade the `miniflux` binary itself
+7. Run database migrations: `miniflux -migrate` or set the environment variable `RUN_MIGRATIONS=1`
+8. Start the process again
 
 <h2 id="deb">Debian Systems <a class="anchor" href="#deb" title="Permalink">¶</a></h2>
 
