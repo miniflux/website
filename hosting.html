@@ -128,13 +128,22 @@
         If you forgot your password, send an email to <a href="mailto:support@miniflux.net">support@miniflux.net</a>.
         It&rsquo;s strongly advised to use a password manager.
     </dd>
-    <dt>Where are the terms of service?</dt>
+    <dt>How long are the articles kept in the database?</dt>
     <dd>
-        <a href="tos.html">Terms of Service and Privacy</a>
+        In order to avoid a large database, the retention policy is defined like this:
+        <ul>
+            <li>Articles marked as unread are removed 60 days after the insertion into the database.</li>
+            <li>Articles marked as read are removed 30 days after the insertion into the database.</li>
+            <li>Starred articles are never removed.</li>
+        </ul>
     </dd>
     <dt>Where is the status page?</dt>
     <dd>
         Incidents and planned maintenances are communicated here: <a href="https://status.miniflux.app/">https://status.miniflux.app/</a>
+    </dd>
+    <dt>Where are the terms of service?</dt>
+    <dd>
+        <a href="tos.html">Terms of Service and Privacy</a>
     </dd>
 </dl></p>
 
