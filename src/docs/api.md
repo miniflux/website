@@ -32,7 +32,7 @@ Table of Contents:
     - [Create Category](#endpoint-create-category)
     - [Update Category](#endpoint-update-category)
     - [Delete Category](#endpoint-delete-category)
-    - [Mark Category Entries as Read][#endpoint-mark-category-entries-as-read]
+    - [Mark Category Entries as Read](#endpoint-mark-category-entries-as-read)
     - [OPML Export](#endpoint-export)
     - [OPML Import](#endpoint-import)
     - [Create User](#endpoint-create-user)
