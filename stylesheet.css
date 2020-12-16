@@ -1,8 +1,117 @@
+:root {
+    --body-color: #555;
+    --body-background: #fff;
+    
+    --title-color: #000;
+    --subtitle-color: #333;
+    --page-header-title-border-color: #333;
+    
+    --link-color: #3366CC;
+    --link-focus-color: red;
+    --link-hover-color: #333;
+    
+    --anchor-color: #ddd;
+    --anchor-color-hover: #444;
+    
+    --table-border-color: #e1e1e1;
+    
+    --code-background: rgba(27,31,35,.05);
+    --code-color: #555;
+
+    --pre-color: #555;
+    --pre-border-color: #687550;
+    --pre-background: #eeffcc;
+    
+    --dt-color: #444;
+    --dd-border-color: #eee;
+    --dd-color: #666;
+
+    --configs-dt-color: #333;
+    --configs-dd-color: #555;
+    
+    --img-border-color: #000;
+
+    --alert-color: #c09853;
+    --alert-background-color: #fcf8e3;
+    --alert-border-color: #fbeed5;
+
+    --warning-background-color: #ffedcc;
+    --warning-border-color: #e7c17b;
+    --warning-color: #333;
+
+    --info-background-color: #e7f2fa;
+    --info-border-color: #7d9bb1;
+    --info-color: #333;
+
+    --button-primary-border-color: #3079ed;
+    --button-primary-background: #4d90fe;
+    --button-primary-color: #fff;
+    --button-primary-focus-border-color: #2f5bb7;
+    --button-primary-focus-background: #357ae8;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --body-color: #9c9c9c;
+        --body-background: #222;
+        
+        --title-color: #aaa;
+        --subtitle-color: #aaa;
+        --page-header-title-border-color: #333;
+        
+        --link-color: #aaa;
+        --link-focus-color: #ddd;
+        --link-hover-color: #ddd;
+        
+        --anchor-color: #aaa;
+        --anchor-color-hover: #ddd;
+        
+        --table-border-color: #e1e1e1;
+
+        --code-background: rgb(68, 68, 68);
+        --code-color: #fffefe;
+        
+        --pre-border-color: #ccc;
+        --pre-background: rgb(68, 68, 68);
+        --pre-color: #cacaca;
+        
+        --dt-color: #aaa;
+        --dd-border-color: #aaa;
+        --dd-color: #aaa;
+
+        --configs-dt-color: #fffefe;
+        --configs-dd-color: #aaa;
+
+        --img-border-color: #aaa;
+
+        --alert-color: #efefef;
+        --alert-background-color: #333;
+        --alert-border-color: #444;
+
+        --warning-color: #efefef;
+
+        --warning-background-color: #333;
+        --warning-border-color: #444;
+        --warning-color: #efefef;
+
+        --info-border-color: #444;
+        --info-background-color: #333;
+        --info-color: #efefef;
+
+        --button-primary-border-color: #444;
+        --button-primary-background: #333;
+        --button-primary-color: #efefef;
+        --button-primary-focus-border-color: #888;
+        --button-primary-focus-background: #555;
+    }
+}
+
 body {
     margin: 40px auto;
     max-width: 800px;
     padding: 0 10px;
-    color: #555;
+    color: var(--body-color);
+    background: var(--body-background);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 110%;
     text-rendering: optimizeLegibility;
@@ -16,19 +125,19 @@ abbr {
 }
 
 a {
-    color: #3366CC;
+    color: var(--link-color);
     border: 1px solid rgba(255, 255, 255, 0);
 }
 
 a:focus {
     outline: 0;
-    color: red;
+    color: var(--link-focus-color);
     text-decoration: none;
     border: 1px dotted #aaa;
 }
 
 a:hover {
-    color: #333;
+    color: var(--link-hover-color);
     text-decoration: none;
 }
 
@@ -37,19 +146,19 @@ h1 {
 }
 
 h1, h2, h3 {
-    color: #000;
+    color: var(--title-color);
     line-height: 1.2;
     font-weight: normal;
 }
 
 h1, h2 {
-    color: #444;
+    color: var(--subtitle-color);
 }
 
 h2 {
     font-weight: 400;
     font-size: 1.7em;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 1px dotted var(--page-header-title-border-color);
     margin-bottom: 25px;
 }
 
@@ -62,14 +171,14 @@ h3 {
 .anchor {
     visibility: hidden;
     text-decoration: none;
-    color: #ddd;
+    color: var(--anchor-color);
     margin: 0 0.1em;
     padding: 0 0.1em;
     border: none;
 }
 
 .anchor:hover {
-    color: #444;
+    color: var(--anchor-color-hover);
 }
 
 h1:hover > a.anchor,
@@ -88,7 +197,7 @@ table {
 }
 
 td, th {
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: 1px solid var(--table-border-color);
     padding: 5px 4px 5px 0;
     text-align: left;
 }
@@ -98,21 +207,24 @@ th {
 }
 
 code {
-    background: rgba(27,31,35,.05);
+    color: var(--code-color);
+    background: var(--code-background);
     padding: 1px;
     border-radius: 3px;
 }
 
 pre {
-    border: 1px solid #687550;
-    background: #eeffcc;
+    border: 1px solid var(--pre-border-color);
+    background: var(--pre-background);
     overflow: auto;
     padding: 3px;
+    color: var(--pre-color);
 }
 
 pre > code {
     border: none;
-    background: #eeffcc;
+    background: var(--pre-background);
+    color: var(--code-color);
     padding: 0;
 }
 
@@ -137,17 +249,17 @@ li a {
 
 dt {
     margin-bottom: 8px;
-    color: #444;
+    color: var(--dt-color);
     font-size: 1.3em;
 }
 
 dd {
     margin-bottom: 15px;
     margin-left: 15px;
-    border-left: 3px solid #eee;
+    border-left: 3px solid var(--dd-border-color);
     padding-left: 10px;
     line-height: 1.35em;
-    color: #666;
+    color: var(--dd-color);
     font-weight: 300;
 }
 
@@ -161,7 +273,7 @@ figure {
 
 img {
     max-width: 100%;
-    border: 1px solid #000;
+    border: 1px solid var(--img-border-color);
 }
 
 .breadcrumb {
@@ -178,19 +290,21 @@ img {
 }
 
 .warning {
-    background: #ffedcc;
+    background-color: var(--warning-background-color);
     padding: 12px;
     line-height: 24px;
     margin-bottom: 24px;
-    border: 1px solid #e7c17b;
+    border: 1px solid var(--warning-border-color);
+    color: var(--warning-color);
 }
 
 .info {
-    background: #e7f2fa;
+    background-color: var(--info-background-color);
     padding: 12px;
     line-height: 24px;
     margin-bottom: 24px;
-    border: 1px solid #7d9bb1;
+    border: 1px solid var(--info-border-color);
+    color: var(--info-color);
 }
 
 .warning li:last-child,
@@ -201,9 +315,9 @@ img {
 .alert {
     padding: 8px 35px 8px 14px;
     margin-bottom: 20px;
-    color: #c09853;
-    background-color: #fcf8e3;
-    border: 1px solid #fbeed5;
+    color: var(--alert-color);
+    background-color: var(--alert-background-color);
+    border: 1px solid var(--alert-border-color);
     border-radius: 4px;
     overflow: auto;
 }
@@ -224,9 +338,9 @@ a.button {
 }
 
 .button-primary {
-    border-color: #3079ed;
-    background: #4d90fe;
-    color: #fff;
+    border-color: var(--button-primary-border-color);
+    background: var(--button-primary-background);
+    color: var(--button-primary-color);
 }
 
 .signup-button {
@@ -251,7 +365,7 @@ a.button {
 
 .configs dt a,
 .configs dt a code {
-    color: #333;
+    color: var(--configs-dt-color);
     text-decoration: none;
 }
 
@@ -261,7 +375,7 @@ a.button {
 }
 
 .configs dd {
-    color: #555;
+    color: var(--configs-dd-color);
     font-weight: 400;
 }
 
