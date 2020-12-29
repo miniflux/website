@@ -68,9 +68,9 @@ export DATABASE_URL="user=postgres password=postgres dbname=miniflux2 sslmode=di
 <h2 id="privileged-ports">How to run Miniflux on port 443 or 80 <a class="anchor" href="#privileged-ports" title="Permalink">¶</a></h2>
 
 Ports less than 1024 are reserved for privileged users.
-If you have installed Miniflux with the RPM or Debian package, systemd run the process as the `miniflux` user.
+If you have installed Miniflux with the RPM or Debian package, no further action is required. Systemd runs the process as the `miniflux` user with `CAP_NET_BIND_SERVICE` capability.
 
-To give Miniflux the ability to bind to privileged ports as a non-root user, add the capability `CAP_NET_BIND_SERVICE` to the binary:
+If you are not using systemd and want to give Miniflux the ability to bind to privileged ports as a non-root user, add the capability `CAP_NET_BIND_SERVICE` to the binary:
 
 ```bash
 setcap cap_net_bind_service=+ep /usr/bin/miniflux
@@ -84,21 +84,6 @@ getcap /usr/bin/miniflux
 ```
 
 Note that you will have to do this operation each time you upgrade Miniflux.
-
-<div class="warning">
-<p>If you use Systemd, these options might prevent you to listen on privileged ports:</p>
-<ul>
-    <li><code>NoNewPrivileges=true</code></li>
-    <li><code>PrivateDevices=true</code></li>
-    <li><code>ProtectKernelModules=true</code></li>
-    <li><code>ProtectKernelTunables=true</code></li>
-    <li><code>RestrictRealtime=true</code></li>
-</ul>
-</div>
-
-<div class="info">
-Another way of doing this is to use the Systemd Socket Activation or a reverse-proxy like Nginx.
-</div>
 
 <h2 id="reverse-proxy">Reverse-Proxy Configuration <a class="anchor" href="#reverse-proxy" title="Permalink">¶</a></h2>
 

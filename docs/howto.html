@@ -80,9 +80,9 @@ gpgcheck=0
 <h2 id="privileged-ports">How to run Miniflux on port 443 or 80 <a class="anchor" href="#privileged-ports" title="Permalink">¶</a></h2>
 
 <p>Ports less than 1024 are reserved for privileged users.
-If you have installed Miniflux with the RPM or Debian package, systemd run the process as the <code>miniflux</code> user.</p>
+If you have installed Miniflux with the RPM or Debian package, no further action is required. Systemd runs the process as the <code>miniflux</code> user with <code>CAP_NET_BIND_SERVICE</code> capability.</p>
 
-<p>To give Miniflux the ability to bind to privileged ports as a non-root user, add the capability <code>CAP_NET_BIND_SERVICE</code> to the binary:</p>
+<p>If you are not using systemd and want to give Miniflux the ability to bind to privileged ports as a non-root user, add the capability <code>CAP_NET_BIND_SERVICE</code> to the binary:</p>
 
 <pre><code class="language-bash">setcap cap_net_bind_service=+ep /usr/bin/miniflux
 </code></pre>
@@ -94,21 +94,6 @@ If you have installed Miniflux with the RPM or Debian package, systemd run the p
 </code></pre>
 
 <p>Note that you will have to do this operation each time you upgrade Miniflux.</p>
-
-<div class="warning">
-<p>If you use Systemd, these options might prevent you to listen on privileged ports:</p>
-<ul>
-    <li><code>NoNewPrivileges=true</code></li>
-    <li><code>PrivateDevices=true</code></li>
-    <li><code>ProtectKernelModules=true</code></li>
-    <li><code>ProtectKernelTunables=true</code></li>
-    <li><code>RestrictRealtime=true</code></li>
-</ul>
-</div>
-
-<div class="info">
-Another way of doing this is to use the Systemd Socket Activation or a reverse-proxy like Nginx.
-</div>
 
 <h2 id="reverse-proxy">Reverse-Proxy Configuration <a class="anchor" href="#reverse-proxy" title="Permalink">¶</a></h2>
 
