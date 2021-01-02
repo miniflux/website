@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+<body>
+    <article>
+        <h1>{{ .Title }}</h1>
+        <nav class="breadcrumb">
+            <a href="/">Home</a> &gt; <a href="/releases.html">Releases</a>
+        </nav>
+        {{ if .Date }}
+        <time class="release-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ end }}
+        {{ .Content }}
+    </article>
+</body>
+</html>

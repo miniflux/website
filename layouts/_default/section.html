@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+<body>
+    <main>
+        <h1>{{ .Title }}</h1>
+        <nav class="breadcrumb"><a href="/">Back to Homepage</a></nav>
+        <article>
+            {{ .Content }}
+        </article>
+    </main>
+</body>
+</html>

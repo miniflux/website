@@ -1,0 +1,111 @@
+---
+title: Filter, Rewrite and Scraper Rules
+description: How to write custom scraper and rewrite rules
+url: /docs/rules.html
+---
+
+- [Filtering Rules](#filtering-rules)
+- [Rewrite Rules](#rewrite-rules)
+- [Scraper Rules](#scraper-rules)
+
+<h2 id="filtering-rules">Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
+
+Miniflux has a basic filtering system that allows you to ignore or keep articles.
+
+### Block Rules
+
+Block rules ignore articles with a title that match the regex.
+
+For example, the regex `(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
+
+Ignored articles won't be saved into the database.
+
+### Keep Rules
+
+Keep rules keeps only articles that matches the regex.
+
+For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
+
+<h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
+
+To improve the reading experience, it's possible to alter the content of feed items.
+
+For example, if you are reading a popular comic website like [XKCD](https://xkcd.com/),
+it's nice to have the image title (the `alt` attribute) added under the image.
+Especially on mobile devices where there is no `hover` event.
+
+<dl>
+    <dt><code>add_dynamic_image</code></dt>
+    <dd>
+        Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size).
+    </dd>
+    <dt><code>add_image_title</code></dt>
+    <dd>
+        Add each image's title as a caption under the image.
+    </dd>
+    <dt><code>add_youtube_video</code></dt>
+    <dd>
+        Insert Youtube video to the article (automatic for Youtube.com).
+    </dd>
+    <dt><code>add_invidious_video</code></dt>
+    <dd>
+        Insert Invidious player to the article (automatic for https://invidio.us).
+    </dd>
+    <dt><code>add_youtube_video_using_invidious_player</code></dt>
+    <dd>
+        Insert Invidious player to the article for Youtube feeds.
+    </dd>
+    <dt><code>add_mailto_subject</code></dt>
+    <dd>
+        Insert mailto links subject into the article.
+    </dd>
+    <dt><code>nl2br</code></dt>
+    <dd>
+        Convert new lines <code>\n</code> to <code>&lt;br&gt;</code> (useful for non-HTML contents).
+    </dd>
+    <dt><code>convert_text_links</code></dt>
+    <dd>
+        Convert text link to HTML links (useful for non-HTML contents).
+    </dd>
+    <dt><code>fix_medium_images</code></dt>
+    <dd>
+        Attempt to fix Medium's images rendered in Javascript.
+    </dd>
+    <dt><code>use_noscript_figure_images</code></dt>
+    <dd>
+        Use <code>&lt;noscript&gt;</code> content for images rendered with Javascript.
+    </dd>
+    <dt><code>replace("search term"|"replace term")</code></dt>
+    <dd>
+        Search and replace text.
+    </dd>
+</dl>
+
+Miniflux includes a set of default rules for some websites, but you could define your own rules.
+
+On the feed edit page, enter your custom rules in the field "Rewrite Rules" like this:
+
+```
+rule1,rule2
+```
+
+Separate each rule by a comma.
+
+<h2 id="scraper-rules">Scraper Rules <a class="anchor" href="#scraper-rules" title="Permalink">¶</a></h2>
+
+When an article contains only an extract of the content, you could fetch
+the original web page and apply a set of rules to get relevant contents.
+
+Miniflux uses CSS selectors for custom rules. These custom rules can be
+saved in the feed properties (Select a feed and click on edit).
+
+| CSS Selector  | Description  |
+|---|---|
+| `div#articleBody` | Fetch a `div` element with the ID `articleBody` |
+| `div.content` | Fetch all `div` elements with the class `content` |
+| `article, div.article` | Use a comma to define multiple rules |
+
+Miniflux includes a list of predefined rules for popular websites.
+You could contribute to the project to keep them up to date.
+
+Under the hood, Miniflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).

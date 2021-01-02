@@ -1,0 +1,21 @@
+baseURL = "https://miniflux.app/"
+languageCode = "en-us"
+title = "Miniflux"
+disableKinds = ["taxonomy", "term", "sitemap"]
+enableRobotsTXT = true
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[author]
+name = "Frédéric Guillot"
+
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "feed"
+
+[outputs]
+page = ["HTML"]
+home = ["HTML", "RSS"]
+section = ["HTML"]

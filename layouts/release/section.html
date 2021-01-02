@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    {{ partial "head.html" . }}
+    <body>
+        <main>
+            <h1>{{ .Title }}</h1>
+            <nav class="breadcrumb"><a href="/">Back to Homepage</a></nav>
+            {{ .Content }}
+            <ul>
+                {{ range (where .Data.Pages "Section" "releases").ByDate.Reverse }}
+                    <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format  "2006-01-02" }}</time> - <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </main>
+    </body>
+</html>

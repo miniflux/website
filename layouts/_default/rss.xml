@@ -1,0 +1,23 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{{ .Site.Title }}</title>
+    <id>{{ .Site.BaseURL }}</id>
+    <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+    {{ with $.Site.Author.name }}
+    <author><name>{{ . }}</name></author>
+    {{ end }}
+
+    <link rel="alternate" type="text/html" href="{{ .Site.BaseURL }}"/>
+    {{ with .OutputFormats.Get "RSS" }}
+    <link rel="self" type="application/atom+xml" href="{{ .Permalink }}"/>
+    {{ end }}
+
+    {{ range where (where .Site.Pages ".Section" "releases") "Kind" "page" }}
+    <entry>
+        <title>{{ .Title }}</title>
+        <link rel="alternate" type="text/html" href="{{ .Permalink }}"/>
+        <id>{{ .Permalink }}</id>
+        <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+        <content type="html">{{- printf "<![CDATA[" | safeHTML }}{{ .Content | safeHTML }}{{- printf "]]>" | safeHTML }}</content>
+    </entry>
+    {{ end }}
+</feed>
