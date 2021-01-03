@@ -409,6 +409,9 @@ heroku config:unset ADMIN_PASSWORD
 
 <h2 id="gae">Deploy Miniflux on Google App Engine <a class="anchor" href="#gae" title="Permalink">¶</a></h2>
 
+If you have experience with Terraform and want a setup that works out of the box, consider using this [Terraform module](https://github.com/huy-nguyen/terraform-google-miniflux).
+Alternatively, you can follow these instructions:
+
 - Create a Postgresql instance via Google Cloud SQL, then create a user and a new database
 - Clone the repository and create a `app.yaml` file in the project root directory
 
