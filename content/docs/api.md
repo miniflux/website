@@ -189,7 +189,7 @@ Request:
 
 Response:
 
-``` json
+```json
 [
     {
         "url": "http://example.org/feed.atom",
@@ -209,6 +209,7 @@ Optional fields:
 - `username`: Feed username (string)
 - `password`: Feed password (string)
 - `user_agent`: Custom user agent (string)
+- `fetch_via_proxy` (boolean)
 
 <h3 id="endpoint-get-feeds">Get Feeds <a class="anchor" href="#endpoint-get-feeds" title="Permalink">¶</a></h3>
 
@@ -218,7 +219,7 @@ Request:
 
 Response:
 
-``` json
+```json
 [
     {
         "id": 42,
@@ -226,14 +227,22 @@ Response:
         "title": "Example Feed",
         "site_url": "http://example.org",
         "feed_url": "http://example.org/feed.atom",
-        "rewrite_rules": "",
-        "scraper_rules": "",
-        "crawler": false,
         "checked_at": "2017-12-22T21:06:03.133839-05:00",
         "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
         "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
-        "parsing_error_count": 0,
         "parsing_error_message": "",
+        "parsing_error_count": 0,
+        "scraper_rules": "",
+        "rewrite_rules": "",
+        "crawler": false,
+        "blocklist_rules": "",
+        "keeplist_rules": "",
+        "user_agent": "",
+        "username": "",
+        "password": "",
+        "disabled": false,
+        "ignore_http_cache": false,
+        "fetch_via_proxy": false,
         "category": {
             "id": 793,
             "user_id": 123,
@@ -259,21 +268,29 @@ Request:
 
 Response:
 
-``` json
+```json
 {
     "id": 42,
     "user_id": 123,
     "title": "Example Feed",
     "site_url": "http://example.org",
     "feed_url": "http://example.org/feed.atom",
-    "rewrite_rules": "",
-    "scraper_rules": "",
-    "crawler": false,
     "checked_at": "2017-12-22T21:06:03.133839-05:00",
     "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
     "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
-    "parsing_error_count": 0,
     "parsing_error_message": "",
+    "parsing_error_count": 0,
+    "scraper_rules": "",
+    "rewrite_rules": "",
+    "crawler": false,
+    "blocklist_rules": "",
+    "keeplist_rules": "",
+    "user_agent": "",
+    "username": "",
+    "password": "",
+    "disabled": false,
+    "ignore_http_cache": false,
+    "fetch_via_proxy": false,
     "category": {
         "id": 793,
         "user_id": 123,
@@ -298,7 +315,7 @@ Request:
 
 Response:
 
-``` json
+```json
 {
     "id": 262,
     "data": "image/png;base64,iVBORw0KGgoAAA....",
@@ -322,7 +339,7 @@ Request:
 
 Response:
 
-``` json
+```json
 {
     "feed_id": 262,
 }
@@ -330,8 +347,8 @@ Response:
 
 Required fields:
 
-  - `feed_url`: Feed URL (string)
-  - `category_id`: Category ID (int)
+- `feed_url`: Feed URL (string)
+- `category_id`: Category ID (int)
 
 Optional fields:
 
@@ -339,8 +356,13 @@ Optional fields:
 - `password`: Feed password (string)
 - `crawler`: Enable/Disable scraper (boolean)
 - `user_agent`: Custom user agent for the feed (string)
-- `scraper_rules`: List of scraper rules (string) - Available since Miniflux 2.0.19
-- `rewrite_rules`: List of rewrite rules (string) - Available since Miniflux 2.0.19
+- `scraper_rules`: List of scraper rules (string) - Miniflux >= 2.0.19
+- `rewrite_rules`: List of rewrite rules (string) - Miniflux >= 2.0.19
+- `blocklist_rules` (string) - Miniflux >= 2.0.27
+- `keeplist_rules` (string) - Miniflux >= 2.0.27
+- `disabled` (boolean) - Miniflux >= 2.0.27
+- `ignore_http_cache` (boolean) - Miniflux >= 2.0.27
+- `fetch_via_proxy` (boolean) - Miniflux >= 2.0.27
 
 <h3 id="endpoint-update-feed">Update Feed <a class="anchor" href="#endpoint-update-feed" title="Permalink">¶</a></h3>
 
@@ -356,21 +378,29 @@ Request:
 
 Response:
 
-``` json
+```json
 {
     "id": 42,
     "user_id": 123,
     "title": "New Feed Title",
     "site_url": "http://example.org",
     "feed_url": "http://example.org/feed.atom",
-    "rewrite_rules": "",
-    "scraper_rules": "",
-    "crawler": false,
     "checked_at": "2017-12-22T21:06:03.133839-05:00",
     "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
     "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
-    "parsing_error_count": 0,
     "parsing_error_message": "",
+    "parsing_error_count": 0,
+    "scraper_rules": "",
+    "rewrite_rules": "",
+    "crawler": false,
+    "blocklist_rules": "",
+    "keeplist_rules": "",
+    "user_agent": "",
+    "username": "",
+    "password": "",
+    "disabled": false,
+    "ignore_http_cache": false,
+    "fetch_via_proxy": false,
     "category": {
         "id": 22,
         "user_id": 123,
@@ -385,16 +415,21 @@ Response:
 
 Available fields:
 
-  - `feed_url`: (string)
-  - `site_url`: (string)
-  - `title`: (string)
-  - `category_id`: (int)
-  - `scraper_rules`: (string)
-  - `rewrite_rules`: (string)
-  - `crawler`: (boolean)
-  - `username`: (string)
-  - `password`: (string)
-  - `user_agent`: Custom user agent for the feed (string)
+- `feed_url` (string)
+- `site_url` (string)
+- `title` (string)
+- `category_id` (int)
+- `scraper_rules` (string)
+- `rewrite_rules` (string)
+- `blocklist_rules` (string)
+- `keeplist_rules` (string)
+- `crawler` (boolean)
+- `user_agent`: Custom user agent for the feed (string)
+- `username` (string)
+- `password` (string)
+- `disabled` (boolean)
+- `ignore_http_cache` (boolean)
+- `fetch_via_proxy` (boolean)
 
 <h3 id="endpoint-refresh-feed">Refresh Feed <a class="anchor" href="#endpoint-refresh-feed" title="Permalink">¶</a></h3>
 
@@ -402,12 +437,10 @@ Request:
 
     PUT /v1/feeds/42/refresh
 
-<div class="info">
 <ul>
     <li>Returns <code>204</code> status code for success.</li>
     <li>This API call is synchronous and can takes hundred of milliseconds.</li>
 </ul>
-</div>
 
 <h3 id="endpoint-refresh-all-feeds">Refresh all Feeds <a class="anchor" href="#endpoint-refresh-all-feeds" title="Permalink">¶</a></h3>
 
@@ -415,13 +448,11 @@ Request:
 
     PUT /v1/feeds/refresh
 
-<div class="info">
 <ul>
     <li>Returns <code>204</code> status code for success.</li>
     <li>Feeds are refreshed in a background process.</li>
     <li>Available since Miniflux 2.0.21</li>
 </ul>
-</div>
 
 <h3 id="endpoint-remove-feed">Remove Feed <a class="anchor" href="#endpoint-remove-feed" title="Permalink">¶</a></h3>
 
@@ -449,22 +480,34 @@ Response:
     "content": "<p>HTML contents</p>",
     "hash": "29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb",
     "published_at": "2016-12-12T16:15:19Z",
-    "status": "read",
+    "created_at": "2016-12-27T16:15:19Z",
+    "status": "unread",
+    "share_code": "",
     "starred": false,
+    "reading_time": 1,
+    "enclosures": null,
     "feed": {
         "id": 42,
         "user_id": 123,
         "title": "New Feed Title",
         "site_url": "http://example.org",
         "feed_url": "http://example.org/feed.atom",
-        "rewrite_rules": "",
-        "scraper_rules": "",
-        "crawler": false,
         "checked_at": "2017-12-22T21:06:03.133839-05:00",
         "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
         "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
-        "parsing_error_count": 0,
         "parsing_error_message": "",
+        "parsing_error_count": 0,
+        "scraper_rules": "",
+        "rewrite_rules": "",
+        "crawler": false,
+        "blocklist_rules": "",
+        "keeplist_rules": "",
+        "user_agent": "",
+        "username": "",
+        "password": "",
+        "disabled": false,
+        "ignore_http_cache": false,
+        "fetch_via_proxy": false,
         "category": {
             "id": 22,
             "user_id": 123,
@@ -478,10 +521,6 @@ Response:
 }
 ```
 
-<div class="info">
-The field <code>comments_url</code> is available since Miniflux v2.0.5.
-</div>
-
 <h3 id="endpoint-get-entry">Get Entry <a class="anchor" href="#endpoint-get-entry" title="Permalink">¶</a></h3>
 
 Request:
@@ -490,7 +529,7 @@ Request:
 
 Response:
 
-``` json
+```json
 {
     "id": 888,
     "user_id": 123,
@@ -502,22 +541,34 @@ Response:
     "content": "<p>HTML contents</p>",
     "hash": "29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb",
     "published_at": "2016-12-12T16:15:19Z",
-    "status": "read",
+    "created_at": "2016-12-27T16:15:19Z",
+    "status": "unread",
+    "share_code": "",
     "starred": false,
+    "reading_time": 1,
+    "enclosures": null,
     "feed": {
         "id": 42,
         "user_id": 123,
         "title": "New Feed Title",
         "site_url": "http://example.org",
         "feed_url": "http://example.org/feed.atom",
-        "rewrite_rules": "",
-        "scraper_rules": "",
-        "crawler": false,
         "checked_at": "2017-12-22T21:06:03.133839-05:00",
         "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
         "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
-        "parsing_error_count": 0,
         "parsing_error_message": "",
+        "parsing_error_count": 0,
+        "scraper_rules": "",
+        "rewrite_rules": "",
+        "crawler": false,
+        "blocklist_rules": "",
+        "keeplist_rules": "",
+        "user_agent": "",
+        "username": "",
+        "password": "",
+        "disabled": false,
+        "ignore_http_cache": false,
+        "fetch_via_proxy": false,
         "category": {
             "id": 22,
             "user_id": 123,
@@ -555,7 +606,7 @@ Available filters:
 
 Response:
 
-``` json
+```json
 {
     "total": 10,
     "entries": [
@@ -570,22 +621,34 @@ Response:
             "content": "<p>HTML contents</p>",
             "hash": "29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb",
             "published_at": "2016-12-12T16:15:19Z",
-            "status": "read",
+            "created_at": "2016-12-27T16:15:19Z",
+            "status": "unread",
+            "share_code": "",
             "starred": false,
+            "reading_time": 1,
+            "enclosures": null,
             "feed": {
                 "id": 42,
                 "user_id": 123,
                 "title": "New Feed Title",
                 "site_url": "http://example.org",
                 "feed_url": "http://example.org/feed.atom",
-                "rewrite_rules": "",
-                "scraper_rules": "",
-                "crawler": false,
                 "checked_at": "2017-12-22T21:06:03.133839-05:00",
                 "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
                 "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
-                "parsing_error_count": 0,
                 "parsing_error_message": "",
+                "parsing_error_count": 0,
+                "scraper_rules": "",
+                "rewrite_rules": "",
+                "crawler": false,
+                "blocklist_rules": "",
+                "keeplist_rules": "",
+                "user_agent": "",
+                "username": "",
+                "password": "",
+                "disabled": false,
+                "ignore_http_cache": false,
+                "fetch_via_proxy": false,
                 "category": {
                     "id": 22,
                     "user_id": 123,
@@ -620,23 +683,23 @@ Request:
 
 Available filters:
 
-  - `status`: Entry status (read, unread or removed), this option can be repeated to filter by multiple statuses (version >= 2.0.24)
-  - `offset`
-  - `limit`
-  - `order`: "id", "status", "published\_at", "category\_title",
-    "category\_id"
-  - `direction`: "asc" or "desc"
-  - `before` (unix timestamp, available since Miniflux 2.0.9)
-  - `after` (unix timestamp, available since Miniflux 2.0.9)
-  - `before_entry_id` (int64, available since Miniflux 2.0.9)
-  - `after_entry_id` (int64, available since Miniflux 2.0.9)
-  - `starred` (boolean, available since Miniflux 2.0.9)
-  - `search`: search query (text, available since Miniflux 2.0.10)
-  - `category_id`: filter by category (int, available since Miniflux 2.0.24)
+- `status`: Entry status (read, unread or removed), this option can be repeated to filter by multiple statuses (version >= 2.0.24)
+- `offset`
+- `limit`
+- `order`: "id", "status", "published\_at", "category\_title",
+"category\_id"
+- `direction`: "asc" or "desc"
+- `before` (unix timestamp, available since Miniflux 2.0.9)
+- `after` (unix timestamp, available since Miniflux 2.0.9)
+- `before_entry_id` (int64, available since Miniflux 2.0.9)
+- `after_entry_id` (int64, available since Miniflux 2.0.9)
+- `starred` (boolean, available since Miniflux 2.0.9)
+- `search`: search query (text, available since Miniflux 2.0.10)
+- `category_id`: filter by category (int, available since Miniflux 2.0.24)
 
 Response:
 
-``` json
+```json
 {
     "total": 10,
     "entries": [
@@ -651,22 +714,34 @@ Response:
             "content": "<p>HTML contents</p>",
             "hash": "29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb",
             "published_at": "2016-12-12T16:15:19Z",
+            "created_at": "2016-12-27T16:15:19Z",
             "status": "unread",
+            "share_code": "",
             "starred": false,
+            "reading_time": 1,
+            "enclosures": null,
             "feed": {
                 "id": 42,
                 "user_id": 123,
                 "title": "New Feed Title",
                 "site_url": "http://example.org",
                 "feed_url": "http://example.org/feed.atom",
-                "rewrite_rules": "",
-                "scraper_rules": "",
-                "crawler": false,
                 "checked_at": "2017-12-22T21:06:03.133839-05:00",
                 "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
                 "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
-                "parsing_error_count": 0,
                 "parsing_error_message": "",
+                "parsing_error_count": 0,
+                "scraper_rules": "",
+                "rewrite_rules": "",
+                "crawler": false,
+                "blocklist_rules": "",
+                "keeplist_rules": "",
+                "user_agent": "",
+                "username": "",
+                "password": "",
+                "disabled": false,
+                "ignore_http_cache": false,
+                "fetch_via_proxy": false,
                 "category": {
                     "id": 22,
                     "user_id": 123,
@@ -828,16 +903,34 @@ Request:
         "is_admin": false
     }
 
+Available Fields:
+
+| Field                      | Type        |
+| -------------------------- | ----------- |
+| `username`                 | `string`    |
+| `password`                 | `string`    |
+| `google_id`                | `string`    |
+| `openid_connect_id`        | `string`    |
+| `is_admin`                 | `boolean`   |
+
 Response:
 
 ``` json
 {
     "id": 270,
     "username": "bob",
+    "theme": "system_serif",
     "language": "en_US",
     "timezone": "UTC",
-    "theme": "default",
-    "entry_sorting_direction": "asc"
+    "entry_sorting_direction": "desc",
+    "stylesheet": "",
+    "google_id": "",
+    "openid_connect_id": "",
+    "entries_per_page": 100,
+    "keyboard_shortcuts": true,
+    "show_reading_time": true,
+    "entry_swipe": true,
+    "last_login_at": null
 }
 ```
 
@@ -858,14 +951,22 @@ Request:
 
 Available fields:
 
-  - `username`: (string)
-  - `password`: (string)
-  - `is_admin`: (boolean)
-  - `theme`: (string)
-  - `language`: (string)
-  - `timezone`: (string)
-  - `entry_sorting_direction`: "desc" or "asc" (available since Miniflux
-    2.0.9)
+| Field                      | Type        | Example         |
+| -------------------------- | ----------- |-----------------|
+| `username`                 | `string`    |                 |
+| `password`                 | `string`    |                 |
+| `theme`                    | `string`    | "dark_serif"    |
+| `language`                 | `string`    | "fr_FR"         |
+| `timezone`                 | `string`    | "Europe/Paris"  |
+| `entry_sorting_direction`  | `string`    | "desc" or "asc" |
+| `stylesheet`               | `string`    |                 |
+| `google_id`                | `string`    |                 |
+| `openid_connect_id`        | `string`    |                 |
+| `entries_per_page`         | `int`       |                 |
+| `is_admin`                 | `boolean`   |                 |
+| `keyboard_shortcuts`       | `boolean`   |                 |
+| `show_reading_time`        | `boolean`   |                 |
+| `entry_swipe`              | `boolean`   |                 |
 
 Response:
 
@@ -873,10 +974,18 @@ Response:
 {
     "id": 270,
     "username": "joe",
+    "theme": "system_serif",
     "language": "en_US",
-    "timezone": "UTC",
-    "theme": "default",
-    "entry_sorting_direction": "asc"
+    "timezone": "America/Los_Angeles",
+    "entry_sorting_direction": "desc",
+    "stylesheet": "",
+    "google_id": "",
+    "openid_connect_id": "",
+    "entries_per_page": 100,
+    "keyboard_shortcuts": true,
+    "show_reading_time": true,
+    "entry_swipe": true,
+    "last_login_at": "2021-01-05T06:46:06.461189Z"
 }
 ```
 
@@ -897,12 +1006,18 @@ Response:
     "id": 1,
     "username": "admin",
     "is_admin": true,
-    "theme": "default",
+    "theme": "dark_serif",
     "language": "en_US",
     "timezone": "America/Vancouver",
     "entry_sorting_direction": "desc",
-    "last_login_at": "2018-06-01T19:54:30.723051-07:00",
-    "extra": {}
+    "stylesheet": "",
+    "google_id": "",
+    "openid_connect_id": "",
+    "entries_per_page": 100,
+    "keyboard_shortcuts": true,
+    "show_reading_time": true,
+    "entry_swipe": true,
+    "last_login_at": "2021-01-05T04:51:45.118524Z"
 }
 ```
 
@@ -925,21 +1040,25 @@ Response:
 ``` json
 {
     "id": 270,
-    "username": "bob",
+    "username": "test",
     "is_admin": false,
+    "theme": "light_serif",
     "language": "en_US",
-    "timezone": "UTC",
-    "theme": "default",
-    "entry_sorting_direction": "asc",
-    "last_login_at": "2017-12-27T16:40:58.841841-05:00",
-    "extra": {
-        "google_id": "42424242424242"
-    }
+    "timezone": "America/Los_Angeles",
+    "entry_sorting_direction": "desc",
+    "stylesheet": "",
+    "google_id": "",
+    "openid_connect_id": "",
+    "entries_per_page": 100,
+    "keyboard_shortcuts": true,
+    "show_reading_time": true,
+    "entry_swipe": true,
+    "last_login_at": "2021-01-04T20:57:34.447789-08:00"
 }
 ```
 
 <div class="info">
-You must be an administrator to fetch users. The extra field is a dictionary of optional values.
+You must be an administrator to fetch users.
 </div>
 
 <h3 id="endpoint-get-users">Get Users <a class="anchor" href="#endpoint-get-users" title="Permalink">¶</a></h3>
@@ -954,21 +1073,26 @@ Response:
 [
     {
         "id": 270,
-        "username": "bob",
+        "username": "test",
         "is_admin": false,
+        "theme": "light_serif",
         "language": "en_US",
-        "timezone": "UTC",
-        "theme": "default",
-        "entry_sorting_direction": "asc",
-        "last_login_at": "2017-12-27T16:40:58.841841-05:00",
-        "extra": {}
+        "timezone": "America/Los_Angeles",
+        "entry_sorting_direction": "desc",
+        "stylesheet": "",
+        "google_id": "",
+        "openid_connect_id": "",
+        "entries_per_page": 100,
+        "keyboard_shortcuts": true,
+        "show_reading_time": true,
+        "entry_swipe": true,
+        "last_login_at": "2021-01-04T20:57:34.447789-08:00"
     }
 ]
 ```
 
 <div class="info">
 You must be an administrator to fetch users.
-The extra field is a dictionary of optional values.
 </div>
 
 <h3 id="endpoint-delete-user">Delete User <a class="anchor" href="#endpoint-delete-user" title="Permalink">¶</a></h3>
