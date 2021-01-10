@@ -302,6 +302,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Define a custom maintenance message.</p>
         <p><em>Default is empty.</em></p>
     </dd>
+    <dt id="server-timing-header"><a href="#server-timing-header"><code>SERVER_TIMING_HEADER</code></a></dt>
+    <dd>
+        <p>Set the value to 1 to enable server-timing headers.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
 </dl>
 
 <h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>

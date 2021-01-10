@@ -86,6 +86,8 @@ The configuration file is a text file that follow these rules:
 <dl class="Bl-tag">
   <dt><b>DEBUG</b></dt>
   <dd>Set the value to 1 to enable debug logs.</dd>
+  <dt><b>SERVER_TIMING_HEADER</b></dt>
+  <dd>Set the value to 1 to enable server-timing headers.</dd>
   <dt><b>LOG_DATE_TIME</b></dt>
   <dd>Display the date and time in log messages.</dd>
   <dt><b>WORKER_POOL_SIZE</b></dt>
@@ -185,7 +187,7 @@ The configuration file is a text file that follow these rules:
     <br/>
     Default is 127.0.0.1/8.</dd>
   <dt><b>OAUTH2_PROVIDER</b></dt>
-  <dd>OAuth2 provider to use. Only google is supported.</dd>
+  <dd>Possible values are &quot;google&quot; or &quot;oidc&quot;.</dd>
   <dt><b>OAUTH2_CLIENT_ID</b></dt>
   <dd>OAuth2 client ID.</dd>
   <dt><b>OAUTH2_CLIENT_ID_FILE</b></dt>
