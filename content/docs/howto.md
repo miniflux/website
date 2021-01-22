@@ -372,7 +372,8 @@ miniflux
 Since the version 2.0.6, you can deploy Miniflux on [Heroku](https://www.heroku.com/) in few seconds.
 
 - Clone the repository on your machine: `git clone https://github.com/miniflux/v2.git`
-- Switch to a stable version, for example `git checkout 2.0.15` (master is the development branch)
+- Switch to latest stable version `git checkout $(git describe --tags --abbrev=0)` (master is the development branch)
+- Commit to master `git checkout -B master` (Heroku only deply master by default)
 - Create a new Heroku application: `heroku apps:create`
 - Add the Postgresql addon: `heroku addons:create heroku-postgresql:hobby-dev`
 
