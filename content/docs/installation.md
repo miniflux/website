@@ -202,10 +202,10 @@ service miniflux start
 Pull the image and run the container:
 
 ```bash
-docker run -d -p 80:8080 miniflux/miniflux:latest
+docker run -d -p 80:8080 --name miniflux -e "DATABASE_URL=postgres://miniflux:*password*@*dbhost*/miniflux?sslmode=disable" -e "RUN_MIGRATIONS=1" -e "CREATE_ADMIN=1" -e "ADMIN_USERNAME=*username*" -e "ADMIN_PASSWORD=*password*" miniflux/miniflux:latest
 ```
 
-You will probably need to pass some environment variables like the `DATABASE_URL`.
+Running the command above will run the migrations and sets up a new admin account with the chosen username and password.
 
 You could also use Docker Compose. Here an example of `docker-compose.yml` file:
 
