@@ -247,7 +247,7 @@ Create a file `/etc/systemd/system/miniflux.service`:
 
     [Unit]
     Description=Miniflux Service
-    Requires=mniflux.socket
+    Requires=miniflux.socket
 
     [Service]
     ExecStart=/usr/bin/miniflux
