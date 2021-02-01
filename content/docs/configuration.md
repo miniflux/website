@@ -149,11 +149,6 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Use <a href="https://letsencrypt.org/">Let's Encrypt</a> to get automatically a certificate for the domain specified in <code>$CERT_DOMAIN</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
-    <dt id="cert-cache"><a href="#cert-cache"><code>CERT_CACHE</code></a></dt>
-    <dd>
-        <p>Let's Encrypt cache directory.</p>
-        <p><em>Default is <code>/tmp/cert_cache</code></em></p>
-    </dd>
     <dt id="metrics-collector"><a href="#metrics-collector"><code>METRICS_COLLECTOR</code></a></dt>
     <dd>
         <p>Set to <code>1</code> to enable metrics collection. It exposes a <code>/metrics</code> endpoint that can be used with <a href="https://prometheus.io/">Prometheus Monitoring software</a>.</p>
