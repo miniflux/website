@@ -289,7 +289,6 @@ miniflux
 
 - Your server must be reachable publicly on port 443 and port 80 (http-01 challenge)
 - In this mode, `LISTEN_ADDR` is automatically set to `:https`
-- A cache directory is required, by default `/tmp/cert_cache` is used, it could be overrided by using the variable `CERT_CACHE`
 
 <div class="note">
 Miniflux supports http-01 challenge since the version 2.0.2.
