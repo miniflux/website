@@ -34,6 +34,14 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Refresh interval in minutes for feeds.</p>
         <p><em>Default is 60 minutes.</em></p>
     </dd>
+    <dt id="polling-parsing-error-limit"><a href="#polling-parsing-error-limit"><code>POLLING_PARSING_ERROR_LIMIT</code></a></dt>
+    <dd>
+        <p>
+            The maximum number of parsing errors that the program will try before stopping polling a feed.
+            Once the limit is reached, the user must refresh the feed manually. Set to 0 for unlimited.
+        </p>
+        <p><em>Default is 3.</em></p>
+    </dd>
     <dt id="batch-size"><a href="#batch-size"><code>BATCH_SIZE</code></a></dt>
     <dd>
         <p>Number of feeds to send to the queue for each interval.</p>

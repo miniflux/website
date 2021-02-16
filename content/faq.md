@@ -5,6 +5,7 @@ url: /faq.html
 
 Table of Contents:
 
+- [Why are you not merging my pull-request?](#pull-request)
 - [Why are you not developing my feature request?](#feature-request)
 - [Feature X was available in Miniflux v1?](#missing-feature-v2)
 - [Why Miniflux stores favicons into the database?](#favicons-storage)
@@ -19,6 +20,19 @@ Table of Contents:
 - [Which Docker architecture should I use?](#docker-arch)
 - [Why SQL migrations are not executed automatically?](#sql-migrations)
 - [How to backup my data?](#backup)
+
+<h2 id="pull-request">Why are you not merging my pull-request? <a class="anchor" href="#pull-request" title="Permalink">¶</a></h2>
+
+List of things to avoid:
+
+- Too many changes (impossible to review)
+- Breaking changes
+- Introduce new bugs or regressions (break existing features)
+- Slow down the software
+- Change is against the philosophy of the software
+- Poor code quality
+- Chaining pull-requests that depends from each other even if changes are unrelated
+- Radical user interface changes
 
 <h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
 
