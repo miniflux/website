@@ -10,7 +10,6 @@ Working with Miniflux's code base is pretty simple:
 - [Compilation](#compilation)
 - [Remove Precompiled Binaries](#cleanup)
 - [Run the Software Locally](#run)
-- [Regenerate Embedded Files](#generate)
 - [Linter](#linter)
 - [Unit Tests](#unit-tests)
 - [Integration Tests](#integration-tests)
@@ -21,7 +20,7 @@ Working with Miniflux's code base is pretty simple:
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 
 - Git
-- Go >= 1.14
+- Go >= 1.16
 
 <h2 id="source-code">Checkout the Source Code <a class="anchor" href="#source-code" title="Permalink">¶</a></h2>
 
@@ -67,6 +66,9 @@ make linux-armv5
 # Mac OS (amd64)
 make darwin-amd64
 
+# Mac OS (arm64 / Apple Silicon)
+make darwin-arm64
+
 # FreeBSD (amd64)
 make freebsd-amd64
 
@@ -89,15 +91,7 @@ make clean
 make run
 ```
 
-This command executes `go generate` and `go run main.go`.
-
-<h2 id="generate">Regenerate Embedded Files <a class="anchor" href="#generate" title="Permalink">¶</a></h2>
-
-To avoid any dependencies, all assets (Javascript, CSS, images, translations) are automatically included in the source code.
-
-```bash
-make generate
-```
+This command runs the software in debug mode.
 
 <h2 id="linter">Linter <a class="anchor" href="#linter" title="Permalink">¶</a></h2>
 
