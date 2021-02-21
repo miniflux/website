@@ -217,7 +217,8 @@ services:
     ports:
       - "80:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
   db:
@@ -227,6 +228,10 @@ services:
       - POSTGRES_PASSWORD=secret
     volumes:
       - miniflux-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s
 volumes:
   miniflux-db:
 ```
@@ -243,9 +248,7 @@ docker-compose exec miniflux /usr/bin/miniflux -migrate
 docker-compose exec miniflux /usr/bin/miniflux -create-admin
 ```
 
-Another way of doing the same thing is to populate the variables `RUN_MIGRATIONS`, `CREATE_ADMIN`, `ADMIN_USERNAME` and `ADMIN_PASSWORD`.
-
-For example:
+Another way of doing the same thing is to populate the variables `RUN_MIGRATIONS`, `CREATE_ADMIN`, `ADMIN_USERNAME` and `ADMIN_PASSWORD`. For example:
 
 ```yaml
 version: '3'
@@ -255,7 +258,8 @@ services:
     ports:
       - "80:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
       - RUN_MIGRATIONS=1
@@ -269,8 +273,12 @@ services:
       - POSTGRES_PASSWORD=secret
     volumes:
       - miniflux-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s
 volumes:
-  miniflux-db:  
+  miniflux-db:
 ```
 
-There are more examples in the Git repo: https://github.com/miniflux/v2/tree/master/contrib/docker-compose
+There are more examples in the Git repository with Traefik and Caddy: https://github.com/miniflux/v2/tree/master/contrib/docker-compose
