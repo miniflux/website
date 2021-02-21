@@ -76,7 +76,16 @@ But do not forget that **you will have to maintain your theme over the time**, o
 
 <h2 id="entries-suppression">How are items removed from the database? <a class="anchor" href="#entries-suppression" title="Permalink">¶</a></h2>
 
-When a subscription is refreshed, entries marked as "removed" and not visible anymore in the XML feed are removed from the database.
+Entry status in the database follows this flow: <code>read</code> -> <code>unread</code> -> <code>removed</code>.
+
+Entries marked as removed are not visible in the web ui.
+They are deleted from the database only when they are not visible anymore in the original feed.
+
+Entries marked as favorite are never deleted (column <code>starred</code> in the <code>entries</code> table).
+
+Data retention is also controlled with the variables <code>CLEANUP_ARCHIVE_UNREAD_DAYS</code> and <code>CLEANUP_ARCHIVE_READ_DAYS</code>.
+
+Keep in mind that Postgres needs to run the <a href="https://www.postgresql.org/docs/current/sql-vacuum.html">VACUUM</a> command to reclaim disk space.
 
 <h2 id="flush-history">What "Flush History" does? <a class="anchor" href="#flush-history" title="Permalink">¶</a></h2>
 
