@@ -98,3 +98,13 @@ miniflux -c /etc/miniflux.conf
 ```bash
 miniflux -config-dump
 ```
+
+<h2 id="config-dump">Show Interpreted Configuration Values <a class="anchor" href="#healthcheck" title="Permalink">¶</a></h2>
+
+Perform a health check on the given endpoint. The value "auto" try to guess the health check endpoint.
+
+```bash
+miniflux -healthcheck https://miniflux.domain.tld/healthcheck
+```
+
+Return 0 as exit code if successful otherwise returns 1.

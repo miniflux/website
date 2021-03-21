@@ -39,7 +39,7 @@ make miniflux
 To define a specific version number:
 
 ```bash
-make miniflux VERSION=2.0.13
+make miniflux VERSION=2.0.29
 ```
 
 Cross compilation:

@@ -49,6 +49,10 @@ miniflux - Minimalist and opinionated feed reader
 <div class="Bd-indent">Show debug logs.</div>
 <p class="Pp"><b>-flush-sessions</b></p>
 <div class="Bd-indent">Flush all sessions (disconnect users).</div>
+<p class="Pp"><b>-healthcheck</b></p>
+<div class="Bd-indent">Perform a health check on the given endpoint.
+<br/>
+The value &quot;auto&quot; try to guess the health check endpoint.</div>
 <p class="Pp"><b>-i</b></p>
 <div class="Bd-indent">Show application information.</div>
 <p class="Pp"><b>-info</b></p>
@@ -86,6 +90,11 @@ The configuration file is a text file that follow these rules:
 <dl class="Bl-tag">
   <dt><b>DEBUG</b></dt>
   <dd>Set the value to 1 to enable debug logs.
+    <br/>
+    Disabled by default.</dd>
+  <dt><b>FETCH_YOUTUBE_WATCH_TIME</b></dt>
+  <dd>Set the value to 1 to scrape video duration from YouTube website and use
+      it as a reading time.
     <br/>
     Disabled by default.</dd>
   <dt><b>SERVER_TIMING_HEADER</b></dt>
@@ -359,7 +368,7 @@ Miniflux is released under the Apache 2.0 license.
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">September 28, 2020</td>
+    <td class="foot-date">February 20, 2021</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

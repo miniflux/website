@@ -282,3 +282,12 @@ volumes:
 ```
 
 There are more examples in the Git repository with Traefik and Caddy: https://github.com/miniflux/v2/tree/master/contrib/docker-compose
+
+You could also configure an optional health check in your Docker Compose file:
+
+```yaml
+miniflux:
+  image: miniflux/miniflux:latest
+  healthcheck:
+    test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
+```

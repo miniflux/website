@@ -19,6 +19,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Toggle debug mode (increase log level).</p>
         <p><em>Disabled by default.</em></p>
     </dd>
+    <dt id="debug"><a href="#fetch-youtube-watch-time"><code>FETCH_YOUTUBE_WATCH_TIME</code></a></dt>
+    <dd>
+        <p>Set the value to 1 to scrape video duration from YouTube website and use it as a reading time.</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
     <dt id="log-date-time"><a href="#log-date-time"><code>LOG_DATE_TIME</code></a></dt>
     <dd>
         <p>Show date and time in log messages.</p>
