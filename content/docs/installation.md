@@ -183,7 +183,7 @@ service miniflux start
 
 **Docker Registries:**
 
-- Docker Hub: `docker.io/miniflux/miniflux`
+- Docker Hub: `hub.docker.com/r/miniflux/miniflux`
 - GitHub Container Registry: `ghcr.io/miniflux/miniflux`
 
 **Docker Architectures:**
