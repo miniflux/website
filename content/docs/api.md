@@ -14,6 +14,7 @@ Table of Contents:
     - [Error Response](#error-response)
     - [Discover Subscriptions](#endpoint-discover)
     - [Get Feeds](#endpoint-get-feeds)
+    - [Get Category Feeds](#endpoint-get-category-feeds)
     - [Get Feed](#endpoint-get-feed)
     - [Get Feed Icon](#endpoint-get-feed-icon)
     - [Mark Feed Entries as Read](#endpoint-mark-feed-entries-as-read)
@@ -259,6 +260,55 @@ Response:
 Notes:
 
 - `icon` is `null` when the feed doesn't have any favicon.
+
+<h3 id="endpoint-get-category-feeds">Get Category Feeds <a class="anchor" href="#endpoint-get-category-feeds" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /v1/categories/40/feeds
+
+Response:
+
+```json
+[
+    {
+        "id": 42,
+        "user_id": 123,
+        "title": "Example Feed",
+        "site_url": "http://example.org",
+        "feed_url": "http://example.org/feed.atom",
+        "checked_at": "2017-12-22T21:06:03.133839-05:00",
+        "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
+        "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
+        "parsing_error_message": "",
+        "parsing_error_count": 0,
+        "scraper_rules": "",
+        "rewrite_rules": "",
+        "crawler": false,
+        "blocklist_rules": "",
+        "keeplist_rules": "",
+        "user_agent": "",
+        "username": "",
+        "password": "",
+        "disabled": false,
+        "ignore_http_cache": false,
+        "fetch_via_proxy": false,
+        "category": {
+            "id": 40,
+            "user_id": 123,
+            "title": "Some category"
+        },
+        "icon": {
+            "feed_id": 42,
+            "icon_id": 84
+        }
+    }
+]
+```
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.29.
+</div>
 
 <h3 id="endpoint-get-feed">Get Feed <a class="anchor" href="#endpoint-get-feed" title="Permalink">¶</a></h3>
 
