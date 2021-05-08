@@ -50,7 +50,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="batch-size"><a href="#batch-size"><code>BATCH_SIZE</code></a></dt>
     <dd>
         <p>Number of feeds to send to the queue for each interval.</p>
-        <p><em>Default is 10 feeds.</em></p>
+        <p><em>Default is 100 feeds.</em></p>
     </dd>
     <dt id="polling-scheduler"><a href="#polling-scheduler"><code>POLLING_SCHEDULER</code></a></dt>
     <dd>
