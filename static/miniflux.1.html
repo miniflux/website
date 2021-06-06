@@ -156,6 +156,10 @@ The configuration file is a text file that follow these rules:
       value.
     <br/>
     Default is empty.</dd>
+  <dt><b>DATABASE_CONNECTION_LIFETIME</b></dt>
+  <dd>Set the maximum amount of time a connection may be reused.
+    <br/>
+    Default is 5 minutes.</dd>
   <dt><b>DATABASE_MAX_CONNS</b></dt>
   <dd>Maximum number of database connections.
     <br/>
@@ -193,6 +197,10 @@ The configuration file is a text file that follow these rules:
     Set to -1 to keep all unread entries.
     <br/>
     Default is 180 days.</dd>
+  <dt><b>CLEANUP_ARCHIVE_BATCH_SIZE</b></dt>
+  <dd>Number of entries to archive for each job interval.
+    <br/>
+    Default is 10000 entries.</dd>
   <dt><b>CLEANUP_REMOVE_SESSIONS_DAYS</b></dt>
   <dd>Number of days after removing old sessions from the database.
     <br/>
@@ -351,7 +359,11 @@ The configuration file is a text file that follow these rules:
   <dt><b>MAINTENANCE_MESSAGE</b></dt>
   <dd>Define a custom maintenance message.
     <br/>
-    Default is &quot;Miniflux is currently under maintenance&quot;.
+    Default is &quot;Miniflux is currently under maintenance&quot;.</dd>
+  <dt><b>WATCHDOG</b></dt>
+  <dd>Enable or disable Systemd watchdog.
+    <br/>
+    Enabled by default.
     <p class="Pp"></p>
   </dd>
 </dl>
@@ -368,7 +380,7 @@ Miniflux is released under the Apache 2.0 license.
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">April 30, 2021</td>
+    <td class="foot-date">May 23, 2021</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

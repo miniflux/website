@@ -92,6 +92,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Minimum number of database connections.</p>
         <p><em>Default is <code>1</code></em></p>
     </dd>
+    <dt id="database-connection-lifetime"><a href="#database-connection-lifetime"><code>DATABASE_CONNECTION_LIFETIME</code></a></dt>
+    <dd>
+        <p>Set the maximum amount of time a connection may be reused.</p>
+        <p><em>Default is 5 minutes</em></p>
+    </dd>
     <dt id="listen-addr"><a href="#listen-addr"><code>LISTEN_ADDR</code></a></dt>
     <dd>
         <p>Address to listen on. Use absolute path for a Unix socket.</p>
@@ -121,6 +126,11 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>Number of days after which marking read items as removed. Use <code>-1</code> to disable this feature.</p>
         <p><em>Default is 60 days.</em></p>
+    </dd>
+    <dt id="cleanup-archive-batch-size"><a href="#cleanup-archive-batch-size"><code>CLEANUP_ARCHIVE_BATCH_SIZE</code></a></dt>
+    <dd>
+        <p>Number of entries to archive for each job interval.</p>
+        <p><em>Default is 10000 entries.</em></p>
     </dd>
     <dt id="cleanup-remove-sessions-days"><a href="#cleanup-remove-sessions-days"><code>CLEANUP_REMOVE_SESSIONS_DAYS</code></a></dt>
     <dd>
@@ -314,6 +324,11 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>Set the value to 1 to enable server-timing headers.</p>
         <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="watchdog"><a href="#watchdog"><code>WATCHDOG</code></a></dt>
+    <dd>
+        <p>Enable or disable Systemd watchdog.</p>
+        <p><em>Enabled by default.</em></p>
     </dd>
 </dl>
 
