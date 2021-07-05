@@ -25,13 +25,14 @@ Table of Contents:
 
 List of things to avoid:
 
-- Too many changes (impossible to review)
+- Too many changes that would make the pull-request very hard to review
 - Breaking changes
-- Introduce new bugs or regressions (break existing features)
-- Slow down the software
-- Change is against the philosophy of the software
+- Introduce new bugs, regressions, or security issues
+- Add unnecessary dependencies
+- Slowing down the software
+- Changes are against the philosophy of the software
 - Poor code quality
-- Chaining pull-requests that depends from each other even if changes are unrelated
+- Chaining pull-requests that depends from each other
 - Radical user interface changes
 
 <h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
