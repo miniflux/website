@@ -79,6 +79,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Search and replace text.
     </dd>
+    <dt><code>remove(".selector, #another_selector")</code></dt>
+    <dd>
+        Remove DOM elements.
+    </dd>
 </dl>
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.
