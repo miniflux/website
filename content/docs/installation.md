@@ -210,7 +210,7 @@ Running the command above will run the migrations and sets up a new admin accoun
 You could also use Docker Compose. Here an example of `docker-compose.yml` file:
 
 ```yaml
-version: '3'
+version: '3.4'
 services:
   miniflux:
     image: miniflux/miniflux:latest
