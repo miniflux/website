@@ -183,8 +183,8 @@ service miniflux start
 
 **Docker Registries:**
 
-- Docker Hub: `docker.io/miniflux/miniflux`
-- GitHub Container Registry: `ghcr.io/miniflux/miniflux`
+- [Docker Hub Registry](https://hub.docker.com/r/miniflux/miniflux): `docker.io/miniflux/miniflux`
+- [GitHub Container Registry](https://github.com/miniflux/v2/pkgs/container/miniflux): `ghcr.io/miniflux/miniflux`
 
 **Docker Architectures:**
 
@@ -202,7 +202,15 @@ service miniflux start
 Pull the image and run the container:
 
 ```bash
-docker run -d -p 80:8080 --name miniflux -e "DATABASE_URL=postgres://miniflux:*password*@*dbhost*/miniflux?sslmode=disable" -e "RUN_MIGRATIONS=1" -e "CREATE_ADMIN=1" -e "ADMIN_USERNAME=*username*" -e "ADMIN_PASSWORD=*password*" miniflux/miniflux:latest
+docker run -d \
+  -p 80:8080 \
+  --name miniflux \
+  -e "DATABASE_URL=postgres://miniflux:*password*@*dbhost*/miniflux?sslmode=disable" \
+  -e "RUN_MIGRATIONS=1" \
+  -e "CREATE_ADMIN=1" \
+  -e "ADMIN_USERNAME=*username*" \
+  -e "ADMIN_PASSWORD=*password*" \
+  miniflux/miniflux:latest
 ```
 
 Running the command above will run the migrations and sets up a new admin account with the chosen username and password.
@@ -217,8 +225,7 @@ services:
     ports:
       - "80:8080"
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     environment:
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
   db:
@@ -251,15 +258,14 @@ docker-compose exec miniflux /usr/bin/miniflux -create-admin
 Another way of doing the same thing is to populate the variables `RUN_MIGRATIONS`, `CREATE_ADMIN`, `ADMIN_USERNAME` and `ADMIN_PASSWORD`. For example:
 
 ```yaml
-version: '3'
+version: '3.4'
 services:
   miniflux:
     image: miniflux/miniflux:latest
     ports:
       - "80:8080"
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     environment:
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
       - RUN_MIGRATIONS=1
