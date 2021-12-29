@@ -19,6 +19,7 @@ slug: index.html
 - [Keyboard Shortcuts]({{< relref keyboard_shortcuts >}})
 - [External Services]({{< relref services >}})
 - [Filter, Rewrite and Scraper Rules]({{< relref rules >}})
+- [Third-Party Applications]({{< relref apps >}})
 
 ## Development Guide
 
