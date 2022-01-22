@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/mandoc.css" type="text/css" media="all"/>
   <title>MINIFLUX(1)</title>
 </head>
@@ -20,24 +21,26 @@
 <p class="Pp"></p>
 <section class="Sh">
 <h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-miniflux - Minimalist and opinionated feed reader
+<p class="Pp">miniflux - Minimalist and opinionated feed reader</p>
 <p class="Pp"></p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>miniflux</b> [-vic] [-create-admin] [-debug] [-flush-sessions] [-info]
-  [-migrate]
- [-reset-feed-errors] [-reset-password] [-version] [-config-file] [-config-dump]
+<p class="Pp"><b>miniflux</b> [-vic] [-create-admin] [-debug] [-flush-sessions]
+    [-info] [-migrate]
+  <br/>
+   [-reset-feed-errors] [-reset-password] [-version] [-config-file]
+    [-config-dump]</p>
 <p class="Pp"></p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>miniflux</b> is a minimalist and opinionated feed reader.
+<p class="Pp"><b>miniflux</b> is a minimalist and opinionated feed reader.</p>
 <p class="Pp"></p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="OPTIONS"><a class="permalink" href="#OPTIONS">OPTIONS</a></h1>
-<b>-c</b>
+<p class="Pp"><b>-c</b></p>
 <div class="Bd-indent">Load configuration file.</div>
 <p class="Pp"><b>-config-file</b></p>
 <div class="Bd-indent">Load configuration file.</div>
@@ -72,7 +75,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 <section class="Sh">
 <h1 class="Sh" id="CONFIGURATION_FILE"><a class="permalink" href="#CONFIGURATION_FILE">CONFIGURATION
   FILE</a></h1>
-The configuration file is a text file that follow these rules:
+<p class="Pp">The configuration file is a text file that follow these rules:</p>
 <p class="Pp">- Miniflux expects each line to be in KEY=VALUE format.
   <br/>
   - Lines beginning with # are processed as comments and ignored.
@@ -88,36 +91,36 @@ The configuration file is a text file that follow these rules:
 <section class="Sh">
 <h1 class="Sh" id="ENVIRONMENT"><a class="permalink" href="#ENVIRONMENT">ENVIRONMENT</a></h1>
 <dl class="Bl-tag">
-  <dt><b>DEBUG</b></dt>
+  <dt id="DEBUG"><a class="permalink" href="#DEBUG"><b>DEBUG</b></a></dt>
   <dd>Set the value to 1 to enable debug logs.
     <br/>
     Disabled by default.</dd>
-  <dt><b>FETCH_YOUTUBE_WATCH_TIME</b></dt>
+  <dt id="FETCH_YOUTUBE_WATCH_TIME"><a class="permalink" href="#FETCH_YOUTUBE_WATCH_TIME"><b>FETCH_YOUTUBE_WATCH_TIME</b></a></dt>
   <dd>Set the value to 1 to scrape video duration from YouTube website and use
       it as a reading time.
     <br/>
     Disabled by default.</dd>
-  <dt><b>SERVER_TIMING_HEADER</b></dt>
+  <dt id="SERVER_TIMING_HEADER"><a class="permalink" href="#SERVER_TIMING_HEADER"><b>SERVER_TIMING_HEADER</b></a></dt>
   <dd>Set the value to 1 to enable server-timing headers.
     <br/>
     Disabled by default.</dd>
-  <dt><b>LOG_DATE_TIME</b></dt>
+  <dt id="LOG_DATE_TIME"><a class="permalink" href="#LOG_DATE_TIME"><b>LOG_DATE_TIME</b></a></dt>
   <dd>Display the date and time in log messages.
     <br/>
     Disabled by default.</dd>
-  <dt><b>WORKER_POOL_SIZE</b></dt>
+  <dt id="WORKER_POOL_SIZE"><a class="permalink" href="#WORKER_POOL_SIZE"><b>WORKER_POOL_SIZE</b></a></dt>
   <dd>Number of background workers.
     <br/>
     Default is 5 workers.</dd>
-  <dt><b>POLLING_FREQUENCY</b></dt>
+  <dt id="POLLING_FREQUENCY"><a class="permalink" href="#POLLING_FREQUENCY"><b>POLLING_FREQUENCY</b></a></dt>
   <dd>Refresh interval in minutes for feeds.
     <br/>
     Default is 60 minutes.</dd>
-  <dt><b>BATCH_SIZE</b></dt>
+  <dt id="BATCH_SIZE"><a class="permalink" href="#BATCH_SIZE"><b>BATCH_SIZE</b></a></dt>
   <dd>Number of feeds to send to the queue for each interval.
     <br/>
     Default is 100 feeds.</dd>
-  <dt><b>POLLING_SCHEDULER</b></dt>
+  <dt id="POLLING_SCHEDULER"><a class="permalink" href="#POLLING_SCHEDULER"><b>POLLING_SCHEDULER</b></a></dt>
   <dd>Scheduler used for polling feeds. Possible values are
       &quot;round_robin&quot; or &quot;entry_frequency&quot;.
     <br/>
@@ -132,211 +135,211 @@ The configuration file is a text file that follow these rules:
       feeds that could be polled for a given period.
     <br/>
     Default is &quot;round_robin&quot;.</dd>
-  <dt><b>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</b></dt>
+  <dt id="SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL"><a class="permalink" href="#SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL"><b>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</b></a></dt>
   <dd>Maximum interval in minutes for the entry frequency scheduler.
     <br/>
     Default is 24 hours.</dd>
-  <dt><b>SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL</b></dt>
+  <dt id="SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL"><a class="permalink" href="#SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL"><b>SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL</b></a></dt>
   <dd>Minimum interval in minutes for the entry frequency scheduler.
     <br/>
     Default is 5 minutes.</dd>
-  <dt><b>POLLING_PARSING_ERROR_LIMIT</b></dt>
+  <dt id="POLLING_PARSING_ERROR_LIMIT"><a class="permalink" href="#POLLING_PARSING_ERROR_LIMIT"><b>POLLING_PARSING_ERROR_LIMIT</b></a></dt>
   <dd>The maximum number of parsing errors that the program will try before
       stopping polling a feed. Once the limit is reached, the user must refresh
       the feed manually. Set to 0 for unlimited.
     <br/>
     Default is 3.</dd>
-  <dt><b>DATABASE_URL</b></dt>
+  <dt id="DATABASE_URL"><a class="permalink" href="#DATABASE_URL"><b>DATABASE_URL</b></a></dt>
   <dd>Postgresql connection parameters.
     <br/>
     Default is &quot;user=postgres password=postgres dbname=miniflux2
       sslmode=disable&quot;.</dd>
-  <dt><b>DATABASE_URL_FILE</b></dt>
+  <dt id="DATABASE_URL_FILE"><a class="permalink" href="#DATABASE_URL_FILE"><b>DATABASE_URL_FILE</b></a></dt>
   <dd>Path to a secret key exposed as a file, it should contain $DATABASE_URL
       value.
     <br/>
     Default is empty.</dd>
-  <dt><b>DATABASE_CONNECTION_LIFETIME</b></dt>
+  <dt id="DATABASE_CONNECTION_LIFETIME"><a class="permalink" href="#DATABASE_CONNECTION_LIFETIME"><b>DATABASE_CONNECTION_LIFETIME</b></a></dt>
   <dd>Set the maximum amount of time a connection may be reused.
     <br/>
     Default is 5 minutes.</dd>
-  <dt><b>DATABASE_MAX_CONNS</b></dt>
+  <dt id="DATABASE_MAX_CONNS"><a class="permalink" href="#DATABASE_MAX_CONNS"><b>DATABASE_MAX_CONNS</b></a></dt>
   <dd>Maximum number of database connections.
     <br/>
     Default is 20.</dd>
-  <dt><b>DATABASE_MIN_CONNS</b></dt>
+  <dt id="DATABASE_MIN_CONNS"><a class="permalink" href="#DATABASE_MIN_CONNS"><b>DATABASE_MIN_CONNS</b></a></dt>
   <dd>Minimum number of database connections.
     <br/>
     Default is 20.</dd>
-  <dt><b>LISTEN_ADDR</b></dt>
+  <dt id="LISTEN_ADDR"><a class="permalink" href="#LISTEN_ADDR"><b>LISTEN_ADDR</b></a></dt>
   <dd>Address to listen on. Use absolute path to listen on Unix socket
       (/var/run/miniflux.sock).
     <br/>
     Default is 127.0.0.1:8080.</dd>
-  <dt><b>PORT</b></dt>
+  <dt id="PORT"><a class="permalink" href="#PORT"><b>PORT</b></a></dt>
   <dd>Override LISTEN_ADDR to 0.0.0.0:$PORT.
     <br/>
     Default is empty.</dd>
-  <dt><b>BASE_URL</b></dt>
+  <dt id="BASE_URL"><a class="permalink" href="#BASE_URL"><b>BASE_URL</b></a></dt>
   <dd>Base URL to generate HTML links and base path for cookies.
     <br/>
     Default is http://localhost/.</dd>
-  <dt><b>CLEANUP_FREQUENCY_HOURS</b></dt>
+  <dt id="CLEANUP_FREQUENCY_HOURS"><a class="permalink" href="#CLEANUP_FREQUENCY_HOURS"><b>CLEANUP_FREQUENCY_HOURS</b></a></dt>
   <dd>Cleanup job frequency. Remove old sessions and archive entries.
     <br/>
     Default is 24 hours.</dd>
-  <dt><b>CLEANUP_ARCHIVE_READ_DAYS</b></dt>
+  <dt id="CLEANUP_ARCHIVE_READ_DAYS"><a class="permalink" href="#CLEANUP_ARCHIVE_READ_DAYS"><b>CLEANUP_ARCHIVE_READ_DAYS</b></a></dt>
   <dd>Number of days after marking read entries as removed.
     <br/>
     Set to -1 to keep all read entries.
     <br/>
     Default is 60 days.</dd>
-  <dt><b>CLEANUP_ARCHIVE_UNREAD_DAYS</b></dt>
+  <dt id="CLEANUP_ARCHIVE_UNREAD_DAYS"><a class="permalink" href="#CLEANUP_ARCHIVE_UNREAD_DAYS"><b>CLEANUP_ARCHIVE_UNREAD_DAYS</b></a></dt>
   <dd>Number of days after marking unread entries as removed.
     <br/>
     Set to -1 to keep all unread entries.
     <br/>
     Default is 180 days.</dd>
-  <dt><b>CLEANUP_ARCHIVE_BATCH_SIZE</b></dt>
+  <dt id="CLEANUP_ARCHIVE_BATCH_SIZE"><a class="permalink" href="#CLEANUP_ARCHIVE_BATCH_SIZE"><b>CLEANUP_ARCHIVE_BATCH_SIZE</b></a></dt>
   <dd>Number of entries to archive for each job interval.
     <br/>
     Default is 10000 entries.</dd>
-  <dt><b>CLEANUP_REMOVE_SESSIONS_DAYS</b></dt>
+  <dt id="CLEANUP_REMOVE_SESSIONS_DAYS"><a class="permalink" href="#CLEANUP_REMOVE_SESSIONS_DAYS"><b>CLEANUP_REMOVE_SESSIONS_DAYS</b></a></dt>
   <dd>Number of days after removing old sessions from the database.
     <br/>
     Default is 30 days.</dd>
-  <dt><b>HTTPS</b></dt>
+  <dt id="HTTPS"><a class="permalink" href="#HTTPS"><b>HTTPS</b></a></dt>
   <dd>Forces cookies to use secure flag and send HSTS header.
     <br/>
     Default is empty.</dd>
-  <dt><b>DISABLE_HSTS</b></dt>
+  <dt id="DISABLE_HSTS"><a class="permalink" href="#DISABLE_HSTS"><b>DISABLE_HSTS</b></a></dt>
   <dd>Disable HTTP Strict Transport Security header if <b>HTTPS</b> is set.
     <br/>
     Default is false (The HSTS is enabled).</dd>
-  <dt><b>DISABLE_HTTP_SERVICE</b></dt>
+  <dt id="DISABLE_HTTP_SERVICE"><a class="permalink" href="#DISABLE_HTTP_SERVICE"><b>DISABLE_HTTP_SERVICE</b></a></dt>
   <dd>Set the value to 1 to disable the HTTP service.
     <br/>
     Default is false (The HTTP service is enabled).</dd>
-  <dt><b>DISABLE_SCHEDULER_SERVICE</b></dt>
+  <dt id="DISABLE_SCHEDULER_SERVICE"><a class="permalink" href="#DISABLE_SCHEDULER_SERVICE"><b>DISABLE_SCHEDULER_SERVICE</b></a></dt>
   <dd>Set the value to 1 to disable the internal scheduler service.
     <br/>
     Default is false (The internal scheduler service is enabled).</dd>
-  <dt><b>CERT_FILE</b></dt>
+  <dt id="CERT_FILE"><a class="permalink" href="#CERT_FILE"><b>CERT_FILE</b></a></dt>
   <dd>Path to SSL certificate.
     <br/>
     Default is empty.</dd>
-  <dt><b>KEY_FILE</b></dt>
+  <dt id="KEY_FILE"><a class="permalink" href="#KEY_FILE"><b>KEY_FILE</b></a></dt>
   <dd>Path to SSL private key.
     <br/>
     Default is empty.</dd>
-  <dt><b>CERT_DOMAIN</b></dt>
+  <dt id="CERT_DOMAIN"><a class="permalink" href="#CERT_DOMAIN"><b>CERT_DOMAIN</b></a></dt>
   <dd>Use Let's Encrypt to get automatically a certificate for this domain.
     <br/>
     Default is empty.</dd>
-  <dt><b>METRICS_COLLECTOR</b></dt>
+  <dt id="METRICS_COLLECTOR"><a class="permalink" href="#METRICS_COLLECTOR"><b>METRICS_COLLECTOR</b></a></dt>
   <dd>Set to 1 to enable metrics collector. Expose a /metrics endpoint for
       Prometheus.
     <br/>
     Disabled by default.</dd>
-  <dt><b>METRICS_REFRESH_INTERVAL</b></dt>
+  <dt id="METRICS_REFRESH_INTERVAL"><a class="permalink" href="#METRICS_REFRESH_INTERVAL"><b>METRICS_REFRESH_INTERVAL</b></a></dt>
   <dd>Refresh interval to collect database metrics.
     <br/>
     Default is 60 seconds.</dd>
-  <dt><b>METRICS_ALLOWED_NETWORKS</b></dt>
+  <dt id="METRICS_ALLOWED_NETWORKS"><a class="permalink" href="#METRICS_ALLOWED_NETWORKS"><b>METRICS_ALLOWED_NETWORKS</b></a></dt>
   <dd>List of networks allowed to access the metrics endpoint (comma-separated
       values).
     <br/>
     Default is 127.0.0.1/8.</dd>
-  <dt><b>OAUTH2_PROVIDER</b></dt>
+  <dt id="OAUTH2_PROVIDER"><a class="permalink" href="#OAUTH2_PROVIDER"><b>OAUTH2_PROVIDER</b></a></dt>
   <dd>Possible values are &quot;google&quot; or &quot;oidc&quot;.
     <br/>
     Default is empty.</dd>
-  <dt><b>OAUTH2_CLIENT_ID</b></dt>
+  <dt id="OAUTH2_CLIENT_ID"><a class="permalink" href="#OAUTH2_CLIENT_ID"><b>OAUTH2_CLIENT_ID</b></a></dt>
   <dd>OAuth2 client ID.
     <br/>
     Default is empty.</dd>
-  <dt><b>OAUTH2_CLIENT_ID_FILE</b></dt>
+  <dt id="OAUTH2_CLIENT_ID_FILE"><a class="permalink" href="#OAUTH2_CLIENT_ID_FILE"><b>OAUTH2_CLIENT_ID_FILE</b></a></dt>
   <dd>Path to a secret key exposed as a file, it should contain
       $OAUTH2_CLIENT_ID value.
     <br/>
     Default is empty.</dd>
-  <dt><b>OAUTH2_CLIENT_SECRET</b></dt>
+  <dt id="OAUTH2_CLIENT_SECRET"><a class="permalink" href="#OAUTH2_CLIENT_SECRET"><b>OAUTH2_CLIENT_SECRET</b></a></dt>
   <dd>OAuth2 client secret.
     <br/>
     Default is empty.</dd>
-  <dt><b>OAUTH2_CLIENT_SECRET_FILE</b></dt>
+  <dt id="OAUTH2_CLIENT_SECRET_FILE"><a class="permalink" href="#OAUTH2_CLIENT_SECRET_FILE"><b>OAUTH2_CLIENT_SECRET_FILE</b></a></dt>
   <dd>Path to a secret key exposed as a file, it should contain
       $OAUTH2_CLIENT_SECRET value.
     <br/>
     Default is empty.</dd>
-  <dt><b>OAUTH2_REDIRECT_URL</b></dt>
+  <dt id="OAUTH2_REDIRECT_URL"><a class="permalink" href="#OAUTH2_REDIRECT_URL"><b>OAUTH2_REDIRECT_URL</b></a></dt>
   <dd>OAuth2 redirect URL.
     <br/>
     This URL must be registered with the provider and is something like
       https://miniflux.example.org/oauth2/oidc/callback.
     <br/>
     Default is empty.</dd>
-  <dt><b>OAUTH2_OIDC_DISCOVERY_ENDPOINT</b></dt>
+  <dt id="OAUTH2_OIDC_DISCOVERY_ENDPOINT"><a class="permalink" href="#OAUTH2_OIDC_DISCOVERY_ENDPOINT"><b>OAUTH2_OIDC_DISCOVERY_ENDPOINT</b></a></dt>
   <dd>OpenID Connect discovery endpoint.
     <br/>
     Default is empty.</dd>
-  <dt><b>OAUTH2_USER_CREATION</b></dt>
+  <dt id="OAUTH2_USER_CREATION"><a class="permalink" href="#OAUTH2_USER_CREATION"><b>OAUTH2_USER_CREATION</b></a></dt>
   <dd>Set to 1 to authorize OAuth2 user creation.
     <br/>
     Disabled by default.</dd>
-  <dt><b>RUN_MIGRATIONS</b></dt>
+  <dt id="RUN_MIGRATIONS"><a class="permalink" href="#RUN_MIGRATIONS"><b>RUN_MIGRATIONS</b></a></dt>
   <dd>Set to 1 to run database migrations.
     <br/>
     Disabled by default.</dd>
-  <dt><b>CREATE_ADMIN</b></dt>
+  <dt id="CREATE_ADMIN"><a class="permalink" href="#CREATE_ADMIN"><b>CREATE_ADMIN</b></a></dt>
   <dd>Set to 1 to create an admin user from environment variables.
     <br/>
     Disabled by default.</dd>
-  <dt><b>ADMIN_USERNAME</b></dt>
+  <dt id="ADMIN_USERNAME"><a class="permalink" href="#ADMIN_USERNAME"><b>ADMIN_USERNAME</b></a></dt>
   <dd>Admin user login, used only if $CREATE_ADMIN is enabled.
     <br/>
     Default is empty.</dd>
-  <dt><b>ADMIN_USERNAME_FILE</b></dt>
+  <dt id="ADMIN_USERNAME_FILE"><a class="permalink" href="#ADMIN_USERNAME_FILE"><b>ADMIN_USERNAME_FILE</b></a></dt>
   <dd>Path to a secret key exposed as a file, it should contain $ADMIN_USERNAME
       value.
     <br/>
     Default is empty.</dd>
-  <dt><b>ADMIN_PASSWORD</b></dt>
+  <dt id="ADMIN_PASSWORD"><a class="permalink" href="#ADMIN_PASSWORD"><b>ADMIN_PASSWORD</b></a></dt>
   <dd>Admin user password, used only if $CREATE_ADMIN is enabled.
     <br/>
     Default is empty.</dd>
-  <dt><b>ADMIN_PASSWORD_FILE</b></dt>
+  <dt id="ADMIN_PASSWORD_FILE"><a class="permalink" href="#ADMIN_PASSWORD_FILE"><b>ADMIN_PASSWORD_FILE</b></a></dt>
   <dd>Path to a secret key exposed as a file, it should contain $ADMIN_PASSWORD
       value.
     <br/>
     Default is empty.</dd>
-  <dt><b>POCKET_CONSUMER_KEY</b></dt>
+  <dt id="POCKET_CONSUMER_KEY"><a class="permalink" href="#POCKET_CONSUMER_KEY"><b>POCKET_CONSUMER_KEY</b></a></dt>
   <dd>Pocket consumer API key for all users.
     <br/>
     Default is empty.</dd>
-  <dt><b>POCKET_CONSUMER_KEY_FILE</b></dt>
+  <dt id="POCKET_CONSUMER_KEY_FILE"><a class="permalink" href="#POCKET_CONSUMER_KEY_FILE"><b>POCKET_CONSUMER_KEY_FILE</b></a></dt>
   <dd>Path to a secret key exposed as a file, it should contain
       $POCKET_CONSUMER_KEY value.
     <br/>
     Default is empty.</dd>
-  <dt><b>PROXY_IMAGES</b></dt>
+  <dt id="PROXY_IMAGES"><a class="permalink" href="#PROXY_IMAGES"><b>PROXY_IMAGES</b></a></dt>
   <dd>Avoids mixed content warnings for external images: http-only, all, or
       none.
     <br/>
     Default is http-only.</dd>
-  <dt><b>HTTP_CLIENT_TIMEOUT</b></dt>
+  <dt id="HTTP_CLIENT_TIMEOUT"><a class="permalink" href="#HTTP_CLIENT_TIMEOUT"><b>HTTP_CLIENT_TIMEOUT</b></a></dt>
   <dd>Time limit in seconds before the HTTP client cancel the request.
     <br/>
     Default is 20 seconds.</dd>
-  <dt><b>HTTP_CLIENT_MAX_BODY_SIZE</b></dt>
+  <dt id="HTTP_CLIENT_MAX_BODY_SIZE"><a class="permalink" href="#HTTP_CLIENT_MAX_BODY_SIZE"><b>HTTP_CLIENT_MAX_BODY_SIZE</b></a></dt>
   <dd>Maximum body size for HTTP requests in Mebibyte (MiB).
     <br/>
     Default is 15 MiB.</dd>
-  <dt><b>HTTP_CLIENT_PROXY</b></dt>
+  <dt id="HTTP_CLIENT_PROXY"><a class="permalink" href="#HTTP_CLIENT_PROXY"><b>HTTP_CLIENT_PROXY</b></a></dt>
   <dd>Proxy URL for HTTP client.
     <br/>
     Default is empty.</dd>
-  <dt><b>HTTP_CLIENT_USER_AGENT</b></dt>
+  <dt id="HTTP_CLIENT_USER_AGENT"><a class="permalink" href="#HTTP_CLIENT_USER_AGENT"><b>HTTP_CLIENT_USER_AGENT</b></a></dt>
   <dd>The default User-Agent header to use for the HTTP client. Can be
       overridden in per-feed settings.
     <br/>
@@ -344,43 +347,48 @@ The configuration file is a text file that follow these rules:
       version.
     <br/>
     Default is empty.</dd>
-  <dt><b>AUTH_PROXY_HEADER</b></dt>
+  <dt id="AUTH_PROXY_HEADER"><a class="permalink" href="#AUTH_PROXY_HEADER"><b>AUTH_PROXY_HEADER</b></a></dt>
   <dd>Proxy authentication HTTP header.
     <br/>
     Default is empty.</dd>
-  <dt><b>AUTH_PROXY_USER_CREATION</b></dt>
+  <dt id="AUTH_PROXY_USER_CREATION"><a class="permalink" href="#AUTH_PROXY_USER_CREATION"><b>AUTH_PROXY_USER_CREATION</b></a></dt>
   <dd>Set to 1 to create users based on proxy authentication information.
     <br/>
     Disabled by default.</dd>
-  <dt><b>MAINTENANCE_MODE</b></dt>
+  <dt id="MAINTENANCE_MODE"><a class="permalink" href="#MAINTENANCE_MODE"><b>MAINTENANCE_MODE</b></a></dt>
   <dd>Set to 1 to enable maintenance mode.
     <br/>
     Disabled by default.</dd>
-  <dt><b>MAINTENANCE_MESSAGE</b></dt>
+  <dt id="MAINTENANCE_MESSAGE"><a class="permalink" href="#MAINTENANCE_MESSAGE"><b>MAINTENANCE_MESSAGE</b></a></dt>
   <dd>Define a custom maintenance message.
     <br/>
     Default is &quot;Miniflux is currently under maintenance&quot;.</dd>
-  <dt><b>WATCHDOG</b></dt>
+  <dt id="WATCHDOG"><a class="permalink" href="#WATCHDOG"><b>WATCHDOG</b></a></dt>
   <dd>Enable or disable Systemd watchdog.
     <br/>
-    Enabled by default.
+    Enabled by default.</dd>
+  <dt id="INVIDIOUS_INSTANCE"><a class="permalink" href="#INVIDIOUS_INSTANCE"><b>INVIDIOUS_INSTANCE</b></a></dt>
+  <dd>Set a custom invidious instance to use.
+    <br/>
+    Default is yewtu.be.
     <p class="Pp"></p>
   </dd>
 </dl>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="AUTHORS"><a class="permalink" href="#AUTHORS">AUTHORS</a></h1>
-Miniflux is written and maintained by Fr&#x00E9;d&#x00E9;ric Guillot.
+<p class="Pp">Miniflux is written and maintained by Fr&#x00E9;d&#x00E9;ric
+    Guillot.</p>
 <p class="Pp"></p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="COPYRIGHT"><a class="permalink" href="#COPYRIGHT">COPYRIGHT</a></h1>
-Miniflux is released under the Apache 2.0 license.
+<p class="Pp">Miniflux is released under the Apache 2.0 license.</p>
 </section>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">May 23, 2021</td>
+    <td class="foot-date">January 5, 2022</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

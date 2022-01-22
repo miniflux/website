@@ -15,7 +15,7 @@ url: features.html
 - Fetch website icons (favicons)
 - Save articles to third-party services
 - Full-text search (Thanks to Postgres)
-- Available in Portuguese (Brazilian), Chinese (Simplified), Dutch, English (US), French, German, Greek, Italian, Japanese, Polish, Russian, Spanish, and Turkish
+- Available in Portuguese (Brazilian), Chinese (Simplified), Dutch, English (US), Finnish, French, German, Greek, Italian, Japanese, Polish, Russian, Spanish, and Turkish
 
 <h2 id="privacy">Privacy <a class="anchor" href="#privacy" title="Permalink">¶</a></h2>
 

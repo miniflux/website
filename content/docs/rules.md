@@ -47,6 +47,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Insert Youtube video to the article (automatic for Youtube.com).
     </dd>
+    <dt><code>add_youtube_video_from_id</code></dt>
+    <dd>
+        Insert Youtube video to the article based on the video ID.
+    </dd>
     <dt><code>add_invidious_video</code></dt>
     <dd>
         Insert Invidious player to the article (automatic for https://invidio.us).

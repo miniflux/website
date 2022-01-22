@@ -330,6 +330,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Enable or disable Systemd watchdog.</p>
         <p><em>Enabled by default.</em></p>
     </dd>
+    <dt id="invidious-instance"><a href="#invidious-instance"><code>INVIDIOUS_INSTANCE</code></a></dt>
+    <dd>
+        <p>Set a custom invidious instance to use.</p>
+        <p><em>Default is yewtu.be.</em></p>
+    </dd>
 </dl>
 
 <h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>

@@ -2,18 +2,27 @@
 title: Integration with External Services
 url: /docs/services.html
 ---
+
+External services available:
+
+- [Fever API](#fever)
+- [Google Reader API](#google-reader)
+- [Pinboard](#pinboard)
+- [Instapaper](#instapaper)
+- [Pocket](#pocket)
+- [Wallabag](#wallabag)
+- [Nunux Keeper](#nunux-keeper)
+- [Telegram Bot](#telegram-bot)
+
 <h2 id="fever">Fever API <a class="anchor" href="#fever" title="Permalink">¶</a></h2>
 
 Miniflux implements the [Fever API](https://feedafever.com/api) in addition to its own [REST API](api.html). The
 Fever API allows you to use existing mobile applications to read your
 feeds instead of the web user interface.
 
-To activate the Fever API, go into the integration section and choose a
-username/password.
+To activate the Fever API, go to the integration section and choose a username/password.
 
-![Fever](/images/fever.png)
-
-The API endpoint is `https://example.org/fever/`
+![Fever API](/images/fever.png)
 
 ### Compatible Apps
 
@@ -28,6 +37,18 @@ The API endpoint is `https://example.org/fever/`
 - Only the JSON format is supported
 - Refreshing feeds is not possible with Reeder because no user information is sent
 - Links, sparks, and kindlings are not supported
+
+<h2 id="google-reader">Google Reader API <a class="anchor" href="#google-reader" title="Permalink">¶</a></h2>
+
+Miniflux implements the Google Reader API.
+
+To activate the Google Reader API, go to the integration section and choose a username/password.
+
+![Google Reader API](/images/google_reader.png)
+
+### Compatible Apps
+
+- [Reeder >= 5](http://reederapp.com/) (iOS/macOS)
 
 <h2 id="pinboard">Pinboard <a class="anchor" href="#pinboard" title="Permalink">¶</a></h2>
 
@@ -109,7 +130,7 @@ curation service"*. It's an alternative to Pocket or Wallabag.
 
 ![Nunux Reader API Key](/images/nunux_reader_api_key.png)
 
-<h2 id="telegrambot">Telegram Bot <a class="anchor" href="#telegrambot" title="Permalink">¶</a></h2>
+<h2 id="telegram-bot">Telegram Bot <a class="anchor" href="#telegram-bot" title="Permalink">¶</a></h2>
 
 ![Telegram Bot Integration](/images/telegram-bot-form.png)
 
