@@ -57,9 +57,9 @@ url: features.html
 
 <h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
 
-- Send articles to [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), or Nunux Keeper
+- Send articles to Telegram, [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), or Nunux Keeper
 - Bookmarklet to subscribe to a website directly from any web browser
-- Use existing mobile applications to read your feeds by using the Fever API
+- Use existing mobile applications to read your feeds by using the Fever or Google Reader API
 - REST API with clients written in [Go](https://github.com/miniflux/v2/tree/master/client) and [Python](https://github.com/miniflux/python-client)
 
 <h2 id="auth">Authentication <a class="anchor" href="#auth" title="Permalink">¶</a></h2>
