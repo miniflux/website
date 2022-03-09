@@ -25,6 +25,7 @@ Table of Contents:
     - [Remove Feed](#endpoint-remove-feed)
     - [Get Feed Entry](#endpoint-get-feed-entry)
     - [Get Entry](#endpoint-get-entry)
+    - [Fetch original article](#endpoint-fetch-content)
     - [Get Feed Entries](#endpoint-get-feed-entries)
     - [Get Entries](#endpoint-get-entries)
     - [Update Entries](#endpoint-update-entries)
@@ -631,6 +632,22 @@ Response:
     }
 }
 ```
+
+<h3 id="endpoint-fetch-content">Fetch original article <a class="anchor" href="#endpoint-fetch-content" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /entries/{entryID}/fetch-content
+
+Response:
+
+```json
+{"content": "html content"}
+```
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.36.
+</div>
 
 <h3 id="endpoint-get-feed-entries">Get Feed Entries <a class="anchor" href="#endpoint-get-feed-entries" title="Permalink">¶</a></h3>
 
