@@ -63,6 +63,11 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Insert mailto links subject into the article.
     </dd>
+    <dt><code>base64_decode</code></dt>
+    <dd>
+        This rewrite rule decode base64 content.
+        It can be used with a selector: <code>base64_decode(".base64")</code>, but can also be used without argument: <code>base64_decode</code>. In this case it'll try to convert all TextNodes and always fallback to original text if it can decode.
+    </dd>
     <dt><code>nl2br</code></dt>
     <dd>
         Convert new lines <code>\n</code> to <code>&lt;br&gt;</code> (useful for non-HTML contents).

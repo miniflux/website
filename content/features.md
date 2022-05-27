@@ -15,7 +15,7 @@ url: features.html
 - Fetch website icons (favicons)
 - Save articles to third-party services
 - Full-text search (Thanks to Postgres)
-- Available in Portuguese (Brazilian), Chinese (Simplified), Dutch, English (US), Finnish, French, German, Greek, Italian, Japanese, Polish, Russian, Spanish, and Turkish
+- Available in Portuguese (Brazilian), Chinese (Simplified and Traditional), Dutch, English (US), Finnish, French, German, Greek, Italian, Japanese, Polish, Russian, Spanish, and Turkish
 
 <h2 id="privacy">Privacy <a class="anchor" href="#privacy" title="Permalink">¶</a></h2>
 
@@ -57,7 +57,7 @@ url: features.html
 
 <h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
 
-- Send articles to Telegram, [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), or Nunux Keeper
+- Send articles to Telegram, [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), [Linkding](https://github.com/sissbruecker/linkding), [Espial](https://github.com/jonschoning/espial), or [Nunux Keeper](https://keeper.nunux.org/)
 - Bookmarklet to subscribe to a website directly from any web browser
 - Use existing mobile applications to read your feeds by using the Fever or Google Reader API
 - REST API with clients written in [Go](https://github.com/miniflux/v2/tree/master/client) and [Python](https://github.com/miniflux/python-client)

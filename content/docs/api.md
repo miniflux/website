@@ -44,6 +44,7 @@ Table of Contents:
     - [Get Users](#endpoint-get-users)
     - [Delete User](#endpoint-delete-user)
     - [Mark User Entries as Read](#endpoint-mark-user-entries-as-read)
+    - [Fetch unread and read counters](#endpoint-counters)
     - [Healthcheck](#endpoint-healthcheck)
     - [Version](#endpoint-version)
 
@@ -1182,6 +1183,33 @@ Returns `204 Not Content` status code for success.
 
 <div class="info">
 This API endpoint is available since Miniflux v2.0.26.
+</div>
+
+<h3 id="endpoint-counters">Fetch Read/Unread Counters <a class="anchor" href="#endpoint-counters" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /v1/feeds/counters
+
+Response Example:
+
+``` json
+{
+  "reads": {
+    "1": 12,
+    "3": 1,
+    "4": 1
+  },
+  "unreads": {
+    "1": 7,
+    "3": 99,
+    "4": 14
+  }
+}
+```
+
+<div class="info">
+This endpoint is available since Miniflux 2.0.37.
 </div>
 
 <h3 id="endpoint-healthcheck">Healthcheck <a class="anchor" href="#endpoint-healthcheck" title="Permalink">¶</a></h3>
