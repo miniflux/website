@@ -27,6 +27,7 @@ Table of Contents:
     - [Get Entry](#endpoint-get-entry)
     - [Fetch original article](#endpoint-fetch-content)
     - [Get Feed Entries](#endpoint-get-feed-entries)
+    - [Get Category Entries](#endpoint-get-category-entries)
     - [Get Entries](#endpoint-get-entries)
     - [Update Entries](#endpoint-update-entries)
     - [Toggle Entry Bookmark](#endpoint-toggle-bookmark)
@@ -649,6 +650,87 @@ Response:
 <div class="info">
 This API endpoint is available since Miniflux v2.0.36.
 </div>
+
+<h3 id="endpoint-get-category-entries">Get Category Entries <a class="anchor" href="#endpoint-get-category-entries" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /v1/categories/22/entries?limit=1&order=id&direction=asc
+
+Available filters:
+
+- `status`: Entry status (read, unread or removed), this option can be repeated to filter by multiple statuses (version >= 2.0.24)
+- `offset`
+- `limit`
+- `order`: "id", "status", "published\_at", "category\_title",
+"category\_id"
+- `direction`: "asc" or "desc"
+- `before` (unix timestamp, available since Miniflux 2.0.9)
+- `after` (unix timestamp, available since Miniflux 2.0.9)
+- `before_entry_id` (int64, available since Miniflux 2.0.9)
+- `after_entry_id` (int64, available since Miniflux 2.0.9)
+- `starred` (boolean, available since Miniflux 2.0.9)
+- `search`: search query (text, available since Miniflux 2.0.10)
+- `category_id`: filter by category (int, available since Miniflux 2.0.19)
+
+Response:
+
+```json
+{
+    "total": 10,
+    "entries": [
+        {
+            "id": 888,
+            "user_id": 123,
+            "feed_id": 42,
+            "title": "Entry Title",
+            "url": "http://example.org/article.html",
+            "comments_url": "",
+            "author": "Foobar",
+            "content": "<p>HTML contents</p>",
+            "hash": "29f99e4074cdacca1766f47697d03c66070ef6a14770a1fd5a867483c207a1bb",
+            "published_at": "2016-12-12T16:15:19Z",
+            "created_at": "2016-12-27T16:15:19Z",
+            "status": "unread",
+            "share_code": "",
+            "starred": false,
+            "reading_time": 1,
+            "enclosures": null,
+            "feed": {
+                "id": 42,
+                "user_id": 123,
+                "title": "New Feed Title",
+                "site_url": "http://example.org",
+                "feed_url": "http://example.org/feed.atom",
+                "checked_at": "2017-12-22T21:06:03.133839-05:00",
+                "etag_header": "KyLxEflwnTGF5ecaiqZ2G0TxBCc",
+                "last_modified_header": "Sat, 23 Dec 2017 01:04:21 GMT",
+                "parsing_error_message": "",
+                "parsing_error_count": 0,
+                "scraper_rules": "",
+                "rewrite_rules": "",
+                "crawler": false,
+                "blocklist_rules": "",
+                "keeplist_rules": "",
+                "user_agent": "",
+                "username": "",
+                "password": "",
+                "disabled": false,
+                "ignore_http_cache": false,
+                "fetch_via_proxy": false,
+                "category": {
+                    "id": 22,
+                    "user_id": 123,
+                    "title": "Another category"
+                },
+                "icon": {
+                    "feed_id": 42,
+                    "icon_id": 84
+                }
+            }
+        }
+    ]
+```
 
 <h3 id="endpoint-get-feed-entries">Get Feed Entries <a class="anchor" href="#endpoint-get-feed-entries" title="Permalink">¶</a></h3>
 
