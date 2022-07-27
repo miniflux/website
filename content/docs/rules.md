@@ -92,6 +92,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Remove DOM elements.
     </dd>
+    <dt><code>parse_markdown</code></dt>
+    <dd>
+        Convert markdown to html.
+    </dd>
 </dl>
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.
