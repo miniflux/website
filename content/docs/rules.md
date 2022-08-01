@@ -94,7 +94,7 @@ Especially on mobile devices where there is no `hover` event.
     </dd>
     <dt><code>parse_markdown</code></dt>
     <dd>
-        Convert markdown to html.
+        Convert Markdown to HTML.
     </dd>
 </dl>
 

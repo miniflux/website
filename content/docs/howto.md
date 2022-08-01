@@ -23,8 +23,7 @@ Here are some examples of configuration:
 <h2 id="apt-repo">How to Configure the APT Repository <a class="anchor" href="#apt-repo" title="Permalink">¶</a></h2>
 
 ```bash
-curl -s https://apt.miniflux.app/KEY.gpg | sudo apt-key add -
-echo "deb https://apt.miniflux.app/ /" | sudo tee /etc/apt/sources.list.d/miniflux.list > /dev/null
+echo "deb [trusted=yes] https://repo.miniflux.app/apt/ /" | sudo tee /etc/apt/sources.list.d/miniflux.list > /dev/null
 apt update
 ```
 
@@ -36,6 +35,10 @@ apt install miniflux
 
 To upgrade Miniflux, run `apt upgrade miniflux`, and don't forget to run the database migrations.
 
+<div class="warning">
+The previous repository URL <code>https://apt.miniflux.app/</code> is deprecated in favor of <code>https://repo.miniflux.app/apt/</code>.
+</div>
+
 <h2 id="rpm-repo">How to Configure the RPM Repository <a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
 
 Create the file `/etc/yum.repos.d/miniflux.repo`:
@@ -43,7 +46,7 @@ Create the file `/etc/yum.repos.d/miniflux.repo`:
 ```
 [miniflux]
 name=Miniflux Repository
-baseurl=https://rpm.miniflux.app/x86_64/
+baseurl=https://repo.miniflux.app/yum/
 enabled=1
 gpgcheck=0
 ```
@@ -53,6 +56,10 @@ Then install the package:
 ```bash
 yum install -y miniflux
 ```
+
+<div class="warning">
+The previous repository URL <code>https://rpm.miniflux.app/x86_64/</code> is deprecated in favor of <code>https://repo.miniflux.app/yum/</code>.
+</div>
 
 <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 
