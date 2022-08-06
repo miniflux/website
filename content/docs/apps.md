@@ -50,3 +50,9 @@ Reminiflux is an alternative web frontend. It offers a look and feel which is mo
 Google Reader and TT-RSS with a 3-paned display showing the list of feeds, items and an article.
 
 Links: [GitHub](https://github.com/reminiflux/reminiflux)
+
+<h3 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h3>
+
+Fluxjs is a responsive design frontend. You can browse your rss feeds from your mobile or your desktop.
+
+Links: [GitHub](https://github.com/PascalNoisette/fluxjs)
