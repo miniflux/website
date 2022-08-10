@@ -69,7 +69,7 @@ Miniflux uses [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript#6th_Editio
 
 Using the web UI on your smartphone is not so bad:
 
-- Miniflux is a [progressive web app](https://developer.mozilla.org/en-US/Apps/Progressive>)
+- Miniflux is a [progressive web app](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 - The layout adapts to the screen size (responsive design)
 - You could add the application to the home screen like any native application
 - You can swipe entries horizontally to change their status
