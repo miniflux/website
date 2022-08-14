@@ -7,6 +7,7 @@ url: /docs/rules.html
 - [Filtering Rules](#filtering-rules)
 - [Rewrite Rules](#rewrite-rules)
 - [Scraper Rules](#scraper-rules)
+- [URL Rewrite Rules](#rewriteurl-rules)
 
 <h2 id="filtering-rules">Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
 
@@ -126,3 +127,31 @@ Miniflux includes a list of predefined rules for popular websites.
 You could contribute to the project to keep them up to date.
 
 Under the hood, Miniflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).
+
+<h2 id="rewriteurl-rules">Rewrite URL Rules <a class="anchor" href="#rewriteurl-rules" title="Permalink">¶</a></h2>
+
+Sometimes it might be required to rewrite an URL in a feed to fetch better 
+suited content. For example, for  some users the URL 
+https://www.npr.org/sections/money/2021/05/18/997501946/the-case-for-universal-pre-k-just-got-stronger 
+displays a cookie consent dialog instead of the actual content and it would 
+be preferred to fetch the URL https://text.npr.org/997501946 instead. The 
+following rules does this:
+
+````
+rewrite("^https:\/\/www\.npr\.org\/\d{4}\/\d{2}\/\d{2}\/(\d+)\/.*$"|"https://text.npr.org/$1")
+````
+
+This will rewrite all URLs from the original feed to URLs pointing to _text.npr.org_ 
+when the article  content is fetched. I also had to add my own scraper rule, because 
+the default rule will try to fetch #storytext.
+
+Another example is the german page 
+https://www.heise.de/news/Industrie-ruestet-sich-fuer-Gasstopp-Forscher-vorsichtig-optimistisch-7167721.html 
+which splits the article into multiple pages. The full text can be read on 
+https://www.heise.de/news/Industrie-ruestet-sich-fuer-Gasstopp-Forscher-vorsichtig-optimistisch-7167721.html?seite=all
+
+The URL rewrite rule for that would be
+
+````
+rewrite("(.*?\.html)"|"$1?seite=all")
+````
