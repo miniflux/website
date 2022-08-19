@@ -60,6 +60,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Insert Invidious player to the article for Youtube feeds.
     </dd>
+    <dt><code>add_castopod_episode</code></dt>
+    <dd>
+        Insert Castopod episode player.
+    </dd>
     <dt><code>add_mailto_subject</code></dt>
     <dd>
         Insert mailto links subject into the article.
