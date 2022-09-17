@@ -88,7 +88,9 @@ make clean
 <h2 id="run">Run the Software Locally <a class="anchor" href="#run" title="Permalink">¶</a></h2>
 
 ```bash
-make run
+docker run -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=miniflux2 -p 5432:5432 postgres -d
+make run # or:
+RUN_MIGRATIONS=1 CREATE_ADMIN=1 ADMIN_USERNAME=foo ADMIN_PASSWORD=barbaz go run main.go -debug
 ```
 
 This command runs the software in debug mode.
