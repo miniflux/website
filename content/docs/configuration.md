@@ -272,6 +272,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Avoids mixed content warnings for external images: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
         <p><em>Default is <code>http-only</code>.</em></p>
     </dd>
+    <dt id="proxy-image-url"><a href="#proxy-image-url"><code>PROXY_IMAGE_URL</code></a></dt>
+    <dd>
+        <p>Sets a server to proxy images through.</p>
+        <p>Default is empty, miniflux does the proxying.</p>
+    </dd>
     <dt id="http-client-timeout"><a href="#http-client-timeout"><code>HTTP_CLIENT_TIMEOUT</code></a></dt>
     <dd>
         <p>Time limit in seconds before the HTTP client cancel the request.</p>
