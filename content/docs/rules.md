@@ -15,7 +15,7 @@ Miniflux has a basic filtering system that allows you to ignore or keep articles
 
 ### Block Rules
 
-Block rules ignore articles with a title that match the regex.
+Block rules ignore articles with a title that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
 For example, the regex `(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
 
@@ -23,7 +23,7 @@ Ignored articles won't be saved into the database.
 
 ### Keep Rules
 
-Keep rules keeps only articles that matches the regex.
+Keep rules keeps only articles that matches the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
 For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
 
