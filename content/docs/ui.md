@@ -24,6 +24,7 @@ Since Miniflux 2.0.7, the link "Save" will be shown only if at least one integra
 
 ![Edit Feed](/images/edit_feed.png)
 
+- **Set Cookies**: HTTP Cookies to add to the request, e.g., `name0=value0; name1=value1`
 - **Scraper Rules**: CSS selectors to use when fetching the original web page (Use Readability if nothing provided)
 - **Rewrite Rules**: Name of the rewrite rules to use to alter item content
 - **Fetch original content**: Always download original articles (consume more resources)
