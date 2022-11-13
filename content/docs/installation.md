@@ -229,7 +229,7 @@ services:
     environment:
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
   db:
-    image: postgres:latest
+    image: postgres:15
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=secret
@@ -273,7 +273,7 @@ services:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=test123
   db:
-    image: postgres:latest
+    image: postgres:15
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=secret
