@@ -16,6 +16,7 @@ Working with Miniflux's code base is pretty simple:
 - [Build Docker Image](#docker-image)
 - [Create RPM package](#rpm)
 - [Create Debian package](#debian)
+- [GitHub Codespaces](#github-codespaces)
 
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 
@@ -171,3 +172,10 @@ make debian-packages
 
 Note that Docker is required to generate the Debian packages. 
 All build operations are running inside a container.
+
+<h2 id="github-codespaces">GitHub Codespaces <a class="anchor" href="#github-codespaces" title="Permalink">¶</a></h2>
+
+Miniflux development environment is preconfigured for GitHub Codespaces.
+It could be useful for small contributions.
+
+Just click on "Create codespace" button in GitHub web ui to create a new development environment in the cloud. Once it's ready, you can use Visual Studio Code to edit the source code.
