@@ -62,7 +62,7 @@ ALTER USER miniflux WITH SUPERUSER;
 ALTER USER miniflux WITH NOSUPERUSER;
 ```
 
-2) You could [create the hstore extension](https://www.postgresql.org/docs/current/static/sql-createextension.html>) with another user that have the ``SUPERUSER`` privileges before running the migrations.
+2) You could [create the hstore extension](https://www.postgresql.org/docs/current/static/sql-createextension.html) with another user that have the ``SUPERUSER`` privileges before running the migrations.
 
 ```
 sudo -u postgres psql $MINIFLUX_DATABASE
