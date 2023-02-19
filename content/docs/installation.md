@@ -225,7 +225,8 @@ services:
     ports:
       - "80:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
   db:
@@ -265,7 +266,8 @@ services:
     ports:
       - "80:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
       - RUN_MIGRATIONS=1
