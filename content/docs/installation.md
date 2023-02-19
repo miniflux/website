@@ -218,7 +218,6 @@ Running the command above will run the migrations and sets up a new admin accoun
 You could also use Docker Compose. Here an example of `docker-compose.yml` file:
 
 ```yaml
-version: '3.4'
 services:
   miniflux:
     image: miniflux/miniflux:latest
@@ -259,7 +258,6 @@ docker-compose exec miniflux /usr/bin/miniflux -create-admin
 Another way of doing the same thing is to populate the variables `RUN_MIGRATIONS`, `CREATE_ADMIN`, `ADMIN_USERNAME` and `ADMIN_PASSWORD`. For example:
 
 ```yaml
-version: '3.4'
 services:
   miniflux:
     image: miniflux/miniflux:latest
