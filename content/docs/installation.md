@@ -215,7 +215,7 @@ docker run -d \
 
 Running the command above will run the migrations and sets up a new admin account with the chosen username and password.
 
-You could also use Docker Compose. Here an example of `docker-compose.yml` file:
+You could also use Docker Compose. Here is an example of a Compose file:
 
 ```yaml
 services:
@@ -243,16 +243,16 @@ volumes:
   miniflux-db:
 ```
 
-Start the database first `docker-compose up -d db` and then the application `docker-compose up miniflux`.
+Start the application by running `docker compose up -d`.
 
 Remember that you still need to run the database migrations and create the first user:
 
 ```bash
 # Run database migrations
-docker-compose exec miniflux /usr/bin/miniflux -migrate
+docker compose exec miniflux /usr/bin/miniflux -migrate
 
 # Create the first user
-docker-compose exec miniflux /usr/bin/miniflux -create-admin
+docker compose exec miniflux /usr/bin/miniflux -create-admin
 ```
 
 Another way of doing the same thing is to populate the variables `RUN_MIGRATIONS`, `CREATE_ADMIN`, `ADMIN_USERNAME` and `ADMIN_PASSWORD`. For example:
