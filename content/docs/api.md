@@ -34,6 +34,7 @@ Table of Contents:
     - [Get Categories](#endpoint-get-categories)
     - [Create Category](#endpoint-create-category)
     - [Update Category](#endpoint-update-category)
+    - [Refresh Category Feeds](#endpoint-refresh-category)
     - [Delete Category](#endpoint-delete-category)
     - [Mark Category Entries as Read](#endpoint-mark-category-entries-as-read)
     - [OPML Export](#endpoint-export)
@@ -984,6 +985,21 @@ Response:
     "title": "My new title"
 }
 ```
+
+<h3 id="endpoint-refresh-category">Refresh Category Feeds<a class="anchor" href="#endpoint-refresh-category" title="Permalink">¶</a></h3>
+
+Request:
+
+    PUT /v1/categories/123/refresh
+
+<ul>
+    <li>Returns <code>204</code> status code for success.</li>
+    <li>Category feeds are refreshed in a background process.</li>
+</ul>
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.42.
+</div>
 
 <h3 id="endpoint-delete-category">Delete Category <a class="anchor" href="#endpoint-delete-category" title="Permalink">¶</a></h3>
 
