@@ -248,6 +248,24 @@ The configuration file is a text file that follow these rules:
       values).
     <br/>
     Default is 127.0.0.1/8.</dd>
+  <dt><b>METRICS_USERNAME</b></dt>
+  <dd>Metrics endpoint username for basic HTTP authentication.
+    <br/>
+    Default is emtpty.</dd>
+  <dt><b>METRICS_USERNAME_FILE</b></dt>
+  <dd>Path to a file that contains the username for the metrics endpoint HTTP
+      authentication.
+    <br/>
+    Default is emtpty.</dd>
+  <dt><b>METRICS_PASSWORD</b></dt>
+  <dd>Metrics endpoint password for basic HTTP authentication.
+    <br/>
+    Default is emtpty.</dd>
+  <dt><b>METRICS_PASSWORD_FILE</b></dt>
+  <dd>Path to a file that contains the password for the metrics endpoint HTTP
+      authentication.
+    <br/>
+    Default is emtpty.</dd>
   <dt><b>OAUTH2_PROVIDER</b></dt>
   <dd>Possible values are &quot;google&quot; or &quot;oidc&quot;.
     <br/>
@@ -320,13 +338,21 @@ The configuration file is a text file that follow these rules:
       $POCKET_CONSUMER_KEY value.
     <br/>
     Default is empty.</dd>
-  <dt><b>PROXY_IMAGES</b></dt>
-  <dd>Avoids mixed content warnings for external images: http-only, all, or
-      none.
+  <dt><b>PROXY_OPTION</b></dt>
+  <dd>Avoids mixed content warnings for external media: http-only, all, or none.
     <br/>
     Default is http-only.</dd>
-  <dt><b>PROXY_IMAGE_URL</b></dt>
-  <dd>Sets a server to proxy images through.
+  <dt><b>PROXY_MEDIA_TYPES</b></dt>
+  <dd>A list of media types to proxify (comma-separated values): image, audio,
+      video.
+    <br/>
+    Default is image only.</dd>
+  <dt><b>PROXY_HTTP_CLIENT_TIMEOUT</b></dt>
+  <dd>Time limit in seconds before the proxy HTTP client cancel the request.
+    <br/>
+    Default is 120 seconds.</dd>
+  <dt><b>PROXY_URL</b></dt>
+  <dd>Sets a server to proxy media through.
     <br/>
     Default is empty, miniflux does the proxying.</dd>
   <dt><b>HTTP_CLIENT_TIMEOUT</b></dt>
@@ -349,6 +375,10 @@ The configuration file is a text file that follow these rules:
       version.
     <br/>
     Default is empty.</dd>
+  <dt><b>HTTP_SERVER_TIMEOUT</b></dt>
+  <dd>Time limit in seconds before the HTTP client cancel the request.
+    <br/>
+    Default is 300 seconds.</dd>
   <dt><b>AUTH_PROXY_HEADER</b></dt>
   <dd>Proxy authentication HTTP header.
     <br/>
@@ -372,7 +402,11 @@ The configuration file is a text file that follow these rules:
   <dt><b>INVIDIOUS_INSTANCE</b></dt>
   <dd>Set a custom invidious instance to use.
     <br/>
-    Default is yewtu.be.
+    Default is yewtu.be.</dd>
+  <dt><b>PROXY_PRIVATE_KEY</b></dt>
+  <dd>Set a custom custom private key used to sign proxified media url.
+    <br/>
+    Default is randomly generated at startup.
     <p class="Pp"></p>
   </dd>
 </dl>

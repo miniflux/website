@@ -187,6 +187,26 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>List of networks allowed to access the <code>/metrics</code> endpoint (comma-separated values).</p>
         <p><em>Default is <code>127.0.0.1/8</code>.</em></p>
     </dd>
+    <dt id="metrics-username"><a href="#metrics-username"><code>METRICS_USERNAME</code></a></dt>
+    <dd>
+        <p>Metrics endpoint username for basic HTTP authentication.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="metrics-username-file"><a href="#metrics-username-file"><code>METRICS_USERNAME_FILE</code></a></dt>
+    <dd>
+        <p>Path to a file that contains the username for the metrics endpoint HTTP authentication.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="metrics-password"><a href="#metrics-password"><code>METRICS_PASSWORD</code></a></dt>
+    <dd>
+        <p>Metrics endpoint password for basic HTTP authentication.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="metrics-password-file"><a href="#metrics-password-file"><code>METRICS_PASSWORD_FILE</code></a></dt>
+    <dd>
+        <p>Path to a file that contains the password for the metrics endpoint HTTP authentication.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
     <dt id="oauth2-provider"><a href="#oauth2-provider"><code>OAUTH2_PROVIDER</code></a></dt>
     <dd>
         <p>OAuth2 provider. Possible values are <code>google</code> or <code>oidc</code> for a generic OpenID Connect provider.</p>
@@ -267,14 +287,24 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Path to a secret key exposed as a file, it should contain <code>$POCKET_CONSUMER_KEY</code> value.</p>
         <p><em>Default is empty.</em></p>
     </dd>
-    <dt id="proxy-images"><a href="#proxy-images"><code>PROXY_IMAGES</code></a></dt>
+    <dt id="proxy-option"><a href="#proxy-option"><code>PROXY_OPTION</code></a></dt>
     <dd>
-        <p>Avoids mixed content warnings for external images: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
+        <p>Avoids mixed content warnings for external media: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
         <p><em>Default is <code>http-only</code>.</em></p>
     </dd>
-    <dt id="proxy-image-url"><a href="#proxy-image-url"><code>PROXY_IMAGE_URL</code></a></dt>
+    <dt id="proxy-media-types"><a href="#proxy-media-types"><code>PROXY_MEDIA_TYPES</code></a></dt>
     <dd>
-        <p>Sets a server to proxy images through.</p>
+        <p>A list of media types to proxify (comma-separated values): <code>image</code>, <code>audio</code>, <code>video</code>.</p>
+        <p><em>Default is <code>image</code>.</em></p>
+    </dd>
+    <dt id="proxy-http-client-timeout"><a href="#proxy-http-client-timeout"><code>PROXY_HTTP_CLIENT_TIMEOUT</code></a></dt>
+    <dd>
+        <p>Time limit in seconds before the proxy HTTP client cancel the request.</p>
+        <p>Default is 120 seconds.</p>
+    </dd>
+    <dt id="proxy-url"><a href="#proxy-url"><code>PROXY_URL</code></a></dt>
+    <dd>
+        <p>Sets a server to proxy media through.</p>
         <p>Default is empty, miniflux does the proxying.</p>
     </dd>
     <dt id="http-client-timeout"><a href="#http-client-timeout"><code>HTTP_CLIENT_TIMEOUT</code></a></dt>

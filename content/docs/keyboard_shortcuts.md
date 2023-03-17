@@ -30,11 +30,13 @@ url: /docs/keyboard_shortcuts.html
 - `V`: Open original link into current tab (entry view only)
 - `c`: Open comments link to a new tab
 - `C`: Open comments link into current tab
-- `m`: Mark selected item as read/unread
+- `m`: Toggle read/unread, focus next
+- `M`: Toggle read/unread, focus previous
 - `A`: Mark current page as read
 - `d`: Fetch original web page and apply scraper rules or readability
 - `f`: Star or unstar the current entry
 - `s`: Save article to configured third-party services
+- `a`: Toggle open/close entry attachments
 - `z t`: Scroll item to top
 - `R`: Refresh all feeds in the background
 - `#`: Removes current feed
