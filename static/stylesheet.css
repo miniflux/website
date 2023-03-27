@@ -382,3 +382,7 @@ a.button {
 .configs dd p {
     line-height: 1.1em;
 }
+
+.donations img {
+    border: none
+}
