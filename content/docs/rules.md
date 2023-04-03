@@ -101,6 +101,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Convert Markdown to HTML.
     </dd>
+    <dt><code>remove_tables</code></dt>
+    <dd>
+        Remove any tables while keeping the content inside (useful for email newsletters).
+    </dd>
 </dl>
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.
