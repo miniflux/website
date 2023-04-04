@@ -640,7 +640,7 @@ Response:
 
 Request:
 
-    GET /entries/{entryID}/fetch-content
+    GET /v1/entries/{entryID}/fetch-content
 
 Response:
 
