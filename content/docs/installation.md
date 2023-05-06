@@ -187,6 +187,7 @@ service miniflux start
 
 - [Docker Hub Registry](https://hub.docker.com/r/miniflux/miniflux): `docker.io/miniflux/miniflux`
 - [GitHub Container Registry](https://github.com/miniflux/v2/pkgs/container/miniflux): `ghcr.io/miniflux/miniflux`
+- [Quay.io RedHat Container Registry](https://quay.io/repository/miniflux/miniflux): `quay.io/miniflux/miniflux`
 
 **Docker Architectures:**
 
