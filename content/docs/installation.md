@@ -69,6 +69,8 @@ sudo -u postgres psql $MINIFLUX_DATABASE
 > CREATE EXTENSION hstore;
 ```
 
+Note that if you use Debian or Ubuntu, you might have to install the `postgresql-contrib` package to activate the `HSTORE` extension.
+
 <h2 id="binary">Manual Installation <a class="anchor" href="#binary" title="Permalink">¶</a></h2>
 
 1. Copy the precompiled binary somewhere on your server, for example in `/usr/local/bin`
