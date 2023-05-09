@@ -17,6 +17,7 @@ Working with Miniflux's code base is pretty simple:
 - [Create RPM package](#rpm)
 - [Create Debian package](#debian)
 - [GitHub Codespaces](#github-codespaces)
+- [Run a local Postgresql database with docker](#postgresql-docker)
 
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 
@@ -92,7 +93,7 @@ make clean
 make run
 ```
 
-This command runs the software in debug mode.
+This command runs the software in debug mode. If needed, you can [run a local Postgresql database with docker](#postgresql-docker)
 
 <h2 id="linter">Linter <a class="anchor" href="#linter" title="Permalink">¶</a></h2>
 
@@ -111,6 +112,7 @@ make test
 Integration tests are testing API endpoints with a real database.
 
 You need to have Postgresql installed locally preconfigured with the user "postgres" and the password "postgres".
+You can [run a local Postgresql database with docker](#postgresql-docker)
 
 To run integration tests, execute the following command:
 
@@ -179,3 +181,24 @@ Miniflux development environment is preconfigured for GitHub Codespaces.
 It could be useful for small contributions.
 
 Just click on "Create codespace" button in GitHub web ui to create a new development environment in the cloud. Once it's ready, you can use Visual Studio Code to edit the source code.
+
+<h2 id="postgresql-docker">Run local Postgresql database with docker <a class="anchor" href="#postgresql-docker" title="Permalink">¶</a></h2>
+
+Based on [postgres docker image](https://hub.docker.com/_/postgres/)
+
+You can create a local Postgresql database, for tests, easily with the following command
+
+```bash
+docker run --rm --name local-miniflux2-db -p 5432:5432 -e POSTGRES_DB=miniflux2 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
+```
+Having persistent data
+
+```bash
+docker volume create local-miniflux2-data
+docker run --rm --name local-miniflux2-db -p 5432:5432 -v local-miniflux2-data:/var/lib/postgresql/data -e POSTGRES_DB=miniflux2 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
+```
+
+Delete data
+```bash
+docker volume rm local-miniflux2-data
+```
