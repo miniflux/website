@@ -11,6 +11,7 @@ External services available:
 - [Instapaper](#instapaper)
 - [Pocket](#pocket)
 - [Wallabag](#wallabag)
+- [Notion](#notion)
 - [Nunux Keeper](#nunux-keeper)
 - [Telegram Bot](#telegram-bot)
 
@@ -119,6 +120,20 @@ saving web pages.
 - The API URL is the root URL of your instance, for example, if you have the hosted version use: `https://app.wallabag.it/`.
 - To create a new API client, go to the section "API clients management" and choose "Create a new client".
 - If `Send only URL` is checked, Miniflux sends only the URL of the item being saved, instead of the item's page body content.
+
+<h2 id="notion">Notion <a class="anchor" href="#notion" title="Permalink">¶</a></h2>
+
+[Notion](https://notion.so/) is a freemium productivity and note-taking web application
+
+![Notion](/images/notion.png)
+
+- The API URL is the root URL it should be the following: `https://api.notion.com`
+- To create a new API integration, go to `https://www.notion.so/my-integrations` then click on `New Integration`
+- Fill in all the need field and select your board of choice
+- Once `Submit` you will be redirect to `Secret` tab in your integration page. generate a secret which look like this `secret_XXXXXXX`
+- Create a new page and then head to `...` on the top right corner
+- Scroll down to `Add Connections` and select API integration created before
+- Again click on `...` on the same page and then click on `Copy link` you should have something like this: `https://www.notion.so/<user>/<page-name>-1429989fe8ac4effbc8f57f56486db54?pvs=4` your page id will be this one`1429989fe8ac4effbc8f57f56486db54`
 
 <h2 id="nunux-keeper">Nunux Keeper <a class="anchor" href="#nunux-keeper" title="Permalink">¶</a></h2>
 
