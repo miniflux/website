@@ -19,10 +19,15 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Toggle debug mode (increase log level).</p>
         <p><em>Disabled by default.</em></p>
     </dd>
-    <dt id="debug"><a href="#fetch-youtube-watch-time"><code>FETCH_YOUTUBE_WATCH_TIME</code></a></dt>
+    <dt id="fetch-youtube-watch-time"><a href="#fetch-youtube-watch-time"><code>FETCH_YOUTUBE_WATCH_TIME</code></a></dt>
     <dd>
         <p>Set the value to 1 to scrape video duration from YouTube website and use it as a reading time.</p>
         <p><em>Disabled by default.</em></p>
+    </dd>
+    <dt id="youtube-embed-url-override"><a href="#youtube-embed-url-override"><code>YOUTUBE_EMBED_URL_OVERRIDE</code></a></dt>
+    <dd>
+        <p>YouTube URL which will be used for embeds.</p>
+        <p><em>Default is https://www.youtube-nocookie.com/embed/</em></p>
     </dd>
     <dt id="log-date-time"><a href="#log-date-time"><code>LOG_DATE_TIME</code></a></dt>
     <dd>
@@ -327,7 +332,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="http-client-user-agent"><a href="#http-client-user-agent"><code>HTTP_CLIENT_USER_AGENT</code></a></dt>
     <dd>
         <p>
-            The default User-Agent header to use for the HTTP client. Can be overridden in per-feed settings. 
+            The default User-Agent header to use for the HTTP client. Can be overridden in per-feed settings.
             When empty, Miniflux uses a default User-Agent that includes the Miniflux version.
         </p>
         <p><em>Default is empty.</em></p>
@@ -345,7 +350,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="maintenance-mode"><a href="#maintenance-mode"><code>MAINTENANCE_MODE</code></a></dt>
     <dd>
         <p>
-            Set to 1 to enable maintenance mode. 
+            Set to 1 to enable maintenance mode.
             Maintenance mode disables the web ui and show a text message to the users.
         </p>
         <p><em>Default is empty.</em></p>
