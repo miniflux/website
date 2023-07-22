@@ -125,9 +125,6 @@ saving web pages.
 
 [Notion](https://notion.so/) is a freemium productivity and note-taking web application
 
-![Notion](/images/notion.png)
-
-- The API URL is the root URL it should be the following: `https://api.notion.com`
 - To create a new API integration, go to `https://www.notion.so/my-integrations` then click on `New Integration`
 - Fill in all the need field and select your board of choice
 - Once `Submit` you will be redirect to `Secret` tab in your integration page. generate a secret which look like this `secret_XXXXXXX`
