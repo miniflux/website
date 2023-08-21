@@ -81,8 +81,8 @@ written in Python.
 
 <h3 id="go-client">Golang Client <a class="anchor" href="#go-client" title="Permalink">¶</a></h3>
 
-- Repository: <https://github.com/miniflux/v2/tree/master/client>
-- Reference: <https://godoc.org/miniflux.app/client>
+- Repository: <https://github.com/miniflux/v2/tree/main/client>
+- Reference: <https://pkg.go.dev/miniflux.app/v2/client>
 
 Installation:
 
