@@ -25,6 +25,7 @@ Table of Contents:
     - [Remove Feed](#endpoint-remove-feed)
     - [Get Feed Entry](#endpoint-get-feed-entry)
     - [Get Entry](#endpoint-get-entry)
+    - [Save entry to third-party services](#endpoint-save-entry)
     - [Fetch original article](#endpoint-fetch-content)
     - [Get Feed Entries](#endpoint-get-feed-entries)
     - [Get Category Entries](#endpoint-get-category-entries)
@@ -635,6 +636,16 @@ Response:
     }
 }
 ```
+
+<h3 id="endpoint-save-entry">Save entry to third-party services <a class="anchor" href="#endpoint-save-entry" title="Permalink">¶</a></h3>
+
+Request:
+
+    POST /v1/entries/{entryID}/save
+
+Response:
+
+Returns a `202 Accepted` status code for success.
 
 <h3 id="endpoint-fetch-content">Fetch original article <a class="anchor" href="#endpoint-fetch-content" title="Permalink">¶</a></h3>
 

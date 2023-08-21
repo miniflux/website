@@ -22,7 +22,7 @@ Working with Miniflux's code base is pretty simple:
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 
 - Git
-- Go >= 1.16
+- Go >= 1.21
 
 <h2 id="source-code">Checkout the Source Code <a class="anchor" href="#source-code" title="Permalink">¶</a></h2>
 

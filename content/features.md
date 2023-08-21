@@ -57,10 +57,10 @@ url: features.html
 
 <h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
 
-- Send articles to Telegram, [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), [Linkding](https://github.com/sissbruecker/linkding), [Espial](https://github.com/jonschoning/espial), or [Nunux Keeper](https://keeper.nunux.org/)
+- Send articles to [Telegram](https://telegram.org), [Shaarli](https://github.com/shaarli/Shaarli), [Shiori](https://github.com/go-shiori/shiori), [Matrix](https://matrix.org), [Apprise](https://github.com/caronc/apprise), [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), [Linkding](https://github.com/sissbruecker/linkding), [Espial](https://github.com/jonschoning/espial), [Notion](https://www.notion.so/) or [Nunux Keeper](https://keeper.nunux.org/)
 - Bookmarklet to subscribe to a website directly from any web browser
 - Use existing mobile applications to read your feeds by using the Fever or Google Reader API
-- REST API with clients written in [Go](https://github.com/miniflux/v2/tree/master/client) and [Python](https://github.com/miniflux/python-client)
+- REST API with clients written in [Go](https://github.com/miniflux/v2/tree/main/client) and [Python](https://github.com/miniflux/python-client)
 
 <h2 id="auth">Authentication <a class="anchor" href="#auth" title="Permalink">¶</a></h2>
 
