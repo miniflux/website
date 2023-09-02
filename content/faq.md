@@ -144,4 +144,16 @@ standard_init_linux.go:178: exec user process caused "exec format error"
 
 <h2 id="backup">How to backup my data? <a class="anchor" href="#backup" title="Permalink">¶</a></h2>
 
-You can use standard Postgresql tools: [pgdump](https://www.postgresql.org/docs/current/app-pgdump.html)
+Refer to the [official Postgres documentation](https://www.postgresql.org/docs/current/backup.html) for details about backing up and restoring a Postgres database.
+
+Basic SQL dump example:
+
+```bash
+# Backup
+pg_dump miniflux2 -f miniflux.dump
+
+# Restore
+psql miniflux2 < miniflux.dump
+```
+
+There many other options available, refer to the official documentation of `pg_dump` and `pg_restore`.
