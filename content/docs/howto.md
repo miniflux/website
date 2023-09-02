@@ -16,7 +16,7 @@ Here are some examples of configuration:
 - [Systemd Socket Activation](#systemd-socket-activation)
 - [Let's Encrypt Configuration](#lets-encrypt)
 - [Manual HTTPS Configuration](#https)
-- [OAuth2 Authentication](#oauth2)
+- [OAuth2 and OpenID Connect Authentication](#oauth2)
 - [Deploy Miniflux on Heroku](#heroku)
 - [Deploy Miniflux on Google App Engine](#gae)
 
@@ -328,24 +328,22 @@ miniflux
 
 Then you can access to your server by using an encrypted connection with the HTTP/2 protocol.
 
-<h2 id="oauth2">OAuth2 Authentication <a class="anchor" href="#oauth2" title="Permalink">¶</a></h2>
+<h2 id="oauth2">OAuth2 and OpenID Connect Authentication <a class="anchor" href="#oauth2" title="Permalink">¶</a></h2>
 
 OAuth2 allows you to sign in with an external provider.
-As of now, only Google and OpenID Connect is supported.
 
-### For Google:
+### Google
+
 1. Create a new project in Google Console
 2. Create a new OAuth2 client
 3. Set an authorized redirect URL, for example `https://my.domain.tld/oauth2/google/callback`
 4. Define the OAuth2 environment variables and start the process
 
-```bash
-export OAUTH2_PROVIDER=google
-export OAUTH2_CLIENT_ID=replace_me
-export OAUTH2_CLIENT_SECRET=replace_me
-export OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/google/callback
-
-miniflux
+```
+OAUTH2_PROVIDER=google
+OAUTH2_CLIENT_ID=replace_me
+OAUTH2_CLIENT_SECRET=replace_me
+OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/google/callback
 ```
 
 Now from the settings page, you can link your existing user to your Google account.
@@ -353,8 +351,8 @@ Now from the settings page, you can link your existing user to your Google accou
 If you would like to authorize anyone to create a user account, you must set `OAUTH2_USER_CREATION=1`.
 Since Google do not have the concept of username, the email address is used as username.
 
+### OpenID Connect
 
-### For OpenID Connect:
 1. Create a client in your OpenID Connect Provider, for example Keycloak
 2. Set Access Type confidental
 3. Set Client ID, for example `miniflux`
@@ -362,16 +360,27 @@ Since Google do not have the concept of username, the email address is used as u
 5. Set valid Web Origins, for example `https://my.domain.tld/oauth2/oidc/redirect`
 6. Define the OAuth2 environment variables and start the process
 
-```bash
-export OAUTH2_PROVIDER=oidc
-export OAUTH2_CLIENT_ID=replace_me
-export OAUTH2_CLIENT_SECRET=replace_me
-export OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/oidc/callback
-export OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://my.oidc.provider.tld/auth/realms/id
-
-miniflux
+```ini
+OAUTH2_PROVIDER=oidc
+OAUTH2_CLIENT_ID=replace_me
+OAUTH2_CLIENT_SECRET=replace_me
+OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/oidc/callback
+OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://my.oidc.provider.tld/auth/realms/id
 ```
 
+### Authentik
+
+Example of Miniflux configuration with [Authentik](https://goauthentik.io):
+
+```ini
+OAUTH2_PROVIDER=oidc
+OAUTH2_CLIENT_ID=replace_me
+OAUTH2_CLIENT_SECRET=replace_me
+OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/oidc/callback
+# Anthentik discovery endpoint is https://authentik.example.org/application/o/miniflux/.well-known/openid-configuration
+OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://authentik.example.org/application/o/miniflux/
+OAUTH2_USER_CREATION=1
+```
 
 <h2 id="heroku">Deploy Miniflux on Heroku <a class="anchor" href="#heroku" title="Permalink">¶</a></h2>
 
