@@ -250,6 +250,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="oauth2-oidc-discovery-endpoint"><a href="#oauth2-oidc-discovery-endpoint"><code>OAUTH2_OIDC_DISCOVERY_ENDPOINT</code></a></dt>
     <dd>
         <p>OpenID Connect discovery endpoint.</p>
+        <p>Note that the OIDC library automatically appends the <code>.well-known/openid-configuration</code>, this part has to be removed from the URL when setting <code>OAUTH2_OIDC_DISCOVERY_ENDPOINT</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-user-creation"><a href="#oauth2-user-creation"><code>OAUTH2_USER_CREATION</code></a></dt>
