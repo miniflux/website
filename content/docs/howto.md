@@ -343,7 +343,7 @@ OAuth2 allows you to sign in with an external provider.
 OAUTH2_PROVIDER=google
 OAUTH2_CLIENT_ID=replace_me
 OAUTH2_CLIENT_SECRET=replace_me
-OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/google/callback
+OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/google/callback
 ```
 
 Now from the settings page, you can link your existing user to your Google account.
@@ -351,20 +351,20 @@ Now from the settings page, you can link your existing user to your Google accou
 If you would like to authorize anyone to create a user account, you must set `OAUTH2_USER_CREATION=1`.
 Since Google do not have the concept of username, the email address is used as username.
 
-### OpenID Connect with Keyclock
+### OpenID Connect
 
 1. Create a client in your OpenID Connect Provider, for example [Keycloak](https://www.keycloak.org)
 2. Set Access Type confidental
 3. Set Client ID, for example `miniflux`
-4. Set valid Redirect URI, for example `https://my.domain.tld/oauth2/oidc/callback`
-5. Set valid Web Origins, for example `https://my.domain.tld/oauth2/oidc/redirect`
+4. Set valid Redirect URI, for example `https://miniflux.example.org/oauth2/oidc/callback`
+5. Set valid Web Origins, for example `https://miniflux.example.org/oauth2/oidc/redirect`
 6. Define the OAuth2 environment variables and start the process
 
 ```ini
 OAUTH2_PROVIDER=oidc
 OAUTH2_CLIENT_ID=replace_me
 OAUTH2_CLIENT_SECRET=replace_me
-OAUTH2_REDIRECT_URL=https://my.domain.tld/oauth2/oidc/callback
+OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/oidc/callback
 OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://my.oidc.provider.tld/auth/realms/id
 ```
 
@@ -374,7 +374,9 @@ Note that the OIDC library automatically appends the `.well-known/openid-configu
 
 For example, Authentik discovery endpoint is `https://authentik.example.org/application/o/miniflux/.well-known/openid-configuration` and the `OAUTH2_OIDC_DISCOVERY_ENDPOINT` config option should be `https://authentik.example.org/application/o/miniflux/`.
 
-### OpenID Connect with Authentik
+Since Miniflux 2.0.48, [OAuth2 PKCE](https://oauth.net/2/pkce/) is supported.
+
+#### Authentik
 
 Example of Miniflux configuration with [Authentik](https://goauthentik.io):
 
@@ -383,8 +385,21 @@ OAUTH2_PROVIDER=oidc
 OAUTH2_CLIENT_ID=replace_me
 OAUTH2_CLIENT_SECRET=replace_me
 OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/oidc/callback
-# Anthentik discovery endpoint is https://authentik.example.org/application/o/miniflux/.well-known/openid-configuration
+# Authentik discovery endpoint is https://authentik.example.org/application/o/miniflux/.well-known/openid-configuration
 OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://authentik.example.org/application/o/miniflux/
+OAUTH2_USER_CREATION=1
+```
+
+#### Kanidm
+
+Example of Miniflux configuration with [Kanidm](https://kanidm.com):
+
+```ini
+OAUTH2_PROVIDER=oidc
+OAUTH2_CLIENT_ID=replace_me
+OAUTH2_CLIENT_SECRET=replace_me
+OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/oidc/callback
+OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://kanidm.example.org/oauth2/openid/miniflux
 OAUTH2_USER_CREATION=1
 ```
 
