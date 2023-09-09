@@ -17,9 +17,20 @@ slug: index.html
 
 - [User Interface]({{< relref ui >}})
 - [Keyboard Shortcuts]({{< relref keyboard_shortcuts >}})
-- [External Services]({{< relref services >}})
 - [Filter, Rewrite and Scraper Rules]({{< relref rules >}})
 - [Third-Party Applications]({{< relref apps >}})
+
+## Integrations
+
+- [Fever]({{< relref "fever.md" >}})
+- [Google Reader]({{< relref "google_reader.md" >}})
+- [Instapaper]({{< relref "instapaper.md" >}})
+- [Notion]({{< relref "notion.md" >}})
+- [Nunux Keeper]({{< relref "nunux_keeper.md" >}})
+- [Pinboard]({{< relref "pinboard.md" >}})
+- [Pocket]({{< relref "pocket.md" >}})
+- [Wallabag]({{< relref "wallabag.md" >}})
+- [Webhooks]({{< relref "webhooks.md" >}})
 
 ## Development Guide
 

@@ -59,6 +59,7 @@ url: features.html
 
 - Send articles to [Telegram](https://telegram.org), [Shaarli](https://github.com/shaarli/Shaarli), [Shiori](https://github.com/go-shiori/shiori), [Matrix](https://matrix.org), [Apprise](https://github.com/caronc/apprise), [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), [Linkding](https://github.com/sissbruecker/linkding), [Espial](https://github.com/jonschoning/espial), [Notion](https://www.notion.so/), [Readwise Reader](https://readwise.io/read) or [Nunux Keeper](https://keeper.nunux.org/)
 - Bookmarklet to subscribe to a website directly from any web browser
+- Webhooks
 - Use existing mobile applications to read your feeds by using the Fever or Google Reader API
 - REST API with clients written in [Go](https://github.com/miniflux/v2/tree/main/client) and [Python](https://github.com/miniflux/python-client)
 
