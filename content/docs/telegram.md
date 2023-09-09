@@ -3,8 +3,6 @@ title: Telegram
 url: /docs/telegram.html
 ---
 
-![Telegram Bot Integration](/images/telegram-bot-form.png)
-
 [Telegram](https://telegram.org/) is a free, cross-platform, cloud-based instant messaging software.
 You can enable integration via Telegram Bot API and new entries will be pushed to the specific chat when fetched.
 
@@ -21,3 +19,5 @@ Get the chat id field from the message. You can stop or remove the bot after get
 Now invite your bot to your channel or group, or send some message to it if you want to push the message to the direct message.
 
 Fill in the values and enable the telegram bot integration in miniflux, and new entries should be pushed to the chat you have selected now.
+
+![Telegram Bot Integration](/images/telegram-bot-form.png)
