@@ -374,7 +374,8 @@ Note that the OIDC library automatically appends the `.well-known/openid-configu
 
 For example, Authentik discovery endpoint is `https://authentik.example.org/application/o/miniflux/.well-known/openid-configuration` and the `OAUTH2_OIDC_DISCOVERY_ENDPOINT` config option should be `https://authentik.example.org/application/o/miniflux/`.
 
-Since Miniflux 2.0.48, [OAuth2 PKCE](https://oauth.net/2/pkce/) is supported.
+- Since Miniflux 2.0.48, [OAuth2 PKCE](https://oauth.net/2/pkce/) is supported.
+- Since Miniflux 2.0.48, the `profile` scope will be requested in addition to the `email` scope. If no email address is available, Miniflux will fallback to the `preferred_username` or `name` claims to populate Miniflux's `username` field.
 
 #### Authentik
 
