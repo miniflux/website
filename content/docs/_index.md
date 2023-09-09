@@ -29,6 +29,7 @@ slug: index.html
 - [Nunux Keeper]({{< relref "nunux_keeper.md" >}})
 - [Pinboard]({{< relref "pinboard.md" >}})
 - [Pocket]({{< relref "pocket.md" >}})
+- [Telegram]({{< relref "telegram.md" >}})
 - [Wallabag]({{< relref "wallabag.md" >}})
 - [Webhooks]({{< relref "webhooks.md" >}})
 
