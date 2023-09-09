@@ -32,31 +32,31 @@ X-Miniflux-Signature: 7ff170cfd8c173fd5084e0f51ee6ac3eae8acff443f11f9168961cebf8
 
 [
     {
-    "id": 231,
-    "user_id": 1,
-    "feed_id": 3,
-    "status": "unread",
-    "hash": "1163a93ef12741b558a3b86d7e975c4c1de0152f3439915ed185eb460e5718d7",
-    "title": "Example",
-    "url": "https://example.org/article",
-    "comments_url": "",
-    "published_at": "2023-08-17T19:29:22Z",
-    "created_at": "2023-09-01T13:20:21Z",
-    "changed_at": "2023-09-01T13:20:21Z",
-    "content": "<p>Some HTML content</p>",
-    "share_code": "",
-    "starred": false,
-    "reading_time": 1,
-    "enclosures": [{
-        "id": 158,
+        "id": 231,
         "user_id": 1,
-        "entry_id": 231,
-        "url": "https://example.org/podcast.mp3",
-        "mime_type": "audio/mpeg",
-        "size": 63451045,
-        "media_progression": 0
-    }],
-    "tags": ["Some category", "Another label"]
+        "feed_id": 3,
+        "status": "unread",
+        "hash": "1163a93ef12741b558a3b86d7e975c4c1de0152f3439915ed185eb460e5718d7",
+        "title": "Example",
+        "url": "https://example.org/article",
+        "comments_url": "",
+        "published_at": "2023-08-17T19:29:22Z",
+        "created_at": "2023-09-01T13:20:21Z",
+        "changed_at": "2023-09-01T13:20:21Z",
+        "content": "<p>Some HTML content</p>",
+        "share_code": "",
+        "starred": false,
+        "reading_time": 1,
+        "enclosures": [{
+            "id": 158,
+            "user_id": 1,
+            "entry_id": 231,
+            "url": "https://example.org/podcast.mp3",
+            "mime_type": "audio/mpeg",
+            "size": 63451045,
+            "media_progression": 0
+        }],
+        "tags": ["Some category", "Another label"]
   }
 ]
 ```
