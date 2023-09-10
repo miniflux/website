@@ -2,6 +2,8 @@
 title: Documentation
 description: Miniflux's Documentation
 slug: index.html
+aliases:
+- /docs/services.html
 ---
 ## Administration Guide
 
@@ -25,6 +27,7 @@ slug: index.html
 - [Fever]({{< relref "fever.md" >}})
 - [Google Reader]({{< relref "google_reader.md" >}})
 - [Instapaper]({{< relref "instapaper.md" >}})
+- [Matrix]({{< relref "matrix.md" >}})
 - [Notion]({{< relref "notion.md" >}})
 - [Nunux Keeper]({{< relref "nunux_keeper.md" >}})
 - [Pinboard]({{< relref "pinboard.md" >}})
