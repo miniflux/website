@@ -109,6 +109,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Remove clickbait titles (Convert uppercase titles).
     <dd>
+    <dt><code>replace_title("search-term"|"replace-term")</code></dt>
+    <dd>
+        Rewrite rule to adjust entry titles.
+    <dd>
 </dl>
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.

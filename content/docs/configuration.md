@@ -77,6 +77,11 @@ The configuration file is loaded first if specified. Environment variables takes
         </p>
         <p><em>Default is <code>round_robin</code>.</em></p>
     </dd>
+    <dt id="scheduler-entry-frequency-factor"><a href="#scheduler-entry-frequency-factor"><code>SCHEDULER_ENTRY_FREQUENCY_FACTOR</code></a></dt>
+    <dd>
+        <p>Factor to increase refresh frequency for the entry frequency scheduler.</p>
+        <p><em>Default is 1.</em></p>
+    </dd>
     <dt id="scheduler-entry-frequency-max-interval"><a href="#scheduler-entry-frequency-max-interval"><code>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</code></a></dt>
     <dd>
         <p>Maximum interval in minutes for the entry frequency scheduler.</p>
