@@ -6,8 +6,6 @@ url: /docs/howto.html
 
 Here are some examples of configuration:
 
-- [How to Configure the APT Repository](#apt-repo)
-- [How to Configure the RPM Repository](#rpm-repo)
 - [Use a Unix socket for Postgresql](#pg-unix-socket)
 - [How to run Miniflux on port 443 or 80](#privileged-ports)
 - [Reverse-Proxy Configuration](#reverse-proxy)
@@ -19,47 +17,6 @@ Here are some examples of configuration:
 - [OAuth2 and OpenID Connect Authentication](#oauth2)
 - [Deploy Miniflux on Heroku](#heroku)
 - [Deploy Miniflux on Google App Engine](#gae)
-
-<h2 id="apt-repo">How to Configure the APT Repository <a class="anchor" href="#apt-repo" title="Permalink">¶</a></h2>
-
-```bash
-echo "deb [trusted=yes] https://repo.miniflux.app/apt/ /" | sudo tee /etc/apt/sources.list.d/miniflux.list > /dev/null
-apt update
-```
-
-Then install the package:
-
-```bash
-apt install miniflux
-```
-
-To upgrade Miniflux, run `apt upgrade miniflux`, and don't forget to run the database migrations.
-
-<div class="warning">
-The previous repository URL <code>https://apt.miniflux.app/</code> is deprecated in favor of <code>https://repo.miniflux.app/apt/</code>.
-</div>
-
-<h2 id="rpm-repo">How to Configure the RPM Repository <a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
-
-Create the file `/etc/yum.repos.d/miniflux.repo`:
-
-```
-[miniflux]
-name=Miniflux Repository
-baseurl=https://repo.miniflux.app/yum/
-enabled=1
-gpgcheck=0
-```
-
-Then install the package:
-
-```bash
-yum install -y miniflux
-```
-
-<div class="warning">
-The previous repository URL <code>https://rpm.miniflux.app/x86_64/</code> is deprecated in favor of <code>https://repo.miniflux.app/yum/</code>.
-</div>
 
 <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 

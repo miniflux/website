@@ -9,7 +9,6 @@ The configuration file is loaded first if specified. Environment variables takes
 
 - [Configuration Options](#options)
 - [Configuration File](#config-file)
-- [Database Connection Parameters](#dsn)
 
 <h2 id="options">Configuration Options <a class="anchor" href="#options" title="Permalink">¶</a></h2>
 
@@ -415,17 +414,3 @@ You can also dump interpreted values with the flag `-config-dump` for debugging.
 <p class="info">
 Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
 </p>
-
-<h2 id="dsn">Database Connection Parameters <a class="anchor" href="#dsn" title="Permalink">¶</a></h2>
-
-Miniflux uses the Golang library [pq](https://github.com/lib/pq) to communicate with PostgreSQL.
-The list of connection parameters are available on [this page](https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters).
-
-The default value for `DATABASE_URL` is `user=postgres password=postgres dbname=miniflux2 sslmode=disable`.
-
-You could also use the URL format `postgres://postgres:postgres@localhost/miniflux2?sslmode=disable`.
-
-<div class="warning">
-Password that contains special characters like ^ might be rejected since Miniflux 2.0.3. <a href="https://go-review.googlesource.com/c/go/+/87038">Golang v1.10 is now validating the password</a> and will return this error: <code>net/url: invalid userinfo</code>.
-To avoid this issue, do not use the URL format for <code>DATABASE_URL</code> or make sure the password is URL encoded.
-</div>
