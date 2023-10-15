@@ -38,6 +38,12 @@ miniflux -debug
 [INFO] Starting Miniflux...
 ```
 
+<h2 id="export-feeds">Export feeds <a class="anchor" href="#export-feeds" title="Permalink">¶</a></h2>
+
+```bash
+miniflux -export-user-feeds username > feeds.opml
+```
+
 <h2 id="flush-sessions">Flush All Sessions <a class="anchor" href="#flush-sessions" title="Permalink">¶</a></h2>
 
 ```bash

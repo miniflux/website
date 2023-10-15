@@ -113,6 +113,14 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Rewrite rule to adjust entry titles.
     <dd>
+    <dt><code>add_hn_links_using_hack</code></dt>
+    <dd>
+        Open HN comments with Hack.
+    <dd>
+    <dt><code>add_hn_links_using_opener</code></dt>
+    <dd>
+        Open HN comments with Opener.
+    <dd>
 </dl>
 
 Miniflux includes a set of default rules for some websites, but you could define your own rules.

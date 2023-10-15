@@ -13,10 +13,12 @@ Table of Contents:
     - [Status Codes](#status-codes)
     - [Error Response](#error-response)
     - [Discover Subscriptions](#endpoint-discover)
+    - [Flush History](#endpoint-flush-history)
     - [Get Feeds](#endpoint-get-feeds)
     - [Get Category Feeds](#endpoint-get-category-feeds)
     - [Get Feed](#endpoint-get-feed)
-    - [Get Feed Icon](#endpoint-get-feed-icon)
+    - [Get Feed Icon by Feed ID](#endpoint-get-feed-icon-by-feed-id)
+    - [Get Feed Icon by Icon ID](#endpoint-get-feed-icon-by-icon-id)
     - [Mark Feed Entries as Read](#endpoint-mark-feed-entries-as-read)
     - [Create Feed](#endpoint-create-feed)
     - [Update Feed](#endpoint-update-feed)
@@ -25,12 +27,13 @@ Table of Contents:
     - [Remove Feed](#endpoint-remove-feed)
     - [Get Feed Entry](#endpoint-get-feed-entry)
     - [Get Entry](#endpoint-get-entry)
+    - [Update Entry](#endpoint-update-entry)
     - [Save entry to third-party services](#endpoint-save-entry)
     - [Fetch original article](#endpoint-fetch-content)
     - [Get Feed Entries](#endpoint-get-feed-entries)
     - [Get Category Entries](#endpoint-get-category-entries)
     - [Get Entries](#endpoint-get-entries)
-    - [Update Entries](#endpoint-update-entries)
+    - [Update Entries status](#endpoint-update-entries)
     - [Toggle Entry Bookmark](#endpoint-toggle-bookmark)
     - [Get Categories](#endpoint-get-categories)
     - [Create Category](#endpoint-create-category)
@@ -49,7 +52,8 @@ Table of Contents:
     - [Mark User Entries as Read](#endpoint-mark-user-entries-as-read)
     - [Fetch unread and read counters](#endpoint-counters)
     - [Healthcheck](#endpoint-healthcheck)
-    - [Version](#endpoint-version)
+    - [Application version](#deprecated-endpoint-version) (deprecated)
+    - [Application version and build information](#endpoint-version)
 
 <h2 id="authentication">Authentication <a class="anchor" href="#authentication" title="Permalink">¶</a></h2>
 
@@ -217,6 +221,21 @@ Optional fields:
 - `user_agent`: Custom user agent (string)
 - `fetch_via_proxy` (boolean)
 
+
+<h3 id="endpoint-flush-history">Flush History <a class="anchor" href="#endpoint-flush-history" title="Permalink">¶</a></h3>
+
+Request:
+
+    PUT /v1/flush-history
+
+Note that `DELETE` is also supported.
+
+Returns a `202 Accepted` status code for success.
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.49.
+</div>
+
 <h3 id="endpoint-get-feeds">Get Feeds <a class="anchor" href="#endpoint-get-feeds" title="Permalink">¶</a></h3>
 
 Request:
@@ -362,11 +381,11 @@ Notes:
 
 - `icon` is `null` when the feed doesn't have any favicon.
 
-<h3 id="endpoint-get-feed-icon">Get Feed Icon <a class="anchor" href="#endpoint-get-feed-icon" title="Permalink">¶</a></h3>
+<h3 id="endpoint-get-feed-icon-by-feed-id">Get Feed Icon By Feed ID<a class="anchor" href="#endpoint-get-feed-icon-by-feed-id" title="Permalink">¶</a></h3>
 
 Request:
 
-    GET /v1/feeds/42/icon
+    GET /v1/feeds/{feedID}/icon
 
 Response:
 
@@ -379,6 +398,26 @@ Response:
 ```
 
 If the feed doesn't have any favicon, a 404 is returned.
+
+<h3 id="endpoint-get-feed-icon-by-icon-id">Get Feed Icon By Icon ID<a class="anchor" href="#endpoint-get-feed-icon-by-icon-id" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /v1/icons/{iconID}
+
+Response:
+
+```json
+{
+    "id": 262,
+    "data": "image/png;base64,iVBORw0KGgoAAA....",
+    "mime_type": "image/png"
+}
+```
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.49.
+</div>
 
 <h3 id="endpoint-create-feed">Create Feed <a class="anchor" href="#endpoint-create-feed" title="Permalink">¶</a></h3>
 
@@ -403,7 +442,7 @@ Response:
 Required fields:
 
 - `feed_url`: Feed URL (string)
-- `category_id`: Category ID (int)
+- `category_id`: Category ID (int, optional since Miniflux >= 2.0.49)
 
 Optional fields:
 
@@ -637,6 +676,90 @@ Response:
 }
 ```
 
+<h3 id="endpoint-update-entry">Update Entry <a class="anchor" href="#endpoint-update-entry" title="Permalink">¶</a></h3>
+
+Both fields `title` and `content` are optional.
+
+Request:
+
+    PUT /v1/entries/{entryID}
+
+    {
+        "title": "New title",
+        "content": "Some text"
+    }
+
+Response:
+
+```json
+{
+  "id": 1790,
+  "user_id": 1,
+  "feed_id": 21,
+  "status": "unread",
+  "hash": "22a6795131770d9577c91c7816e7c05f78586fc82e8ad0881bce69155f63edb6",
+  "title": "New title",
+  "url": "https://miniflux.app/releases/1.0.1.html",
+  "comments_url": "",
+  "published_at": "2013-03-20T00:00:00Z",
+  "created_at": "2023-10-07T03:52:50.013556Z",
+  "changed_at": "2023-10-07T03:52:50.013556Z",
+  "content": "Some text",
+  "author": "Frédéric Guillot",
+  "share_code": "",
+  "starred": false,
+  "reading_time": 1,
+  "enclosures": [],
+  "feed": {
+    "id": 21,
+    "user_id": 1,
+    "feed_url": "https://miniflux.app/feed.xml",
+    "site_url": "https://miniflux.app",
+    "title": "Miniflux",
+    "checked_at": "2023-10-08T23:56:44.853427Z",
+    "next_check_at": "0001-01-01T00:00:00Z",
+    "etag_header": "",
+    "last_modified_header": "",
+    "parsing_error_message": "",
+    "parsing_error_count": 0,
+    "scraper_rules": "",
+    "rewrite_rules": "",
+    "crawler": false,
+    "blocklist_rules": "",
+    "keeplist_rules": "",
+    "urlrewrite_rules": "",
+    "user_agent": "",
+    "cookie": "",
+    "username": "",
+    "password": "",
+    "disabled": false,
+    "no_media_player": false,
+    "ignore_http_cache": false,
+    "allow_self_signed_certificates": false,
+    "fetch_via_proxy": false,
+    "category": {
+      "id": 2,
+      "title": "000",
+      "user_id": 1,
+      "hide_globally": false
+    },
+    "icon": {
+      "feed_id": 21,
+      "icon_id": 11
+    },
+    "hide_globally": false,
+    "apprise_service_urls": ""
+  },
+  "tags": []
+}
+```
+
+Returns a `201 Created` status code for success.
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.49.
+</div>
+
 <h3 id="endpoint-save-entry">Save entry to third-party services <a class="anchor" href="#endpoint-save-entry" title="Permalink">¶</a></h3>
 
 Request:
@@ -679,6 +802,10 @@ Available filters:
 - `direction`: "asc" or "desc"
 - `before` (unix timestamp, available since Miniflux 2.0.9)
 - `after` (unix timestamp, available since Miniflux 2.0.9)
+- `published_before` (unix timestamp, available since Miniflux 2.0.49)
+- `published_after` (unix timestamp, available since Miniflux 2.0.49)
+- `changed_before` (unix timestamp, available since Miniflux 2.0.49)
+- `changed_after` (unix timestamp, available since Miniflux 2.0.49)
 - `before_entry_id` (int64, available since Miniflux 2.0.9)
 - `after_entry_id` (int64, available since Miniflux 2.0.9)
 - `starred` (boolean, available since Miniflux 2.0.9)
@@ -760,6 +887,10 @@ Available filters:
 - `direction`: "asc" or "desc"
 - `before` (unix timestamp, available since Miniflux 2.0.9)
 - `after` (unix timestamp, available since Miniflux 2.0.9)
+- `published_before` (unix timestamp, available since Miniflux 2.0.49)
+- `published_after` (unix timestamp, available since Miniflux 2.0.49)
+- `changed_before` (unix timestamp, available since Miniflux 2.0.49)
+- `changed_after` (unix timestamp, available since Miniflux 2.0.49)
 - `before_entry_id` (int64, available since Miniflux 2.0.9)
 - `after_entry_id` (int64, available since Miniflux 2.0.9)
 - `starred` (boolean, available since Miniflux 2.0.9)
@@ -853,6 +984,10 @@ Available filters:
 - `direction`: "asc" or "desc"
 - `before` (unix timestamp, available since Miniflux 2.0.9)
 - `after` (unix timestamp, available since Miniflux 2.0.9)
+- `published_before` (unix timestamp, available since Miniflux 2.0.49)
+- `published_after` (unix timestamp, available since Miniflux 2.0.49)
+- `changed_before` (unix timestamp, available since Miniflux 2.0.49)
+- `changed_after` (unix timestamp, available since Miniflux 2.0.49)
 - `before_entry_id` (int64, available since Miniflux 2.0.9)
 - `after_entry_id` (int64, available since Miniflux 2.0.9)
 - `starred` (boolean, available since Miniflux 2.0.9)
@@ -1338,7 +1473,7 @@ OK
 
 Returns a status code 200 when the service is up.
 
-<h3 id="endpoint-version">Version <a class="anchor" href="#endpoint-version" title="Permalink">¶</a></h3>
+<h3 id="deprecated-endpoint-version">Application version <a class="anchor" href="#deprecated-endpoint-version" title="Permalink">¶</a></h3>
 
 The version endpoint returns Miniflux build version.
 
@@ -1353,5 +1488,31 @@ Response:
 ```
 
 <div class="info">
-This API endpoint is available since Miniflux v2.0.22.
+This API endpoint is available since Miniflux v2.0.22 and it's deprecated since version 2.0.49.
+</div>
+
+<h3 id="endpoint-version">Application version and build information <a class="anchor" href="#endpoint-version" title="Permalink">¶</a></h3>
+
+The version endpoint returns Miniflux version and build information.
+
+Request:
+
+    GET /v1/version
+
+Response:
+
+```json
+{
+    "version":"2.0.49",
+    "commit":"69779e795",
+    "build_date":"2023-10-14T20:12:04-0700",
+    "go_version":"go1.21.1",
+    "compiler":"gc",
+    "arch":"amd64",
+    "os":"linux"
+}
+```
+
+<div class="info">
+This API endpoint is available since Miniflux v2.0.49.
 </div>

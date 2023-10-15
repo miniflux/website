@@ -13,7 +13,7 @@ The configuration file is loaded first if specified. Environment variables takes
 <h2 id="options">Configuration Options <a class="anchor" href="#options" title="Permalink">¶</a></h2>
 
 <dl class="configs">
-    <dt id="debug"><a href="#debug"><code>DEBUG</code></a></dt>
+    <dt id="debug"><a href="#debug"><code>DEBUG</code></a> (deprecated in favor of <code>LOG_LEVEL</code>)</dt>
     <dd>
         <p>Toggle debug mode (increase log level).</p>
         <p><em>Disabled by default.</em></p>
@@ -37,6 +37,21 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>Show date and time in log messages.</p>
         <p><em>Disabled by default.</em></p>
+    </dd>
+    <dt id="log-file"><a href="#log-file"><code>LOG_FILE</code></a></dt>
+    <dd>
+        <p>Supported values are <code>stderr</code>, <code>stdout</code>, or a file name.</p>
+        <p><em>Default is <code>stderr</code>.</em></p>
+    </dd>
+    <dt id="log-format"><a href="#log-format"><code>LOG_FORMAT</code></a></dt>
+    <dd>
+        <p>Supported log formats are <code>text</code> or <code>json</code>.</p>
+        <p><em>Default is <code>text</code>.</em></p>
+    </dd>
+    <dt id="log-level"><a href="#log-level"><code>LOG_LEVEL</code></a></dt>
+    <dd>
+        <p>Supported values are <code>debug</code>, <code>info</code>, <code>warning</code>, or <code>error</code>.</p>
+        <p><em>Default is <code>info</code>.</em></p>
     </dd>
     <dt id="worker-pool-size"><a href="#worker-pool-size"><code>WORKER_POOL_SIZE</code></a></dt>
     <dd>

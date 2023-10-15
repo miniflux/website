@@ -52,7 +52,11 @@
 <p class="Pp"><b>-create-admin</b></p>
 <div class="Bd-indent">Create admin user.</div>
 <p class="Pp"><b>-debug</b></p>
-<div class="Bd-indent">Show debug logs.</div>
+<div class="Bd-indent">Set log level to debug.</div>
+<p class="Pp"><b>-export-user-feeds &lt;username&gt;</b></p>
+<div class="Bd-indent">Export user feeds (provide the username as argument).
+<br/>
+Example: &quot;miniflux -export-user-feeds someone &gt; feeds.xml&quot;.</div>
 <p class="Pp"><b>-flush-sessions</b></p>
 <div class="Bd-indent">Flush all sessions (disconnect users).</div>
 <p class="Pp"><b>-healthcheck &lt;endpoint&gt;</b></p>
@@ -99,10 +103,6 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 <section class="Sh">
 <h1 class="Sh" id="ENVIRONMENT"><a class="permalink" href="#ENVIRONMENT">ENVIRONMENT</a></h1>
 <dl class="Bl-tag">
-  <dt id="DEBUG"><a class="permalink" href="#DEBUG"><b>DEBUG</b></a></dt>
-  <dd>Set the value to 1 to enable debug logs.
-    <br/>
-    Disabled by default.</dd>
   <dt id="FETCH_ODYSEE_WATCH_TIME"><a class="permalink" href="#FETCH_ODYSEE_WATCH_TIME"><b>FETCH_ODYSEE_WATCH_TIME</b></a></dt>
   <dd>Set the value to 1 to scrape video duration from Odysee website and use it
       as a reading time.
@@ -125,6 +125,20 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dd>Display the date and time in log messages.
     <br/>
     Disabled by default.</dd>
+  <dt id="LOG_FILE"><a class="permalink" href="#LOG_FILE"><b>LOG_FILE</b></a></dt>
+  <dd>Supported values are &quot;stderr&quot;, &quot;stdout&quot;, or a file
+      name.
+    <br/>
+    Default is &quot;stderr&quot;.</dd>
+  <dt id="LOG_FORMAT"><a class="permalink" href="#LOG_FORMAT"><b>LOG_FORMAT</b></a></dt>
+  <dd>Supported log formats are &quot;text&quot; or &quot;json&quot;.
+    <br/>
+    Default is &quot;text&quot;.</dd>
+  <dt id="LOG_LEVEL"><a class="permalink" href="#LOG_LEVEL"><b>LOG_LEVEL</b></a></dt>
+  <dd>Supported values are &quot;debug&quot;, &quot;info&quot;,
+      &quot;warning&quot;, or &quot;error&quot;.
+    <br/>
+    Default is &quot;info&quot;.</dd>
   <dt id="WORKER_POOL_SIZE"><a class="permalink" href="#WORKER_POOL_SIZE"><b>WORKER_POOL_SIZE</b></a></dt>
   <dd>Number of background workers.
     <br/>
@@ -447,7 +461,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">July 21, 2023</td>
+    <td class="foot-date">September 27, 2023</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>
