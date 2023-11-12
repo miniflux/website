@@ -400,6 +400,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Set a custom invidious instance to use.</p>
         <p><em>Default is yewtu.be.</em></p>
     </dd>
+    <dt id="webauthn"><a href="#webauthn"><code>WEBAUTHN</code></a></dt>
+    <dd>
+        <p>Enable or disable WebAuthn/Passkey authentication.</p>
+        <p><em>Default is disabled</em></p>
+    </dd>
 </dl>
 
 <h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
