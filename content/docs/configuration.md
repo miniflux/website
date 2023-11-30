@@ -106,6 +106,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Minimum interval in minutes for the entry frequency scheduler.</p>
         <p><em>Default is 5 minutes.</em></p>
     </dd>
+    <dt id="scheduler-round-robin-min-interval"><a href="#scheduler-round-robin-min-interval"><code>SCHEDULER_ROUND_ROBIN_MIN_INTERVAL</code></a></dt>
+    <dd>
+        <p>Minimum interval in minutes for the round robin scheduler.</p>
+        <p><em>Default is 60 minutes.</em></p>
+    </dd>
     <dt id="database-url"><a href="#database-url"><code>DATABASE_URL</code></a></dt>
     <dd>
         <p>Postgresql connection parameters. See <a href="https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters">lib/pq</a> for more details.</p>
