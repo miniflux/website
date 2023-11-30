@@ -55,12 +55,12 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="worker-pool-size"><a href="#worker-pool-size"><code>WORKER_POOL_SIZE</code></a></dt>
     <dd>
-        <p>Number of background workers to refresh feeds.</p>
+        <p>Number of background workers to refresh feeds. Workers fetch information of feeds from a work queue.</p>
         <p><em>Default is 5 workers.</em></p>
     </dd>
     <dt id="polling-frequency"><a href="#polling-frequency"><code>POLLING_FREQUENCY</code></a></dt>
     <dd>
-        <p>Refresh interval in minutes for feeds.</p>
+        <p>The interval in minutes that miniflux adds qualified feeds to the work queue.</p>
         <p><em>Default is 60 minutes.</em></p>
     </dd>
     <dt id="polling-parsing-error-limit"><a href="#polling-parsing-error-limit"><code>POLLING_PARSING_ERROR_LIMIT</code></a></dt>
@@ -73,8 +73,9 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="batch-size"><a href="#batch-size"><code>BATCH_SIZE</code></a></dt>
     <dd>
-        <p>Number of feeds to send to the queue for each interval.</p>
-        <p><em>Default is 100 feeds.</em></p>
+        <p>The maximum number of feeds to send to the work queue for each polling interval.</p>
+        <p>The actual number of feeds added to the work queue is subject to the scheduler.</p>
+        <p><em>Default is 100.</em></p>
     </dd>
     <dt id="polling-scheduler"><a href="#polling-scheduler"><code>POLLING_SCHEDULER</code></a></dt>
     <dd>
@@ -83,10 +84,10 @@ The configuration file is loaded first if specified. Environment variables takes
             Possible values are <code>round_robin</code> or <code>entry_frequency</code>.
         </p>
         <p>
-            The maximum number of feeds polled for a given period is subject to <code>POLLING_FREQUENCY</code> and <code>BATCH_SIZE</code>.
+            The scheduler does not alter the polling interval, instead it throttles the number of qualified feeds for polling. The feeds will be added to the work queue, when the current time exceeds the targeting refreshing time. The maximum number of feeds polled for a given period is subject to <code>POLLING_FREQUENCY</code> and <code>BATCH_SIZE</code>.
         </p>
         <p>
-            When <code>entry_frequency</code> is selected, the refresh interval for a given feed is equal to the average updating interval of the last week of the feed.
+            When <code>entry_frequency</code> is selected, the targeting refreshing interval for a given feed is equal to the average updating interval of the last week of the feed.
             The actual number of feeds polled will not exceed the maximum number of feeds that could be polled for a given period.
         </p>
         <p><em>Default is <code>round_robin</code>.</em></p>
