@@ -1,7 +1,7 @@
 ---
 title: Miniflux Installation with Docker
 description: Instructions to install Miniflux with Docker
-url: docs/dacker.html
+url: docs/docker.html
 ---
 
 This document describes how to use the Docker images of Miniflux.
