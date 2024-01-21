@@ -40,6 +40,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Tries to add the highest quality images from sites that use JavaScript to load images (e.g. either lazily when scrolling or based on screen size).
     </dd>
+    <dt><code>add_dynamic_iframe</code></dt>
+    <dd>
+        Tries to add embedded videos from sites that use JavaScript to load iframes (e.g. either lazily when scrolling or after the rest of the page is loaded).
+    </dd>
     <dt><code>add_image_title</code></dt>
     <dd>
         Add each image's title as a caption under the image.
