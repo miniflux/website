@@ -77,6 +77,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>The actual number of feeds added to the work queue is subject to the scheduler.</p>
         <p><em>Default is 100.</em></p>
     </dd>
+    <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
+    <dd>
+        <p>The minimum interval for manual refresh.</p>
+        <p><em>Default is 30 minutes.</em></p>
+    </dd>
     <dt id="polling-scheduler"><a href="#polling-scheduler"><code>POLLING_SCHEDULER</code></a></dt>
     <dd>
         <p>
