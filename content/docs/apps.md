@@ -2,9 +2,47 @@
 title: Third-Party Applications
 url: /docs/apps.html
 ---
-<h2 id="android">Android <a class="anchor" href="#android" title="Permalink">¶</a></h2>
 
-<h3 id="microflux">Microflux <a class="anchor" href="#microflux" title="Permalink">¶</a></h3>
+Table of Contents
+
+- [Fluxjs](#fluxjs)
+- [Lire](#lire)
+- [Microflux](#microflux)
+- [Miniflutt](#miniflutt)
+- [Reminiflux](#reminiflux)
+
+<h2 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h2>
+
+Fluxjs is a responsive design frontend. You can browse your rss feeds from your mobile or your desktop.
+
+Links: [GitHub](https://github.com/PascalNoisette/fluxjs)
+
+<h2 id="lire">Lire <a class="anchor" href="#lire" title="Permalink">¶</a></h2>
+
+Lire can sync with Miniflux. It uses both the Fever API and the Miniflux API.
+
+![Screenshot](https://lireapp.com/iOS.png)
+
+### Configuration
+
+1. Enable the Fever integration in Miniflux and define a Fever username and password (Go to **Settings > Integrations**)
+
+![Fever API](/images/lire_fever_settings.png)
+
+2. Create a new Miniflux API Key in **Settings > API Keys**
+
+![Miniflux API Key](/images/lire_miniflux_api_key.png)
+
+3. Enter the connection information created above in Lire settings (select Miniflux in the list of self-hosted sync services)
+
+![Lire Settings](/images/lire_settings.png)
+
+- Make sure to copy and paste the entire API Key (double check for typos)
+- Do not use `/v1/` or `/fever/` in the Miniflux URL, for example, the URL is `https://reader.miniflux.app` for the hosted version of Miniflux
+
+Links: [Official website](https://lireapp.com/), [iOS App Store](http://itunes.apple.com/app/lire/id1531976425?ls=1&mt=8), [Mac App Store](https://apps.apple.com/us/app/lire/id1482527526?ls=1&mt=12)
+
+<h2 id="microflux">Microflux <a class="anchor" href="#microflux" title="Permalink">¶</a></h2>
 
 This reader has features that cannot be provided to form a conventional web page.
 
@@ -19,10 +57,7 @@ Features:
 
 Links: [Google Play](https://play.google.com/store/apps/details?id=com.constantin.microflux)
 
-<h3 id="miniflutt">Miniflutt <a class="anchor" href="#miniflutt" title="Permalink">¶</a></h3>
-
-Miniflutt is an Android client for the self-hosted Miniflux feed reader. Compatible with
-Miniflux 2.0.21+. It is content-oriented, with a clean interface.
+<h2 id="miniflutt">Miniflutt <a class="anchor" href="#miniflutt" title="Permalink">¶</a></h2>
 
 Features:
 
@@ -42,17 +77,9 @@ Features:
 Links: [Google Play](https://play.google.com/store/apps/details?id=be.martinelli.miniflutt),
 [GitHub](https://github.com/DocMarty84/miniflutt)
 
-<h2 id="web">Web <a class="anchor" href="#web" title="Permalink">¶</a></h2>
-
-<h3 id="reminiflux">Reminiflux <a class="anchor" href="#reminiflux" title="Permalink">¶</a></h3>
+<h2 id="reminiflux">Reminiflux <a class="anchor" href="#reminiflux" title="Permalink">¶</a></h2>
 
 Reminiflux is an alternative web frontend. It offers a look and feel which is more similar to
 Google Reader and TT-RSS with a 3-paned display showing the list of feeds, items and an article.
 
 Links: [GitHub](https://github.com/reminiflux/reminiflux)
-
-<h3 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h3>
-
-Fluxjs is a responsive design frontend. You can browse your rss feeds from your mobile or your desktop.
-
-Links: [GitHub](https://github.com/PascalNoisette/fluxjs)
