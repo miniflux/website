@@ -25,7 +25,7 @@ url: /docs/keyboard_shortcuts.html
 
 <h2 id="actions">Actions <a class="anchor" href="#actions" title="Permalink">¶</a></h2>
 
-- `o`: Open selected item
+- `o` or `Enter`: Open selected item
 - `v`: Open original link to a new tab
 - `V`: Open original link into current tab (entry view only)
 - `c`: Open comments link to a new tab
