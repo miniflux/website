@@ -21,7 +21,7 @@ Platform       |  Type               |  Repository URL
 Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/master/packaging/debian
 RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/master/packaging/rpm
 Alpine Linux   |  Community (Source) |  https://git.alpinelinux.org/aports/tree/community/miniflux
-Arch Linux     |  Community (Source) |  https://archlinux.org/packages/community/x86_64/miniflux/
+Arch Linux     |  Community (Source) |  https://archlinux.org/packages/extra/x86_64/miniflux/
 FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/www/miniflux/
 Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux
 
