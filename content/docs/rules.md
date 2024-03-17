@@ -15,7 +15,7 @@ Miniflux has a basic filtering system that allows you to ignore or keep articles
 
 ### Block Rules
 
-Block rules ignore articles with a title that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
+Block rules ignore articles with a title, an url, a tag or an author that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
 For example, the regex `(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
 
