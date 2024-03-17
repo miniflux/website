@@ -5,17 +5,35 @@ url: /docs/apps.html
 
 Table of Contents
 
-- [Fluxjs](#fluxjs)
-- [Lire](#lire)
-- [Microflux](#microflux)
-- [Miniflutt](#miniflutt)
-- [Reminiflux](#reminiflux)
+- [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android)
+- [Fluent Reader](https://hyliu.me/fluent-reader/) (Windows and Mac)
+- [Fluxjs](#fluxjs) (Web frontend)
+- [FluxNews](#fluxnews) (Android)
+- [Lire](#lire) (iOS/macOS)
+- [Microflux](#microflux) (Android)
+- [Miniflutt](#miniflutt) (Android)
+- [NetNewsWire](https://netnewswire.com/) (iOS/macOS)
+- [Newsboat](https://github.com/newsboat/newsboat) (text console)
+- [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux)
+- [Reeder](http://reederapp.com/) (iOS/macOS)
+- [Reminiflux](#reminiflux) (Web frontend)
+- [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS)
+- [Telegram](https://telegram.org/)
+- [Unread](https://www.goldenhillsoftware.com/unread/) (iOS)
 
 <h2 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h2>
 
 Fluxjs is a responsive design frontend. You can browse your rss feeds from your mobile or your desktop.
 
 Links: [GitHub](https://github.com/PascalNoisette/fluxjs)
+
+<h2 id="fluxnews">FluxNews <a class="anchor" href="#fluxnews" title="Permalink">¶</a></h2>
+
+A simple Newsreader for the miniflux backend. This newsreader sync with the Miniflux server API.
+
+It supports light and dark mode, mark articles as read on scrollover and open articles preferred in an already installed app.
+
+Links: [GitHub](https://github.com/KevinCFechtel/FluxNews)
 
 <h2 id="lire">Lire <a class="anchor" href="#lire" title="Permalink">¶</a></h2>
 
