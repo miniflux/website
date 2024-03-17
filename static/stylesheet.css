@@ -1,34 +1,34 @@
 :root {
     --body-color: #555;
     --body-background: #fff;
-    
+
     --title-color: #000;
     --subtitle-color: #333;
     --page-header-title-border-color: #333;
-    
+
     --link-color: #3366CC;
     --link-focus-color: red;
     --link-hover-color: #333;
-    
+
     --anchor-color: #ddd;
     --anchor-color-hover: #444;
-    
+
     --table-border-color: #e1e1e1;
-    
+
     --code-background: rgba(27,31,35,.05);
     --code-color: #555;
 
     --pre-color: #555;
     --pre-border-color: #687550;
     --pre-background: #eeffcc;
-    
+
     --dt-color: #444;
     --dd-border-color: #eee;
     --dd-color: #666;
 
     --configs-dt-color: #333;
     --configs-dd-color: #555;
-    
+
     --img-border-color: #000;
 
     --alert-color: #c09853;
@@ -54,27 +54,27 @@
     :root {
         --body-color: #9c9c9c;
         --body-background: #222;
-        
+
         --title-color: #aaa;
         --subtitle-color: #aaa;
         --page-header-title-border-color: #333;
-        
+
         --link-color: #aaa;
         --link-focus-color: #ddd;
         --link-hover-color: #ddd;
-        
+
         --anchor-color: #aaa;
         --anchor-color-hover: #ddd;
-        
+
         --table-border-color: #e1e1e1;
 
         --code-background: rgb(68, 68, 68);
         --code-color: #fffefe;
-        
+
         --pre-border-color: #ccc;
         --pre-background: rgb(68, 68, 68);
         --pre-color: #cacaca;
-        
+
         --dt-color: #aaa;
         --dd-border-color: #aaa;
         --dd-color: #aaa;
@@ -385,4 +385,10 @@ a.button {
 
 .donations img {
     border: none
+}
+
+.footer {
+    font-size: 0.85em;
+    text-align: center;
+    margin-top: 80px;
 }
