@@ -177,10 +177,15 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Number of days after removing old user sessions from the database.</p>
         <p><em>Default is 30 days.</em></p>
     </dd>
+    <dt id="filter-entry-max-age-days"><a href="#filter-entry-max-age-days"><code>FILTER_ENTRY_MAX_AGE_DAYS</code></a></dt>
+    <dd>
+        <p>Number of days after which new entries should be retained. Set 7 to fetch only entries 7 days old.</p>
+        <p><em>Default is 30 days.</em></p>
+    </dd>
     <dt id="https"><a href="#https"><code>HTTPS</code></a></dt>
     <dd>
         <p>Forces cookies to use secure flag. Send <abbr title="HTTP Strict Transport Security">HSTS</abbr> HTTP header. Enabled automatically if the HTTP header <code>X-Forwarded-Proto</code> is set to <code>https</code>.</p>
-        <p><em>Default is empty.</em></p>
+        <p><em>Default is 0 (disabled).</em></p>
     </dd>
     <dt id="disable-hsts"><a href="#disable-hsts"><code>DISABLE_HSTS</code></a></dt>
     <dd>
@@ -211,6 +216,31 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>Use <a href="https://letsencrypt.org/">Let's Encrypt</a> to get automatically a certificate for the domain specified in <code>$CERT_DOMAIN</code>.</p>
         <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="media-proxy-mode"><a href="#media-proxy-mode"><code>MEDIA_PROXY_MODE</code></a></dt>
+    <dd>
+        <p>Avoids mixed content warnings for external media. Possible values: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
+        <p><em>Default is <code>http-only</code>.</em></p>
+    </dd>
+    <dt id="media-proxy-private-key"><a href="#media-proxy-private-key"><code>MEDIA_PROXY_PRIVATE_KEY</code></a></dt>
+    <dd>
+        <p>Set a custom custom private key used to sign proxified media URLs.</p>
+        <p>By default, a secret key is randomly generated during startup.</p>
+    </dd>
+    <dt id="media-proxy-resource-types"><a href="#media-proxy-resource-types"><code>MEDIA_PROXY_RESOURCE_TYPES</code></a></dt>
+    <dd>
+        <p>A comma-separated list of media types to proxify. Supported values are: <code>image</code>, <code>audio</code>, <code>video</code>.</p>
+        <p><em>Default is <code>image</code>.</em></p>
+    </dd>
+    <dt id="media-proxy-http-client-timeout"><a href="#media-proxy-http-client-timeout"><code>MEDIA_PROXY_HTTP_CLIENT_TIMEOUT</code></a></dt>
+    <dd>
+        <p>Time limit in seconds before the proxy HTTP client cancel the request.</p>
+        <p>Default is 120 seconds.</p>
+    </dd>
+    <dt id="media-proxy-custom-url"><a href="#media-proxy-custom-url"><code>MEDIA_PROXY_CUSTOM_URL</code></a></dt>
+    <dd>
+        <p>Sets a server to proxy media through.</p>
+        <p>Default is empty, miniflux does the proxying.</p>
     </dd>
     <dt id="metrics-collector"><a href="#metrics-collector"><code>METRICS_COLLECTOR</code></a></dt>
     <dd>
@@ -327,26 +357,6 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>Path to a secret key exposed as a file, it should contain <code>$POCKET_CONSUMER_KEY</code> value.</p>
         <p><em>Default is empty.</em></p>
-    </dd>
-    <dt id="proxy-option"><a href="#proxy-option"><code>PROXY_OPTION</code></a></dt>
-    <dd>
-        <p>Avoids mixed content warnings for external media: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
-        <p><em>Default is <code>http-only</code>.</em></p>
-    </dd>
-    <dt id="proxy-media-types"><a href="#proxy-media-types"><code>PROXY_MEDIA_TYPES</code></a></dt>
-    <dd>
-        <p>A list of media types to proxify (comma-separated values): <code>image</code>, <code>audio</code>, <code>video</code>.</p>
-        <p><em>Default is <code>image</code>.</em></p>
-    </dd>
-    <dt id="proxy-http-client-timeout"><a href="#proxy-http-client-timeout"><code>PROXY_HTTP_CLIENT_TIMEOUT</code></a></dt>
-    <dd>
-        <p>Time limit in seconds before the proxy HTTP client cancel the request.</p>
-        <p>Default is 120 seconds.</p>
-    </dd>
-    <dt id="proxy-url"><a href="#proxy-url"><code>PROXY_URL</code></a></dt>
-    <dd>
-        <p>Sets a server to proxy media through.</p>
-        <p>Default is empty, miniflux does the proxying.</p>
     </dd>
     <dt id="http-client-timeout"><a href="#http-client-timeout"><code>HTTP_CLIENT_TIMEOUT</code></a></dt>
     <dd>
