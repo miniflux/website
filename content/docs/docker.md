@@ -80,6 +80,7 @@ services:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=miniflux
+      - POSTGRES_HOST_AUTH_METHOD=password
     volumes:
       - miniflux-db:/var/lib/postgresql/data
     healthcheck:
