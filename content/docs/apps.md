@@ -6,6 +6,7 @@ url: /docs/apps.html
 Table of Contents
 
 - [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android)
+- [Read You](https://github.com/Ashinch/ReadYou) (Android)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (Windows and Mac)
 - [Fluxjs](#fluxjs) (Web frontend)
 - [FluxNews](#fluxnews) (Android)
