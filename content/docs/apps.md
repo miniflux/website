@@ -6,7 +6,6 @@ url: /docs/apps.html
 Table of Contents
 
 - [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android)
-- [Read You](https://github.com/Ashinch/ReadYou) (Android)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (Windows and Mac)
 - [Fluxjs](#fluxjs) (Web frontend)
 - [FluxNews](#fluxnews) (Android)
@@ -16,6 +15,7 @@ Table of Contents
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS)
 - [Newsboat](https://github.com/newsboat/newsboat) (text console)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux)
+- [Read You](https://github.com/Ashinch/ReadYou) (Android)
 - [Reeder](http://reederapp.com/) (iOS/macOS)
 - [Reminiflux](#reminiflux) (Web frontend)
 - [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS)
