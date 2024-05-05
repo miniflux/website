@@ -15,6 +15,7 @@ Table of Contents
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS)
 - [Newsboat](https://github.com/newsboat/newsboat) (text console)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux)
+- [Read You](https://github.com/Ashinch/ReadYou) (Android)
 - [Reeder](http://reederapp.com/) (iOS/macOS)
 - [Reminiflux](#reminiflux) (Web frontend)
 - [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS)
