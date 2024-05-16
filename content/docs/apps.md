@@ -74,7 +74,7 @@ Features:
 - Articles display an image preview
 - Notifications
 
-Links: [Google Play](https://play.google.com/store/apps/details?id=com.constantin.microflux)
+Links: [GitHub](https://github.com/ConstantinCezarBegu/Microflux)
 
 <h2 id="miniflutt">Miniflutt <a class="anchor" href="#miniflutt" title="Permalink">¶</a></h2>
 
