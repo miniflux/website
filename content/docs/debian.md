@@ -21,7 +21,7 @@ Make sure to [install and configure Postgresql]({{< ref "database.md" >}}) befor
 
 <h2 id="apt-repo">Install Miniflux from the APT Repository <a class="anchor" href="#apt-repo" title="Permalink">¶</a></h2>
 
-You can configure APT to use Minifux repository.
+You can configure APT to use Miniflux repository.
 To start, create a `miniflux.list` file in the `/etc/apt/sources.list.d` directory.
 You will need sudo access to make these changes:
 
