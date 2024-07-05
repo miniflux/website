@@ -5,13 +5,16 @@ url: /docs/rules.html
 ---
 
 - [Filtering Rules](#filtering-rules)
+- [Global Filtering Rules](#global-filtering-rules)
 - [Rewrite Rules](#rewrite-rules)
 - [Scraper Rules](#scraper-rules)
 - [URL Rewrite Rules](#rewriteurl-rules)
 
-<h2 id="filtering-rules">Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
+<h2 id="filtering-rules">Feed Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
 
 Miniflux has a basic filtering system that allows you to ignore or keep articles.
+
+Location `/feed/XXX/edit`
 
 ### Block Rules
 
@@ -26,6 +29,53 @@ Ignored articles won't be saved into the database.
 Keep rules keeps only articles that matches the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
 For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
+
+<h2 id="global-filtering-rules">Global Filtering Rules <a class="anchor" href="#global-filtering-rules" title="Permalink">¶</a></h2>
+
+User level article filters that are applied to all articles from all feeds.
+
+Each rule is required to be on a different line.
+
+Field Options can be re-used. Example: There can be multiple `EntryTitle` rules.
+
+The provided RegEx should be in the [RE2 syntax](https://golang.org/s/re2syntax).
+
+Rule Format: 
+```
+FieldName=RegEx
+FieldName=RegEx
+FieldName=RegEx
+```
+
+Field Options:
+- EntryTitle
+- EntryURL
+- EntryCommentsURL
+- EntryContent
+- EntryAuthor
+- EntryTag
+
+Location: `/settings`
+
+**Note**: Order of rules will matter as the processor stops on the first match, for both Block & Keep rules.
+
+### Block Rules
+
+Block rules ignores articles that match a single rule.
+
+For example, the rule `EntryTitle=(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
+
+### Keep Rules
+
+Keep rules will keep articles that match a single rule.
+
+For example, the rule `EntryTitle=(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
+
+### Order of Global Rules & Feed Rules
+
+The order of how all rules get applied to articles: 
+
+`Global Block Rules > Feed Block Rule > Global Keep Rules > Feed Keep Rule`
 
 <h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
 
