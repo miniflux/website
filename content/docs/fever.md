@@ -16,6 +16,7 @@ To activate the Fever API, go to the integration section and choose a username/p
 - [Reeder](http://reederapp.com/) (iOS/macOS)
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS)
 - [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android)
+- [FocusReader](https://play.google.com/store/apps/details?id=allen.town.focus.reader) (Android)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (Windows and Mac)
 - [Lire](https://lireapp.com/) (iOS/macOS) - Also requires a Miniflux API Key
