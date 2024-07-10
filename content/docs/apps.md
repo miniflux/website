@@ -9,6 +9,7 @@ Table of Contents
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (Windows and Mac)
 - [Fluxjs](#fluxjs) (Web frontend)
 - [FluxNews](#fluxnews) (Android)
+- [FocusReader](https://play.google.com/store/apps/details?id=allen.town.focus.reader) (Android)
 - [Lire](#lire) (iOS/macOS)
 - [Microflux](#microflux) (Android)
 - [Miniflutt](#miniflutt) (Android)
