@@ -4,21 +4,19 @@ description: How to write custom scraper and rewrite rules
 url: /docs/rules.html
 ---
 
-- [Filtering Rules](#filtering-rules)
+- [Feed Filtering Rules](#feed-filtering-rules)
 - [Global Filtering Rules](#global-filtering-rules)
 - [Rewrite Rules](#rewrite-rules)
 - [Scraper Rules](#scraper-rules)
 - [URL Rewrite Rules](#rewriteurl-rules)
 
-<h2 id="filtering-rules">Feed Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
+<h2 id="feed-filtering-rules">Feed Filtering Rules <a class="anchor" href="#feed-filtering-rules" title="Permalink">¶</a></h2>
 
 Miniflux has a basic filtering system that allows you to ignore or keep articles.
 
-Location `/feed/XXX/edit`
-
 ### Block Rules
 
-Block rules ignore articles with a title, an url, a tag or an author that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
+Block rules ignore articles with a title, an entry URL, a tag or an author that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
 For example, the regex `(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
 
@@ -32,32 +30,29 @@ For example, the regex `(?i)miniflux` will keep only the articles with a title t
 
 <h2 id="global-filtering-rules">Global Filtering Rules <a class="anchor" href="#global-filtering-rules" title="Permalink">¶</a></h2>
 
-User level article filters that are applied to all articles from all feeds.
+Global filters are defined on the Settings page and are automatically applied to all articles from all feeds.
 
-Each rule is required to be on a different line.
+- Each rule must be on a separate line.
+- Duplicate rules are allowed. For example, having multiple `EntryTitle` rules is possible.
+- The provided RegEx should use the [RE2 syntax](https://golang.org/s/re2syntax).
+- The order of the rules matters as the processor stops on the first match for both Block and Keep rules.
 
-Field Options can be re-used. Example: There can be multiple `EntryTitle` rules.
+Rule Format:
 
-The provided RegEx should be in the [RE2 syntax](https://golang.org/s/re2syntax).
-
-Rule Format: 
 ```
 FieldName=RegEx
 FieldName=RegEx
 FieldName=RegEx
 ```
 
-Field Options:
-- EntryTitle
-- EntryURL
-- EntryCommentsURL
-- EntryContent
-- EntryAuthor
-- EntryTag
+Available Fields:
 
-Location: `/settings`
-
-**Note**: Order of rules will matter as the processor stops on the first match, for both Block & Keep rules.
+- `EntryTitle`
+- `EntryURL`
+- `EntryCommentsURL`
+- `EntryContent`
+- `EntryAuthor`
+- `EntryTag`
 
 ### Block Rules
 
@@ -71,11 +66,14 @@ Keep rules will keep articles that match a single rule.
 
 For example, the rule `EntryTitle=(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
 
-### Order of Global Rules & Feed Rules
+### Global Rules & Feed Rules Ordering
 
-The order of how all rules get applied to articles: 
+Rules are processed in this order:
 
-`Global Block Rules > Feed Block Rule > Global Keep Rules > Feed Keep Rule`
+1. Global Block Rules
+2. Feed Block Rule
+3. Global Keep Rules
+4. Feed Keep Rule
 
 <h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
 
@@ -206,14 +204,17 @@ You could contribute to the project to keep them up to date.
 
 Under the hood, Miniflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).
 
-<h2 id="rewriteurl-rules">Rewrite URL Rules <a class="anchor" href="#rewriteurl-rules" title="Permalink">¶</a></h2>
+<h2 id="rewriteurl-rules">URL Rewrite Rules <a class="anchor" href="#rewriteurl-rules" title="Permalink">¶</a></h2>
 
 Sometimes it might be required to rewrite an URL in a feed to fetch better
-suited content. For example, for  some users the URL
+suited content.
+
+For example, for  some users the URL
 https://www.npr.org/sections/money/2021/05/18/997501946/the-case-for-universal-pre-k-just-got-stronger
 displays a cookie consent dialog instead of the actual content and it would
-be preferred to fetch the URL https://text.npr.org/997501946 instead. The
-following rules does this:
+be preferred to fetch the URL https://text.npr.org/997501946 instead.
+
+The following rules does this:
 
 ````
 rewrite("^https:\/\/www\.npr\.org\/\d{4}\/\d{2}\/\d{2}\/(\d+)\/.*$"|"https://text.npr.org/$1")

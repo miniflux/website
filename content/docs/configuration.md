@@ -18,6 +18,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Toggle debug mode (increase log level).</p>
         <p><em>Disabled by default.</em></p>
     </dd>
+    <dt id="fetch-nebula-watch-time"><a href="#fetch-nebula-watch-time"><code>FETCH_NEBULA_WATCH_TIME</code></a></dt>
+    <dd>
+        <p>Set the value to 1 to scrape video duration from Nebula website and use it as a reading time.</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
     <dt id="fetch-odysee-watch-time"><a href="#fetch-odysee-watch-time"><code>FETCH_ODYSEE_WATCH_TIME</code></a></dt>
     <dd>
         <p>Set the value to 1 to scrape video duration from Odysee website and use it as a reading time.</p>
