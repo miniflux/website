@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 32.000001 31.999999"
+   version="1.1"
+   sodipodi:docname="icon_bg_white.svg"
+   inkscape:export-filename="/home/fred/repos/miniflux/logo/original/favicon-16-bg-white.png"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48"
+   width="32"
+   height="32"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata68">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>icon</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs66" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     id="namedview64"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="5.6052833"
+     inkscape:cx="74.952668"
+     inkscape:cy="4.1838492"
+     inkscape:window-x="70"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4066" />
+    <sodipodi:guide
+       position="0.71361246,77.783758"
+       orientation="1,0"
+       id="guide4068"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="-38.891879,26.582064"
+       orientation="0,1"
+       id="guide4070"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="-42.103135,4.9952872"
+       orientation="0,1"
+       id="guide4072"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <title
+     id="title59">icon</title>
+  <path
+     d="m 10.673473,6.8886384 a 6.7871123,6.7871123 0 0 1 3.223792,-0.7797226 q 3.569708,0 4.547899,3.1047094 a 9.859916,9.859916 0 0 1 2.663098,-2.2023597 q 1.56866,-0.9023497 3.497383,-0.9023497 2.677291,0 3.827747,1.6359976 1.150463,1.6359972 1.148996,4.9122286 v 12.333772 c 0,0.308338 0.04329,0.517446 0.129757,0.629437 0.08649,0.111999 0.273596,0.212653 0.56137,0.293467 l 1.010098,0.335977 v 0.754918 h -5.987549 q -0.77971,0 -1.122078,-0.587628 -0.342374,-0.587627 -0.345925,-1.762161 V 11.902238 q 0,-1.888343 -0.417495,-2.6850688 -0.417489,-0.796724 -1.395729,-0.7974634 -1.554467,0 -3.310242,1.8429932 a 14.885577,14.885577 0 0 1 0.174381,2.394443 v 12.333772 c 0,0.308338 0.04326,0.517446 0.129712,0.629437 0.08652,0.111999 0.27361,0.212653 0.561396,0.293467 l 1.00726,0.335977 v 0.754918 H 14.58838 q -0.779725,0 -1.122793,-0.587628 -0.343081,-0.587627 -0.345904,-1.762161 V 11.902238 q 0,-1.888343 -0.416809,-2.6850688 -0.4168,-0.796724 -1.396402,-0.7974634 -1.5261243,0 -3.1373178,1.6785422 v 14.892666 c 0,0.308338 0.04253,0.524535 0.129019,0.649996 0.08647,0.125465 0.2636803,0.231078 0.5330373,0.314725 l 0.9781962,0.29416 v 0.754918 H 0.71361246 V 26.249795 L 1.7208691,25.913818 Q 2.1525499,25.788346 2.2822675,25.620351 C 2.3687455,25.50836 2.4119856,25.299252 2.4119856,24.990914 V 9.1335512 q 0,-0.4614829 -0.1297181,-0.6294835 Q 2.1525499,8.3360762 1.7208691,8.2099035 L 0.71361246,7.8746317 V 7.1197143 L 7.6219355,5.8608282 H 8.1110322 V 8.7975307 A 10.103049,10.103049 0 0 1 10.673473,6.8886384 Z"
+     id="path61"
+     inkscape:connector-curvature="0"
+     style="stroke-width:0.07088365" />
+</svg>
