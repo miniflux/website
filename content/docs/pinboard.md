@@ -3,7 +3,7 @@ title: Pinboard
 url: /docs/pinboard.html
 ---
 
-Mniiflux can save articles to [Pinboard](https://pinboard.in/).
+Miniflux can save articles to [Pinboard](https://pinboard.in/).
 
 ![Pinboard](/images/pinboard.png)
 

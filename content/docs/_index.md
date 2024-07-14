@@ -31,14 +31,28 @@ aliases:
 
 ## Integrations
 
+- Apprise
+- Betula
+- Espial
 - [Fever]({{< relref "fever.md" >}})
 - [Google Reader]({{< relref "google_reader.md" >}})
 - [Instapaper]({{< relref "instapaper.md" >}})
+- LinkAce
+- Linkding
+- Linkwarden
 - [Matrix]({{< relref "matrix.md" >}})
 - [Notion]({{< relref "notion.md" >}})
+- [Ntfy]({{< relref "ntfy.md" >}})
 - [Nunux Keeper]({{< relref "nunux_keeper.md" >}})
+- Omnivore
 - [Pinboard]({{< relref "pinboard.md" >}})
 - [Pocket]({{< relref "pocket.md" >}})
+- Raindrop
+- Readeck
+- Readwise Reader
+- RSS-Bridge
+- Shaarli
+- Shiori
 - [Telegram]({{< relref "telegram.md" >}})
 - [Wallabag]({{< relref "wallabag.md" >}})
 - [Webhooks]({{< relref "webhooks.md" >}})

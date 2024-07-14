@@ -57,7 +57,7 @@ url: features.html
 
 <h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
 
-- Send articles to [Telegram](https://telegram.org), [Shaarli](https://github.com/shaarli/Shaarli), [Shiori](https://github.com/go-shiori/shiori), [Matrix](https://matrix.org), [Apprise](https://github.com/caronc/apprise), [Pinboard](https://pinboard.in/), [Instapaper](https://www.instapaper.com/), [Pocket](https://getpocket.com/), [Wallabag](https://www.wallabag.org/), [Linkding](https://github.com/sissbruecker/linkding), [Espial](https://github.com/jonschoning/espial), [Notion](https://www.notion.so/), [Readwise Reader](https://readwise.io/read) or [Nunux Keeper](https://keeper.nunux.org/)
+- 25+ integrations with third-party services: [Apprise](https://github.com/caronc/apprise), [Espial](https://github.com/jonschoning/espial), [Instapaper](https://www.instapaper.com/), [Linkding](https://github.com/sissbruecker/linkding), [Matrix](https://matrix.org), [Nunux Keeper](https://keeper.nunux.org/), [Notion](https://www.notion.so/), [Ntfy](https://ntfy.sh/), [Pinboard](https://pinboard.in/), [Pocket](https://getpocket.com/), [Readwise Reader](https://readwise.io/read), [Shaarli](https://github.com/shaarli/Shaarli), [Shiori](https://github.com/go-shiori/shiori), [Telegram](https://telegram.org), [Wallabag](https://www.wallabag.org/), etc.
 - Bookmarklet to subscribe to a website directly from any web browser
 - Webhooks
 - Use existing mobile applications to read your feeds by using the Fever or Google Reader API
