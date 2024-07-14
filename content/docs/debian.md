@@ -71,4 +71,4 @@ Systemd reads the environment variables from the file <code>/etc/miniflux.conf</
 You must restart the service to take the new values into consideration.
 </p>
 
-Make sure to take a look a the list of [configuration parameters]({{< relref configuration >}}) to customize your installation.
+Make sure to take a look at the list of [configuration parameters]({{< relref configuration >}}) to customize your installation.

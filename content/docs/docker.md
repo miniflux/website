@@ -14,7 +14,7 @@ This document describes how to use the Docker images of Miniflux.
 
 **Docker Registries:**
 
-Docker images are published to 3 different container registries:
+Docker images are published to three different container registries:
 
 - [Docker Hub Registry](https://hub.docker.com/r/miniflux/miniflux): `docker.io/miniflux/miniflux`
 - [GitHub Container Registry](https://github.com/miniflux/v2/pkgs/container/miniflux): `ghcr.io/miniflux/miniflux`

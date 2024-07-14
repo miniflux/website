@@ -1,5 +1,5 @@
 ---
-title: Pocket
+title: Pocket Integration
 url: /docs/pocket.html
 ---
 

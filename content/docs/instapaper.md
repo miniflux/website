@@ -1,5 +1,5 @@
 ---
-title: Instapaper
+title: Instapaper Integration
 url: /docs/instapaper.html
 ---
 

@@ -24,7 +24,7 @@ Ignored articles won't be saved into the database.
 
 ### Keep Rules
 
-Keep rules keeps only articles that matches the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
+Keep rules keep only articles that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
 For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
 

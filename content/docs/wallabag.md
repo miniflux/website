@@ -1,5 +1,5 @@
 ---
-title: Wallabag
+title: Wallabag Integration
 url: /docs/wallabag.html
 ---
 

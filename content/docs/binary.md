@@ -6,7 +6,7 @@ url: docs/binary_installation.html
 
 This document describes how to install the Miniflux binary on your Linux server.
 
-Make sure to [install and configure Postgresql]({{< ref "database.md" >}}) before installing Miniflux.
+Make sure to [install and configure PostgreSQL]({{< ref "database.md" >}}) before installing Miniflux.
 
 You can download precompiled binaries from the [GitHub Releases page](https://github.com/miniflux/v2/releases). You could also [build the application from the source code]({{< ref "development.md" >}}).
 

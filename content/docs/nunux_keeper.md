@@ -1,5 +1,5 @@
 ---
-title: Nunux Keeper
+title: Nunux Keeper Integration
 url: /docs/nunux_keeper.html
 ---
 

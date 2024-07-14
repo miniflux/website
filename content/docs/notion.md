@@ -6,7 +6,7 @@ url: /docs/notion.html
 [Notion](https://notion.so/) is a freemium productivity and note-taking web application
 
 - To create a new API integration, go to `https://www.notion.so/my-integrations` then click on `New Integration`
-- Fill in all the need field and select your board of choice
+- Fill in all the required fields and select your board of choice
 - Once `Submit` you will be redirect to `Secret` tab in your integration page. generate a secret which look like this `secret_XXXXXXX`
 - Create a new page and then head to `...` on the top right corner
 - Scroll down to `Add Connections` and select API integration created before

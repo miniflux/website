@@ -6,16 +6,15 @@ url: features.html
 
 <h2 id="reader">Reader <a class="anchor" href="#reader" title="Permalink">¶</a></h2>
 
-- Supported feed formats: Atom 0.3/1.0, RSS 1.0/2.0, RDF and JSON
-- [OPML](https://en.wikipedia.org/wiki/OPML) file import/export and URL import
-- Support multiple enclosures/attachments (Podcasts, videos, music, and images)
-- Play videos from YouTube channels directly inside Miniflux
-- Categories
-- Bookmarks
-- Fetch website icons (favicons)
-- Save articles to third-party services
-- Full-text search (Thanks to Postgres)
-- Available in Portuguese (Brazilian), Chinese (Simplified and Traditional), Dutch, English (US), Finnish, French, German, Greek, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Ukrainian, Spanish, and Turkish
+- Supported feed formats: Atom 0.3/1.0, RSS 1.0/2.0, RDF, and JSON.
+- [OPML](https://en.wikipedia.org/wiki/OPML) file import/export and URL import.
+- Supports multiple enclosures/attachments (Podcasts, videos, music, and images).
+- Plays videos from YouTube channels directly inside Miniflux.
+- Categories and bookmarks.
+- Fetches website icons (favicons).
+- Saves articles to third-party services.
+- Provides full-text search (Thanks to Postgres).
+- Available in Portuguese (Brazilian), Chinese (Simplified and Traditional), Dutch, English (US), Finnish, French, German, Greek, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Ukrainian, Spanish, and Turkish.
 
 <h2 id="privacy">Privacy <a class="anchor" href="#privacy" title="Permalink">¶</a></h2>
 

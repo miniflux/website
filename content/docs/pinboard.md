@@ -1,5 +1,5 @@
 ---
-title: Pinboard
+title: Pinboard Integration
 url: /docs/pinboard.html
 ---
 

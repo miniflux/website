@@ -3,6 +3,7 @@ title: Configuration Parameters
 description: List of configuration parameters for Miniflux
 url: /docs/configuration.html
 ---
+
 Miniflux can use a configuration file and environment variables.
 
 The configuration file is loaded first if specified. Environment variables takes precedence over the options defined in the configuration file.

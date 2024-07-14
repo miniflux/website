@@ -25,23 +25,23 @@ Table of Contents:
 
 List of things to avoid:
 
-- Too many changes that would make the pull-request very hard to review
-- Breaking changes
-- Introduce new bugs, regressions, or security issues
-- Add unnecessary dependencies
-- Slowing down the software
-- Changes are against the philosophy of the software
-- Poor code quality
-- Chaining pull-requests that depends from each other
-- Radical user interface changes
+- Making too many changes that would make the pull request very hard to review.
+- Introducing breaking changes.
+- Introducing new bugs, regressions, or security issues.
+- Adding unnecessary dependencies.
+- Slowing down the software.
+- Making changes that go against the philosophy of the software.
+- Having poor code quality.
+- Chaining pull requests that depend on each other.
+- Making radical user interface changes.
 
 <h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
 
-- Developing a software takes a lot of time.
-- This is a free and open source project, no one owes you anything.
+- Developing software takes a lot of time.
+- This is a free and open-source project, and no one owes you anything.
 - If you miss something, contribute to the project.
 - Don't expect anyone to work for free.
-- As mentioned previously, the number of features is voluntarily limited. Nobody likes bloatware.
+- As mentioned previously, the number of features is intentionally limited. Nobody likes bloatware.
 - Improving existing features is more important than adding new ones.
 
 <h2 id="missing-feature-v2">Feature X was available in Miniflux v1? <a class="anchor" href="#missing-feature-v2" title="Permalink">¶</a></h2>
@@ -77,14 +77,14 @@ But do not forget that **you will have to maintain your theme over the time**, o
 
 <h2 id="entries-suppression">How are items removed from the database? <a class="anchor" href="#entries-suppression" title="Permalink">¶</a></h2>
 
-Entry status in the database follows this flow: <code>read</code> -> <code>unread</code> -> <code>removed</code>.
+Entry status in the database follows this flow: `read` -> `unread` -> `removed`.
 
-Entries marked as removed are not visible in the web ui.
-They are deleted from the database only when they are not visible anymore in the original feed.
+Entries marked as removed are not visible in the web UI.
+They are deleted from the database only when they are no longer visible in the original feed.
 
-Entries marked as favorite are never deleted (column <code>starred</code> in the <code>entries</code> table).
+Entries marked as favorites are never deleted (column `starred` in the `entries` table).
 
-Data retention is also controlled with the variables <code>CLEANUP_ARCHIVE_UNREAD_DAYS</code> and <code>CLEANUP_ARCHIVE_READ_DAYS</code>.
+Data retention is also controlled with the variables `CLEANUP_ARCHIVE_UNREAD_DAYS` and `CLEANUP_ARCHIVE_READ_DAYS`.
 
 Keep in mind that Postgres needs to run the <a href="https://www.postgresql.org/docs/current/sql-vacuum.html">VACUUM</a> command to reclaim disk space.
 

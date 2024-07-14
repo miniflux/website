@@ -6,7 +6,7 @@ url: docs/alpine.html
 
 [Alpine Linux](https://alpinelinux.org/) is a lightweight Linux distribution that is perfectly suited for running Miniflux.
 
-An APK package is available from the community repository (it was in testing before).
+An APK package is available from the community repository (it was in testing previously).
 
 Edit the file `/etc/apk/repositories` to enable the Edge repository: `http://dl-cdn.alpinelinux.org/alpine/edge/community`. And then run `apk update`.
 
@@ -16,7 +16,7 @@ The Miniflux installation is simple as running:
 apk add miniflux miniflux-openrc miniflux-doc
 ```
 
-Do not forget to install Postgresql:
+Do not forget to install PostgreSQL:
 
 ```
 apk add postgresql postgresql-contrib
@@ -27,7 +27,7 @@ Configure the database and enable the `HSTORE` extension as [mentioned previousl
 On Alpine Linux, the Miniflux process is supervised by `supervise-daemon` from [OpenRC](https://github.com/OpenRC/openrc) (there is no Systemd).
 The log file `/var/log/miniflux.log` is rotated with `logrotate`.
 
-In this context, the configuration file `/etc/miniflux.conf` is used instead of environment variables:
+In this context, the configuration file `/etc/miniflux.conf` is used instead of using environment variables:
 
 ```
 # /etc/miniflux.conf

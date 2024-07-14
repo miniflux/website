@@ -5,10 +5,9 @@ url: /docs/webhooks.html
 
 [Webhooks](https://en.wikipedia.org/wiki/Webhook) are user-defined HTTP callbacks.
 
-Miniflux can publish new feed entries to a custom API endpoint.
-You can easily set up your own personal webhook receiver and extend Miniflux by writing your own scripts.
+Miniflux can publish new feed entries to a custom API endpoint. You can easily set up your own personal webhook receiver and extend Miniflux by writing your own scripts.
 
-This feature is available since Miniflux 2.0.48.
+This feature has been available since Miniflux 2.0.48.
 
 Configuring a Webhook in Miniflux
 -------------------------------
