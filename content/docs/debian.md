@@ -58,8 +58,8 @@ The previous repository URL <code>https://apt.miniflux.app/</code> is deprecated
 <h2 id="configuration">Configure Miniflux <a class="anchor" href="#configuration" title="Permalink">¶</a></h2>
 
 1. Define the environment variable `DATABASE_URL` in `/etc/miniflux.conf`
-2. Run the SQL migrations manually: `miniflux -migrate`, or set the variable `RUN_MIGRATIONS=1` in `/etc/miniflux.conf`
-3. Create an admin user: `miniflux -create-admin`
+2. Run the SQL migrations manually: `miniflux -migrate -config-file /etc/miniflux.conf`, or set the variable `RUN_MIGRATIONS=1` in `/etc/miniflux.conf`
+3. Create an admin user: `miniflux -create-admin -config-file /etc/miniflux.conf`
 4. Restart the process: `systemctl restart miniflux`
 5. Check the process status: `systemctl status miniflux`
 
