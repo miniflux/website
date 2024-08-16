@@ -18,6 +18,11 @@
         <id>{{ .Permalink }}</id>
         <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
         <content type="html">{{- printf "<![CDATA[" | safeHTML }}{{ .Content | safeHTML }}{{- printf "]]>" | safeHTML }}</content>
+        {{ with .Params.attachments }}
+            {{ range . }}
+            <link rel="enclosure" href="{{ . }}" type="application/octet-stream"/>
+            {{ end }}
+        {{ end }}
     </entry>
     {{ end }}
 </feed>

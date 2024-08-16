@@ -8,9 +8,18 @@
             <a href="/">Home</a> &gt; <a href="/releases.html">Releases</a>
         </nav>
         {{ if .Date }}
-        <time class="release-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <p><strong>Release date:</strong> <time class="release-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
         {{ end }}
+        <h2>Changes</h2>
         {{ .Content }}
+        {{ with .Params.attachments }}
+            <h2>Attachments</h2>
+            <ul>
+                {{ range . }}
+                <li><a href="{{ . }}">{{ . }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
     </article>
 </body>
 </html>
