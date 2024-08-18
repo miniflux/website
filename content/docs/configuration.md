@@ -19,6 +19,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Toggle debug mode (increase log level).</p>
         <p><em>Disabled by default.</em></p>
     </dd>
+    <dt id="fetch-bilibili-watch-time"><a href="#fetch-bilibili-watch-time"><code>FETCH_BILIBILI_WATCH_TIME</code></a></dt>
+    <dd>
+        <p>Set the value to 1 to scrape video duration from Bilibili website and use it as a reading time.</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
     <dt id="fetch-nebula-watch-time"><a href="#fetch-nebula-watch-time"><code>FETCH_NEBULA_WATCH_TIME</code></a></dt>
     <dd>
         <p>Set the value to 1 to scrape video duration from Nebula website and use it as a reading time.</p>
@@ -201,6 +206,12 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="disable-http-service"><a href="#disable-http-service"><code>DISABLE_HTTP_SERVICE</code></a></dt>
     <dd>
         <p>Disable HTTP service.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="disable-local-auth"><a href="#disable-local-auth"><code>DISABLE_LOCAL_AUTH</code></a></dt>
+    <dd>
+        <p>Disable local authentication.</p>
+        <p>When  set  to true, the username/password form is hidden from the login screen, and the options to change username/password or unlink OAuth2 account are hidden from the settings page.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="disable-scheduler-service"><a href="#disable-scheduler-service"><code>DISABLE_SCHEDULER_SERVICE</code></a></dt>

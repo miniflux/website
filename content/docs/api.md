@@ -35,6 +35,8 @@ Table of Contents:
     - [Get Entries](#endpoint-get-entries)
     - [Update Entries status](#endpoint-update-entries)
     - [Toggle Entry Bookmark](#endpoint-toggle-bookmark)
+    - [Get Enclosure](#endpoint-get-enclosure)
+    - [Update Enclosure](#endpoint-update-enclosure)
     - [Get Categories](#endpoint-get-categories)
     - [Create Category](#endpoint-create-category)
     - [Update Category](#endpoint-update-category)
@@ -1074,6 +1076,46 @@ Request:
     PUT /v1/entries/1234/bookmark
 
 Returns `204` status code for success.
+
+<h3 id="endpoint-get-enclosure">Get Enclosure <a class="anchor" href="#endpoint-get-enclosure" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /v1/enclosures/{enclosureID}
+
+Response:
+
+``` json
+{
+  "id": 278,
+  "user_id": 1,
+  "entry_id": 195,
+  "url": "https://example.org/file",
+  "mime_type": "application/octet-stream",
+  "size": 0,
+  "media_progression": 0
+}
+```
+
+<div class="info">
+This API endpoint is available since Miniflux v2.2.0.
+</div>
+
+<h3 id="endpoint-update-enclosure">Update Enclosure <a class="anchor" href="#endpoint-update-enclosure" title="Permalink">¶</a></h3>
+
+Request:
+
+    PUT /v1/enclosures/{enclosureID}
+
+    {
+        "media_progression": 42
+    }
+
+Returns `204` status code for success.
+
+<div class="info">
+This API endpoint is available since Miniflux v2.2.0.
+</div>
 
 <h3 id="endpoint-get-categories">Get Categories <a class="anchor" href="#endpoint-get-categories" title="Permalink">¶</a></h3>
 

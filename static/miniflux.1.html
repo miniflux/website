@@ -203,10 +203,23 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dd>Set the value to 1 to disable the HTTP service.
     <br/>
     Default is false (The HTTP service is enabled).</dd>
+  <dt id="DISABLE_LOCAL_AUTH"><a class="permalink" href="#DISABLE_LOCAL_AUTH"><b>DISABLE_LOCAL_AUTH</b></a></dt>
+  <dd>Disable local authentication.
+    <br/>
+    When set to true, the username/password form is hidden from the login
+      screen, and the options to change username/password or unlink OAuth2
+      account are hidden from the settings page.
+    <br/>
+    Default is false.</dd>
   <dt id="DISABLE_SCHEDULER_SERVICE"><a class="permalink" href="#DISABLE_SCHEDULER_SERVICE"><b>DISABLE_SCHEDULER_SERVICE</b></a></dt>
   <dd>Set the value to 1 to disable the internal scheduler service.
     <br/>
     Default is false (The internal scheduler service is enabled).</dd>
+  <dt id="FETCH_BILIBILI_WATCH_TIME"><a class="permalink" href="#FETCH_BILIBILI_WATCH_TIME"><b>FETCH_BILIBILI_WATCH_TIME</b></a></dt>
+  <dd>Set the value to 1 to scrape video duration from Bilibili website and use
+      it as a reading time.
+    <br/>
+    Disabled by default.</dd>
   <dt id="FETCH_NEBULA_WATCH_TIME"><a class="permalink" href="#FETCH_NEBULA_WATCH_TIME"><b>FETCH_NEBULA_WATCH_TIME</b></a></dt>
   <dd>Set the value to 1 to scrape video duration from Nebula website and use it
       as a reading time.
@@ -375,6 +388,10 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dd>OpenID Connect discovery endpoint.
     <br/>
     Default is empty.</dd>
+  <dt id="OAUTH2_OIDC_PROVIDER_NAME"><a class="permalink" href="#OAUTH2_OIDC_PROVIDER_NAME"><b>OAUTH2_OIDC_PROVIDER_NAME</b></a></dt>
+  <dd>Name to display for the OIDC provider.
+    <br/>
+    Default is OpenID Connect.</dd>
   <dt id="OAUTH2_PROVIDER"><a class="permalink" href="#OAUTH2_PROVIDER"><b>OAUTH2_PROVIDER</b></a></dt>
   <dd>Possible values are &quot;google&quot; or &quot;oidc&quot;.
     <br/>
@@ -486,7 +503,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">March 23, 2024</td>
+    <td class="foot-date">August 18, 2024</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>
