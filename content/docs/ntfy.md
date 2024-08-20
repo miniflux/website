@@ -10,6 +10,8 @@ url: /docs/ntfy.html
 
 Miniflux can send new entries to any **ntfy** server. By doing so, you can receive push notifications whenever a new article is published.
 
+This feature is available since Miniflux v2.2.0.
+
 To receive notifications on your phone, install the app. Once installed, open it and subscribe to a topic of your choosing.
 
 Note that topic names are public, so it's wise to choose something that cannot be easily guessed.
