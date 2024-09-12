@@ -16,6 +16,7 @@ Table of Contents
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS)
 - [Newsboat](https://github.com/newsboat/newsboat) (text console)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux)
+- [ReactFlux](#ReactFlux) (Web frontend)
 - [Read You](https://github.com/Ashinch/ReadYou) (Android)
 - [Reeder](http://reederapp.com/) (iOS/macOS)
 - [Reminiflux](#reminiflux) (Web frontend)
@@ -96,6 +97,27 @@ Features:
 
 Links: [Google Play](https://play.google.com/store/apps/details?id=be.martinelli.miniflutt),
 [GitHub](https://github.com/DocMarty84/miniflutt)
+
+<h2 id="ReactFlux">ReactFlux <a class="anchor" href="#ReactFlux" title="Permalink">¶</a></h2>
+
+ReactFlux is a third-party web frontend for Miniflux, aimed at providing a more user-friendly reading experience.
+
+Key features include:
+
+- Modern interface design
+- Responsive layout
+- Support for dark mode and custom themes
+- Article search with Google-like syntax
+- Feed and group management
+- Keyboard shortcuts
+- Automatically mark articles as read when scrolling
+- Batch update the host of filtered subscription URLs (useful for replacing RSSHub instances)
+- Batch refresh recently errored subscriptions
+- De-duplicate articles by hash, title, or URL when loading the list
+- i18n supports (include: English / Simplified Chinese)
+- Other features waiting for you to discover...
+
+Links: [GitHub](https://github.com/electh/ReactFlux)
 
 <h2 id="reminiflux">Reminiflux <a class="anchor" href="#reminiflux" title="Permalink">¶</a></h2>
 
