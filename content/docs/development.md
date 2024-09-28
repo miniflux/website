@@ -22,7 +22,7 @@ Working with Miniflux's code base is pretty simple:
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 
 - Git
-- Go >= 1.22
+- Go >= 1.23
 
 <h2 id="source-code">Checkout the Source Code <a class="anchor" href="#source-code" title="Permalink">¶</a></h2>
 
@@ -155,7 +155,7 @@ You can build your own RPM package by using this command:
 make rpm
 ```
 
-Note that Docker is required to generate the RPM package. 
+Note that Docker is required to generate the RPM package.
 All build operations are running inside a container.
 
 <h2 id="debian">Build Debian package <a class="anchor" href="#debian" title="Permalink">¶</a></h2>
@@ -172,7 +172,7 @@ Use the following command to build packages for all supported architectures (`am
 make debian-packages
 ```
 
-Note that Docker is required to generate the Debian packages. 
+Note that Docker is required to generate the Debian packages.
 All build operations are running inside a container.
 
 <h2 id="github-codespaces">GitHub Codespaces <a class="anchor" href="#github-codespaces" title="Permalink">¶</a></h2>
