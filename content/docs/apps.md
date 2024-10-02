@@ -5,24 +5,24 @@ url: /docs/apps.html
 
 Table of Contents
 
-- [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android)
-- [Fluent Reader](https://hyliu.me/fluent-reader/) (Windows and Mac)
+- [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android / Free / Proprietary)
+- [Fluent Reader](https://hyliu.me/fluent-reader/) (All platforms / FOSS except iPhone and Android not-free versions)
 - [Fluxjs](#fluxjs) (Web frontend)
-- [FluxNews](#fluxnews) (Android)
-- [FocusReader](https://play.google.com/store/apps/details?id=allen.town.focus.reader) (Android)
-- [Lire](#lire) (iOS/macOS)
+- [FluxNews](#fluxnews) (Android / FOSS)
+- [FocusReader](https://play.google.com/store/apps/details?id=allen.town.focus.reader) (Android / Freemium / Proprietary)
+- [Lire](#lire) (iOS/macOS / Paid / Proprietary)
 - [Microflux](#microflux) (Android)
 - [Miniflutt](#miniflutt) (Android)
-- [NetNewsWire](https://netnewswire.com/) (iOS/macOS)
-- [Newsboat](https://github.com/newsboat/newsboat) (text console)
-- [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux)
+- [NetNewsWire](https://netnewswire.com/) (iOS/macOS / FOSS)
+- [Newsboat](https://github.com/newsboat/newsboat) (text console / FOSS)
+- [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
 - [ReactFlux](#ReactFlux) (Web frontend)
-- [Read You](https://github.com/Ashinch/ReadYou) (Android)
-- [Reeder](http://reederapp.com/) (iOS/macOS)
+- [Read You](https://github.com/Ashinch/ReadYou) (Android / FOSS)
+- [Reeder](http://reederapp.com/) (iOS/macOS / Paid / Proprietary)
 - [Reminiflux](#reminiflux) (Web frontend)
-- [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS)
+- [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS / FOSS)
 - [Telegram](https://telegram.org/)
-- [Unread](https://www.goldenhillsoftware.com/unread/) (iOS)
+- [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
 
 <h2 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h2>
 
