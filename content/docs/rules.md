@@ -175,7 +175,7 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
 </dl>
 
-Miniflux includes a set of default rules for some websites, but you could define your own rules.
+Miniflux includes a set of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/rewrite/rules.go) for some websites, but you could define your own rules.
 
 On the feed edit page, enter your custom rules in the field "Rewrite Rules" like this:
 
