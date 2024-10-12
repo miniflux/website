@@ -175,7 +175,7 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
 </dl>
 
-Miniflux includes a set of default rules for some websites, but you could define your own rules.
+Miniflux includes a set of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/rewrite/rules.go) for some websites, but you could define your own rules.
 
 On the feed edit page, enter your custom rules in the field "Rewrite Rules" like this:
 
@@ -199,7 +199,7 @@ saved in the feed properties (Select a feed and click on edit).
 | `div.content` | Fetch all `div` elements with the class `content` |
 | `article, div.article` | Use a comma to define multiple rules |
 
-Miniflux includes a list of predefined rules for popular websites.
+Miniflux includes a list of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/scraper/rules.go) for popular websites.
 You could contribute to the project to keep them up to date.
 
 Under the hood, Miniflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).
