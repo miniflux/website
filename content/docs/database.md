@@ -26,7 +26,7 @@ Here an example from the command line:
 
 ```
 # Switch to the postgres user
-$ su - postgres
+$ sudo -u postgres -i
 
 # Create a database user for Miniflux
 $ createuser -P miniflux
