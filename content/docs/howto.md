@@ -6,7 +6,7 @@ url: /docs/howto.html
 
 Here are some examples of configuration:
 
-- [How to enable Webauthn / Passkey authentication?](#webauthn)
+- [How to enable WebAuthn / Passkey authentication?](#webauthn)
 - [Use a Unix socket for Postgresql](#pg-unix-socket)
 - [How to run Miniflux on port 443 or 80](#privileged-ports)
 - [Reverse-Proxy Configuration](#reverse-proxy)
@@ -21,8 +21,8 @@ Here are some examples of configuration:
 
 <h2 id="webauthn">How to enable Webauthn / Passkey authentication? <a class="anchor" href="#webauthn" title="Permalink">¶</a></h2>
 
-- Define `BASE_URL` with the appropriate value
-- Enable Webauthn / Passkey: `WEBAUTHN=1`
+- Define `BASE_URL` with an appropriate value, for example: `https://miniflux.example.org/`. It won't work with an IP address like `127.0.0.1` in some browsers.
+- Enable WebAuthn / Passkey: `WEBAUTHN=1`.
 
 <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 
