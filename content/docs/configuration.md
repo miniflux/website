@@ -441,6 +441,9 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="webauthn"><a href="#webauthn"><code>WEBAUTHN</code></a></dt>
     <dd>
         <p>Enable or disable WebAuthn/Passkey authentication.</p>
+        <p>
+            You must enter the username on the login page if you are using a security key (also known as non-resident key in the WebAuthn protocol). This is not required for Passkeys which are discoverable credentials stored in the platform secure enclave, or in a trusted platform module (TPM).
+        </p>
         <p><em>Default is disabled</em></p>
     </dd>
     <dt id="worker-pool-size"><a href="#worker-pool-size"><code>WORKER_POOL_SIZE</code></a></dt>

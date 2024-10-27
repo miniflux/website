@@ -19,10 +19,13 @@ Here are some examples of configuration:
 - [Deploy Miniflux on Heroku](#heroku)
 - [Deploy Miniflux on Google App Engine](#gae)
 
-<h2 id="webauthn">How to enable Webauthn / Passkey authentication? <a class="anchor" href="#webauthn" title="Permalink">¶</a></h2>
+<h2 id="webauthn">How to enable WebAuthn / Passkey authentication? <a class="anchor" href="#webauthn" title="Permalink">¶</a></h2>
 
 - Define `BASE_URL` with an appropriate value, for example: `https://miniflux.example.org/`. It won't work with an IP address like `127.0.0.1` in some browsers.
 - Enable WebAuthn / Passkey: `WEBAUTHN=1`.
+
+**You must enter the username on the login page if you are using a security key (also known as non-resident key in the WebAuthn protocol).**
+This is not required for Passkeys which are discoverable credentials stored in the platform secure enclave, or in a trusted platform module (TPM).
 
 <h2 id="pg-unix-socket">Use a Unix socket for Postgresql <a class="anchor" href="#pg-unix-socket" title="Permalink">¶</a></h2>
 
