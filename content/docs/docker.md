@@ -75,7 +75,7 @@ services:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=test123
   db:
-    image: postgres:15
+    image: postgres:17-alpine
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=secret
