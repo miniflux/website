@@ -370,6 +370,26 @@ OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://kanidm.example.org/oauth2/openid/miniflux
 OAUTH2_USER_CREATION=1
 ```
 
+#### Zitadel
+
+Example of Miniflux configuration with [Zitadel](https://zitadel.com):
+
+- Type: Web
+- Authentication: PKCE
+- Redirect URIs:
+    - `https://miniflux.example.org/oauth2/oidc/callback`
+    - `https://miniflux.example.org/oauth2/oidc/redirect`
+- Post Logout URIs:
+    - `https://miniflux.example.org`
+
+```ini
+OAUTH2_PROVIDER=oidc
+OAUTH2_CLIENT_ID=replace_me
+OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/oidc/callback
+OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://zitadel.example.org
+OAUTH2_USER_CREATION=1
+```
+
 <h2 id="heroku">Deploy Miniflux on Heroku <a class="anchor" href="#heroku" title="Permalink">¶</a></h2>
 
 Since the version 2.0.6, you can deploy Miniflux on [Heroku](https://www.heroku.com/) in few seconds.
