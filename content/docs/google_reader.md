@@ -11,7 +11,7 @@ To activate the Google Reader API, go to the **Settings > Integrations** section
 
 ## Compatible Apps
 
-- [Reeder >= 5](http://reederapp.com/) (iOS/macOS)
+- [Reeder Classic >= 5](http://reederapp.com/classic) (iOS/macOS)
 - [RSS Guard](https://github.com/martinrotter/rssguard)
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS)
 

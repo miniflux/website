@@ -18,7 +18,7 @@ Table of Contents
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
 - [ReactFlux](#ReactFlux) (Web frontend)
 - [Read You](https://github.com/Ashinch/ReadYou) (Android / FOSS)
-- [Reeder](http://reederapp.com/) (iOS/macOS / Paid / Proprietary)
+- [Reeder Classic](http://reederapp.com/classic) (iOS/macOS / Paid / Proprietary)
 - [Reminiflux](#reminiflux) (Web frontend)
 - [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS / FOSS)
 - [Telegram](https://telegram.org/)
