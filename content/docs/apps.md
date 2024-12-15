@@ -23,6 +23,7 @@ Table of Contents
 - [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2 or macOS / FOSS)
 - [Telegram](https://telegram.org/)
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
+- [miniflux-ai](#miniflux-ai) (Add AI summaries, translations, and AI news based on RSS content)
 
 <h2 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h2>
 
@@ -125,3 +126,10 @@ Reminiflux is an alternative web frontend. It offers a look and feel which is mo
 Google Reader and TT-RSS with a 3-paned display showing the list of feeds, items and an article.
 
 Links: [GitHub](https://github.com/reminiflux/reminiflux)
+
+<h2 id="miniflux-ai">miniflux-ai <a class="anchor" href="#miniflux-ai" title="Permalink">¶</a></h2>
+
+This project integrates with Miniflux to fetch RSS feed content via API or webhook. 
+It then utilizes large language models (e.g., Ollama, ChatGPT, LLaMA, Gemini) to generate summaries, translations, and AI-driven news insights.
+
+Links: [GitHub](https://github.com/Qetesh/miniflux-ai)
