@@ -99,7 +99,6 @@ Features:
 Links: [Google Play](https://play.google.com/store/apps/details?id=be.martinelli.miniflutt),
 [GitHub](https://github.com/DocMarty84/miniflutt)
 
-
 <h2 id="miniflux-ai">Miniflux-ai <a class="anchor" href="#miniflux-ai" title="Permalink">¶</a></h2>
 
 This project integrates with Miniflux to fetch RSS feed content via API or webhook. 
