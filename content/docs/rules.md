@@ -53,6 +53,18 @@ Available Fields:
 - `EntryContent`
 - `EntryAuthor`
 - `EntryTag`
+- `EntryDate`
+
+### Date Patterns
+
+The `EntryDate` field supports the following date patterns:
+
+- `future` - Match entries with future publication dates
+- `before:YYYY-MM-DD` - Match entries published before a specific date
+- `after:YYYY-MM-DD` - Match entries published after a specific date  
+- `between:YYYY-MM-DD,YYYY-MM-DD` - Match entries published between two dates
+
+Date format must be YYYY-MM-DD, for example: 2024-01-01
 
 ### Block Rules
 
@@ -60,11 +72,21 @@ Block rules ignores articles that match a single rule.
 
 For example, the rule `EntryTitle=(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
 
+For example:
+
+- `EntryDate=future` will ignore articles with future publication dates
+- `EntryDate=before:2024-01-01` will ignore articles published before January 1st, 2024
+
 ### Keep Rules
 
 Keep rules will keep articles that match a single rule.
 
 For example, the rule `EntryTitle=(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
+
+For example:
+
+- `EntryDate=between:2024-01-01,2024-12-31` will keep only articles published in 2024
+- `EntryDate=after:2024-03-01` will keep only articles published after March 1st, 2024
 
 ### Global Rules & Feed Rules Ordering
 
