@@ -13,6 +13,7 @@ Table of Contents
 - [Lire](#lire) (iOS/macOS / Paid / Proprietary)
 - [Microflux](#microflux) (Android)
 - [Miniflutt](#miniflutt) (Android)
+- [Miniflux-ai](#miniflux-ai) (Add AI summaries, translations, and AI news based on RSS content)
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS / FOSS)
 - [Newsboat](https://github.com/newsboat/newsboat) (text console / FOSS)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
@@ -97,6 +98,13 @@ Features:
 
 Links: [Google Play](https://play.google.com/store/apps/details?id=be.martinelli.miniflutt),
 [GitHub](https://github.com/DocMarty84/miniflutt)
+
+<h2 id="miniflux-ai">Miniflux-ai <a class="anchor" href="#miniflux-ai" title="Permalink">¶</a></h2>
+
+This project integrates with Miniflux to fetch RSS feed content via API or webhook. 
+It then utilizes large language models (e.g., Ollama, ChatGPT, LLaMA, Gemini) to generate summaries, translations, and AI-driven news insights.
+
+Links: [GitHub](https://github.com/Qetesh/miniflux-ai)
 
 <h2 id="ReactFlux">ReactFlux <a class="anchor" href="#ReactFlux" title="Permalink">¶</a></h2>
 
