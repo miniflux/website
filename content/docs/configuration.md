@@ -451,6 +451,17 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Number of background workers to refresh feeds. Workers fetch information of feeds from a work queue.</p>
         <p><em>Default is 5 workers.</em></p>
     </dd>
+    <dt id="youtube-api-key"><a href="#youtube-api-key"><code>YOUTUBE_API_KEY</code></a></dt>
+    <dd>
+        <p>
+            YouTube API key for use with <code>FETCH_YOUTUBE_WATCH_TIME</code>.
+            If non-empty, the duration will be fetched from the YouTube API.
+            Otherwise, the duration will be fetched from the YouTube website.
+        </p>
+        <p>
+            <em>Default is empty.</em>
+        </p>
+    </dd>
     <dt id="youtube-embed-url-override"><a href="#youtube-embed-url-override"><code>YOUTUBE_EMBED_URL_OVERRIDE</code></a></dt>
     <dd>
         <p>YouTube URL which will be used for embeds.</p>

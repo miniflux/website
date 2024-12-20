@@ -61,7 +61,7 @@ The `EntryDate` field supports the following date patterns:
 
 - `future` - Match entries with future publication dates
 - `before:YYYY-MM-DD` - Match entries published before a specific date
-- `after:YYYY-MM-DD` - Match entries published after a specific date  
+- `after:YYYY-MM-DD` - Match entries published after a specific date
 - `between:YYYY-MM-DD,YYYY-MM-DD` - Match entries published between two dates
 
 Date format must be YYYY-MM-DD, for example: 2024-01-01
@@ -171,9 +171,9 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Remove DOM elements.
     </dd>
-    <dt><code>parse_markdown</code></dt>
+    <dt><code>parse_markdown</code> (Removed in v2.2.4)</dt>
     <dd>
-        Convert Markdown to HTML.
+        Convert Markdown to HTML. <strong>This rule has been removed in version 2.2.4.</strong>
     </dd>
     <dt><code>remove_tables</code></dt>
     <dd>
