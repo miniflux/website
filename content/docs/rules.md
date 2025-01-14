@@ -195,6 +195,10 @@ Especially on mobile devices where there is no `hover` event.
     <dd>
         Open HN comments with Opener.
     <dd>
+    <dt><code>fix_ghost_cards</code></dt>
+    <dd>
+        Convert <a href="https://ghost.org">Ghost</a> link cards to regular links.
+    </dd>
 </dl>
 
 Miniflux includes a set of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/rewrite/rules.go) for some websites, but you could define your own rules.
