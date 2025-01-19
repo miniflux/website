@@ -24,7 +24,7 @@ Alpine Linux   |  Community (Source) |  https://git.alpinelinux.org/aports/tree/
 Arch Linux     |  Community (Source) |  https://archlinux.org/packages/extra/x86_64/miniflux/
 Debian         |  Community (Binary) |  https://packages.debian.org/trixie/miniflux
 FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/www/miniflux/
-Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/servers/miniflux
+Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/mi/miniflux
 Ubuntu         |  Community (Binary) |  https://packages.ubuntu.com/noble/miniflux
 
 You can download precompiled binaries and packages from the [GitHub Releases page](https://github.com/miniflux/v2/releases). You could also [build the application from the source code]({{< ref "development.md" >}}).
