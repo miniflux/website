@@ -33,6 +33,8 @@ aliases:
 
 - Apprise
 - Betula
+- Cubox
+- Discord
 - Espial
 - [Fever]({{< relref "fever.md" >}})
 - [Google Reader]({{< relref "google_reader.md" >}})
@@ -47,12 +49,14 @@ aliases:
 - Omnivore
 - [Pinboard]({{< relref "pinboard.md" >}})
 - [Pocket]({{< relref "pocket.md" >}})
+- Pushover
 - Raindrop
 - Readeck
 - Readwise Reader
 - RSS-Bridge
 - Shaarli
 - Shiori
+- Slack
 - [Telegram]({{< relref "telegram.md" >}})
 - [Wallabag]({{< relref "wallabag.md" >}})
 - [Webhooks]({{< relref "webhooks.md" >}})

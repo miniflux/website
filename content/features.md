@@ -14,7 +14,7 @@ url: features.html
 - Fetches website icons (favicons).
 - Saves articles to third-party services.
 - Provides full-text search (Thanks to Postgres).
-- Available in Portuguese (Brazilian), Chinese (Simplified and Traditional), Dutch, English (US), Finnish, French, German, Greek, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Ukrainian, Spanish, and Turkish.
+- Available in Portuguese (Brazilian), Chinese (Simplified and Traditional), Dutch, English (US), Finnish, French, German, Greek, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Taiwanese POJ, Ukrainian, Spanish, and Turkish.
 
 <h2 id="privacy">Privacy <a class="anchor" href="#privacy" title="Permalink">¶</a></h2>
 
@@ -56,7 +56,7 @@ url: features.html
 
 <h2 id="integration">Integration <a class="anchor" href="#integration" title="Permalink">¶</a></h2>
 
-- 25+ integrations with third-party services: [Apprise](https://github.com/caronc/apprise), [Espial](https://github.com/jonschoning/espial), [Instapaper](https://www.instapaper.com/), [Linkding](https://github.com/sissbruecker/linkding), [Matrix](https://matrix.org), [Nunux Keeper](https://keeper.nunux.org/), [Notion](https://www.notion.so/), [Ntfy](https://ntfy.sh/), [Pinboard](https://pinboard.in/), [Pocket](https://getpocket.com/), [Readwise Reader](https://readwise.io/read), [Shaarli](https://github.com/shaarli/Shaarli), [Shiori](https://github.com/go-shiori/shiori), [Telegram](https://telegram.org), [Wallabag](https://www.wallabag.org/), etc.
+- 25+ integrations with third-party services: [Apprise](https://github.com/caronc/apprise), [Betula](https://sr.ht/~bouncepaw/betula/), [Cubox](https://cubox.cc/), [Discord](https://discord.com/), [Espial](https://github.com/jonschoning/espial), [Instapaper](https://www.instapaper.com/), [LinkAce](https://www.linkace.org/), [Linkding](https://github.com/sissbruecker/linkding), [LinkWarden](https://linkwarden.app/), [Matrix](https://matrix.org), [Notion](https://www.notion.com/), [Ntfy](https://ntfy.sh/), [Nunux Keeper](https://keeper.nunux.org/), [Pinboard](https://pinboard.in/), [Pocket](https://getpocket.com/), [Pushover](https://pushover.net), [RainDrop](https://raindrop.io/), [Readeck](https://readeck.org/en/), [Readwise Reader](https://readwise.io/read), [RssBridge](https://rss-bridge.org/), [Shaarli](https://github.com/shaarli/Shaarli), [Shiori](https://github.com/go-shiori/shiori), [Slack](https://slack.com/), [Telegram](https://telegram.org), [Wallabag](https://www.wallabag.org/), etc.
 - Bookmarklet to subscribe to a website directly from any web browser
 - Webhooks
 - Use existing mobile applications to read your feeds by using the Fever or Google Reader API
