@@ -93,7 +93,7 @@ written in Python.
 Installation:
 
 ```bash
-go get -u miniflux.app/client
+go get -u miniflux.app/v2/client
 ```
 
 Usage Example:
@@ -104,15 +104,15 @@ package main
 import (
     "fmt"
 
-    miniflux "miniflux.app/client"
+    miniflux "miniflux.app/v2/client"
 )
 
 func main() {
     // Authentication using username/password.
-    client := miniflux.New("https://miniflux.example.org", "admin", "secret")
+    client := miniflux.NewClient("https://miniflux.example.org", "admin", "secret")
 
     // Authentication using API token.
-    client := miniflux.New("https://miniflux.example.org", "My secret token")
+    client := miniflux.NewClient("https://miniflux.example.org", "My secret token")
 
     // Fetch all feeds.
     feeds, err := client.Feeds()
