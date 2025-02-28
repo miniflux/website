@@ -210,8 +210,13 @@ Create a file `/etc/systemd/system/miniflux.socket`:
     NoDelay=true
 
     # Listen on port 80.
-    # To use a unix socket, define the absolute path here.
     ListenStream=80
+
+    ## Unix Socket example
+    # ListenStream=/run/miniflux.sock
+    ## Optional: Only allow Webserver(e.g. caddy) to access the socket
+    # SocketGroup=caddy
+    # SocketMode=0660    
 
     [Install]
     WantedBy=sockets.target
