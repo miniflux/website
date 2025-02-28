@@ -220,7 +220,6 @@ Create a file `/etc/systemd/system/miniflux.service`:
 
     [Unit]
     Description=Miniflux Service
-    Requires=miniflux.socket
 
     [Service]
     ExecStart=/usr/bin/miniflux
@@ -228,13 +227,9 @@ Create a file `/etc/systemd/system/miniflux.service`:
     User=miniflux
     NonBlocking=true
 
-    [Install]
-    WantedBy=multi-user.target
-
 Enable this:
 
     sudo systemctl enable miniflux.socket
-    sudo systemctl enable miniflux.service
 
 Tell systemd to listen on port 80 for us:
 
