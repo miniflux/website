@@ -10,7 +10,7 @@ unsafe = true
 [markup.highlight]
 codeFences = false
 
-[author]
+[params.author]
 name = "Frédéric Guillot"
 
 [outputFormats]

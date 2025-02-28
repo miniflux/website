@@ -2,7 +2,7 @@
     <title>{{ .Site.Title }}</title>
     <id>{{ .Site.BaseURL }}</id>
     <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
-    {{ with $.Site.Author.name }}
+    {{ with $.Site.Params.Author.name }}
     <author><name>{{ . }}</name></author>
     {{ end }}
 
