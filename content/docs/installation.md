@@ -4,7 +4,7 @@ description: Instructions to install Miniflux on your own server
 url: docs/installation.html
 ---
 
-Installing Miniflux is straightforward if you have some basic system administration knowledge.
+Installing Miniflux is straightforward if you have basic system administration knowledge.
 
 - [Packages](#packages)
 - [Database Configuration]({{< ref "database.md" >}})
@@ -27,4 +27,4 @@ FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/ww
 Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/mi/miniflux
 Ubuntu         |  Community (Binary) |  https://packages.ubuntu.com/noble/miniflux
 
-You can download precompiled binaries and packages from the [GitHub Releases page](https://github.com/miniflux/v2/releases). You could also [build the application from the source code]({{< ref "development.md" >}}).
+You can download precompiled binaries and packages from the [GitHub Releases page](https://github.com/miniflux/v2/releases). You can also [build the application from the source code]({{< ref "development.md" >}}).

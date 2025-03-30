@@ -17,5 +17,5 @@ To activate the Google Reader API, go to the **Settings > Integrations** section
 
 ## Notes
 
-Miniflux implements only a subset of the Google Reader API. 
-Open a new issue if you think something is missing.
+Miniflux implements only a subset of the Google Reader API.
+Open a new issue if you think that something is missing.

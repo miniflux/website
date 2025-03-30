@@ -5,73 +5,73 @@ url: /faq.html
 
 Table of Contents:
 
-- [Why are you not merging my pull-request?](#pull-request)
+- [Why are you not merging my pull request?](#pull-request)
 - [Why are you not developing my feature request?](#feature-request)
-- [Feature X was available in Miniflux v1?](#missing-feature-v2)
-- [Why Miniflux stores favicons into the database?](#favicons-storage)
-- [How to create themes for Miniflux 2?](#themes)
-- [Why there is no plugin system?](#plugins)
-- [What is "Save this article"?](#save-article)
+- [Why is Feature X missing in Miniflux v2?](#missing-feature-v2)
+- [Why does Miniflux store favicons in the database?](#favicons-storage)
+- [How can I create themes for Miniflux 2?](#themes)
+- [Why is there no plugin system?](#plugins)
+- [What does "Save this article" mean?](#save-article)
 - [How are items removed from the database?](#entries-suppression)
-- [What "Flush History" does?](#flush-history)
-- [Which binary do I need to use on my Raspberry Pi?](#arm-pi)
+- [What does "Flush History" do?](#flush-history)
+- [Which binary should I use on my Raspberry Pi?](#arm-pi)
 - [Which Debian package architecture should I use for my Raspberry Pi?](#debian-pi-arch)
-- [Which binary do I need to use on Scaleway ARM machines?](#arm-scaleway)
+- [Which binary should I use on Scaleway ARM machines?](#arm-scaleway)
 - [Which Docker architecture should I use?](#docker-arch)
-- [Why SQL migrations are not executed automatically?](#sql-migrations)
-- [How to backup my data?](#backup)
+- [Why aren't SQL migrations executed automatically?](#sql-migrations)
+- [How do I back up my data?](#backup)
 
-<h2 id="pull-request">Why are you not merging my pull-request? <a class="anchor" href="#pull-request" title="Permalink">¶</a></h2>
+<h2 id="pull-request">Why are you not merging my pull request? <a class="anchor" href="#pull-request" title="Permalink">¶</a></h2>
 
-List of things to avoid:
+Things to avoid:
 
-- Making too many changes that would make the pull request very hard to review.
+- Making too many changes, which makes the pull request hard to review.
 - Introducing breaking changes.
-- Introducing new bugs, regressions, or security issues.
+- Adding new bugs, regressions, or security issues.
 - Adding unnecessary dependencies.
 - Slowing down the software.
-- Making changes that go against the philosophy of the software.
-- Having poor code quality.
-- Chaining pull requests that depend on each other.
-- Making radical user interface changes.
+- Making changes that conflict with the software's philosophy.
+- Writing poor-quality code.
+- Creating pull requests that depend on other pull requests.
+- Making radical changes to the user interface.
 
 <h2 id="feature-request">Why are you not developing my feature request? <a class="anchor" href="#feature-request" title="Permalink">¶</a></h2>
 
-- Developing software takes a lot of time.
-- This is a free and open-source project, and no one owes you anything.
-- If you miss something, contribute to the project.
-- Don't expect anyone to work for free.
-- As mentioned previously, the number of features is intentionally limited. Nobody likes bloatware.
-- Improving existing features is more important than adding new ones.
+- Developing software takes significant time.
+- This is a free and open-source project; no one owes you anything.
+- If you need a feature, consider contributing to the project.
+- Don't expect others to work for free.
+- As mentioned earlier, the number of features is intentionally limited. Nobody likes bloatware.
+- Improving existing features takes priority over adding new ones.
 
-<h2 id="missing-feature-v2">Feature X was available in Miniflux v1? <a class="anchor" href="#missing-feature-v2" title="Permalink">¶</a></h2>
+<h2 id="missing-feature-v2">Why is Feature X missing in Miniflux v2? <a class="anchor" href="#missing-feature-v2" title="Permalink">¶</a></h2>
 
-Miniflux 2 doesn't try to reimplement all features of Miniflux 1.
-The minimalist approach is pushed a little bit further.
+Miniflux 2 does not aim to reimplement all features from Miniflux 1.
+The minimalist approach has been taken further.
 
-If you really miss something, **you must contribute to the project**, but remember, **you have to keep the minimalist philosophy of Miniflux**.
+If you truly miss a feature, **you must contribute to the project**, but remember, **you need to adhere to Miniflux's minimalist philosophy**.
 
-<h2 id="favicons-storage">Why Miniflux stores favicons into the database? <a class="anchor" href="#favicons-storage" title="Permalink">¶</a></h2>
+<h2 id="favicons-storage">Why does Miniflux store favicons in the database? <a class="anchor" href="#favicons-storage" title="Permalink">¶</a></h2>
 
-Miniflux follows the [the Twelve Factors principle](https://12factor.net/).
+Miniflux adheres to the [Twelve-Factor App principles](https://12factor.net/).
 Nothing is stored on the local file system.
 The application is designed to run on ephemeral containers without persistent storage.
 
-<h2 id="themes">How to create themes for Miniflux 2? <a class="anchor" href="#themes" title="Permalink">¶</a></h2>
+<h2 id="themes">How can I create themes for Miniflux 2? <a class="anchor" href="#themes" title="Permalink">¶</a></h2>
 
-As of now, Miniflux 2 doesn't have any mechanism to load external stylesheets to avoid dependencies.
+Currently, Miniflux 2 does not support loading external stylesheets to avoid dependencies.
 Themes are embedded into the binary.
 
-If you would like to submit a new official theme, you must send a pull-request.
-But do not forget that **you will have to maintain your theme over the time**, otherwise, your theme will be removed from the code base.
+If you want to submit a new official theme, you must create a pull request.
+However, keep in mind that **you will need to maintain your theme over time**; otherwise, it will be removed from the codebase.
 
-<h2 id="plugins">Why there is no plugin system? <a class="anchor" href="#plugins" title="Permalink">¶</a></h2>
+<h2 id="plugins">Why is there no plugin system? <a class="anchor" href="#plugins" title="Permalink">¶</a></h2>
 
 - Because this software has a minimalist approach.
-- Because implementing a plugin system increase the complexity of the software.
+- Because implementing a plugin system increases the complexity of the software.
 - Because people do not maintain their plugins after a while.
 
-<h2 id="save-article">What is "Save this article"? <a class="anchor" href="#save-article" title="Permalink">¶</a></h2>
+<h2 id="save-article">What does "Save this article" mean? <a class="anchor" href="#save-article" title="Permalink">¶</a></h2>
 
 "Save" sends the feed entry to third-party services like Pinboard or Instapaper if configured.
 
@@ -88,12 +88,12 @@ Data retention is also controlled with the variables `CLEANUP_ARCHIVE_UNREAD_DAY
 
 Keep in mind that Postgres needs to run the <a href="https://www.postgresql.org/docs/current/sql-vacuum.html">VACUUM</a> command to reclaim disk space.
 
-<h2 id="flush-history">What "Flush History" does? <a class="anchor" href="#flush-history" title="Permalink">¶</a></h2>
+<h2 id="flush-history">What does "Flush History" do? <a class="anchor" href="#flush-history" title="Permalink">¶</a></h2>
 
 "Flush History" changes the status of entries from "read" to "removed" (except for bookmarks).
 Entries with the status "removed" are not visible in the user interface.
 
-<h2 id="arm-pi">Which binary do I need to use on my Raspberry Pi? <a class="anchor" href="#arm-pi" title="Permalink">¶</a></h2>
+<h2 id="arm-pi">Which binary should I use on my Raspberry Pi? <a class="anchor" href="#arm-pi" title="Permalink">¶</a></h2>
 
 Raspberry Pi Model  | Miniflux Binary
 --------------------|---------------------
@@ -109,7 +109,7 @@ A, A+, B, B+, Zero  | Not supported yet
 2 and 3             | armhf (32 bits)
 3 and 4             | arm64 (64 bits)
 
-<h2 id="arm-scaleway">Which binary do I need to use on Scaleway ARM machines? <a class="anchor" href="#arm-scaleway" title="Permalink">¶</a></h2>
+<h2 id="arm-scaleway">Which binary should I use on Scaleway ARM machines? <a class="anchor" href="#arm-scaleway" title="Permalink">¶</a></h2>
 
 Server Type    | Miniflux Binary       | uname -m
 ---------------|-----------------------|---------
@@ -135,14 +135,14 @@ standard_init_linux.go:178: exec user process caused "exec format error"
 
 <p class="info">Multi-arch Docker images are available only since Miniflux 2.0.12.</p>
 
-<h2 id="sql-migrations">Why SQL migrations are not executed automatically? <a class="anchor" href="#sql-migrations" title="Permalink">¶</a></h2>
+<h2 id="sql-migrations">Why aren't SQL migrations executed automatically? <a class="anchor" href="#sql-migrations" title="Permalink">¶</a></h2>
 
 - Because it's a source of problems.
 - Only one process should manipulate the database schema at once.
 - If you run multiple containers with an orchestrator that may cause issues.
 - You can still run the migrations by defining the variable `RUN_MIGRATIONS=1`.
 
-<h2 id="backup">How to backup my data? <a class="anchor" href="#backup" title="Permalink">¶</a></h2>
+<h2 id="backup">How do I back up my data? <a class="anchor" href="#backup" title="Permalink">¶</a></h2>
 
 Refer to the [official Postgres documentation](https://www.postgresql.org/docs/current/backup.html) for details about backing up and restoring a Postgres database.
 
@@ -156,4 +156,4 @@ pg_dump miniflux2 -f miniflux.dump
 psql miniflux2 < miniflux.dump
 ```
 
-There many other options available, refer to the official documentation of `pg_dump` and `pg_restore`.
+There are many other options available, refer to the official documentation of `pg_dump` and `pg_restore`.

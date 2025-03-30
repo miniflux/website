@@ -16,7 +16,7 @@ miniflux -config-dump
 miniflux -config-file /etc/miniflux.conf
 ```
 
-or 
+or
 
 ```bash
 miniflux -c /etc/miniflux.conf
@@ -38,7 +38,7 @@ miniflux -debug
 [INFO] Starting Miniflux...
 ```
 
-<h2 id="export-feeds">Export feeds <a class="anchor" href="#export-feeds" title="Permalink">¶</a></h2>
+<h2 id="export-feeds">Export Feeds <a class="anchor" href="#export-feeds" title="Permalink">¶</a></h2>
 
 ```bash
 miniflux -export-user-feeds username > feeds.opml
@@ -51,15 +51,15 @@ miniflux -flush-sessions
 Flushing all sessions (disconnect users)
 ```
 
-<h2 id="healthcheck">Healthcheck <a class="anchor" href="#healthcheck" title="Permalink">¶</a></h2>
+<h2 id="healthcheck">Health Check <a class="anchor" href="#healthcheck" title="Permalink">¶</a></h2>
 
-Perform a health check on the given endpoint. The value "auto" try to guess the health check endpoint.
+Perform a health check on the specified endpoint. The value "auto" attempts to guess the health check endpoint.
 
 ```bash
 miniflux -healthcheck https://miniflux.domain.tld/healthcheck
 ```
 
-Return 0 as exit code if successful otherwise returns 1.
+Returns 0 as the exit code if successful; otherwise, returns 1.
 
 <h2 id="info">Show Build Information <a class="anchor" href="#info" title="Permalink">¶</a></h2>
 
@@ -95,7 +95,7 @@ Migrating to version: 11
 Migrating to version: 12
 ```
 
-<h2 id="refresh-feeds">Refresh feeds <a class="anchor" href="#refresh-feeds" title="Permalink">¶</a></h2>
+<h2 id="refresh-feeds">Refresh Feeds <a class="anchor" href="#refresh-feeds" title="Permalink">¶</a></h2>
 
 ```bash
 miniflux -refresh-feeds
@@ -117,7 +117,7 @@ Enter Password: ****
 
 <h2 id="run-cleanup-tasks">Run Cleanup Tasks <a class="anchor" href="#run-cleanup-tasks" title="Permalink">¶</a></h2>
 
-Delete old sessions and archives old entries.
+Delete old sessions and archive old entries.
 
 ```bash
 miniflux -run-cleanup-tasks

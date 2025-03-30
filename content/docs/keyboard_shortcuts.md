@@ -4,43 +4,43 @@ url: /docs/keyboard_shortcuts.html
 ---
 <h2 id="sections">Sections Navigation <a class="anchor" href="#sections" title="Permalink">¶</a></h2>
 
-- `g u`: Go to unread page
-- `g b`: Go to bookmark page
+- `g u`: Go to the unread page
+- `g b`: Go to the bookmark page
 - `g h`: Go to the history page
-- `g f`: Go to feed page
-- `g c`: Go to categories page
-- `g s`: Go to settings page
+- `g f`: Go to the feed page
+- `g c`: Go to the categories page
+- `g s`: Go to the settings page
 - `?`: Show keyboard shortcuts help
 
 <h2 id="items">Items Navigation <a class="anchor" href="#items" title="Permalink">¶</a></h2>
 
-- `p` or `k` or `◄` Go to previous item
-- `n` or `j` or `►` Go to next item
-- `F`: Go to feed page
+- `p` or `k` or `◄`: Go to the previous item
+- `n` or `j` or `►`: Go to the next item
+- `F`: Go to the feed page
 
 <h2 id="pages">Pages Navigation <a class="anchor" href="#pages" title="Permalink">¶</a></h2>
 
-- `h`: Go to previous page
-- `l`: Go to next page
+- `h`: Go to the previous page
+- `l`: Go to the next page
 
 <h2 id="actions">Actions <a class="anchor" href="#actions" title="Permalink">¶</a></h2>
 
-- `o` or `Enter`: Open selected item
-- `v`: Open original link to a new tab
-- `V`: Open original link into current tab (entry view only)
-- `c`: Open comments link to a new tab
-- `C`: Open comments link into current tab
+- `o` or `Enter`: Open the selected item
+- `v`: Open the original link in a new tab
+- `V`: Open the original link in the current tab (entry view only)
+- `c`: Open the comments link in a new tab
+- `C`: Open the comments link in the current tab
 - `m`: Toggle read/unread, focus next
 - `M`: Toggle read/unread, focus previous
-- `A`: Mark current page as read
-- `d`: Fetch original web page and apply scraper rules or readability
+- `A`: Mark the current page as read
+- `d`: Fetch the original web page and apply scraper rules or readability
 - `f`: Star or unstar the current entry
-- `s`: Save article to configured third-party services
+- `s`: Save the article to configured third-party services
 - `a`: Toggle open/close entry attachments
-- `z t`: Scroll item to top
+- `z t`: Scroll the item to the top
 - `R`: Refresh all feeds in the background
-- `#`: Removes current feed
-- `/`: Set focus on search form
+- `#`: Remove the current feed
+- `/`: Set focus on the search form
 - `Escape`: Close modal dialogs
 
 <p class="warning">

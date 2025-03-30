@@ -33,7 +33,7 @@ Docker images are published to three different container registries:
 - `2.0.25`: Specific version
 - `nightly`: Development version
 
-The recommendation is to use a pinned version to avoid unexpected updates.
+It is recommended to use a pinned version to avoid unexpected updates.
 
 <h2 id="docker">How to Run the Container Manually <a class="anchor" href="#docker" title="Permalink">¶</a></h2>
 
@@ -51,9 +51,9 @@ docker run -d \
   docker.io/miniflux/miniflux:latest
 ```
 
-Running the command above will run the migrations and sets up a new admin account with the chosen username and password.
+The command above will run the migrations and set up a new admin account with the chosen username and password.
 
-Once the container is started, you should be able to access the application on the exposed port which is port 80 in this example.
+Once the container is started, you should be able to access the application on the exposed port, which is port 80 in this example.
 
 <h2 id="docker-compose">Docker Compose <a class="anchor" href="#docker-compose" title="Permalink">¶</a></h2>
 
@@ -90,13 +90,13 @@ volumes:
   miniflux-db:
 ```
 
-- `DATABASE_URL` is used to define the database connection parameters
-- `RUN_MIGRATIONS=1` runs the SQL migrations automatically
-- `CREATE_ADMIN`, `ADMIN_USERNAME`, `ADMIN_PASSWORD` allows us to create the first admin user, and it can be removed after the first initialization.
+- `DATABASE_URL` defines the database connection parameters.
+- `RUN_MIGRATIONS=1` runs the SQL migrations automatically.
+- `CREATE_ADMIN`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD` allow the creation of the first admin user. These can be removed after the first initialization.
 
 There are more examples in the Git repository with Traefik and Caddy: https://github.com/miniflux/v2/tree/master/contrib/docker-compose
 
-You could also configure an optional health check in your Docker Compose file:
+You can also configure an optional health check in your Docker Compose file:
 
 ```yaml
 miniflux:
@@ -105,4 +105,4 @@ miniflux:
     test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
 ```
 
-Make sure to take a look a the list of [configuration parameters]({{< relref configuration >}}) to customize your installation.
+Make sure to review the list of [configuration parameters]({{< relref configuration >}}) to customize your installation.

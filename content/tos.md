@@ -12,7 +12,7 @@ url: tos.html
 
 ### 2. Subscription
 
--   Products are delivered immediately after your purchase on the
+-   Products and services are delivered immediately after your purchase on the
     Miniflux.app website.
 
 ### 3. Price
@@ -22,7 +22,7 @@ url: tos.html
 ### 4. Payment
 
 -   Payments are made by credit card or PayPal.
--   We do not store credit card information or any sensitive data on our
+-   We do not store credit card information or any sensitive payment data on our
     servers.
 
 ### 5. Cancellation
@@ -37,7 +37,7 @@ url: tos.html
 -   Miniflux cannot be held liable for breach of contract in connection
     with fortuitous events or force majeure.
 -   Miniflux is not liable for any damages including operating losses, loss
-    of profit, or any damages or expenses that might arise.
+    of profit, or any other damages or expenses that might arise.
 
 ### 7. Privacy
 
@@ -45,7 +45,7 @@ url: tos.html
 -   Your data (feeds) are **kept confidential** and **are not given or
     sold to third parties**.
 -   We do **not track your usage**.
--   We do **not send spam or marketing messages**.
+-   We do **not send spam or marketing emails**.
 -   We do **not use any sort of analytics software**.
 -   All your data are removed after account cancellation.
 

@@ -871,6 +871,7 @@ Response:
             }
         }
     ]
+}
 ```
 
 <h3 id="endpoint-get-feed-entries">Get Feed Entries <a class="anchor" href="#endpoint-get-feed-entries" title="Permalink">¶</a></h3>
@@ -956,6 +957,7 @@ Response:
             }
         }
     ]
+}
 ```
 
 <h3 id="endpoint-mark-feed-entries-as-read">Mark Feed Entries as Read <a class="anchor" href="#endpoint-mark-feed-entries-as-read" title="Permalink">¶</a></h3>
@@ -1053,6 +1055,7 @@ Response:
             }
         }
     ]
+}
 ```
 
 <h3 id="endpoint-update-entries">Update Entries <a class="anchor" href="#endpoint-update-entries" title="Permalink">¶</a></h3>
@@ -1067,7 +1070,7 @@ Request:
         "status": "read"
     }
 
-Returns `204` status code for success.
+Returns a `204` status code for success.
 
 <h3 id="endpoint-toggle-bookmark">Toggle Entry Bookmark <a class="anchor" href="#endpoint-toggle-bookmark" title="Permalink">¶</a></h3>
 
@@ -1075,7 +1078,7 @@ Request:
 
     PUT /v1/entries/1234/bookmark
 
-Returns `204` status code for success.
+Returns a `204` status code for success.
 
 <h3 id="endpoint-get-enclosure">Get Enclosure <a class="anchor" href="#endpoint-get-enclosure" title="Permalink">¶</a></h3>
 
@@ -1085,7 +1088,7 @@ Request:
 
 Response:
 
-``` json
+```json
 {
   "id": 278,
   "user_id": 1,
@@ -1098,7 +1101,7 @@ Response:
 ```
 
 <div class="info">
-This API endpoint is available since Miniflux v2.2.0.
+This API endpoint has been available since Miniflux v2.2.0.
 </div>
 
 <h3 id="endpoint-update-enclosure">Update Enclosure <a class="anchor" href="#endpoint-update-enclosure" title="Permalink">¶</a></h3>
@@ -1111,10 +1114,10 @@ Request:
         "media_progression": 42
     }
 
-Returns `204` status code for success.
+Returns a `204` status code for success.
 
 <div class="info">
-This API endpoint is available since Miniflux v2.2.0.
+This API endpoint has been available since Miniflux v2.2.0.
 </div>
 
 <h3 id="endpoint-get-categories">Get Categories <a class="anchor" href="#endpoint-get-categories" title="Permalink">¶</a></h3>
@@ -1125,7 +1128,7 @@ Request:
 
 Response:
 
-``` json
+```json
 [
     {"title": "All", "user_id": 267, "id": 792},
     {"title": "Engineering Blogs", "user_id": 267, "id": 793}

@@ -10,35 +10,35 @@ Miniflux can publish new feed entries to a custom API endpoint. You can easily s
 This feature has been available since Miniflux 2.0.48.
 
 Configuring a Webhook in Miniflux
--------------------------------
+---------------------------------
 
-1. Go to **Settings > Integrations > Webhook**
-2. Enter the URL of your webhook endpoint
+1. Go to **Settings > Integrations > Webhook**.
+2. Enter the URL of your webhook endpoint.
 
 The auto-generated secret is used to validate the payload.
 
 Webhook Event Types
 -------------------
 
-Miniflux supports different types of event:
+Miniflux supports different types of events:
 
-- `new_entries`: Event sent during a feed refresh when new entries are discovered
-- `save_entry`: Event sent when the end-user save an entry
+- `new_entries`: Event sent during a feed refresh when new entries are discovered.
+- `save_entry`: Event sent when the end-user saves an entry.
 
 Webhook HTTP Request
 --------------------
 
 - HTTP Method: `POST`
 - Content Type: `application/json`
-- The HMAC signature is stored in the HTTP header: `X-Miniflux-Signature`
-- The event type in stored in HTTP header `X-Miniflux-Event-Type` in addition to the request body
-- The body contains a JSON payload
+- The HMAC signature is stored in the HTTP header: `X-Miniflux-Signature`.
+- The event type is stored in the HTTP header `X-Miniflux-Event-Type` in addition to the request body.
+- The body contains a JSON payload.
 
 Validating Signatures from Miniflux
 -----------------------------------
 
 Miniflux will sign all inbound requests to your application with an `X-Miniflux-Signature` HTTP header.
-The signature uses the HMAC-SHA256 hashing algorithm with the request body and the auto-generated secret key that is visible in **Settings > Integrations > Webhook**.
+The signature uses the HMAC-SHA256 hashing algorithm with the request body and the auto-generated secret key visible in **Settings > Integrations > Webhook**.
 
 Example in PHP:
 
@@ -59,10 +59,10 @@ if (! hash_equals($hmac, $_SERVER['HTTP_X_MINIFLUX_SIGNATURE'])) {
 HTTP Authentication
 -------------------
 
-Miniflux supports HTTP Basic Authentication. 
-This allows you to password protect the webhook URLs on your web server so that only you and Miniflux can access them.
+Miniflux supports HTTP Basic Authentication.
+This allows you to password-protect the webhook URLs on your web server so that only you and Miniflux can access them.
 
-You may provide a username and password via the following URL format: `https://username:password@webhook.example.org/`
+You may provide a username and password via the following URL format: `https://username:password@webhook.example.org/`.
 
 New Entries Event Request
 -------------------------
@@ -163,7 +163,7 @@ X-Miniflux-Event-Type: save_entry
       "id": 9,
       "user_id": 1,
       "feed_url": "https://example.org/feed.xml",
-      "site_url": "https://example.org/,
+      "site_url": "https://example.org",
       "title": "Example website",
       "checked_at": "2023-09-10T20:07:22.956279Z"
     }

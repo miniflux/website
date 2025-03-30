@@ -3,14 +3,14 @@ title: Ntfy Integration
 url: /docs/ntfy.html
 ---
 
-[ntfy](https://ntfy.sh/) (pronounced notify) is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer, and/or using a REST API. It's a highly flexible and completely free software.
+[ntfy](https://ntfy.sh/) (pronounced "notify") is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer, and/or using a REST API. It's highly flexible and completely free software.
 
 - [Official website](https://ntfy.sh/)
 - [Git repository](https://github.com/binwiederhier/ntfy)
 
 Miniflux can send new entries to any **ntfy** server. By doing so, you can receive push notifications whenever a new article is published.
 
-This feature is available since Miniflux v2.2.0.
+This feature has been available since Miniflux v2.2.0.
 
 To receive notifications on your phone, install the app. Once installed, open it and subscribe to a topic of your choosing.
 
@@ -27,4 +27,5 @@ Go to the feed settings page and enable **ntfy**.
 
 ![Feed Settings](/images/ntfy_feed_settings.png)
 
-You can also choose a different priority for each feed. Priorities define how urgently your phone notifies you. Refer to the [official ntfy documentation for more information](https://docs.ntfy.sh/publish/#message-priority).
+You can also choose a different priority for each feed.
+Priorities define how urgently your phone notifies you. Refer to the [official ntfy documentation for more information](https://docs.ntfy.sh/publish/#message-priority).

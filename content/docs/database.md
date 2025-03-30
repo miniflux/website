@@ -1,11 +1,11 @@
 ---
 title: Database Configuration
-description: Instructions to configure Postgresql for Miniflux
+description: Instructions to configure PostgreSQL for Miniflux
 url: docs/database.html
 ---
 
-- [Postgresql Installation](#installation)
-- [Postgresql Configuration](#configuration)
+- [PostgreSQL Installation](#installation)
+- [PostgreSQL Configuration](#configuration)
 - [Database Connection Parameters](#dsn)
 
 This document describes how to configure PostgreSQL for Miniflux.
@@ -14,7 +14,7 @@ This document describes how to configure PostgreSQL for Miniflux.
 
 The first step is to install PostgreSQL with your package manager.
 
-For example, on Debian it's simple as typing this command:
+For example, on Debian it's as simple as typing this command:
 
 ```bash
 sudo apt install postgresql postgresql-contrib
@@ -22,7 +22,7 @@ sudo apt install postgresql postgresql-contrib
 
 <h2 id="configuration">Database Configuration <a class="anchor" href="#configuration" title="Permalink">¶</a></h2>
 
-Here an example from the command line:
+Here's an example from the command line:
 
 ```
 # Switch to the postgres user
@@ -41,9 +41,9 @@ $ psql miniflux -c 'create extension hstore'
 CREATE EXTENSION
 ```
 
-### Enabling HSTORE extension for Postgresql
+### Enabling HSTORE extension for PostgreSQL
 
-Creating Postgresql extensions requires the `SUPERUSER` privilege.
+Creating PostgreSQL extensions requires the `SUPERUSER` privilege.
 Several solutions are available:
 
 1) Give `SUPERUSER` privileges to the miniflux user only during the schema migration:
@@ -54,7 +54,7 @@ ALTER USER miniflux WITH SUPERUSER;
 ALTER USER miniflux WITH NOSUPERUSER;
 ```
 
-2) You could [create the hstore extension](https://www.postgresql.org/docs/current/static/sql-createextension.html) with another user that have the ``SUPERUSER`` privileges before running the migrations.
+2) You could [create the hstore extension](https://www.postgresql.org/docs/current/static/sql-createextension.html) with another user that has the `SUPERUSER` privileges before running the migrations:
 
 ```
 sudo -u postgres psql $MINIFLUX_DATABASE
@@ -63,7 +63,7 @@ sudo -u postgres psql $MINIFLUX_DATABASE
 
 Note that if you use Debian or Ubuntu, you might have to install the `postgresql-contrib` package to activate the `HSTORE` extension.
 
-Recent versions of Miniflux non longer uses the `HSTORE` extension but it still required to run the SQL migrations.
+Recent versions of Miniflux no longer use the `HSTORE` extension, but it is still required to run the SQL migrations.
 
 <h2 id="dsn">Database Connection Parameters <a class="anchor" href="#dsn" title="Permalink">¶</a></h2>
 

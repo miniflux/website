@@ -12,16 +12,16 @@ You must have Debian >= 8 or Ubuntu >= 16.04.
 
 When using the Debian package, the Miniflux daemon is supervised by systemd.
 
-Make sure to [install and configure Postgresql]({{< ref "database.md" >}}) before installing Miniflux.
+Make sure to [install and configure PostgreSQL]({{< ref "database.md" >}}) before installing Miniflux.
 
 <h2 id="debian-package">Install Miniflux with the Debian package <a class="anchor" href="#debian-package" title="Permalink">¶</a></h2>
 
 1. Download the Debian package from the [GitHub Releases page](https://github.com/miniflux/v2/releases).
-2. Install the Debian package: `dpkg -i miniflux_2.0.13_amd64.deb`
+2. Install the Debian package: `dpkg -i miniflux_2.0.13_amd64.deb`.
 
 <h2 id="apt-repo">Install Miniflux from the APT Repository <a class="anchor" href="#apt-repo" title="Permalink">¶</a></h2>
 
-You can configure APT to use Miniflux repository.
+You can configure APT to use the Miniflux repository.
 To start, create a `miniflux.list` file in the `/etc/apt/sources.list.d` directory.
 You will need sudo access to make these changes:
 
@@ -57,18 +57,18 @@ The previous repository URL <code>https://apt.miniflux.app/</code> is deprecated
 
 <h2 id="configuration">Configure Miniflux <a class="anchor" href="#configuration" title="Permalink">¶</a></h2>
 
-1. Define the environment variable `DATABASE_URL` in `/etc/miniflux.conf`
-2. Run the SQL migrations manually: `miniflux -migrate -config-file /etc/miniflux.conf`, or set the variable `RUN_MIGRATIONS=1` in `/etc/miniflux.conf`
-3. Create an admin user: `miniflux -create-admin -config-file /etc/miniflux.conf`
-4. Restart the process: `systemctl restart miniflux`
-5. Check the process status: `systemctl status miniflux`
+1. Define the environment variable `DATABASE_URL` in `/etc/miniflux.conf`.
+2. Run the SQL migrations manually: `miniflux -migrate -config-file /etc/miniflux.conf`, or set the variable `RUN_MIGRATIONS=1` in `/etc/miniflux.conf`.
+3. Create an admin user: `miniflux -create-admin -config-file /etc/miniflux.conf`.
+4. Restart the process: `systemctl restart miniflux`.
+5. Check the process status: `systemctl status miniflux`.
 
 Since Miniflux v2.0.25, the Debian package is available for multiple architectures: `amd64`, `arm64`, and `armhf`.
-This way, it's very easy to install Miniflux on a Raspberry Pi.
+This makes it very easy to install Miniflux on a Raspberry Pi.
 
 <p class="info">
 Systemd reads the environment variables from the file <code>/etc/miniflux.conf</code>.
-You must restart the service to take the new values into consideration.
+You must restart the service to apply the new values.
 </p>
 
-Make sure to take a look at the list of [configuration parameters]({{< relref configuration >}}) to customize your installation.
+Make sure to review the list of [configuration parameters]({{< relref configuration >}}) to customize your installation.

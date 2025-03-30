@@ -9,4 +9,4 @@ Miniflux can save articles to [Pinboard](https://pinboard.in/).
 
 To activate this service, go to the integration section and enter your Pinboard API credentials.
 
-You must use the Pinboard API token, not your Pinboard password.
+You must use your Pinboard API token, not your Pinboard password.
