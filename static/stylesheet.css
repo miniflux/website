@@ -264,7 +264,7 @@ dd {
 }
 
 dd strong {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 figure {
@@ -329,7 +329,7 @@ a.button {
 .button {
     display: inline-block;
     -webkit-appearance: none;
-    -moz-appearance: none;
+    appearance: none;
     font-size: 1.2em;
     cursor: pointer;
     padding: 3px 10px;
