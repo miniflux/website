@@ -51,6 +51,7 @@ Table of Contents:
     - [Get User](#endpoint-get-user)
     - [Get Users](#endpoint-get-users)
     - [Delete User](#endpoint-delete-user)
+    - [Integrations Status](#integrations-status)
     - [Mark User Entries as Read](#endpoint-mark-user-entries-as-read)
     - [Fetch unread and read counters](#endpoint-counters)
     - [Healthcheck](#endpoint-healthcheck)
@@ -1460,6 +1461,22 @@ Request:
 
 <div class="info">
 You must be an administrator to delete users.
+</div>
+
+<h3 id="integrations-status">Integrations Status <a class="anchor" href="#integrations-status" title="Permalink">¶</a></h3>
+
+This API endpoint returns `true` if the authenticated user has enabled an integration to save entries to a third-party service (e.g., Wallabag, Shiori, Shaarli). Note that the Google Reader API and Fever API are not considered.
+
+Request:
+
+    GET /integrations/status
+
+Response:
+
+    {"has_integrations": true}
+
+<div class="info">
+This API endpoint is available since Miniflux v2.2.2.
 </div>
 
 <h3 id="endpoint-mark-user-entries-as-read">Mark User Entries as Read <a class="anchor" href="#endpoint-mark-user-entries-as-read" title="Permalink">¶</a></h3>
