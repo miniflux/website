@@ -1131,8 +1131,29 @@ Response:
 
 ```json
 [
-    {"title": "All", "user_id": 267, "id": 792},
-    {"title": "Engineering Blogs", "user_id": 267, "id": 793}
+    {"title": "All", "user_id": 267, "id": 792, "hide_globally": false},
+    {"title": "Engineering Blogs", "user_id": 267, "id": 793, "hide_globally": false}
+]
+```
+
+Since Miniflux 2.0.46, you can pass the argument `?counts=true` to include `total_unread` and `feed_count` in the response:
+
+Request:
+
+    GET /v1/categories?counts=true
+
+Response:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "All",
+    "user_id": 1,
+    "hide_globally": false,
+    "feed_count": 7,
+    "total_unread": 268
+  }
 ]
 ```
 
