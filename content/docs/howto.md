@@ -216,7 +216,7 @@ Create a file `/etc/systemd/system/miniflux.socket`:
     # ListenStream=/run/miniflux.sock
     ## Optional: Only allow Webserver(e.g. caddy) to access the socket
     # SocketGroup=caddy
-    # SocketMode=0660    
+    # SocketMode=0660
 
     [Install]
     WantedBy=sockets.target
@@ -338,8 +338,6 @@ You can use the OpenID Connect integration with different providers.
 
 Note that the OIDC library automatically appends the `.well-known/openid-configuration`, this part has to be removed from the URL when setting `OAUTH2_OIDC_DISCOVERY_ENDPOINT`.
 
-For example, Authentik discovery endpoint is `https://authentik.example.org/application/o/miniflux/.well-known/openid-configuration` and the `OAUTH2_OIDC_DISCOVERY_ENDPOINT` config option should be `https://authentik.example.org/application/o/miniflux/` (note the trailing `/`).
-
 - Since Miniflux 2.0.48, [OAuth2 PKCE](https://oauth.net/2/pkce/) is supported.
 - Since Miniflux 2.0.48, the `profile` scope will be requested in addition to the `email` scope. If no email address is available, Miniflux will fallback to the `preferred_username` or `name` claims to populate Miniflux's `username` field.
 
@@ -357,6 +355,8 @@ OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://authentik.example.org/application/o/minif
 OAUTH2_USER_CREATION=1
 ```
 
+Authentik discovery endpoint is `https://authentik.example.org/application/o/miniflux/.well-known/openid-configuration` and the `OAUTH2_OIDC_DISCOVERY_ENDPOINT` config option should be `https://authentik.example.org/application/o/miniflux/` (note the trailing `/`).
+
 #### Kanidm
 
 Example of Miniflux configuration with [Kanidm](https://kanidm.com):
@@ -369,6 +369,23 @@ OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/oidc/callback
 OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://kanidm.example.org/oauth2/openid/miniflux
 OAUTH2_USER_CREATION=1
 ```
+
+#### Keycloak
+
+Example with [Keycloak](https://www.keycloak.org/) using the default settings from [the quick start guide with Docker](https://www.keycloak.org/getting-started/getting-started-docker):
+
+```ini
+OAUTH2_PROVIDER=oidc
+OAUTH2_CLIENT_SECRET=replace_me
+OAUTH2_CLIENT_ID=replace_me
+OAUTH2_REDIRECT_URL=https://miniflux.example.org/oauth2/oidc/callback
+OAUTH2_OIDC_DISCOVERY_ENDPOINT=https://keycloak.example.org/realms/master
+OAUTH2_USER_CREATION=1
+```
+
+The value of `OAUTH2_OIDC_DISCOVERY_ENDPOINT` typically matches the `issuer` field in the response from `https://keycloak.example.org/realms/master/.well-known/openid-configuration`.
+
+In Keycloak, a realm is equivalent to a tenant. In this example, the default realm `master` is used.
 
 #### Zitadel
 
