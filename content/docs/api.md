@@ -1174,9 +1174,20 @@ Response:
 {
     "id": 802,
     "user_id": 267,
-    "title": "My category"
+    "title": "My category",
+    "hide_globally": false
 }
 ```
+
+Since Miniflux 2.2.8, you can also pass the `hide_globally` field when creating a category:
+
+    POST /v1/categories
+    Content-Type: application/json
+
+    {
+        "title": "My category",
+        "hide_globally": true
+    }
 
 <h3 id="endpoint-update-category">Update Category <a class="anchor" href="#endpoint-update-category" title="Permalink">¶</a></h3>
 
@@ -1195,9 +1206,19 @@ Response:
 {
     "id": 802,
     "user_id": 267,
-    "title": "My new title"
+    "title": "My new title",
+    "hide_globally": false
 }
 ```
+
+Since Miniflux 2.2.8, you can also pass the `hide_globally` field when updating a category:
+
+    PUT /v1/categories/123
+    Content-Type: application/json
+
+    {
+        "hide_globally": true
+    }
 
 <h3 id="endpoint-refresh-category">Refresh Category Feeds<a class="anchor" href="#endpoint-refresh-category" title="Permalink">¶</a></h3>
 
