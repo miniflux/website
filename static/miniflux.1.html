@@ -27,10 +27,11 @@
 <section class="Sh">
 <h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
 <p class="Pp"><b>miniflux</b> [-vic] [-config-dump] [-config-file]
-    [-create-admin] [-debug] [-flush-sessions]
+    [-create-admin] [-debug]
   <br/>
-   [-healthcheck] [-info] [-migrate] [-refresh-feeds] [-reset-feed-errors]
-    [-reset-password]
+   [-flush-sessions] [-healthcheck] [-info] [-migrate] [-refresh-feeds]
+  <br/>
+   [-reset-feed-errors] [-reset-feed-next-check-at] [-reset-password]
   <br/>
    [-run-cleanup-tasks] [-version]</p>
 <p class="Pp"></p>
@@ -73,6 +74,8 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 <div class="Bd-indent">Refresh a batch of feeds and exit.</div>
 <p class="Pp"><b>-reset-feed-errors</b></p>
 <div class="Bd-indent">Clear all feed errors for all users.</div>
+<p class="Pp"><b>-reset-feed-next-check-at</b></p>
+<div class="Bd-indent">Reset the next check time for all feeds.</div>
 <p class="Pp"><b>-reset-password</b></p>
 <div class="Bd-indent">Reset user password.</div>
 <p class="Pp"><b>-run-cleanup-tasks</b></p>
@@ -249,8 +252,14 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dd>Maximum body size for HTTP requests in Mebibyte (MiB).
     <br/>
     Default is 15 MiB.</dd>
+  <dt id="HTTP_CLIENT_PROXIES"><a class="permalink" href="#HTTP_CLIENT_PROXIES"><b>HTTP_CLIENT_PROXIES</b></a></dt>
+  <dd>Enable proxy rotation for outgoing requests by providing a comma-separated
+      list of proxy URLs.
+    <br/>
+    Default is empty.</dd>
   <dt id="HTTP_CLIENT_PROXY"><a class="permalink" href="#HTTP_CLIENT_PROXY"><b>HTTP_CLIENT_PROXY</b></a></dt>
-  <dd>Proxy URL for HTTP client.
+  <dd>Proxy URL to use when the &quot;Fetch via proxy&quot; feed option is
+      enabled.
     <br/>
     Default is empty.</dd>
   <dt id="HTTP_CLIENT_TIMEOUT"><a class="permalink" href="#HTTP_CLIENT_TIMEOUT"><b>HTTP_CLIENT_TIMEOUT</b></a></dt>
@@ -461,6 +470,10 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dd>Minimum interval in minutes for the entry frequency scheduler.
     <br/>
     Default is 5 minutes.</dd>
+  <dt id="SCHEDULER_ROUND_ROBIN_MAX_INTERVAL"><a class="permalink" href="#SCHEDULER_ROUND_ROBIN_MAX_INTERVAL"><b>SCHEDULER_ROUND_ROBIN_MAX_INTERVAL</b></a></dt>
+  <dd>Maximum interval in minutes for the round robin scheduler.
+    <br/>
+    Default is 1440 minutes (24 hours).</dd>
   <dt id="SCHEDULER_ROUND_ROBIN_MIN_INTERVAL"><a class="permalink" href="#SCHEDULER_ROUND_ROBIN_MIN_INTERVAL"><b>SCHEDULER_ROUND_ROBIN_MIN_INTERVAL</b></a></dt>
   <dd>Minimum interval in minutes for the round robin scheduler.
     <br/>
@@ -510,7 +523,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">December 7, 2024</td>
+    <td class="foot-date">April 11, 2025</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

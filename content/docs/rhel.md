@@ -10,16 +10,16 @@ When you use the RPM package, the Miniflux daemon is managed by systemd.
 
 Make sure to [install and configure PostgreSQL]({{< relref "database" >}}) before installing Miniflux.
 
-- [Install the RPM Package Manually](#rpm-package)
-- [Install the RPM Package from the YUM Repo](#rpm-repo)
-- [Configure Miniflux](#configuration)
+- [Installing the RPM Package Manually](#rpm-package)
+- [Installing the RPM Package from the YUM Repo](#rpm-repo)
+- [Configuring Miniflux](#configuration)
 
 <h2 id="rpm-package">RPM Package Installation <a class="anchor" href="#rpm-package" title="Permalink">¶</a></h2>
 
 1. Download the RPM package from the [GitHub Releases page](https://github.com/miniflux/v2/releases).
 2. Install the RPM package: `rpm -ivh miniflux-2.0.13-1.0.x86_64.rpm`.
 
-<h2 id="rpm-repo">How to Configure the RPM Repository <a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
+<h2 id="rpm-repo">RPM Repository Configuration<a class="anchor" href="#rpm-repo" title="Permalink">¶</a></h2>
 
 Create the file `/etc/yum.repos.d/miniflux.repo`:
 
@@ -41,7 +41,7 @@ dnf install -y miniflux
 The previous repository URL <code>https://rpm.miniflux.app/x86_64/</code> is deprecated in favor of <code>https://repo.miniflux.app/yum/</code>.
 </div>
 
-<h2 id="configuration">Configure Miniflux <a class="anchor" href="#configuration" title="Permalink">¶</a></h2>
+<h2 id="configuration">Configuring Miniflux <a class="anchor" href="#configuration" title="Permalink">¶</a></h2>
 
 1. Define the environment variable `DATABASE_URL` if necessary.
 2. Run the SQL migrations: `miniflux -migrate`, or set the variable `RUN_MIGRATIONS=1` in `/etc/miniflux.conf`.

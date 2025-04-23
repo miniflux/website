@@ -107,6 +107,12 @@ miniflux -refresh-feeds
 miniflux -reset-feed-errors
 ```
 
+<h2 id="reset-feed-next-check-at">Reset the next check time for all feeds <a class="anchor" href="#reset-feed-next-check-at" title="Permalink">¶</a></h2>
+
+```bash
+miniflux -reset-feed-next-check-at
+```
+
 <h2 id="reset-password">Reset User Password <a class="anchor" href="#reset-password" title="Permalink">¶</a></h2>
 
 ```bash

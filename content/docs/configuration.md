@@ -176,10 +176,14 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Maximum body size for HTTP requests in Mebibyte (MiB).</p>
         <p><em>Default is 15 MiB.</em></p>
     </dd>
+    <dt id="http-client-proxies"><a href="#http-client-proxies"><code>HTTP_CLIENT_PROXIES</code></a></dt>
+    <dd>
+        <p>Enable proxy rotation for outgoing requests by providing a comma-separated list of proxy URLs.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
     <dt id="http-client-proxy"><a href="#http-client-proxy"><code>HTTP_CLIENT_PROXY</code></a></dt>
     <dd>
-        <p>Proxy URL for the HTTP client. For example: <code>http://127.0.0.1:8888</code>.</p>
-        <p>This proxy is used only when the feed has the option "Fetch via proxy" enabled.</p>
+        <p>Proxy URL to use when the "Fetch via proxy" feed option is enabled. For example: <code>http://127.0.0.1:8888</code>.</p>
         <p>If you prefer to have a proxy for all outgoing requests, use the environment variables <code>HTTP_PROXY</code> or <code>HTTPS_PROXY</code>, look at the official <a href="https://golang.org/pkg/net/http/#ProxyFromEnvironment">Golang documentation</a> for more details.</p>
         <p><em>Default is empty.</em></p>
     </dd>
@@ -422,6 +426,14 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>Minimum interval in minutes for the entry frequency scheduler.</p>
         <p><em>Default is 5 minutes.</em></p>
+    </dd>
+    <dt id="scheduler-round-robin-max-interval"><a href="#scheduler-round-robin-max-interval"><code>SCHEDULER_ROUND_ROBIN_MAX_INTERVAL</code></a></dt>
+    <dd>
+        <p>
+            Maximum interval in minutes for the round robin scheduler.
+            This option is used when the values of the <code>Cache-Control</code> max-age and <code>Expires</code> headers are excessively high.
+        </p>
+        <p><em>Default is 1440 minutes (24 hours).</em></p>
     </dd>
     <dt id="scheduler-round-robin-min-interval"><a href="#scheduler-round-robin-min-interval"><code>SCHEDULER_ROUND_ROBIN_MIN_INTERVAL</code></a></dt>
     <dd>
