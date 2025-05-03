@@ -57,7 +57,7 @@ Miniflux uses Javascript only where it's necessary.
 
 <h2 id="es6">Why only ECMAScript 6? <a class="anchor" href="#es6" title="Permalink">¶</a></h2>
 
-Miniflux uses [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015) and the Fetch API.
+Miniflux uses [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript_version_history#6th_Edition_%E2%80%93_ECMAScript_2015) and the Fetch API.
 
 - All modern browsers support ES6 nowadays.
 - Only Internet Explorer doesn't support ES6, but who cares?
