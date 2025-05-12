@@ -3,7 +3,7 @@ title: Fever API
 url: /docs/fever.html
 ---
 
-Miniflux implements the [Fever API](https://feedafever.com/api) in addition to its own [REST API](api.html). The
+Miniflux implements the Fever API (originally located at `https://feedafever.com/api`) in addition to its own [REST API](api.html). The
 Fever API allows you to use existing mobile applications to read your
 feeds instead of the web user interface.
 

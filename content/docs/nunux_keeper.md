@@ -3,7 +3,7 @@ title: Nunux Keeper Integration
 url: /docs/nunux_keeper.html
 ---
 
-[Nunux Keeper](https://keeper.nunux.org/) is a *"personal content curation service"*. It's an alternative to Pocket or Wallabag.
+[Nunux Keeper](https://github.com/nunux-keeper) is a *"personal content curation service"*. It's an alternative to Pocket or Wallabag.
 
 ![Nunux Reader](/images/nunux_reader.png)
 
