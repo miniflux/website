@@ -54,7 +54,12 @@ Table of Contents:
     - [Integrations Status](#integrations-status)
     - [Mark User Entries as Read](#endpoint-mark-user-entries-as-read)
     - [Fetch unread and read counters](#endpoint-counters)
+    - [Get API Keys](#endpoint-get-api-keys)
+    - [Create API Key](#endpoint-create-api-key)
+    - [Delete API Key](#endpoint-delete-api-key)
     - [Healthcheck](#endpoint-healthcheck)
+    - [Liveness](#endpoint-liveness)
+    - [Readiness](#endpoint-readiness)
     - [Application version](#deprecated-endpoint-version) (deprecated)
     - [Application version and build information](#endpoint-version)
 
@@ -1560,10 +1565,71 @@ Response Example:
 This endpoint is available since Miniflux 2.0.37.
 </div>
 
+<h3 id="endpoint-get-api-keys">Get API Keys <a class="anchor" href="#endpoint-get-api-keys" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /v1/api-keys
+
+Response:
+
+```json
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "description": "My API Key",
+        "token": "1234567890abcdef1234567890abcdef",
+        "created_at": "2023-10-07T03:52:50.013556Z",
+        "last_used_at": "2023-10-07T03:52:50.013556Z"
+    }
+]
+```
+
+<div class="info">
+This endpoint is available since Miniflux 2.2.9.
+</div>
+
+<h3 id="endpoint-create-api-key">Create API Key <a class="anchor" href="#endpoint-create-api-key" title="Permalink">¶</a></h3>
+
+Request:
+
+    POST /v1/api-keys
+
+    {"description": "My API Key"}
+
+Response:
+
+```json
+{
+    "id": 1,
+    "user_id": 1,
+    "description": "My API Key",
+    "token": "1234567890abcdef1234567890abcdef",
+    "created_at": "2023-10-07T03:52:50.013556Z",
+    "last_used_at": "2023-10-07T03:52:50.013556Z"
+}
+```
+
+<div class="info">
+This endpoint is available since Miniflux 2.2.9.
+</div>
+
+<h3 id="endpoint-delete-api-key">Delete API Key <a class="anchor" href="#endpoint-delete-api-key" title="Permalink">¶</a></h3>
+
+Request:
+
+    DELETE /v1/api-keys/1
+
+Returns a `204 No Content` status code for success.
+
+<div class="info">
+This endpoint is available since Miniflux 2.2.9.
+</div>
+
 <h3 id="endpoint-healthcheck">Healthcheck <a class="anchor" href="#endpoint-healthcheck" title="Permalink">¶</a></h3>
 
-The healthcheck endpoint is useful for monitoring and load-balancer
-configuration.
+The healthcheck endpoint is useful for monitoring and load-balancer configuration.
 
 Request:
 
@@ -1575,7 +1641,52 @@ Response:
 OK
 ```
 
-Returns a status code 200 when the service is up.
+- Returns a `200 OK` status code when the service is running and the database connectivity is healthy.
+- This route takes into consideration the base path.
+
+<h3 id="endpoint-liveness">Liveness<a class="anchor" href="#endpoint-liveness" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /liveness
+
+Alternatively:
+
+    GET /healthz
+
+Response:
+
+```
+OK
+```
+
+- Returns a `200 OK` status code when the service is running.
+- This endpoint does not check database connectivity.
+- These routes do not take the base path into consideration and are available at the root of the Miniflux instance.
+- This endpoint can be used as Kubernetes liveness probe.
+- Available since Miniflux 2.2.9.
+
+<h3 id="endpoint-readiness">Readiness<a class="anchor" href="#endpoint-readiness" title="Permalink">¶</a></h3>
+
+Request:
+
+    GET /readiness
+
+Alternatively:
+
+    GET /readyz
+
+Response:
+
+```
+OK
+```
+
+- Returns a `200 OK` status code when the service is ready to accept requests.
+- This endpoint checks database connectivity.
+- These routes do not take the base path into consideration and are available at the root of the Miniflux instance.
+- This endpoint can be used as Kubernetes readiness probe.
+- Available since Miniflux 2.2.9.
 
 <h3 id="deprecated-endpoint-version">Application version <a class="anchor" href="#deprecated-endpoint-version" title="Permalink">¶</a></h3>
 
