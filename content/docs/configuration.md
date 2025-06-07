@@ -461,7 +461,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="worker-pool-size"><a href="#worker-pool-size"><code>WORKER_POOL_SIZE</code></a></dt>
     <dd>
         <p>Number of background workers to refresh feeds. Workers fetch information of feeds from a work queue.</p>
-        <p><em>Default is 5 workers.</em></p>
+        <p><em>Default is 16 workers.</em></p>
     </dd>
     <dt id="youtube-api-key"><a href="#youtube-api-key"><code>YOUTUBE_API_KEY</code></a></dt>
     <dd>
