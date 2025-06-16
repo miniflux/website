@@ -72,10 +72,15 @@ Block rules ignore articles that match a single rule.
 
 For example, the rule `EntryTitle=(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
 
-Examples:
-
-- `EntryDate=future` will ignore articles with future publication dates.
-- `EntryDate=before:2024-01-01` will ignore articles published before January 1st, 2024.
+Here are additional examples you can consider:
+```regex
+EntryDate=future                                         # Ignore articles with future publication dates.
+EntryDate=before:2024-01-01                              # Ignore articles published before January 1st, 2024.
+EntryTitle=(?i)\b(save|take|get)\s+\$\d{2,5}\b           # Ignore articles with “Save $50”, “Get $100…” in the title
+EntryTitle=(?i)\$\d{2,5}\s+(off|discount)\b              # Ignore articles with “$50 off”
+EntryTitle=(?i)\bbest\s+.*\bdeals?\b                     # Ignore articles with “Best Foobar Deals …”
+EntryTitle=(?i)\bgift\s+(guide|ideas|list)\b             # Ignore articles that look like listicles
+```
 
 ### Keep Rules
 
