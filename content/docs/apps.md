@@ -5,6 +5,7 @@ url: /docs/apps.html
 
 Table of Contents
 
+- [Capy Reader](https://capyreader.com/) (Android / FOSS)
 - [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android / Free / Proprietary)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (All platforms / FOSS except iPhone and Android non-free versions)
 - [Fluxjs](#fluxjs) (Web frontend)
