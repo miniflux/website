@@ -1,20 +1,21 @@
 ---
 title: Filter, Rewrite, and Scraper Rules
-description: How to write custom scraper and rewrite rules
+description: Documentation for Miniflux's filtering, rewriting, and scraper rules.
 url: /docs/rules.html
 ---
 
 - [Feed Filtering Rules](#feed-filtering-rules)
-- [Global Filtering Rules](#global-filtering-rules)
-- [Rewrite Rules](#rewrite-rules)
-- [Scraper Rules](#scraper-rules)
+- [Entry Filtering Rules](#filtering-rules)
+- [Content Rewrite Rules](#rewrite-rules)
 - [URL Rewrite Rules](#rewriteurl-rules)
+- [Scraper Rules](#scraper-rules)
 
 <h2 id="feed-filtering-rules">Feed Filtering Rules <a class="anchor" href="#feed-filtering-rules" title="Permalink">¶</a></h2>
 
-Miniflux has a basic filtering system that allows you to ignore or keep articles.
+Miniflux has a regex-based filtering system that allows you to ignore or keep articles.
+For more advanced filtering, you can use the [Entry Filtering Rules](#filtering-rules) feature.
 
-### Block Rules
+### Regex-Based Blocking Filters
 
 Block rules ignore articles with a title, an entry URL, a tag, or an author that matches the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
@@ -22,28 +23,35 @@ For example, the regex `(?i)miniflux` will ignore all articles with a title that
 
 Ignored articles won't be saved into the database.
 
-### Keep Rules
+### Regex-Based Keep Filters
 
 Keep rules retain only articles that match the regex ([RE2 syntax](https://golang.org/s/re2syntax)).
 
 For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
 
-<h2 id="global-filtering-rules">Global Filtering Rules <a class="anchor" href="#global-filtering-rules" title="Permalink">¶</a></h2>
+<h2 id="filtering-rules">Entry Filtering Rules <a class="anchor" href="#entry-filtering-rules" title="Permalink">¶</a></h2>
 
-Global filters are defined on the Settings page and are automatically applied to all articles from all feeds.
+Since Miniflux 2.2.10, filtering rules can be defined for each feed and globally on the Settings page.
+
+There are two types of rules:
+- **Block Rules**: Ignore articles that match the regex.
+- **Keep Rules**: Retain only articles that match the regex.
+
+### Rules Format and Syntax
+
+Example:
+
+```
+FieldName=RegEx
+FieldName=RegEx
+FieldName=RegEx
+```
 
 - Each rule must be on a separate line.
 - Duplicate rules are allowed. For example, having multiple `EntryTitle` rules is possible.
 - The provided regex should use the [RE2 syntax](https://golang.org/s/re2syntax).
 - The order of the rules matters as the processor stops on the first match for both Block and Keep rules.
-
-Rule Format:
-
-```
-FieldName=RegEx
-FieldName=RegEx
-FieldName=RegEx
-```
+- Invalid rules are ignored.
 
 Available Fields:
 
@@ -63,35 +71,29 @@ The `EntryDate` field supports the following date patterns:
 - `before:YYYY-MM-DD` - Match entries published before a specific date.
 - `after:YYYY-MM-DD` - Match entries published after a specific date.
 - `between:YYYY-MM-DD,YYYY-MM-DD` - Match entries published between two dates.
+- `max-age:duration` - Match entries that are not older than a specific duration (e.g., `max-age:7d` for 7 days). Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h", "d".
 
-Date format must be YYYY-MM-DD, for example: 2024-01-01.
+Date format must be `YYYY-MM-DD`, for example: `2024-01-01`.
 
-### Block Rules
+Block rules examples:
 
-Block rules ignore articles that match a single rule.
-
-For example, the rule `EntryTitle=(?i)miniflux` will ignore all articles with a title that contains the word Miniflux (case insensitive).
-
-Here are additional examples you can consider:
 ```regex
-EntryDate=future                                         # Ignore articles with future publication dates.
-EntryDate=before:2024-01-01                              # Ignore articles published before January 1st, 2024.
-EntryTitle=(?i)\b(save|take|get)\s+\$\d{2,5}\b           # Ignore articles with “Save $50”, “Get $100…” in the title
-EntryTitle=(?i)\$\d{2,5}\s+(off|discount)\b              # Ignore articles with “$50 off”
-EntryTitle=(?i)\bbest\s+.*\bdeals?\b                     # Ignore articles with “Best Foobar Deals …”
-EntryTitle=(?i)\bgift\s+(guide|ideas|list)\b             # Ignore articles that look like listicles
+EntryDate=future                                # Ignore articles with future publication dates
+EntryDate=before:2024-01-01                     # Ignore articles published before January 1st, 2024
+EntryDate=max-age:30d                           # Ignore articles older than 30 days
+EntryTitle=(?i)miniflux                         # Ignore articles with "Miniflux" in the title
+EntryTitle=(?i)\b(save|take|get)\s+\$\d{2,5}\b  # Ignore articles with "Save $50", "Get $100…" in the title
+EntryTitle=(?i)\$\d{2,5}\s+(off|discount)\b     # Ignore articles with "$50 off"
+EntryTitle=(?i)\bbest\s+.*\bdeals?\b            # Ignore articles with "Best Foobar Deals…"
+EntryTitle=(?i)\bgift\s+(guide|ideas|list)\b    # Ignore articles that look like listicles
 ```
 
-### Keep Rules
+Keep rules examples:
 
-Keep rules retain articles that match a single rule.
-
-For example, the rule `EntryTitle=(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
-
-Examples:
-
-- `EntryDate=between:2024-01-01,2024-12-31` will keep only articles published in 2024.
-- `EntryDate=after:2024-03-01` will keep only articles published after March 1st, 2024.
+```regex
+EntryDate=between:2024-01-01,2024-12-31         # Keep only articles published in 2024
+EntryDate=after:2024-03-01                      # Keep only articles published after March 1st, 2024
+```
 
 ### Global Rules & Feed Rules Ordering
 
@@ -102,7 +104,7 @@ Rules are processed in this order:
 3. Global Keep Rules
 4. Feed Keep Rules
 
-<h2 id="rewrite-rules">Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
+<h2 id="rewrite-rules">Content Rewrite Rules <a class="anchor" href="#rewrite-rules" title="Permalink">¶</a></h2>
 
 To improve the reading experience, it's possible to alter the content of feed items.
 
@@ -175,7 +177,7 @@ especially on mobile devices where there is no `hover` event.
     <dd>
         Removes DOM elements.
     </dd>
-    <dt><code>parse_markdown</code> (Removed in v2.2.4)</dt>
+    <dt><code>parse_markdown</code></dt>
     <dd>
         Converts Markdown to HTML. <strong>This rule has been removed in version 2.2.4.</strong>
     </dd>
@@ -215,25 +217,6 @@ rule1,rule2
 
 Separate each rule with a comma.
 
-<h2 id="scraper-rules">Scraper Rules <a class="anchor" href="#scraper-rules" title="Permalink">¶</a></h2>
-
-When an article contains only an extract of the content, you can fetch
-the original web page and apply a set of rules to get relevant content.
-
-Miniflux uses CSS selectors for custom rules. These custom rules can be
-saved in the feed properties (select a feed and click on edit).
-
-| CSS Selector  | Description  |
-|---|---|
-| `div#articleBody` | Fetch a `div` element with the ID `articleBody`. |
-| `div.content` | Fetch all `div` elements with the class `content`. |
-| `article, div.article` | Use a comma to define multiple rules. |
-
-Miniflux includes a list of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/scraper/rules.go) for popular websites.
-You can contribute to the project to keep them up to date.
-
-Under the hood, Miniflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).
-
 <h2 id="rewriteurl-rules">URL Rewrite Rules <a class="anchor" href="#rewriteurl-rules" title="Permalink">¶</a></h2>
 
 Sometimes it might be required to rewrite a URL in a feed to fetch better-suited content.
@@ -263,3 +246,22 @@ The URL rewrite rule for that would be:
 ```
 rewrite("(.*?\.html)"|"$1?seite=all")
 ```
+
+<h2 id="scraper-rules">Scraper Rules <a class="anchor" href="#scraper-rules" title="Permalink">¶</a></h2>
+
+When an article contains only an extract of the content, you can fetch
+the original web page and apply a set of rules to get relevant content.
+
+Miniflux uses CSS selectors for custom rules. These custom rules can be
+saved in the feed properties (select a feed and click on edit).
+
+| CSS Selector  | Description  |
+|---|---|
+| `div#articleBody` | Fetch a `div` element with the ID `articleBody`. |
+| `div.content` | Fetch all `div` elements with the class `content`. |
+| `article, div.article` | Use a comma to define multiple rules. |
+
+Miniflux includes a list of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/scraper/rules.go) for popular websites.
+You can contribute to the project to keep them up to date.
+
+Under the hood, Miniflux uses the library [Goquery](https://github.com/PuerkitoBio/goquery).
