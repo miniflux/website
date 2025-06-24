@@ -3,6 +3,8 @@ title: Pocket Integration
 url: /docs/pocket.html
 ---
 
+**The Pocket integration has been removed from Miniflux 2.2.10 and later versions. [Pocket has been shut down on July 8, 2025.](https://support.mozilla.org/en-US/kb/future-of-pocket)**
+
 To configure the Pocket integration on your own Miniflux instance, you need to create an application on Pocket's website.
 
 Go to <https://getpocket.com/developer/apps/new> and create a new application.

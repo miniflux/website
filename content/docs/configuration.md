@@ -223,6 +223,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="listen-addr"><a href="#listen-addr"><code>LISTEN_ADDR</code></a></dt>
     <dd>
         <p>Address to listen on. Use absolute path for a Unix socket.</p>
+        <p>Multiple addresses can be specified, separated by commas. For example: <code>127.0.0.1:8080, 127.0.0.1:8081</code>.</p>
         <p><em>Default is <code>127.0.0.1:8080</code>.</em></p>
     </dd>
     <dt id="log-date-time"><a href="#log-date-time"><code>LOG_DATE_TIME</code></a></dt>
@@ -440,11 +441,6 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Minimum interval in minutes for the round robin scheduler.</p>
         <p><em>Default is 60 minutes.</em></p>
     </dd>
-    <dt id="server-timing-header"><a href="#server-timing-header"><code>SERVER_TIMING_HEADER</code></a></dt>
-    <dd>
-        <p>Set the value to 1 to enable server-timing headers.</p>
-        <p><em>Default is empty.</em></p>
-    </dd>
     <dt id="watchdog"><a href="#watchdog"><code>WATCHDOG</code></a></dt>
     <dd>
         <p>Enable or disable Systemd watchdog.</p>
@@ -495,7 +491,7 @@ Keys are the same as the environment variables described above.
 Example:
 
 ```
-DEBUG=on
+LOG_LEVEL=debug
 WORKER_POOL_SIZE=20
 ```
 

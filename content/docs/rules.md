@@ -29,7 +29,7 @@ Keep rules retain only articles that match the regex ([RE2 syntax](https://golan
 
 For example, the regex `(?i)miniflux` will keep only the articles with a title that contains the word Miniflux (case insensitive).
 
-<h2 id="filtering-rules">Entry Filtering Rules <a class="anchor" href="#entry-filtering-rules" title="Permalink">¶</a></h2>
+<h2 id="filtering-rules">Entry Filtering Rules <a class="anchor" href="#filtering-rules" title="Permalink">¶</a></h2>
 
 Since Miniflux 2.2.10, filtering rules can be defined for each feed and globally on the Settings page.
 

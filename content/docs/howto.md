@@ -340,6 +340,7 @@ Note that the OIDC library automatically appends the `.well-known/openid-configu
 
 - Since Miniflux 2.0.48, [OAuth2 PKCE](https://oauth.net/2/pkce/) is supported.
 - Since Miniflux 2.0.48, the `profile` scope will be requested in addition to the `email` scope. If no email address is available, Miniflux will fallback to the `preferred_username` or `name` claims to populate Miniflux's `username` field.
+- Since Miniflux 2.2.10, if the `preferred_username` claim is present and not empty, it is used as the username instead of the `email` claim.
 
 #### Authentik
 
