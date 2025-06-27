@@ -782,7 +782,11 @@ Returns a `202 Accepted` status code for success.
 
 Request:
 
-    GET /v1/entries/{entryID}/fetch-content
+    GET /v1/entries/{entryID}/fetch-content?update_content=true
+
+Available fields:
+
+- `update_content`: true or false. (default false). Whether to replace title and content in database
 
 Response:
 
