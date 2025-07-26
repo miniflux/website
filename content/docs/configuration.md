@@ -365,16 +365,6 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Set to <code>1</code> to authorize OAuth2 user creation.</p>
         <p><em>Default is empty.</em></p>
     </dd>
-    <dt id="pocket-consumer-key"><a href="#pocket-consumer-key"><code>POCKET_CONSUMER_KEY</code></a></dt>
-    <dd>
-        <p>Pocket consumer API key for all users.</p>
-        <p><em>Default is empty.</em></p>
-    </dd>
-    <dt id="pocket-consumer-key-file"><a href="#pocket-consumer-key-file"><code>POCKET_CONSUMER_KEY_FILE</code></a></dt>
-    <dd>
-        <p>Path to a secret key exposed as a file, it should contain <code>$POCKET_CONSUMER_KEY</code> value.</p>
-        <p><em>Default is empty.</em></p>
-    </dd>
     <dt id="polling-frequency"><a href="#polling-frequency"><code>POLLING_FREQUENCY</code></a></dt>
     <dd>
         <p>The interval in minutes that miniflux adds qualified feeds to the work queue.</p>

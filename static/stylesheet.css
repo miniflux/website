@@ -15,10 +15,10 @@
 
     --table-border-color: #e1e1e1;
 
-    --code-background: rgba(27,31,35,.05);
-    --code-color: #555;
+    --code-background: rgb(224, 224, 224);
+    --code-color: #333;
 
-    --pre-color: #555;
+    --pre-color: #333;
     --pre-border-color: #687550;
     --pre-background: #eeffcc;
 
@@ -164,8 +164,16 @@ h2 {
 
 h3 {
     line-height: 1.3em;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0;
+}
+
+h3 + ul {
+    margin-top: 20px;
+}
+
+strong {
+    font-weight: 600;
 }
 
 .anchor {
@@ -209,7 +217,7 @@ th {
 code {
     color: var(--code-color);
     background: var(--code-background);
-    padding: 1px;
+    padding: 2px;
     border-radius: 3px;
 }
 
@@ -236,7 +244,7 @@ ul {
 
 li {
     margin-bottom: 10px;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 li ul {
