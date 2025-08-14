@@ -26,6 +26,7 @@ Table of Contents
 - [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2, or macOS / FOSS)
 - [Telegram](https://telegram.org/)
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
+- [SmartRSS](https://apps.apple.com/us/app/smartrss-ai-rss-reader/id6749771900) (iOS/Android / Freemium / Proprietary)
 
 <h2 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h2>
 
