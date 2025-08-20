@@ -96,23 +96,23 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="database-connection-lifetime"><a href="#database-connection-lifetime"><code>DATABASE_CONNECTION_LIFETIME</code></a></dt>
     <dd>
-        <p>Set the maximum amount of time a connection may be reused.</p>
-        <p><em>Default is 5 minutes</em></p>
+        <p>Set the maximum amount of time in minutes a connection may be reused.</p>
+        <p><em>Default is 5 minutes.</em></p>
     </dd>
     <dt id="database-max-conns"><a href="#database-max-conns"><code>DATABASE_MAX_CONNS</code></a></dt>
     <dd>
         <p>Maximum number of database connections.</p>
-        <p><em>Default is <code>20</code></em></p>
+        <p><em>Default is <code>20</code>.</em></p>
     </dd>
     <dt id="database-min-conns"><a href="#database-min-conns"><code>DATABASE_MIN_CONNS</code></a></dt>
     <dd>
         <p>Minimum number of database connections.</p>
-        <p><em>Default is <code>1</code></em></p>
+        <p><em>Default is <code>1</code>.</em></p>
     </dd>
     <dt id="database-url"><a href="#database-url"><code>DATABASE_URL</code></a></dt>
     <dd>
         <p>Postgresql connection parameters. See <a href="https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters">lib/pq</a> for more details.</p>
-        <p><em>Default is <code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code></em></p>
+        <p><em>Default is <code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code>.</em></p>
     </dd>
     <dt id="database-url-file"><a href="#database-url-file"><code>DATABASE_URL_FILE</code></a></dt>
     <dd>
@@ -167,13 +167,13 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
     <dd>
-        <p>The minimum interval for manual refresh.</p>
+        <p>The minimum interval in minutes for manual refresh.</p>
         <p><em>Default is 30 minutes.</em></p>
     </dd>
     <dt id="http-client-max-body-size"><a href="#http-client-max-body-size"><code>HTTP_CLIENT_MAX_BODY_SIZE</code></a></dt>
     <dd>
         <p>Maximum body size for HTTP requests in Mebibyte (MiB).</p>
-        <p><em>Default is 15 MiB.</em></p>
+        <p><em>Default is 15728640 (15 MiB).</em></p>
     </dd>
     <dt id="http-client-proxies"><a href="#http-client-proxies"><code>HTTP_CLIENT_PROXIES</code></a></dt>
     <dd>
@@ -302,7 +302,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="metrics-refresh-interval"><a href="#metrics-refresh-interval"><code>METRICS_REFRESH_INTERVAL</code></a></dt>
     <dd>
-        <p>Refresh interval to collect database metrics.</p>
+        <p>Refresh interval in seconds to collect database metrics.</p>
         <p><em>Default is 60 seconds.</em></p>
     </dd>
     <dt id="metrics-username"><a href="#metrics-username"><code>METRICS_USERNAME</code></a></dt>
@@ -416,7 +416,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="scheduler-entry-frequency-max-interval"><a href="#scheduler-entry-frequency-max-interval"><code>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</code></a></dt>
     <dd>
         <p>Maximum interval in minutes for the entry frequency scheduler.</p>
-        <p><em>Default is 24 hours.</em></p>
+        <p><em>Default is 1440 minutes (24 hours).</em></p>
     </dd>
     <dt id="scheduler-entry-frequency-min-interval"><a href="#scheduler-entry-frequency-min-interval"><code>SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL</code></a></dt>
     <dd>
@@ -462,7 +462,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="youtube-embed-url-override"><a href="#youtube-embed-url-override"><code>YOUTUBE_EMBED_URL_OVERRIDE</code></a></dt>
     <dd>
         <p>YouTube URL which will be used for embeds.</p>
-        <p><em>Default is https://www.youtube-nocookie.com/embed/</em></p>
+        <p><em>Default is <code>https://www.youtube-nocookie.com/embed/</code>.</em></p>
     </dd>
 </dl>
 
