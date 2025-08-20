@@ -187,7 +187,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dt id="DATABASE_MIN_CONNS"><a class="permalink" href="#DATABASE_MIN_CONNS"><b>DATABASE_MIN_CONNS</b></a></dt>
   <dd>Minimum number of database connections.
     <br/>
-    Default is 20.</dd>
+    Default is 1.</dd>
   <dt id="DATABASE_URL"><a class="permalink" href="#DATABASE_URL"><b>DATABASE_URL</b></a></dt>
   <dd>Postgresql connection parameters.
     <br/>
@@ -359,12 +359,12 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dt id="METRICS_PASSWORD"><a class="permalink" href="#METRICS_PASSWORD"><b>METRICS_PASSWORD</b></a></dt>
   <dd>Metrics endpoint password for basic HTTP authentication.
     <br/>
-    Default is emtpty.</dd>
+    Default is empty.</dd>
   <dt id="METRICS_PASSWORD_FILE"><a class="permalink" href="#METRICS_PASSWORD_FILE"><b>METRICS_PASSWORD_FILE</b></a></dt>
   <dd>Path to a file that contains the password for the metrics endpoint HTTP
       authentication.
     <br/>
-    Default is emtpty.</dd>
+    Default is empty.</dd>
   <dt id="METRICS_REFRESH_INTERVAL"><a class="permalink" href="#METRICS_REFRESH_INTERVAL"><b>METRICS_REFRESH_INTERVAL</b></a></dt>
   <dd>Refresh interval to collect database metrics.
     <br/>
@@ -372,12 +372,12 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dt id="METRICS_USERNAME"><a class="permalink" href="#METRICS_USERNAME"><b>METRICS_USERNAME</b></a></dt>
   <dd>Metrics endpoint username for basic HTTP authentication.
     <br/>
-    Default is emtpty.</dd>
+    Default is empty.</dd>
   <dt id="METRICS_USERNAME_FILE"><a class="permalink" href="#METRICS_USERNAME_FILE"><b>METRICS_USERNAME_FILE</b></a></dt>
   <dd>Path to a file that contains the username for the metrics endpoint HTTP
       authentication.
     <br/>
-    Default is emtpty.</dd>
+    Default is empty.</dd>
   <dt id="OAUTH2_CLIENT_ID"><a class="permalink" href="#OAUTH2_CLIENT_ID"><b>OAUTH2_CLIENT_ID</b></a></dt>
   <dd>OAuth2 client ID.
     <br/>
@@ -423,25 +423,38 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dd>Refresh interval in minutes for feeds.
     <br/>
     Default is 60 minutes.</dd>
+  <dt id="POLLING_LIMIT_PER_HOST"><a class="permalink" href="#POLLING_LIMIT_PER_HOST"><b>POLLING_LIMIT_PER_HOST</b></a></dt>
+  <dd>Limits the number of concurrent requests to the same hostname when polling
+      feeds.
+    <br/>
+    This helps prevent overwhelming a single server during batch processing by
+      the worker pool.
+    <br/>
+    Default is 0 (disabled).</dd>
   <dt id="POLLING_PARSING_ERROR_LIMIT"><a class="permalink" href="#POLLING_PARSING_ERROR_LIMIT"><b>POLLING_PARSING_ERROR_LIMIT</b></a></dt>
   <dd>The maximum number of parsing errors that the program will try before
-      stopping polling a feed. Once the limit is reached, the user must refresh
-      the feed manually. Set to 0 for unlimited.
+      stopping polling a feed.
+    <br/>
+    Once the limit is reached, the user must refresh the feed manually. Set to 0
+      for unlimited.
     <br/>
     Default is 3.</dd>
   <dt id="POLLING_SCHEDULER"><a class="permalink" href="#POLLING_SCHEDULER"><b>POLLING_SCHEDULER</b></a></dt>
-  <dd>Scheduler used for polling feeds. Possible values are
-      &quot;round_robin&quot; or &quot;entry_frequency&quot;.
+  <dd>Determines the strategy used to schedule feed polling.
     <br/>
-    The maximum number of feeds polled for a given period is subject to
-      POLLING_FREQUENCY and BATCH_SIZE.
+    Supported values are &quot;round_robin&quot; and
+      &quot;entry_frequency&quot;.
     <br/>
-    When &quot;entry_frequency&quot; is selected, the refresh interval for a
-      given feed is equal to the average updating interval of the last week of
-      the feed.
+    - &quot;round_robin&quot;: Feeds are polled in a fixed, rotating order.
     <br/>
-    The actual number of feeds polled will not exceed the maximum number of
-      feeds that could be polled for a given period.
+    - &quot;entry_frequency&quot;: The polling interval for each feed is based
+      on the average update frequency over the past week.
+    <br/>
+    The number of feeds polled in a given period is limited by the
+      POLLING_FREQUENCY and BATCH_SIZE settings.
+    <br/>
+    Regardless of the scheduler used, the total number of polled feeds will not
+      exceed the maximum allowed per polling cycle.
     <br/>
     Default is &quot;round_robin&quot;.</dd>
   <dt id="PORT"><a class="permalink" href="#PORT"><b>PORT</b></a></dt>
@@ -479,7 +492,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dt id="WEBAUTHN"><a class="permalink" href="#WEBAUTHN"><b>WEBAUTHN</b></a></dt>
   <dd>Enable or disable WebAuthn/Passkey authentication.
     <br/>
-    You must provide a username on the login page if your are using
+    You must provide a username on the login page if you are using
       non-residential keys. However, this is not required for discoverable
       credentials.
     <br/>
@@ -513,7 +526,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">June 23, 2025</td>
+    <td class="foot-date">August 19, 2025</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>
