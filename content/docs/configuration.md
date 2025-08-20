@@ -41,8 +41,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="auth-proxy-user-creation"><a href="#auth-proxy-user-creation"><code>AUTH_PROXY_USER_CREATION</code></a></dt>
     <dd>
-        <p>Enable user creation based on proxy authentication information.</p>
-        <p><em>Default is empty.</em></p>
+        <p>Set to 1 to create users based on proxy authentication information.</p>
+        <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="base-url"><a href="#base-url"><code>BASE_URL</code></a></dt>
     <dd>
@@ -51,9 +51,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="batch-size"><a href="#batch-size"><code>BATCH_SIZE</code></a></dt>
     <dd>
-        <p>The maximum number of feeds to send to the work queue for each polling interval.</p>
-        <p>The actual number of feeds added to the work queue is subject to the scheduler.</p>
-        <p><em>Default is 100.</em></p>
+        <p>Number of feeds to send to the queue for each interval.</p>
+        <p><em>Default is 100 feeds.</em></p>
     </dd>
     <dt id="cert-domain"><a href="#cert-domain"><code>CERT_DOMAIN</code></a></dt>
     <dd>
@@ -72,17 +71,17 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="cleanup-archive-read-days"><a href="#cleanup-archive-read-days"><code>CLEANUP_ARCHIVE_READ_DAYS</code></a></dt>
     <dd>
-        <p>Number of days after which marking read items as removed. Use <code>-1</code> to disable this feature.</p>
+        <p>Number of days after marking read entries as removed. Set to <code>-1</code> to keep all read entries.</p>
         <p><em>Default is 60 days.</em></p>
     </dd>
     <dt id="cleanup-archive-unread-days"><a href="#cleanup-archive-unread-days"><code>CLEANUP_ARCHIVE_UNREAD_DAYS</code></a></dt>
     <dd>
-        <p>Number of days after marking unread items as removed. Use <code>-1</code> to disable this feature.</p>
+        <p>Number of days after marking unread entries as removed. Set to <code>-1</code> to keep all unread entries.</p>
         <p><em>Default is 180 days.</em></p>
     </dd>
     <dt id="cleanup-frequency-hours"><a href="#cleanup-frequency-hours"><code>CLEANUP_FREQUENCY_HOURS</code></a></dt>
     <dd>
-        <p>Cleanup job frequency to remove old sessions and archive entries.</p>
+        <p>Cleanup job frequency. Remove old sessions and archive entries.</p>
         <p><em>Default is 24 hours.</em></p>
     </dd>
     <dt id="cleanup-remove-sessions-days"><a href="#cleanup-remove-sessions-days"><code>CLEANUP_REMOVE_SESSIONS_DAYS</code></a></dt>
@@ -92,8 +91,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="create-admin"><a href="#create-admin"><code>CREATE_ADMIN</code></a></dt>
     <dd>
-        <p>Set to <code>1</code> to create an admin user from environment variables.</p>
-        <p><em>Default is empty.</em></p>
+        <p>Set to 1 to create an admin user from environment variables.</p>
+        <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="database-connection-lifetime"><a href="#database-connection-lifetime"><code>DATABASE_CONNECTION_LIFETIME</code></a></dt>
     <dd>
@@ -122,24 +121,24 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="disable-hsts"><a href="#disable-hsts"><code>DISABLE_HSTS</code></a></dt>
     <dd>
-        <p>Disable HTTP Strict Transport Security header if <code>$HTTPS</code> is set.</p>
-        <p><em>Default is empty.</em></p>
+        <p>Disable HTTP Strict Transport Security header if <code>HTTPS</code> is set.</p>
+        <p><em>Default is false (The HSTS is enabled).</em></p>
     </dd>
     <dt id="disable-http-service"><a href="#disable-http-service"><code>DISABLE_HTTP_SERVICE</code></a></dt>
     <dd>
-        <p>Disable HTTP service.</p>
-        <p><em>Default is empty.</em></p>
+        <p>Set the value to 1 to disable the HTTP service.</p>
+        <p><em>Default is false (The HTTP service is enabled).</em></p>
     </dd>
     <dt id="disable-local-auth"><a href="#disable-local-auth"><code>DISABLE_LOCAL_AUTH</code></a></dt>
     <dd>
         <p>Disable local authentication.</p>
-        <p>When  set  to true, the username/password form is hidden from the login screen, and the options to change username/password or unlink OAuth2 account are hidden from the settings page.</p>
-        <p><em>Default is empty.</em></p>
+        <p>When set to true, the username/password form is hidden from the login screen, and the options to change username/password or unlink OAuth2 account are hidden from the settings page.</p>
+        <p><em>Default is false.</em></p>
     </dd>
     <dt id="disable-scheduler-service"><a href="#disable-scheduler-service"><code>DISABLE_SCHEDULER_SERVICE</code></a></dt>
     <dd>
-        <p>Disable scheduler service.</p>
-        <p><em>Default is empty.</em></p>
+        <p>Set the value to 1 to disable the internal scheduler service.</p>
+        <p><em>Default is false (The internal scheduler service is enabled).</em></p>
     </dd>
     <dt id="fetch-bilibili-watch-time"><a href="#fetch-bilibili-watch-time"><code>FETCH_BILIBILI_WATCH_TIME</code></a></dt>
     <dd>
@@ -164,7 +163,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="filter-entry-max-age-days"><a href="#filter-entry-max-age-days"><code>FILTER_ENTRY_MAX_AGE_DAYS</code></a></dt>
     <dd>
         <p>Number of days after which new entries should be retained. Set 7 to fetch only entries 7 days old.</p>
-        <p><em>Default is 30 days.</em></p>
+        <p><em>Default is 0 (disabled).</em></p>
     </dd>
     <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
     <dd>
@@ -228,7 +227,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="log-date-time"><a href="#log-date-time"><code>LOG_DATE_TIME</code></a></dt>
     <dd>
-        <p>Show date and time in log messages.</p>
+        <p>Display the date and time in log messages.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="log-file"><a href="#log-file"><code>LOG_FILE</code></a></dt>
@@ -249,20 +248,17 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="maintenance-message"><a href="#maintenance-message"><code>MAINTENANCE_MESSAGE</code></a></dt>
     <dd>
         <p>Define a custom maintenance message.</p>
-        <p><em>Default is empty.</em></p>
+        <p><em>Default is "Miniflux is currently under maintenance".</em></p>
     </dd>
     <dt id="maintenance-mode"><a href="#maintenance-mode"><code>MAINTENANCE_MODE</code></a></dt>
     <dd>
-        <p>
-            Set to 1 to enable maintenance mode.
-            Maintenance mode disables the web ui and show a text message to the users.
-        </p>
-        <p><em>Default is empty.</em></p>
+        <p>Set to 1 to enable maintenance mode.</p>
+        <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="media-proxy-custom-url"><a href="#media-proxy-custom-url"><code>MEDIA_PROXY_CUSTOM_URL</code></a></dt>
     <dd>
-        <p>Sets a server to proxy media through.</p>
-        <p>Default is empty, miniflux does the proxying.</p>
+        <p>Sets an external server to proxy media through.</p>
+        <p>Default is empty, Miniflux does the proxying.</p>
     </dd>
     <dt id="media-proxy-http-client-timeout"><a href="#media-proxy-http-client-timeout"><code>MEDIA_PROXY_HTTP_CLIENT_TIMEOUT</code></a></dt>
     <dd>
@@ -291,7 +287,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="metrics-collector"><a href="#metrics-collector"><code>METRICS_COLLECTOR</code></a></dt>
     <dd>
-        <p>Set to <code>1</code> to enable metrics collection. It exposes a <code>/metrics</code> endpoint that can be used with <a href="https://prometheus.io/">Prometheus Monitoring software</a>.</p>
+        <p>Set to 1 to enable metrics collector. Expose a <code>/metrics</code> endpoint for Prometheus.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="metrics-password"><a href="#metrics-password"><code>METRICS_PASSWORD</code></a></dt>
@@ -362,13 +358,19 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="oauth2-user-creation"><a href="#oauth2-user-creation"><code>OAUTH2_USER_CREATION</code></a></dt>
     <dd>
-        <p>Set to <code>1</code> to authorize OAuth2 user creation.</p>
-        <p><em>Default is empty.</em></p>
+        <p>Set to 1 to authorize OAuth2 user creation.</p>
+        <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="polling-frequency"><a href="#polling-frequency"><code>POLLING_FREQUENCY</code></a></dt>
     <dd>
-        <p>The interval in minutes that miniflux adds qualified feeds to the work queue.</p>
+        <p>Refresh interval in minutes for feeds.</p>
         <p><em>Default is 60 minutes.</em></p>
+    </dd>
+    <dt id="polling-limit-per-host"><a href="#polling-limit-per-host"><code>POLLING_LIMIT_PER_HOST</code></a></dt>
+    <dd>
+        <p>Limits the number of concurrent requests to the same hostname when polling feeds.</p>
+        <p>This helps prevent overwhelming a single server during batch processing by the worker pool.</p>
+        <p><em>Default is 0 (disabled).</em></p>
     </dd>
     <dt id="polling-parsing-error-limit"><a href="#polling-parsing-error-limit"><code>POLLING_PARSING_ERROR_LIMIT</code></a></dt>
     <dd>
@@ -381,15 +383,18 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="polling-scheduler"><a href="#polling-scheduler"><code>POLLING_SCHEDULER</code></a></dt>
     <dd>
         <p>
-            Scheduler used for polling feeds.
-            Possible values are <code>round_robin</code> or <code>entry_frequency</code>.
+            Determines the strategy used to schedule feed polling.
+            Supported values are <code>round_robin</code> and <code>entry_frequency</code>.
         </p>
         <p>
-            The scheduler does not alter the polling interval, instead it throttles the number of qualified feeds for polling. The feeds will be added to the work queue, when the current time exceeds the targeting refreshing time. The maximum number of feeds polled for a given period is subject to <code>POLLING_FREQUENCY</code> and <code>BATCH_SIZE</code>.
+            - <code>round_robin</code>: Feeds are polled in a fixed, rotating order.
         </p>
         <p>
-            When <code>entry_frequency</code> is selected, the targeting refreshing interval for a given feed is equal to the average updating interval of the last week of the feed.
-            The actual number of feeds polled will not exceed the maximum number of feeds that could be polled for a given period.
+            - <code>entry_frequency</code>: The polling interval for each feed is based on the average update frequency over the past week.
+        </p>
+        <p>
+            The number of feeds polled in a given period is limited by the <code>POLLING_FREQUENCY</code> and <code>BATCH_SIZE</code> settings.
+            Regardless of the scheduler used, the total number of polled feeds will not exceed the maximum allowed per polling cycle.
         </p>
         <p><em>Default is <code>round_robin</code>.</em></p>
     </dd>
@@ -400,8 +405,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="run-migrations"><a href="#run-migrations"><code>RUN_MIGRATIONS</code></a></dt>
     <dd>
-        <p>Set to <code>1</code> to run database migrations during application startup.</p>
-        <p><em>Default is empty.</em></p>
+        <p>Set to 1 to run database migrations.</p>
+        <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="scheduler-entry-frequency-factor"><a href="#scheduler-entry-frequency-factor"><code>SCHEDULER_ENTRY_FREQUENCY_FACTOR</code></a></dt>
     <dd>
@@ -440,25 +445,19 @@ The configuration file is loaded first if specified. Environment variables takes
     <dd>
         <p>Enable or disable WebAuthn/Passkey authentication.</p>
         <p>
-            You must enter the username on the login page if you are using a security key (also known as non-resident key in the WebAuthn protocol). This is not required for Passkeys which are discoverable credentials stored in the platform secure enclave, or in a trusted platform module (TPM).
+            You must provide a username on the login page if you are using non-residential keys. However, this is not required for discoverable credentials.
         </p>
-        <p><em>Default is disabled</em></p>
+        <p><em>Default is disabled.</em></p>
     </dd>
     <dt id="worker-pool-size"><a href="#worker-pool-size"><code>WORKER_POOL_SIZE</code></a></dt>
     <dd>
-        <p>Number of background workers to refresh feeds. Workers fetch information of feeds from a work queue.</p>
+        <p>Number of background workers.</p>
         <p><em>Default is 16 workers.</em></p>
     </dd>
     <dt id="youtube-api-key"><a href="#youtube-api-key"><code>YOUTUBE_API_KEY</code></a></dt>
     <dd>
-        <p>
-            YouTube API key for use with <code>FETCH_YOUTUBE_WATCH_TIME</code>.
-            If non-empty, the duration will be fetched from the YouTube API.
-            Otherwise, the duration will be fetched from the YouTube website.
-        </p>
-        <p>
-            <em>Default is empty.</em>
-        </p>
+        <p>YouTube API key for use with <code>FETCH_YOUTUBE_WATCH_TIME</code>. If nonempty, the duration will be fetched from the YouTube API. Otherwise, the duration will be fetched from the YouTube website.</p>
+        <p><em>Default is empty.</em></p>
     </dd>
     <dt id="youtube-embed-url-override"><a href="#youtube-embed-url-override"><code>YOUTUBE_EMBED_URL_OVERRIDE</code></a></dt>
     <dd>
