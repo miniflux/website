@@ -41,6 +41,7 @@ aliases:
 - [Instapaper]({{< relref "instapaper.md" >}})
 - LinkAce
 - Linkding
+- LinkTaco
 - Linkwarden
 - [Matrix]({{< relref "matrix.md" >}})
 - [Notion]({{< relref "notion.md" >}})

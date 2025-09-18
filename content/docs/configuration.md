@@ -207,7 +207,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="https"><a href="#https"><code>HTTPS</code></a></dt>
     <dd>
         <p>Forces cookies to use secure flag and send HSTS header.</p>
-        <p><em>Default is empty.</em></p>
+        <p><em>Default is disabled.</em></p>
     </dd>
     <dt id="invidious-instance"><a href="#invidious-instance"><code>INVIDIOUS_INSTANCE</code></a></dt>
     <dd>
@@ -344,7 +344,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="oauth2-oidc-provider-name"><a href="#oauth2-oidc-provider-name"><code>OAUTH2_OIDC_PROVIDER_NAME</code></a></dt>
     <dd>
         <p>Name to display for the OIDC provider.</p>
-        <p><em>Default is OpenID Connect.</em></p>
+        <p><em>Default is "OpenID Connect".</em></p>
     </dd>
     <dt id="oauth2-provider"><a href="#oauth2-provider"><code>OAUTH2_PROVIDER</code></a></dt>
     <dd>
