@@ -363,7 +363,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="polling-frequency"><a href="#polling-frequency"><code>POLLING_FREQUENCY</code></a></dt>
     <dd>
-        <p>Refresh interval in minutes for feeds.</p>
+        <p>Interval for the background job scheduler.</p>
+        <p>Determines how often a batch of feeds is selected for refresh, based on their last refresh time.</p>
         <p><em>Default is 60 minutes.</em></p>
     </dd>
     <dt id="polling-limit-per-host"><a href="#polling-limit-per-host"><code>POLLING_LIMIT_PER_HOST</code></a></dt>
