@@ -27,6 +27,7 @@ Table of Contents
 - [Telegram](https://telegram.org/)
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
 - [SmartRSS](https://apps.apple.com/us/app/smartrss-ai-rss-reader/id6749771900) (iOS/Android / Freemium / Proprietary)
+- [Flux Feed](https://apps.apple.com/app/flux-feed-for-miniflux/id6752505148) (iOS / Paid / Proprietary)
 
 <h2 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h2>
 
