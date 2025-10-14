@@ -32,7 +32,7 @@ aliases:
 ## Integrations
 
 - Apprise
-- Betula
+- [Betula]({{< relref "betula.md" >}})
 - Cubox
 - Discord
 - Espial
