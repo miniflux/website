@@ -54,7 +54,7 @@ aliases:
 - Raindrop
 - Readeck
 - Readwise Reader
-- RSS-Bridge
+- [RSS-Bridge]({{< relref "rss_bridge.md" >}})
 - Shaarli
 - Shiori
 - Slack
