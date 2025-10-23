@@ -32,6 +32,7 @@ aliases:
 ## Integrations
 
 - Apprise
+- Archive.org
 - [Betula]({{< relref "betula.md" >}})
 - Cubox
 - Discord

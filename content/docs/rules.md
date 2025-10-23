@@ -205,6 +205,10 @@ especially on mobile devices where there is no `hover` event.
     <dd>
         Converts <a href="https://ghost.org">Ghost</a> link cards to regular links.
     </dd>
+    <dt><code>remove_img_blur_params</code></dt>
+    <dd>
+        Removes blur parameters from image URLs.
+    </dd>
 </dl>
 
 Miniflux includes a set of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/rewrite/rules.go) for some websites, but you can define your own rules.

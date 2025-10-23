@@ -22,48 +22,18 @@ sudo apt install postgresql postgresql-contrib
 
 <h2 id="configuration">Database Configuration <a class="anchor" href="#configuration" title="Permalink">¶</a></h2>
 
-Here's an example from the command line:
+Older versions of Miniflux required the `HSTORE` extension for PostgreSQL.
+This is no longer the case since version 2.0.27.
 
-```
-# Switch to the postgres user
-$ sudo -u postgres -i
+There is a SQL migration in Miniflux 2.2.14 to remove `HSTORE` extension from the database.
 
-# Create a database user for Miniflux
-$ createuser -P miniflux
-Enter password for new role: ******
-Enter it again: ******
-
-# Create a database for miniflux that belongs to our user
-$ createdb -O miniflux miniflux
-
-# Create the extension hstore as superuser
-$ psql miniflux -c 'create extension hstore'
-CREATE EXTENSION
-```
-
-### Enabling HSTORE extension for PostgreSQL
-
-Creating PostgreSQL extensions requires the `SUPERUSER` privilege.
-Several solutions are available:
-
-1) Give `SUPERUSER` privileges to the miniflux user only during the schema migration:
+If you are seeing this Postgres error: `Error: pq: must be owner of extension hstore`, you can fix it by running the following SQL command as a superuser for the Miniflux database:
 
 ```sql
-ALTER USER miniflux WITH SUPERUSER;
--- Run the migrations (miniflux -migrate)
-ALTER USER miniflux WITH NOSUPERUSER;
+DROP EXTENSION hstore;
 ```
 
-2) You could [create the hstore extension](https://www.postgresql.org/docs/current/static/sql-createextension.html) with another user that has the `SUPERUSER` privileges before running the migrations:
-
-```
-sudo -u postgres psql $MINIFLUX_DATABASE
-> CREATE EXTENSION hstore;
-```
-
-Note that if you use Debian or Ubuntu, you might have to install the `postgresql-contrib` package to activate the `HSTORE` extension.
-
-Recent versions of Miniflux no longer use the `HSTORE` extension, but it is still required to run the SQL migrations.
+This error means you initially created the `hstore` extension as a different database user than the one you are currently using for Miniflux.
 
 <h2 id="dsn">Database Connection Parameters <a class="anchor" href="#dsn" title="Permalink">¶</a></h2>
 
