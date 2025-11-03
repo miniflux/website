@@ -15,6 +15,7 @@ Table of Contents
 - [Microflux](#microflux) (Android)
 - [Miniflutt](#miniflutt) (Android)
 - [Miniflux-ai](#miniflux-ai) (Adds AI summaries, translations, and AI news based on RSS content)
+- [Miniflux-digest](#miniflux-digest) (docker / web / smtp / FOSS)
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS / FOSS)
 - [Newsboat](https://github.com/newsboat/newsboat) (Text console / FOSS)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
@@ -109,6 +110,22 @@ This project integrates with Miniflux to fetch RSS feed content via API or webho
 It then utilizes large language models (e.g., Ollama, ChatGPT, LLaMA, Gemini) to generate summaries, translations, and AI-driven news insights.
 
 Links: [GitHub](https://github.com/Qetesh/miniflux-ai)
+
+<h2 id="miniflux-digest">Miniflux-digest <a class="anchor" href="#miniflux-digest" title="Permalink">¶</a></h2>
+
+This tool creates digests from your Miniflux RSS feed entries.
+
+Unread entries are fetched on a user defined schedule (expressed with a cron-like
+expression) and digests are made available on the web and/or as offline
+attachments in your inbox.
+
+Other configuration options are supported such as auto digest summaries, auto
+entry grouping/categorization, mark as read after digest and more.
+
+![Screenshot](/images/miniflux-digest-screenshot-2.png)
+![Screenshot](/images/miniflux-digest-screenshot.png)
+
+Links: [GitHub](https://github.com/eleith/miniflux-digest)
 
 <h2 id="ReactFlux">ReactFlux <a class="anchor" href="#ReactFlux" title="Permalink">¶</a></h2>
 
