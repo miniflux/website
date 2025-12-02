@@ -44,7 +44,7 @@ Miniflux is compatible only with [PostgreSQL](https://www.postgresql.org/).
 - [SQLite](https://www.sqlite.org/) is excellent, but it has limited support for `ALTER TABLE`, and the [Golang driver](https://github.com/mattn/go-sqlite3) requires [CGO](https://golang.org/cmd/cgo/) and [GCC](https://gcc.gnu.org/). Miniflux 2 was initially designed as a [Twelve-Factor App](https://12factor.net/) to run in ephemeral containers.
 - PostgreSQL is powerful, rock solid, and a great independent open-source software.
 - Miniflux does not use ORMs because they abstract away powerful features provided by the database.
-- Miniflux uses `hstore/jsonb/inet` data types, window functions, full-text search, and handles user timezones with PostgreSQL.
+- Miniflux uses `jsonb/inet` data types, window functions, full-text search, and handles user timezones with PostgreSQL.
 
 <h2 id="js-framework">Why no Javascript framework? <a class="anchor" href="#js-framework" title="Permalink">¶</a></h2>
 

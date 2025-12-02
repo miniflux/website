@@ -22,7 +22,7 @@ Do not forget to install PostgreSQL:
 apk add postgresql postgresql-contrib
 ```
 
-Configure the database and enable the `HSTORE` extension as [mentioned previously]({{< ref "database.md" >}}).
+Configure the database as [mentioned previously]({{< ref "database.md" >}}).
 
 On Alpine Linux, the Miniflux process is supervised by `supervise-daemon` from [OpenRC](https://github.com/OpenRC/openrc) (there is no Systemd).
 The log file `/var/log/miniflux.log` is rotated with `logrotate`.
@@ -34,7 +34,7 @@ In this context, the configuration file `/etc/miniflux.conf` is used instead of 
 
 LOG_DATE_TIME=yes
 LISTEN_ADDR=127.0.0.1:8080
-DATABASE_URL=user=postgres password=secret dbname=miniflux sslmode=disable
+DATABASE_URL=user=postgres password=secret dbname=miniflux2 sslmode=disable
 
 # Run SQL migrations automatically:
 # RUN_MIGRATIONS=1
