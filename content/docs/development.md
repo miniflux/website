@@ -196,7 +196,7 @@ To persist data:
 
 ```bash
 docker volume create local-miniflux2-data
-docker run --rm --name local-miniflux2-db -p 5432:5432 -v local-miniflux2-data:/var/lib/postgresql/data -e POSTGRES_DB=miniflux2 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
+docker run --rm --name local-miniflux2-db -p 5432:5432 -v local-miniflux2-data:/var/lib/postgresql -e POSTGRES_DB=miniflux2 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
 ```
 
 To delete data:
