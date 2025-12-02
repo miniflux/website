@@ -5,6 +5,7 @@ url: docs/database.html
 ---
 
 - [PostgreSQL Installation](#installation)
+- [Database Creation](#creation)
 - [PostgreSQL Configuration](#configuration)
 - [Database Connection Parameters](#dsn)
 
@@ -18,6 +19,32 @@ For example, on Debian it's as simple as typing this command:
 
 ```bash
 sudo apt install postgresql postgresql-contrib
+```
+
+<h2 id="creation">Database Creation <a class="anchor" href="#creation" title="Permalink">¶</a></h2>
+
+After installing PostgreSQL, you need to create a database.
+
+There are different ways to do that, but here is one example using the `createdb` command-line tool:
+
+```bash
+# Switch to the postgres user
+sudo -u postgres -i
+
+# Create a database for miniflux (owned by the default postgres user)
+createdb miniflux2
+```
+
+Optionally, you could also create a separate user for the Miniflux database:
+
+```bash
+# Create a new user for our miniflux database
+createuser -P miniflux
+Enter password for new role: ******
+Enter it again: ******
+
+# Create a database owned by the miniflux user
+createdb -O miniflux miniflux2
 ```
 
 <h2 id="configuration">Database Configuration <a class="anchor" href="#configuration" title="Permalink">¶</a></h2>
@@ -43,6 +70,8 @@ The list of connection parameters are available on [this page](https://pkg.go.de
 The default value for `DATABASE_URL` is `user=postgres password=postgres dbname=miniflux2 sslmode=disable`.
 
 You could also use the URL format `postgres://postgres:postgres@localhost/miniflux2?sslmode=disable`.
+
+Depending on your PostgreSQL setup, you might need to adjust the connection parameters accordingly.
 
 <div class="warning">
 Password that contains special characters like ^ might be rejected since Miniflux 2.0.3. <a href="https://go-review.googlesource.com/c/go/+/87038">Golang v1.10 is now validating the password</a> and will return this error: <code>net/url: invalid userinfo</code>.
