@@ -119,6 +119,11 @@ The configuration file is loaded first if specified. Environment variables takes
         <p>Path to a secret key exposed as a file, it should contain <code>$DATABASE_URL</code> value.</p>
         <p><em>Default is empty.</em></p>
     </dd>
+    <dt id="disable-api"><a href="#disable-api"><code>DISABLE_API</code></a></dt>
+    <dd>
+        <p>Set the value to 1 to disable the API endpoints.</p>
+        <p><em>Default is false (The API is enabled).</em></p>
+    </dd>
     <dt id="disable-hsts"><a href="#disable-hsts"><code>DISABLE_HSTS</code></a></dt>
     <dd>
         <p>Disable HTTP Strict Transport Security header if <code>HTTPS</code> is set.</p>
