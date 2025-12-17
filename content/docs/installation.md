@@ -18,8 +18,8 @@ Installing Miniflux is straightforward if you have basic system administration k
 
 Platform       |  Type               |  Repository URL
 ---------------|---------------------|---------------------------------------------------------------------
-Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/master/packaging/debian
-RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/master/packaging/rpm
+Debian/Ubuntu  |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/main/packaging/debian
+RHEL/Fedora    |  Upstream (Binary)  |  https://github.com/miniflux/v2/tree/main/packaging/rpm
 Alpine Linux   |  Community (Source) |  https://git.alpinelinux.org/aports/tree/community/miniflux
 Arch Linux     |  Community (Source) |  https://archlinux.org/packages/extra/x86_64/miniflux/
 Debian         |  Community (Binary) |  https://packages.debian.org/trixie/miniflux

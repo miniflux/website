@@ -94,7 +94,7 @@ volumes:
 - `RUN_MIGRATIONS=1` runs the SQL migrations automatically.
 - `CREATE_ADMIN`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD` allow the creation of the first admin user. These can be removed after the first initialization.
 
-There are more examples in the Git repository with Traefik and Caddy: https://github.com/miniflux/v2/tree/master/contrib/docker-compose
+There are more examples in the Git repository with Traefik and Caddy: https://github.com/miniflux/v2/tree/main/contrib/docker-compose
 
 You can also configure an optional health check in your Docker Compose file:
 
