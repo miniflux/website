@@ -75,12 +75,16 @@ services:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=test123
   db:
-    image: postgres:17-alpine
+    image: postgres:18
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=miniflux
     volumes:
+      # You may have to adjust the volume path depending on the version of Postgres
+      # Postgres 18 uses /var/lib/postgresql
+      # Postgres 17 and below uses /var/lib/postgresql/data
+      # See https://hub.docker.com/_/postgres#pgdata
       - miniflux-db:/var/lib/postgresql
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "miniflux"]
