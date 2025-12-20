@@ -31,3 +31,7 @@ in the Cloudron dashboard or by navigating to the URL assigned to the app during
 The Cloudron Miniflux app is maintained by the Cloudron team.<br />For support, you can refer
 to the [Cloudron community forum Miniflux category](https://forum.cloudron.io/category/144/miniflux)
 or the [Cloudron support channels](https://docs.cloudron.io/support/).
+
+## Cloudron Miniflux Package Source
+
+The Cloudron Miniflux package source code is available on GitLab: <https://git.cloudron.io/packages/miniflux-app>
