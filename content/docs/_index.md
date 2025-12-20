@@ -18,6 +18,7 @@ aliases:
     - [RPM Package Installation]({{< ref "rhel.md" >}})
     - [Alpine Linux Installation]({{< ref "alpine.md" >}})
     - [Docker Installation]({{< ref "docker.md" >}})
+    - [Cloudron Installation]({{< ref "cloudron.md" >}})
 - [Upgrading the Application]({{< relref upgrade >}})
 - [How-To's]({{< relref howto >}})
 - [Migration from Older Versions]({{< relref migration >}})
