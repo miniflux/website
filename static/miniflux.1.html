@@ -26,14 +26,7 @@
 </section>
 <section class="Sh">
 <h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<p class="Pp"><b>miniflux</b> [-vic] [-config-dump] [-config-file]
-    [-create-admin] [-debug]
-  <br/>
-   [-flush-sessions] [-healthcheck] [-info] [-migrate] [-refresh-feeds]
-  <br/>
-   [-reset-feed-errors] [-reset-feed-next-check-at] [-reset-password]
-  <br/>
-   [-run-cleanup-tasks] [-version]</p>
+<p class="Pp"><b>miniflux</b> [<b>options</b>]</p>
 <p class="Pp"></p>
 </section>
 <section class="Sh">
@@ -43,6 +36,8 @@
 </section>
 <section class="Sh">
 <h1 class="Sh" id="OPTIONS"><a class="permalink" href="#OPTIONS">OPTIONS</a></h1>
+<p class="Pp"><b>-h, -help</b></p>
+<div class="Bd-indent">Show usage information and exit.</div>
 <p class="Pp"><b>-config-dump</b></p>
 <div class="Bd-indent">Print parsed configuration values. This will include
   sensitive information like passwords.</div>
@@ -57,13 +52,16 @@
 <p class="Pp"><b>-export-user-feeds &lt;username&gt;</b></p>
 <div class="Bd-indent">Export user feeds (provide the username as argument).
 <br/>
-Example: &quot;miniflux -export-user-feeds someone &gt; feeds.xml&quot;.</div>
+Example:
+<pre>miniflux -export-user-feeds someone &gt; feeds.xml
+</pre>
+</div>
 <p class="Pp"><b>-flush-sessions</b></p>
 <div class="Bd-indent">Flush all sessions (disconnect users).</div>
 <p class="Pp"><b>-healthcheck &lt;endpoint&gt;</b></p>
 <div class="Bd-indent">Perform a health check on the given endpoint.
 <br/>
-The value &quot;auto&quot; try to guess the health check endpoint.</div>
+The value &quot;auto&quot; tries to guess the health check endpoint.</div>
 <p class="Pp"><b>-i</b></p>
 <div class="Bd-indent">Show build information.</div>
 <p class="Pp"><b>-info</b></p>
@@ -79,7 +77,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 <p class="Pp"><b>-reset-password</b></p>
 <div class="Bd-indent">Reset user password.</div>
 <p class="Pp"><b>-run-cleanup-tasks</b></p>
-<div class="Bd-indent">Run cleanup tasks (delete old sessions and archives old
+<div class="Bd-indent">Run cleanup tasks (delete old sessions and archive old
   entries).</div>
 <p class="Pp"><b>-v</b></p>
 <div class="Bd-indent">Show application version.</div>
@@ -90,7 +88,8 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 <section class="Sh">
 <h1 class="Sh" id="CONFIGURATION_FILE"><a class="permalink" href="#CONFIGURATION_FILE">CONFIGURATION
   FILE</a></h1>
-<p class="Pp">The configuration file is a text file that follow these rules:</p>
+<p class="Pp">The configuration file is a text file that follows these
+  rules:</p>
 <p class="Pp">- Miniflux expects each line to be in KEY=VALUE format.
   <br/>
   - Lines beginning with # are processed as comments and ignored.
@@ -105,27 +104,35 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="ENVIRONMENT"><a class="permalink" href="#ENVIRONMENT">ENVIRONMENT</a></h1>
+<p class="Pp">Boolean options accept the following values (case-insensitive):
+    1/0, yes/no, true/false, on/off.
+  <br/>
+  For variables ending in <b>_FILE</b>, the value is a path to a file that
+    contains the corresponding secret value.</p>
 <dl class="Bl-tag">
   <dt id="ADMIN_PASSWORD"><a class="permalink" href="#ADMIN_PASSWORD"><b>ADMIN_PASSWORD</b></a></dt>
-  <dd>Admin user password, used only if $CREATE_ADMIN is enabled.
+  <dd>Admin user password, used only if <b>CREATE_ADMIN</b> is enabled.
     <br/>
     Default is empty.</dd>
   <dt id="ADMIN_PASSWORD_FILE"><a class="permalink" href="#ADMIN_PASSWORD_FILE"><b>ADMIN_PASSWORD_FILE</b></a></dt>
-  <dd>Path to a secret key exposed as a file, it should contain $ADMIN_PASSWORD
-      value.
+  <dd>Path to a secret key exposed as a file, it should contain the
+      <b>ADMIN_PASSWORD</b> value.
     <br/>
     Default is empty.</dd>
   <dt id="ADMIN_USERNAME"><a class="permalink" href="#ADMIN_USERNAME"><b>ADMIN_USERNAME</b></a></dt>
-  <dd>Admin user login, used only if $CREATE_ADMIN is enabled.
+  <dd>Admin user login, used only if <b>CREATE_ADMIN</b> is enabled.
     <br/>
     Default is empty.</dd>
   <dt id="ADMIN_USERNAME_FILE"><a class="permalink" href="#ADMIN_USERNAME_FILE"><b>ADMIN_USERNAME_FILE</b></a></dt>
-  <dd>Path to a secret key exposed as a file, it should contain $ADMIN_USERNAME
-      value.
+  <dd>Path to a secret key exposed as a file, it should contain the
+      <b>ADMIN_USERNAME</b> value.
     <br/>
     Default is empty.</dd>
   <dt id="AUTH_PROXY_HEADER"><a class="permalink" href="#AUTH_PROXY_HEADER"><b>AUTH_PROXY_HEADER</b></a></dt>
   <dd>Proxy authentication HTTP header.
+    <br/>
+    The option <b>TRUSTED_REVERSE_PROXY_NETWORKS</b> must be configured to allow
+      the proxy to authenticate users.
     <br/>
     Default is empty.</dd>
   <dt id="AUTH_PROXY_USER_CREATION"><a class="permalink" href="#AUTH_PROXY_USER_CREATION"><b>AUTH_PROXY_USER_CREATION</b></a></dt>
@@ -135,7 +142,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dt id="BASE_URL"><a class="permalink" href="#BASE_URL"><b>BASE_URL</b></a></dt>
   <dd>Base URL to generate HTML links and base path for cookies.
     <br/>
-    Default is http://localhost/.</dd>
+    Default is http://localhost.</dd>
   <dt id="BATCH_SIZE"><a class="permalink" href="#BATCH_SIZE"><b>BATCH_SIZE</b></a></dt>
   <dd>Number of feeds to send to the queue for each interval.
     <br/>
@@ -189,13 +196,13 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is 1.</dd>
   <dt id="DATABASE_URL"><a class="permalink" href="#DATABASE_URL"><b>DATABASE_URL</b></a></dt>
-  <dd>Postgresql connection parameters.
+  <dd>PostgreSQL connection parameters.
     <br/>
     Default is &quot;user=postgres password=postgres dbname=miniflux2
       sslmode=disable&quot;.</dd>
   <dt id="DATABASE_URL_FILE"><a class="permalink" href="#DATABASE_URL_FILE"><b>DATABASE_URL_FILE</b></a></dt>
-  <dd>Path to a secret key exposed as a file, it should contain $DATABASE_URL
-      value.
+  <dd>Path to a secret key exposed as a file, it should contain the
+      <b>DATABASE_URL</b> value.
     <br/>
     Default is empty.</dd>
   <dt id="DISABLE_API"><a class="permalink" href="#DISABLE_API"><b>DISABLE_API</b></a></dt>
@@ -243,9 +250,9 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Disabled by default.</dd>
   <dt id="FILTER_ENTRY_MAX_AGE_DAYS"><a class="permalink" href="#FILTER_ENTRY_MAX_AGE_DAYS"><b>FILTER_ENTRY_MAX_AGE_DAYS</b></a></dt>
-  <dd>Number of days after which new entries should be retained.
+  <dd>Ignore new entries older than the given number of days.
     <br/>
-    Set 7 to fetch only entries 7 days old.
+    Set to 7 to fetch only entries from the last 7 days.
     <br/>
     Default is 0 (disabled).</dd>
   <dt id="FORCE_REFRESH_INTERVAL"><a class="permalink" href="#FORCE_REFRESH_INTERVAL"><b>FORCE_REFRESH_INTERVAL</b></a></dt>
@@ -267,7 +274,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is empty.</dd>
   <dt id="HTTP_CLIENT_TIMEOUT"><a class="permalink" href="#HTTP_CLIENT_TIMEOUT"><b>HTTP_CLIENT_TIMEOUT</b></a></dt>
-  <dd>Time limit in seconds before the HTTP client cancel the request.
+  <dd>Time limit in seconds before the HTTP client cancels the request.
     <br/>
     Default is 20 seconds.</dd>
   <dt id="HTTP_CLIENT_USER_AGENT"><a class="permalink" href="#HTTP_CLIENT_USER_AGENT"><b>HTTP_CLIENT_USER_AGENT</b></a></dt>
@@ -279,13 +286,18 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is empty.</dd>
   <dt id="HTTP_SERVER_TIMEOUT"><a class="permalink" href="#HTTP_SERVER_TIMEOUT"><b>HTTP_SERVER_TIMEOUT</b></a></dt>
-  <dd>Time limit in seconds before the HTTP client cancel the request.
+  <dd>Read, write, and idle timeout in seconds for the HTTP server.
     <br/>
     Default is 300 seconds.</dd>
   <dt id="HTTPS"><a class="permalink" href="#HTTPS"><b>HTTPS</b></a></dt>
   <dd>Forces cookies to use secure flag and send HSTS header.
     <br/>
     Default is disabled.</dd>
+  <dt id="ICON_FETCH_ALLOW_PRIVATE_NETWORKS"><a class="permalink" href="#ICON_FETCH_ALLOW_PRIVATE_NETWORKS"><b>ICON_FETCH_ALLOW_PRIVATE_NETWORKS</b></a></dt>
+  <dd>Set to 1 to allow downloading favicons that resolve to private or loopback
+      networks.
+    <br/>
+    Disabled by default, private networks are refused.</dd>
   <dt id="INVIDIOUS_INSTANCE"><a class="permalink" href="#INVIDIOUS_INSTANCE"><b>INVIDIOUS_INSTANCE</b></a></dt>
   <dd>Set a custom invidious instance to use.
     <br/>
@@ -333,10 +345,15 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is empty, Miniflux does the proxying.</dd>
   <dt id="MEDIA_PROXY_HTTP_CLIENT_TIMEOUT"><a class="permalink" href="#MEDIA_PROXY_HTTP_CLIENT_TIMEOUT"><b>MEDIA_PROXY_HTTP_CLIENT_TIMEOUT</b></a></dt>
-  <dd>Time limit in seconds before the media proxy HTTP client cancel the
+  <dd>Time limit in seconds before the media proxy HTTP client cancels the
       request.
     <br/>
     Default is 120 seconds.</dd>
+  <dt id="MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS"><a class="permalink" href="#MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS"><b>MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS</b></a></dt>
+  <dd>Set to 1 to allow proxying media that resolves to private or loopback
+      networks.
+    <br/>
+    Disabled by default, private networks are refused.</dd>
   <dt id="MEDIA_PROXY_RESOURCE_TYPES"><a class="permalink" href="#MEDIA_PROXY_RESOURCE_TYPES"><b>MEDIA_PROXY_RESOURCE_TYPES</b></a></dt>
   <dd>A comma-separated list of media types to proxify. Supported values are:
       image, audio, video.
@@ -347,7 +364,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is http-only.</dd>
   <dt id="MEDIA_PROXY_PRIVATE_KEY"><a class="permalink" href="#MEDIA_PROXY_PRIVATE_KEY"><b>MEDIA_PROXY_PRIVATE_KEY</b></a></dt>
-  <dd>Set a custom custom private key used to sign proxified media URLs.
+  <dd>Set a custom private key used to sign proxified media URLs.
     <br/>
     By default, a secret key is randomly generated during startup.</dd>
   <dt id="METRICS_ALLOWED_NETWORKS"><a class="permalink" href="#METRICS_ALLOWED_NETWORKS"><b>METRICS_ALLOWED_NETWORKS</b></a></dt>
@@ -387,8 +404,8 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is empty.</dd>
   <dt id="OAUTH2_CLIENT_ID_FILE"><a class="permalink" href="#OAUTH2_CLIENT_ID_FILE"><b>OAUTH2_CLIENT_ID_FILE</b></a></dt>
-  <dd>Path to a secret key exposed as a file, it should contain
-      $OAUTH2_CLIENT_ID value.
+  <dd>Path to a secret key exposed as a file, it should contain the
+      <b>OAUTH2_CLIENT_ID</b> value.
     <br/>
     Default is empty.</dd>
   <dt id="OAUTH2_CLIENT_SECRET"><a class="permalink" href="#OAUTH2_CLIENT_SECRET"><b>OAUTH2_CLIENT_SECRET</b></a></dt>
@@ -396,8 +413,8 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is empty.</dd>
   <dt id="OAUTH2_CLIENT_SECRET_FILE"><a class="permalink" href="#OAUTH2_CLIENT_SECRET_FILE"><b>OAUTH2_CLIENT_SECRET_FILE</b></a></dt>
-  <dd>Path to a secret key exposed as a file, it should contain
-      $OAUTH2_CLIENT_SECRET value.
+  <dd>Path to a secret key exposed as a file, it should contain the
+      <b>OAUTH2_CLIENT_SECRET</b> value.
     <br/>
     Default is empty.</dd>
   <dt id="OAUTH2_OIDC_DISCOVERY_ENDPOINT"><a class="permalink" href="#OAUTH2_OIDC_DISCOVERY_ENDPOINT"><b>OAUTH2_OIDC_DISCOVERY_ENDPOINT</b></a></dt>
@@ -465,7 +482,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
     <br/>
     Default is &quot;round_robin&quot;.</dd>
   <dt id="PORT"><a class="permalink" href="#PORT"><b>PORT</b></a></dt>
-  <dd>Override LISTEN_ADDR to 0.0.0.0:$PORT.
+  <dd>Override <b>LISTEN_ADDR</b> to <b>0.0.0.0:$PORT</b>.
     <br/>
     Default is empty.</dd>
   <dt id="RUN_MIGRATIONS"><a class="permalink" href="#RUN_MIGRATIONS"><b>RUN_MIGRATIONS</b></a></dt>
@@ -492,6 +509,12 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
   <dd>Minimum interval in minutes for the round robin scheduler.
     <br/>
     Default is 60 minutes.</dd>
+  <dt id="TRUSTED_REVERSE_PROXY_NETWORKS"><a class="permalink" href="#TRUSTED_REVERSE_PROXY_NETWORKS"><b>TRUSTED_REVERSE_PROXY_NETWORKS</b></a></dt>
+  <dd>List of networks (CIDR notation) allowed to use the proxy authentication
+      header, <b>X-Forwarded-For</b>, <b>X-Forwarded-Proto</b>, and
+      <b>X-Real-Ip</b> headers.
+    <br/>
+    Default is empty.</dd>
   <dt id="WATCHDOG"><a class="permalink" href="#WATCHDOG"><b>WATCHDOG</b></a></dt>
   <dd>Enable or disable Systemd watchdog.
     <br/>
@@ -522,8 +545,8 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="AUTHORS"><a class="permalink" href="#AUTHORS">AUTHORS</a></h1>
-<p class="Pp">Miniflux is written and maintained by Fr&#x00E9;d&#x00E9;ric
-    Guillot.</p>
+<p class="Pp">Miniflux is developed and maintained by Fr&#x00E9;d&#x00E9;ric
+    Guillot with contributions from the Miniflux community.</p>
 <p class="Pp"></p>
 </section>
 <section class="Sh">
@@ -533,7 +556,7 @@ The value &quot;auto&quot; try to guess the health check endpoint.</div>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">September 29, 2025</td>
+    <td class="foot-date">January 5, 2026</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

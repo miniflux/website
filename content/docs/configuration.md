@@ -6,7 +6,10 @@ url: /docs/configuration.html
 
 Miniflux can use a configuration file and environment variables.
 
-The configuration file is loaded first if specified. Environment variables takes precedence over the options defined in the configuration file.
+The configuration file is loaded first if specified. Environment variables take precedence over the options defined in the configuration file.
+
+Boolean options accept the following values (case-insensitive): 1/0, yes/no, true/false, on/off.
+For variables ending in <code>_FILE</code>, the value is a path to a file that contains the corresponding secret value.
 
 - [Configuration Options](#options)
 - [Configuration File](#config-file)
@@ -37,6 +40,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="auth-proxy-header"><a href="#auth-proxy-header"><code>AUTH_PROXY_HEADER</code></a></dt>
     <dd>
         <p>Proxy authentication HTTP header.</p>
+        <p>The option <code>TRUSTED_REVERSE_PROXY_NETWORKS</code> must be configured to allow the proxy to authenticate users.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="auth-proxy-user-creation"><a href="#auth-proxy-user-creation"><code>AUTH_PROXY_USER_CREATION</code></a></dt>
@@ -47,7 +51,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="base-url"><a href="#base-url"><code>BASE_URL</code></a></dt>
     <dd>
         <p>Base URL to generate HTML links and base path for cookies.</p>
-        <p><em>Default is <code>http://localhost/</code>.</em></p>
+        <p><em>Default is <code>http://localhost</code>.</em></p>
     </dd>
     <dt id="batch-size"><a href="#batch-size"><code>BATCH_SIZE</code></a></dt>
     <dd>
@@ -111,8 +115,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="database-url"><a href="#database-url"><code>DATABASE_URL</code></a></dt>
     <dd>
-        <p>Postgresql connection parameters. See <a href="https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters">lib/pq</a> for more details.</p>
-        <p><em>Default is <code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code>.</em></p>
+        <p>PostgreSQL connection parameters.</p>
+        <p><em>Default is "<code>user=postgres password=postgres dbname=miniflux2 sslmode=disable</code>".</em></p>
     </dd>
     <dt id="database-url-file"><a href="#database-url-file"><code>DATABASE_URL_FILE</code></a></dt>
     <dd>
@@ -121,7 +125,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="disable-api"><a href="#disable-api"><code>DISABLE_API</code></a></dt>
     <dd>
-        <p>Set the value to 1 to disable the API endpoints.</p>
+        <p>Disable miniflux's API.</p>
         <p><em>Default is false (The API is enabled).</em></p>
     </dd>
     <dt id="disable-hsts"><a href="#disable-hsts"><code>DISABLE_HSTS</code></a></dt>
@@ -167,7 +171,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="filter-entry-max-age-days"><a href="#filter-entry-max-age-days"><code>FILTER_ENTRY_MAX_AGE_DAYS</code></a></dt>
     <dd>
-        <p>Number of days after which new entries should be retained. Set 7 to fetch only entries 7 days old.</p>
+        <p>Ignore new entries older than the given number of days.</p>
+        <p>Set to 7 to fetch only entries from the last 7 days.</p>
         <p><em>Default is 0 (disabled).</em></p>
     </dd>
     <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
@@ -178,7 +183,7 @@ The configuration file is loaded first if specified. Environment variables takes
     <dt id="http-client-max-body-size"><a href="#http-client-max-body-size"><code>HTTP_CLIENT_MAX_BODY_SIZE</code></a></dt>
     <dd>
         <p>Maximum body size for HTTP requests in Mebibyte (MiB).</p>
-        <p><em>Default is 15728640 (15 MiB).</em></p>
+        <p><em>Default is 15 MiB.</em></p>
     </dd>
     <dt id="http-client-proxies"><a href="#http-client-proxies"><code>HTTP_CLIENT_PROXIES</code></a></dt>
     <dd>
@@ -193,7 +198,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="http-client-timeout"><a href="#http-client-timeout"><code>HTTP_CLIENT_TIMEOUT</code></a></dt>
     <dd>
-        <p>Time limit in seconds before the HTTP client cancel the request.</p>
+        <p>Time limit in seconds before the HTTP client cancels the request.</p>
         <p><em>Default is 20 seconds.</em></p>
     </dd>
     <dt id="http-client-user-agent"><a href="#http-client-user-agent"><code>HTTP_CLIENT_USER_AGENT</code></a></dt>
@@ -206,13 +211,18 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="http-server-timeout"><a href="#http-server-timeout"><code>HTTP_SERVER_TIMEOUT</code></a></dt>
     <dd>
-        <p>Time limit in seconds before the HTTP client cancel the request.</p>
+        <p>Read, write, and idle timeout in seconds for the HTTP server.</p>
         <p><em>Default is 300 seconds.</em></p>
     </dd>
     <dt id="https"><a href="#https"><code>HTTPS</code></a></dt>
     <dd>
         <p>Forces cookies to use secure flag and send HSTS header.</p>
         <p><em>Default is disabled.</em></p>
+    </dd>
+    <dt id="icon-fetch-allow-private-networks"><a href="#icon-fetch-allow-private-networks"><code>ICON_FETCH_ALLOW_PRIVATE_NETWORKS</code></a></dt>
+    <dd>
+        <p>Set to 1 to allow downloading favicons that resolve to private or loopback networks.</p>
+        <p><em>Disabled by default, private networks are refused.</em></p>
     </dd>
     <dt id="invidious-instance"><a href="#invidious-instance"><code>INVIDIOUS_INSTANCE</code></a></dt>
     <dd>
@@ -226,7 +236,7 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="listen-addr"><a href="#listen-addr"><code>LISTEN_ADDR</code></a></dt>
     <dd>
-        <p>Address to listen on. Use absolute path for a Unix socket.</p>
+        <p>Address to listen on. Use absolute path to listen on Unix socket (<code>/var/run/miniflux.sock</code>).</p>
         <p>Multiple addresses can be specified, separated by commas. For example: <code>127.0.0.1:8080, 127.0.0.1:8081</code>.</p>
         <p><em>Default is <code>127.0.0.1:8080</code>.</em></p>
     </dd>
@@ -267,8 +277,13 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="media-proxy-http-client-timeout"><a href="#media-proxy-http-client-timeout"><code>MEDIA_PROXY_HTTP_CLIENT_TIMEOUT</code></a></dt>
     <dd>
-        <p>Time limit in seconds before the proxy HTTP client cancel the request.</p>
-        <p>Default is 120 seconds.</p>
+        <p>Time limit in seconds before the media proxy HTTP client cancels the request.</p>
+        <p><em>Default is 120 seconds.</em></p>
+    </dd>
+    <dt id="media-proxy-allow-private-networks"><a href="#media-proxy-allow-private-networks"><code>MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS</code></a></dt>
+    <dd>
+        <p>Set to 1 to allow proxying media that resolves to private or loopback networks.</p>
+        <p><em>Disabled by default, private networks are refused.</em></p>
     </dd>
     <dt id="media-proxy-resource-types"><a href="#media-proxy-resource-types"><code>MEDIA_PROXY_RESOURCE_TYPES</code></a></dt>
     <dd>
@@ -277,12 +292,12 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="media-proxy-mode"><a href="#media-proxy-mode"><code>MEDIA_PROXY_MODE</code></a></dt>
     <dd>
-        <p>Avoids mixed content warnings for external media. Possible values: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
+        <p>Possible values: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
         <p><em>Default is <code>http-only</code>.</em></p>
     </dd>
     <dt id="media-proxy-private-key"><a href="#media-proxy-private-key"><code>MEDIA_PROXY_PRIVATE_KEY</code></a></dt>
     <dd>
-        <p>Set a custom custom private key used to sign proxified media URLs.</p>
+        <p>Set a custom private key used to sign proxified media URLs.</p>
         <p>By default, a secret key is randomly generated during startup.</p>
     </dd>
     <dt id="metrics-allowed-networks"><a href="#metrics-allowed-networks"><code>METRICS_ALLOWED_NETWORKS</code></a></dt>
@@ -358,7 +373,8 @@ The configuration file is loaded first if specified. Environment variables takes
     </dd>
     <dt id="oauth2-redirect-url"><a href="#oauth2-redirect-url"><code>OAUTH2_REDIRECT_URL</code></a></dt>
     <dd>
-        <p>OAuth2 redirect URL. This URL must be registered with the provider and is something like <code>https://miniflux.example.org/oauth2/oidc/callback</code></p>
+        <p>OAuth2 redirect URL.</p>
+        <p>This URL must be registered with the provider and is something like <code>https://miniflux.example.org/oauth2/oidc/callback</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-user-creation"><a href="#oauth2-user-creation"><code>OAUTH2_USER_CREATION</code></a></dt>
@@ -436,6 +452,11 @@ The configuration file is loaded first if specified. Environment variables takes
             This option is used when the values of the <code>Cache-Control</code> max-age and <code>Expires</code> headers are excessively high.
         </p>
         <p><em>Default is 1440 minutes (24 hours).</em></p>
+    </dd>
+    <dt id="trusted-reverse-proxy-networks"><a href="#trusted-reverse-proxy-networks"><code>TRUSTED_REVERSE_PROXY_NETWORKS</code></a></dt>
+    <dd>
+        <p>List of networks (CIDR notation) allowed to use the proxy authentication header, <code>X-Forwarded-For</code>, <code>X-Forwarded-Proto</code>, and <code>X-Real-Ip</code> headers.</p>
+        <p><em>Default is empty.</em></p>
     </dd>
     <dt id="scheduler-round-robin-min-interval"><a href="#scheduler-round-robin-min-interval"><code>SCHEDULER_ROUND_ROBIN_MIN_INTERVAL</code></a></dt>
     <dd>
