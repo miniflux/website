@@ -48,6 +48,8 @@
     --button-primary-color: #fff;
     --button-primary-focus-border-color: #2f5bb7;
     --button-primary-focus-background: #357ae8;
+
+    --hr-color: #ccc;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -103,6 +105,8 @@
         --button-primary-color: #efefef;
         --button-primary-focus-border-color: #888;
         --button-primary-focus-background: #555;
+
+        --hr-color: #555;
     }
 }
 
@@ -174,6 +178,12 @@ h3 + ul {
 
 strong {
     font-weight: 600;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--hr-color);
+    margin: 30px 0;
 }
 
 .anchor {

@@ -27,6 +27,7 @@ Table of Contents:
     - [Remove Feed](#endpoint-remove-feed)
     - [Get Feed Entry](#endpoint-get-feed-entry)
     - [Get Entry](#endpoint-get-entry)
+    - [Import Entry](#endpoint-import-entry)
     - [Update Entry](#endpoint-update-entry)
     - [Save entry to third-party services](#endpoint-save-entry)
     - [Fetch original article](#endpoint-fetch-content)
@@ -683,6 +684,42 @@ Response:
     }
 }
 ```
+
+<h3 id="endpoint-import-entry">Import Entry <a class="anchor" href="#endpoint-import-entry" title="Permalink">¶</a></h3>
+
+Request:
+
+    POST /feeds/{feedID}/entries/import
+    Content-Type: application/json
+
+    {
+        "title": "Entry Title",
+        "url": "http://example.org/article.html",
+        "author": "Foobar",
+        "content": "<p>HTML contents</p>",
+        "published_at": "2016-12-12T16:15:19Z",
+        "status": "unread",
+        "starred": false,
+        "tags": ["tag1", "tag2"],
+        "external_id": "unique-id-123",
+        "comments_url": "http://example.org/article.html#comments"
+    }
+
+Note: All fields are optional except `url`.
+
+Response:
+
+```json
+{
+    "id": 1790
+}
+```
+
+Returns a `201 Created` status code when the entry is created, and a `200 OK` status code when the entry already exists.
+
+<div class="info">
+This API endpoint is available since Miniflux v2.2.16.
+</div>
 
 <h3 id="endpoint-update-entry">Update Entry <a class="anchor" href="#endpoint-update-entry" title="Permalink">¶</a></h3>
 
