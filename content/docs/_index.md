@@ -40,6 +40,7 @@ aliases:
 - [Fever]({{< relref "fever.md" >}})
 - [Google Reader]({{< relref "google_reader.md" >}})
 - [Instapaper]({{< relref "instapaper.md" >}})
+- [Karakeep]({{< relref "karakeep.md" >}})
 - LinkAce
 - Linkding
 - LinkTaco
