@@ -7,6 +7,7 @@ Table of Contents
 
 - [Capy Reader](https://capyreader.com/) (Android / FOSS)
 - [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android / Free / Proprietary)
+- [Fleuron](#fleuron) (Android / FOSS)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (All platforms / FOSS except iPhone and Android non-free versions)
 - [Fluxjs](#fluxjs) (Web frontend)
 - [FluxNews](#fluxnews) (Android / FOSS)
@@ -29,6 +30,15 @@ Table of Contents
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
 - [SmartRSS](https://vinsonguo.github.io/introducing-smartrss) (iOS/Android / Freemium / Proprietary)
 - [Flux Feed](https://apps.apple.com/app/flux-feed-for-miniflux/id6752505148) (iOS / Paid / Proprietary)
+
+<h2 id="fleuron">Fleuron <a class="anchor" href="#fleuron" title="Permalink">¶</a></h2>
+
+Fleuron is an Android app built specifically for Miniflux, designed around Material You.
+
+<img title="Screenshot" src="https://octalwise.com/fleuron/assets/feeds.png" width="250">
+<img title="Screenshot" src="https://octalwise.com/fleuron/assets/entry.png" width="250">
+
+Links: [Google Play](https://play.google.com/store/apps/details?id=com.octalwise.fleuron), [GitHub](https://github.com/octalwise/fleuron)
 
 <h2 id="fluxjs">Fluxjs <a class="anchor" href="#fluxjs" title="Permalink">¶</a></h2>
 
