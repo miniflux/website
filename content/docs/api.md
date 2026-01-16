@@ -697,7 +697,7 @@ Request:
         "url": "http://example.org/article.html",
         "author": "Foobar",
         "content": "<p>HTML contents</p>",
-        "published_at": "2016-12-12T16:15:19Z",
+        "published_at": 1736200000,
         "status": "unread",
         "starred": false,
         "tags": ["tag1", "tag2"],
