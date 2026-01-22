@@ -860,6 +860,7 @@ Available filters:
 - `starred` (boolean, available since Miniflux 2.0.9)
 - `search`: search query (text, available since Miniflux 2.0.10)
 - `category_id`: filter by category (int, available since Miniflux 2.0.19)
+- `globally_visible`: filter on globally visible entries (boolean, available since Miniflux 2.2.0)
 
 Response:
 
@@ -946,6 +947,7 @@ Available filters:
 - `starred` (boolean, available since Miniflux 2.0.9)
 - `search`: search query (text, available since Miniflux 2.0.10)
 - `category_id`: filter by category (int, available since Miniflux 2.0.19)
+- `globally_visible`: filter on globally visible entries (boolean, available since Miniflux 2.2.0)
 
 Response:
 
@@ -1044,6 +1046,7 @@ Available filters:
 - `starred` (boolean, available since Miniflux 2.0.9)
 - `search`: search query (text, available since Miniflux 2.0.10)
 - `category_id`: filter by category (int, available since Miniflux 2.0.24)
+- `globally_visible`: filter on globally visible entries (boolean, available since Miniflux 2.2.0)
 
 Response:
 
