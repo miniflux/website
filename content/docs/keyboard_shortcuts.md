@@ -5,11 +5,12 @@ url: /docs/keyboard_shortcuts.html
 <h2 id="sections">Sections Navigation <a class="anchor" href="#sections" title="Permalink">¶</a></h2>
 
 - `g u`: Go to the unread page
-- `g b`: Go to the bookmark page
+- `g b`: Go to the starred page
 - `g h`: Go to the history page
 - `g f`: Go to the feed page
 - `g c`: Go to the categories page
 - `g s`: Go to the settings page
+- `+`: Add a subscription
 - `?`: Show keyboard shortcuts help
 
 <h2 id="items">Items Navigation <a class="anchor" href="#items" title="Permalink">¶</a></h2>
@@ -17,6 +18,8 @@ url: /docs/keyboard_shortcuts.html
 - `p` or `k` or `◄`: Go to the previous item
 - `n` or `j` or `►`: Go to the next item
 - `F`: Go to the feed page
+- `g g`: Go to the first item
+- `G`: Go to the last item
 
 <h2 id="pages">Pages Navigation <a class="anchor" href="#pages" title="Permalink">¶</a></h2>
 
@@ -37,11 +40,11 @@ url: /docs/keyboard_shortcuts.html
 - `f`: Star or unstar the current entry
 - `s`: Save the article to configured third-party services
 - `a`: Toggle open/close entry attachments
-- `z t`: Scroll the item to the top
+- `z + t`: Scroll the item to the top
 - `R`: Refresh all feeds in the background
 - `#`: Remove the current feed
 - `/`: Set focus on the search form
-- `Escape`: Close modal dialogs
+- `Esc`: Close modal dialogs
 
 <p class="warning">
 Mozilla Firefox blocks the opening of a new tab if you use the
