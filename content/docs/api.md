@@ -1747,7 +1747,9 @@ Response:
 ```
 
 <div class="info">
-This API endpoint is available since Miniflux v2.0.22 and it's deprecated since version 2.0.49.
+- This API endpoint is available since Miniflux v2.0.22
+- It's deprecated since version 2.0.49
+- It has been removed in Miniflux v2.2.17
 </div>
 
 <h3 id="endpoint-version">Application version and build information <a class="anchor" href="#endpoint-version" title="Permalink">¶</a></h3>

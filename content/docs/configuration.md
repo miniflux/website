@@ -169,12 +169,6 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         <p>Set the value to 1 to scrape video duration from YouTube website and use it as a reading time.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
-    <dt id="filter-entry-max-age-days"><a href="#filter-entry-max-age-days"><code>FILTER_ENTRY_MAX_AGE_DAYS</code></a></dt>
-    <dd>
-        <p>Ignore new entries older than the given number of days.</p>
-        <p>Set to 7 to fetch only entries from the last 7 days.</p>
-        <p><em>Default is 0 (disabled).</em></p>
-    </dd>
     <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
     <dd>
         <p>The minimum interval in minutes for manual refresh.</p>
