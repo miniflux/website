@@ -22,13 +22,13 @@ Working with Miniflux's codebase is straightforward:
 <h2 id="requirements">Requirements <a class="anchor" href="#requirements" title="Permalink">¶</a></h2>
 
 - Git
-- Go >= 1.24
+- Go >= 1.26
 
 <h2 id="source-code">Check Out the Source Code <a class="anchor" href="#source-code" title="Permalink">¶</a></h2>
 
 Fork the project and clone the repository locally.
 
-Miniflux uses [Go Modules](https://github.com/golang/go/wiki/Modules) to manage dependencies.
+Miniflux uses [Go Modules](https://go.dev/wiki/Modules) to manage dependencies.
 
 <h2 id="compilation">Compilation <a class="anchor" href="#compilation" title="Permalink">¶</a></h2>
 

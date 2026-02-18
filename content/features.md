@@ -82,7 +82,7 @@ url: features.html
 <h2 id="tech">Technical Stuff <a class="anchor" href="#tech" title="Permalink">¶</a></h2>
 
 - Self-hosted.
-- Written in [Go (Golang)](https://golang.org/).
+- Written in [Go (Golang)](https://go.dev/).
 - Single binary compiled statically without dependency.
 - Works only with [PostgreSQL](https://www.postgresql.org/).
 - Does not use any ORM or any complicated frameworks.
