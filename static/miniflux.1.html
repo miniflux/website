@@ -229,6 +229,11 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
   <dd>Set the value to 1 to disable the internal scheduler service.
     <br/>
     Default is false (The internal scheduler service is enabled).</dd>
+  <dt id="FETCHER_ALLOW_PRIVATE_NETWORKS"><a class="permalink" href="#FETCHER_ALLOW_PRIVATE_NETWORKS"><b>FETCHER_ALLOW_PRIVATE_NETWORKS</b></a></dt>
+  <dd>Set to 1 to allow outgoing fetcher requests to private or loopback
+      networks.
+    <br/>
+    Disabled by default, private networks are refused.</dd>
   <dt id="FETCH_BILIBILI_WATCH_TIME"><a class="permalink" href="#FETCH_BILIBILI_WATCH_TIME"><b>FETCH_BILIBILI_WATCH_TIME</b></a></dt>
   <dd>Set the value to 1 to scrape video duration from Bilibili website and use
       it as a reading time.
@@ -287,8 +292,8 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
   <dd>Forces cookies to use secure flag and send HSTS header.
     <br/>
     Default is disabled.</dd>
-  <dt id="ICON_FETCH_ALLOW_PRIVATE_NETWORKS"><a class="permalink" href="#ICON_FETCH_ALLOW_PRIVATE_NETWORKS"><b>ICON_FETCH_ALLOW_PRIVATE_NETWORKS</b></a></dt>
-  <dd>Set to 1 to allow downloading favicons that resolve to private or loopback
+  <dt id="INTEGRATION_ALLOW_PRIVATE_NETWORKS"><a class="permalink" href="#INTEGRATION_ALLOW_PRIVATE_NETWORKS"><b>INTEGRATION_ALLOW_PRIVATE_NETWORKS</b></a></dt>
+  <dd>Set to 1 to allow outgoing integration requests to private or loopback
       networks.
     <br/>
     Disabled by default, private networks are refused.</dd>
@@ -343,11 +348,6 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
       request.
     <br/>
     Default is 120 seconds.</dd>
-  <dt id="MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS"><a class="permalink" href="#MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS"><b>MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS</b></a></dt>
-  <dd>Set to 1 to allow proxying media that resolves to private or loopback
-      networks.
-    <br/>
-    Disabled by default, private networks are refused.</dd>
   <dt id="MEDIA_PROXY_RESOURCE_TYPES"><a class="permalink" href="#MEDIA_PROXY_RESOURCE_TYPES"><b>MEDIA_PROXY_RESOURCE_TYPES</b></a></dt>
   <dd>A comma-separated list of media types to proxify. Supported values are:
       image, audio, video.
@@ -550,7 +550,7 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">January 5, 2026</td>
+    <td class="foot-date">March 1, 2026</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

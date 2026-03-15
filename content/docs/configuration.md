@@ -169,6 +169,11 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         <p>Set the value to 1 to scrape video duration from YouTube website and use it as a reading time.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
+    <dt id="fetcher-allow-private-networks"><a href="#fetcher-allow-private-networks"><code>FETCHER_ALLOW_PRIVATE_NETWORKS</code></a></dt>
+    <dd>
+        <p>Set to 1 to allow outgoing fetcher requests to private or loopback networks.</p>
+        <p><em>Disabled by default, private networks are refused.</em></p>
+    </dd>
     <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
     <dd>
         <p>The minimum interval in minutes for manual refresh.</p>
@@ -213,9 +218,9 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         <p>Forces cookies to use secure flag and send HSTS header.</p>
         <p><em>Default is disabled.</em></p>
     </dd>
-    <dt id="icon-fetch-allow-private-networks"><a href="#icon-fetch-allow-private-networks"><code>ICON_FETCH_ALLOW_PRIVATE_NETWORKS</code></a></dt>
+    <dt id="integration-allow-private-networks"><a href="#integration-allow-private-networks"><code>INTEGRATION_ALLOW_PRIVATE_NETWORKS</code></a></dt>
     <dd>
-        <p>Set to 1 to allow downloading favicons that resolve to private or loopback networks.</p>
+        <p>Set to 1 to allow outgoing integration requests to private or loopback networks.</p>
         <p><em>Disabled by default, private networks are refused.</em></p>
     </dd>
     <dt id="invidious-instance"><a href="#invidious-instance"><code>INVIDIOUS_INSTANCE</code></a></dt>
@@ -274,16 +279,6 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         <p>Time limit in seconds before the media proxy HTTP client cancels the request.</p>
         <p><em>Default is 120 seconds.</em></p>
     </dd>
-    <dt id="media-proxy-allow-private-networks"><a href="#media-proxy-allow-private-networks"><code>MEDIA_PROXY_ALLOW_PRIVATE_NETWORKS</code></a></dt>
-    <dd>
-        <p>Set to 1 to allow proxying media that resolves to private or loopback networks.</p>
-        <p><em>Disabled by default, private networks are refused.</em></p>
-    </dd>
-    <dt id="media-proxy-resource-types"><a href="#media-proxy-resource-types"><code>MEDIA_PROXY_RESOURCE_TYPES</code></a></dt>
-    <dd>
-        <p>A comma-separated list of media types to proxify. Supported values are: <code>image</code>, <code>audio</code>, <code>video</code>.</p>
-        <p><em>Default is <code>image</code>.</em></p>
-    </dd>
     <dt id="media-proxy-mode"><a href="#media-proxy-mode"><code>MEDIA_PROXY_MODE</code></a></dt>
     <dd>
         <p>Possible values: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
@@ -293,6 +288,11 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     <dd>
         <p>Set a custom private key used to sign proxified media URLs.</p>
         <p>By default, a secret key is randomly generated during startup.</p>
+    </dd>
+    <dt id="media-proxy-resource-types"><a href="#media-proxy-resource-types"><code>MEDIA_PROXY_RESOURCE_TYPES</code></a></dt>
+    <dd>
+        <p>A comma-separated list of media types to proxify. Supported values are: <code>image</code>, <code>audio</code>, <code>video</code>.</p>
+        <p><em>Default is <code>image</code>.</em></p>
     </dd>
     <dt id="metrics-allowed-networks"><a href="#metrics-allowed-networks"><code>METRICS_ALLOWED_NETWORKS</code></a></dt>
     <dd>
@@ -447,15 +447,15 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         </p>
         <p><em>Default is 1440 minutes (24 hours).</em></p>
     </dd>
-    <dt id="trusted-reverse-proxy-networks"><a href="#trusted-reverse-proxy-networks"><code>TRUSTED_REVERSE_PROXY_NETWORKS</code></a></dt>
-    <dd>
-        <p>List of networks (CIDR notation) allowed to use the proxy authentication header, <code>X-Forwarded-For</code>, <code>X-Forwarded-Proto</code>, and <code>X-Real-Ip</code> headers.</p>
-        <p><em>Default is empty.</em></p>
-    </dd>
     <dt id="scheduler-round-robin-min-interval"><a href="#scheduler-round-robin-min-interval"><code>SCHEDULER_ROUND_ROBIN_MIN_INTERVAL</code></a></dt>
     <dd>
         <p>Minimum interval in minutes for the round robin scheduler.</p>
         <p><em>Default is 60 minutes.</em></p>
+    </dd>
+    <dt id="trusted-reverse-proxy-networks"><a href="#trusted-reverse-proxy-networks"><code>TRUSTED_REVERSE_PROXY_NETWORKS</code></a></dt>
+    <dd>
+        <p>List of networks (CIDR notation) allowed to use the proxy authentication header, <code>X-Forwarded-For</code>, <code>X-Forwarded-Proto</code>, and <code>X-Real-Ip</code> headers.</p>
+        <p><em>Default is empty.</em></p>
     </dd>
     <dt id="watchdog"><a href="#watchdog"><code>WATCHDOG</code></a></dt>
     <dd>
