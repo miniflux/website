@@ -47,6 +47,7 @@ aliases:
 - LinkTaco
 - Linkwarden
 - [Matrix]({{< relref "matrix.md" >}})
+- [Nextflux](https://github.com/electh/nextflux/)
 - [Notion]({{< relref "notion.md" >}})
 - [Ntfy]({{< relref "ntfy.md" >}})
 - [Nunux Keeper]({{< relref "nunux_keeper.md" >}})
