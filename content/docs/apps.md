@@ -10,7 +10,7 @@ Table of Contents
 - [Fleuron](#fleuron) (Android / FOSS)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (All platforms / FOSS except iPhone and Android non-free versions)
 - [Fluxjs](#fluxjs) (Web frontend)
-- [FluxNews](#fluxnews) (Android / FOSS)
+- [FluxNews](#fluxnews) (iOS / Android / FOSS)
 - [FocusReader](https://play.google.com/store/apps/details?id=allen.town.focus.reader) (Android / Freemium / Proprietary)
 - [Lire](#lire) (iOS/macOS / Paid / Proprietary)
 - [Microflux](#microflux) (Android)
@@ -48,11 +48,12 @@ Links: [GitHub](https://github.com/PascalNoisette/fluxjs)
 
 <h2 id="fluxnews">FluxNews <a class="anchor" href="#fluxnews" title="Permalink">¶</a></h2>
 
-A simple newsreader for the Miniflux backend. This newsreader syncs with the Miniflux server API.
+A privacy-first Newsreader and Podcast player for the Miniflux backend. 
+It synchronizes seamlessly with the Miniflux API to bring your favorite articles and podcasts to all your devices - including your car.
 
-It supports light and dark modes, marks articles as read on scroll-over, and opens articles in a preferred installed app.
+Enjoy full offline support, intuitive gestures, a true OLED black mode, and a powerful new media engine for an uninterrupted listening experience.
 
-Links: [GitHub](https://github.com/KevinCFechtel/FluxNews)
+Links: [GitHub](https://github.com/KevinCFechtel/FluxNews), [iOS App Store](https://apps.apple.com/us/app/flux-news/id6761262233), [Google Play](https://play.google.com/store/apps/details?id=de.circle_dev.flux_news), [F-Droid](https://f-droid.org/packages/de.circle_dev.flux_news/)
 
 <h2 id="lire">Lire <a class="anchor" href="#lire" title="Permalink">¶</a></h2>
 
