@@ -12,8 +12,6 @@ Table of Contents:
 - [How can I create themes for Miniflux 2?](#themes)
 - [Why is there no plugin system?](#plugins)
 - [What does "Save this article" mean?](#save-article)
-- [How are items removed from the database?](#entries-suppression)
-- [What does "Flush History" do?](#flush-history)
 - [Which binary should I use on my Raspberry Pi?](#arm-pi)
 - [Which Debian package architecture should I use for my Raspberry Pi?](#debian-pi-arch)
 - [Which binary should I use on Scaleway ARM machines?](#arm-scaleway)
@@ -74,24 +72,6 @@ However, keep in mind that **you will need to maintain your theme over time**; o
 <h2 id="save-article">What does "Save this article" mean? <a class="anchor" href="#save-article" title="Permalink">¶</a></h2>
 
 "Save" sends the feed entry to third-party services like Pinboard or Instapaper if configured.
-
-<h2 id="entries-suppression">How are items removed from the database? <a class="anchor" href="#entries-suppression" title="Permalink">¶</a></h2>
-
-Entry status in the database follows this flow: `read` -> `unread` -> `removed`.
-
-Entries marked as removed are not visible in the web UI.
-They are deleted from the database only when they are no longer visible in the original feed.
-
-Entries marked as favorites are never deleted (column `starred` in the `entries` table).
-
-Data retention is also controlled with the variables `CLEANUP_ARCHIVE_UNREAD_DAYS` and `CLEANUP_ARCHIVE_READ_DAYS`.
-
-Keep in mind that Postgres needs to run the <a href="https://www.postgresql.org/docs/current/sql-vacuum.html">VACUUM</a> command to reclaim disk space.
-
-<h2 id="flush-history">What does "Flush History" do? <a class="anchor" href="#flush-history" title="Permalink">¶</a></h2>
-
-"Flush History" changes the status of entries from "read" to "removed" (except for bookmarks).
-Entries with the status "removed" are not visible in the user interface.
 
 <h2 id="arm-pi">Which binary should I use on my Raspberry Pi? <a class="anchor" href="#arm-pi" title="Permalink">¶</a></h2>
 

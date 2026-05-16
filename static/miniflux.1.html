@@ -39,8 +39,9 @@
 <p class="Pp"><b>-h, -help</b></p>
 <div class="Bd-indent">Show usage information and exit.</div>
 <p class="Pp"><b>-config-dump</b></p>
-<div class="Bd-indent">Print parsed configuration values. This will include
-  sensitive information like passwords.</div>
+<div class="Bd-indent">Print parsed configuration values.
+<br/>
+This will include sensitive information like passwords.</div>
 <p class="Pp"><b>-c /path/to/miniflux.conf</b></p>
 <div class="Bd-indent">Load configuration file.</div>
 <p class="Pp"><b>-config-file /path/to/miniflux.conf</b></p>
@@ -138,6 +139,9 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
   <dt id="AUTH_PROXY_USER_CREATION"><a class="permalink" href="#AUTH_PROXY_USER_CREATION"><b>AUTH_PROXY_USER_CREATION</b></a></dt>
   <dd>Set to 1 to create users based on proxy authentication information.
     <br/>
+    When disabled, users must already exist in Miniflux to sign in through the
+      proxy.
+    <br/>
     Disabled by default.</dd>
   <dt id="BASE_URL"><a class="permalink" href="#BASE_URL"><b>BASE_URL</b></a></dt>
   <dd>Base URL to generate HTML links and base path for cookies.
@@ -160,15 +164,23 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
     <br/>
     Default is 10000 entries.</dd>
   <dt id="CLEANUP_ARCHIVE_READ_DAYS"><a class="permalink" href="#CLEANUP_ARCHIVE_READ_DAYS"><b>CLEANUP_ARCHIVE_READ_DAYS</b></a></dt>
-  <dd>Number of days after marking read entries as removed.
+  <dd>Number of days before the cleanup job archives read entries.
     <br/>
-    Set to -1 to keep all read entries.
+    Archiving deletes non-bookmarked, non-shared read entries from the database
+      and records a tombstone to prevent the same entry from being imported
+      again during a later feed refresh.
+    <br/>
+    Set to -1 to disable automatic archiving of read entries.
     <br/>
     Default is 60 days.</dd>
   <dt id="CLEANUP_ARCHIVE_UNREAD_DAYS"><a class="permalink" href="#CLEANUP_ARCHIVE_UNREAD_DAYS"><b>CLEANUP_ARCHIVE_UNREAD_DAYS</b></a></dt>
-  <dd>Number of days after marking unread entries as removed.
+  <dd>Number of days before the cleanup job archives unread entries.
     <br/>
-    Set to -1 to keep all unread entries.
+    Archiving deletes non-bookmarked, non-shared unread entries from the
+      database and records a tombstone to prevent the same entry from being
+      imported again during a later feed refresh.
+    <br/>
+    Set to -1 to disable automatic archiving of unread entries.
     <br/>
     Default is 180 days.</dd>
   <dt id="CLEANUP_FREQUENCY_HOURS"><a class="permalink" href="#CLEANUP_FREQUENCY_HOURS"><b>CLEANUP_FREQUENCY_HOURS</b></a></dt>
@@ -223,6 +235,11 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
     When set to true, the username/password form is hidden from the login
       screen, and the options to change username/password or unlink OAuth2
       account are hidden from the settings page.
+    <br/>
+    This option requires an alternative authentication source such as OAuth2 or
+      auth proxy.
+    <br/>
+    If remote user creation is disabled, only existing users can sign in.
     <br/>
     Default is false.</dd>
   <dt id="DISABLE_SCHEDULER_SERVICE"><a class="permalink" href="#DISABLE_SCHEDULER_SERVICE"><b>DISABLE_SCHEDULER_SERVICE</b></a></dt>
@@ -433,6 +450,9 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
   <dt id="OAUTH2_USER_CREATION"><a class="permalink" href="#OAUTH2_USER_CREATION"><b>OAUTH2_USER_CREATION</b></a></dt>
   <dd>Set to 1 to authorize OAuth2 user creation.
     <br/>
+    When disabled, users must already exist in Miniflux or have a linked OAuth2
+      account to sign in.
+    <br/>
     Disabled by default.</dd>
   <dt id="POLLING_FREQUENCY"><a class="permalink" href="#POLLING_FREQUENCY"><b>POLLING_FREQUENCY</b></a></dt>
   <dd>Interval for the background job scheduler.
@@ -550,7 +570,7 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">March 1, 2026</td>
+    <td class="foot-date">April 18, 2026</td>
     <td class="foot-os">&#x00A0;</td>
   </tr>
 </table>

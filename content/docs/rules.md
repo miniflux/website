@@ -121,6 +121,10 @@ especially on mobile devices where there is no `hover` event.
     <dd>
         Tries to add embedded videos from sites that use JavaScript to load iframes (e.g., either lazily when scrolling or after the rest of the page is loaded).
     </dd>
+    <dt><code>add_enclosure_links</code></dt>
+    <dd>
+        Add the list of enclosure links to the entry content.
+    </dd>
     <dt><code>add_image_title</code></dt>
     <dd>
         Adds each image's title as a caption under the image.
