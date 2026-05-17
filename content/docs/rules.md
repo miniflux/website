@@ -215,7 +215,7 @@ especially on mobile devices where there is no `hover` event.
     </dd>
 </dl>
 
-Miniflux includes a set of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/rewrite/rules.go) for some websites, but you can define your own rules.
+Miniflux includes a set of [predefined rules](https://github.com/miniflux/v2/blob/main/internal/reader/rewrite/content_rewrite_rules.go) for some websites, but you can define your own rules.
 
 On the feed edit page, enter your custom rules in the field "Rewrite Rules" like this:
 
