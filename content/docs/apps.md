@@ -18,6 +18,7 @@ Table of Contents
 - [Miniflux-ai](#miniflux-ai) (Adds AI summaries, translations, and AI news based on RSS content)
 - [Miniflux-digest](#miniflux-digest) (docker / web / smtp / FOSS)
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS / FOSS)
+- [Newsairy](https://qebapps.statichost.page/newsairy/newsairy/)  (iOS/macOS / Freemium / Proprietary)
 - [Newsboat](https://github.com/newsboat/newsboat) (Text console / FOSS)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
 - [ReactFlux](#ReactFlux) (Web frontend)
