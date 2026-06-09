@@ -15,7 +15,7 @@ url: docs/requirements.html
 
 <h2 id="database">Database <a class="anchor" href="#database" title="Permalink">¶</a></h2>
 
-Only PostgreSQL >= 9.5 is supported.
+Only PostgreSQL >= 11 is supported.
 
 <h2 id="web-browsers">Web Browsers <a class="anchor" href="#web-browsers" title="Permalink">¶</a></h2>
 
