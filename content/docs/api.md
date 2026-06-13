@@ -1137,7 +1137,7 @@ Response
 ```
 
 <div class="info">
-This API endpoint is available since Miniflux v2.4.
+This API endpoint is available since Miniflux v2.3.2.
 </div>
 
 <h3 id="endpoint-update-entries">Update Entries <a class="anchor" href="#endpoint-update-entries" title="Permalink">¶</a></h3>
