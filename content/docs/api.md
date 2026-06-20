@@ -34,6 +34,7 @@ Table of Contents:
     - [Get Feed Entries](#endpoint-get-feed-entries)
     - [Get Category Entries](#endpoint-get-category-entries)
     - [Get Entries](#endpoint-get-entries)
+    - [Get Entry IDs](#endpoint-get-entry-ids)
     - [Update Entries status or starred](#endpoint-update-entries)
     - [Toggle Entry Bookmark](#endpoint-toggle-bookmark)
     - [Get Enclosure](#endpoint-get-enclosure)
@@ -1107,6 +1108,37 @@ Response:
     ]
 }
 ```
+
+<h3 id="endpoint-get-entry-ids">Get Entry IDs <a class="anchor" href="#endpoint-get-entry-ids" title="Permalink">¶</a></h3>
+
+Return a list of ID values for entries meeting the specified criteria. Results are limited to 10,000 ID values per response by default.
+
+Request:
+
+    GET /v1/entries/ids?status=unread
+
+Available filters:
+
+- `status`: Entry status (read or unread)
+- `starred`: true or false
+- `offset`
+- `limit`: Maximum 10,000
+
+Response
+
+```json
+{
+    "total": 2,
+    "entry_ids": [
+        15548,
+        15540
+    ]
+}
+```
+
+<div class="info">
+This API endpoint is available since Miniflux v2.3.2.
+</div>
 
 <h3 id="endpoint-update-entries">Update Entries <a class="anchor" href="#endpoint-update-entries" title="Permalink">¶</a></h3>
 
