@@ -34,7 +34,7 @@ Table of Contents:
     - [Get Feed Entries](#endpoint-get-feed-entries)
     - [Get Category Entries](#endpoint-get-category-entries)
     - [Get Entries](#endpoint-get-entries)
-    - [Update Entries status](#endpoint-update-entries)
+    - [Update Entries status or starred](#endpoint-update-entries)
     - [Toggle Entry Bookmark](#endpoint-toggle-bookmark)
     - [Get Enclosure](#endpoint-get-enclosure)
     - [Update Enclosure](#endpoint-update-enclosure)
@@ -1117,10 +1117,15 @@ Request:
 
     {
         "entry_ids": [1234, 4567],
-        "status": "read"
+        "status": "read",
+        "starred": true
     }
 
-Returns a `204` status code for success.
+The client must send "entry_ids", and either "status", "starred", or both. Returns a `204` status code for success.
+
+<div class="info">
+The ability to send "starred" is available since Miniflux v2.3.2.
+</div>
 
 <h3 id="endpoint-toggle-bookmark">Toggle Entry Bookmark <a class="anchor" href="#endpoint-toggle-bookmark" title="Permalink">¶</a></h3>
 
