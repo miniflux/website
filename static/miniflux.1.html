@@ -455,7 +455,7 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
     <br/>
     Disabled by default.</dd>
   <dt id="POLLING_FREQUENCY"><a class="permalink" href="#POLLING_FREQUENCY"><b>POLLING_FREQUENCY</b></a></dt>
-  <dd>Interval for the background job scheduler.
+  <dd>Interval in minutes for the background job scheduler.
     <br/>
     Determines how often a batch of feeds is selected for refresh, based on
       their last refresh time.
@@ -524,9 +524,9 @@ The value &quot;auto&quot; tries to guess the health check endpoint.</div>
     <br/>
     Default is 60 minutes.</dd>
   <dt id="TRUSTED_REVERSE_PROXY_NETWORKS"><a class="permalink" href="#TRUSTED_REVERSE_PROXY_NETWORKS"><b>TRUSTED_REVERSE_PROXY_NETWORKS</b></a></dt>
-  <dd>List of networks (CIDR notation) allowed to use the proxy authentication
-      header, <b>X-Forwarded-For</b>, <b>X-Forwarded-Proto</b>, and
-      <b>X-Real-Ip</b> headers.
+  <dd>A comma-separated list of networks (CIDR notation) allowed to use the
+      proxy authentication header, <b>X-Forwarded-For</b>,
+      <b>X-Forwarded-Proto</b>, and <b>X-Real-Ip</b> headers.
     <br/>
     Default is empty.</dd>
   <dt id="WATCHDOG"><a class="permalink" href="#WATCHDOG"><b>WATCHDOG</b></a></dt>

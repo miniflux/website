@@ -1,8 +1,11 @@
 baseURL = "https://miniflux.app/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Miniflux"
 disableKinds = ["taxonomy", "term", "sitemap"]
 enableRobotsTXT = true
+
+[security]
+allowContent = ['^text/.*$']
 
 [markup.goldmark.renderer]
 unsafe = true
