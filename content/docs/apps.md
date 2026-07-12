@@ -16,6 +16,7 @@ Table of Contents
 - [Microflux](#microflux) (Android)
 - [Miniflutt](#miniflutt) (Android)
 - [Miniflux-ai](#miniflux-ai) (Adds AI summaries, translations, and AI news based on RSS content)
+- [Miniflux Companion](#miniflux-companion) (Chrome/Chromium extension / FOSS)
 - [Miniflux-digest](#miniflux-digest) (docker / web / smtp / FOSS)
 - [NetNewsWire](https://netnewswire.com/) (iOS/macOS / FOSS)
 - [Newsairy](https://qebapps.statichost.page/newsairy/newsairy/)  (iOS/macOS / Freemium / Proprietary)
@@ -122,6 +123,12 @@ This project integrates with Miniflux to fetch RSS feed content via API or webho
 It then utilizes large language models (e.g., Ollama, ChatGPT, LLaMA, Gemini) to generate summaries, translations, and AI-driven news insights.
 
 Links: [GitHub](https://github.com/Qetesh/miniflux-ai)
+
+<h2 id="miniflux-companion">Miniflux Companion <a class="anchor" href="#miniflux-companion" title="Permalink">¶</a></h2>
+
+Brings Miniflux to a familiar three-pane interface through a Chrome extension, while letting users choose between the enhanced reader and the standard Miniflux interface; no separate application required.
+
+Links: [Chrome Web Store](https://chromewebstore.google.com/detail/miniflux-companion/hiiapblnjbipppmmhgmembfdbkbhjogh)
 
 <h2 id="miniflux-digest">Miniflux-digest <a class="anchor" href="#miniflux-digest" title="Permalink">¶</a></h2>
 
