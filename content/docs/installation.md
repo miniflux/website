@@ -27,5 +27,6 @@ FreeBSD Port   |  Community (Source) |  https://svnweb.freebsd.org/ports/head/ww
 Nix            |  Community (Source) |  https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/mi/miniflux
 Ubuntu         |  Community (Binary) |  https://packages.ubuntu.com/noble/miniflux
 Cloudron       |  Community (Binary) |  [Cloudron Installation]({{< ref "cloudron.md" >}})
+MASH (Ansible) |  Community (Binary) |  https://github.com/mother-of-all-self-hosting/mash-playbook/blob/main/docs/services/miniflux.md
 
 You can download precompiled binaries and packages from the [GitHub Releases page](https://github.com/miniflux/v2/releases). You can also [build the application from the source code]({{< ref "development.md" >}}).
