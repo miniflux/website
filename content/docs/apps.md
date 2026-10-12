@@ -22,6 +22,7 @@ Table of Contents
 - [Newsairy](https://qebapps.statichost.page/newsairy/newsairy/)  (iOS/macOS / Freemium / Proprietary)
 - [Newsboat](https://github.com/newsboat/newsboat) (Text console / FOSS)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
+- [Panda Reader](#panda-reader) (Windows / macOS / Linux / FOSS)
 - [ReactFlux](#ReactFlux) (Web frontend)
 - [Read You](https://github.com/Ashinch/ReadYou) (Android / FOSS)
 - [ReadKit](https://readkit.app/) (iOS/macOS / Freemium / Proprietary)
@@ -145,6 +146,12 @@ entry grouping/categorization, mark as read after digest and more.
 ![Screenshot](/images/miniflux-digest-screenshot.png)
 
 Links: [GitHub](https://github.com/eleith/miniflux-digest)
+
+## Panda Reader
+
+Panda Reader is an open-source desktop RSS reader for Windows, macOS, and Linux. It connects to Miniflux through the REST API and syncs feeds, articles, and reading state. Local subscriptions and offline article storage are also supported.
+
+Links: [GitHub](https://github.com/yuhangch/panda-reader), [Website](https://yuhangch.github.io/panda-reader/)
 
 <h2 id="ReactFlux">ReactFlux <a class="anchor" href="#ReactFlux" title="Permalink">¶</a></h2>
 
