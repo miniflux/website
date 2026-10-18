@@ -186,7 +186,7 @@ server {
 }
 ```
 
-- By default, the socket has the permissions `0666` to make it accessible from other processes like Nginx or others.
+- The socket is created with the permissions `0660` (since Miniflux v2.3.3, previously `0666`), and this can't be changed. The reverse-proxy (Nginx or others) must run as the same user as Miniflux or share a group with it to connect.
 - If you don't set the header `X-Forwarded-For`, Miniflux won't be able to determine the remote IP address.
 - Listening on Unix socket is available only since Miniflux v2.0.13.
 

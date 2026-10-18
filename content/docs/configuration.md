@@ -235,7 +235,7 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="listen-addr"><a href="#listen-addr"><code>LISTEN_ADDR</code></a></dt>
     <dd>
-        <p>Address to listen on. Use absolute path to listen on Unix socket (<code>/var/run/miniflux.sock</code>).</p>
+        <p>Address to listen on. Use absolute path to listen on Unix socket (<code>/var/run/miniflux.sock</code>). The socket is created with the permissions <code>0660</code>.</p>
         <p>Multiple addresses can be specified, separated by commas. For example: <code>127.0.0.1:8080, 127.0.0.1:8081</code>.</p>
         <p><em>Default is <code>127.0.0.1:8080</code>.</em></p>
     </dd>
