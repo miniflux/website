@@ -174,6 +174,11 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         <p>Set to 1 to allow outgoing fetcher requests to private or loopback networks.</p>
         <p><em>Disabled by default, private networks are refused.</em></p>
     </dd>
+    <dt id="fetcher-allow-private-feed-proxy"><a href="#fetcher-allow-private-feed-proxy"><code>FETCHER_ALLOW_PRIVATE_FEED_PROXY</code></a></dt>
+    <dd>
+        <p>Set to 1 to allow per-feed proxy URLs that resolve to private or loopback networks.</p>
+        <p><em>Disabled by default, private per-feed proxies are refused.</em></p>
+    </dd>
     <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
     <dd>
         <p>The minimum interval in minutes for manual refresh.</p>
