@@ -23,6 +23,7 @@ Table of Contents
 - [Newsboat](https://github.com/newsboat/newsboat) (Text console / FOSS)
 - [NewsFlash](https://gitlab.com/news-flash/news_flash_gtk) (Linux / FOSS)
 - [Panda Reader](#panda-reader) (Windows / macOS / Linux / FOSS)
+- [PoweReader](#powereader) (iOS/macOS / Freemium / Proprietary)
 - [ReactFlux](#ReactFlux) (Web frontend)
 - [Read You](https://github.com/Ashinch/ReadYou) (Android / FOSS)
 - [ReadKit](https://readkit.app/) (iOS/macOS / Freemium / Proprietary)
@@ -152,6 +153,17 @@ Links: [GitHub](https://github.com/eleith/miniflux-digest)
 Panda Reader is an open-source desktop RSS reader for Windows, macOS, and Linux. It connects to Miniflux through the REST API and syncs feeds, articles, and reading state. Local subscriptions and offline article storage are also supported.
 
 Links: [GitHub](https://github.com/yuhangch/panda-reader), [Website](https://yuhangch.github.io/panda-reader/)
+
+<h2 id="powereader">PoweReader <a class="anchor" href="#powereader" title="Permalink">¶</a></h2>
+
+PoweReader is an RSS reader for iPhone and Mac. It connects to Miniflux through the Miniflux REST API with an API key, and syncs categories, unread and starred status in both directions. Reading and syncing are free; AI summaries and translation require an optional subscription.
+
+### Configuration
+
+1. Create a new API key in Miniflux (**Settings > API Keys**).
+2. In PoweReader, add a Miniflux account and enter the API endpoint (for example `https://miniflux.example.org/v1`) and the API key.
+
+Links: [Official website](https://powereader.app/), [App Store](https://apps.apple.com/app/id6479644903), [Setup guide](https://powereader.app/services/miniflux)
 
 <h2 id="ReactFlux">ReactFlux <a class="anchor" href="#ReactFlux" title="Permalink">¶</a></h2>
 
