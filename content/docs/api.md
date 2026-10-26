@@ -1111,24 +1111,49 @@ Response:
 
 <h3 id="endpoint-get-entry-ids">Get Entry IDs <a class="anchor" href="#endpoint-get-entry-ids" title="Permalink">¶</a></h3>
 
-Return a list of ID values for entries meeting the specified criteria. Results are limited to 10,000 ID values per response by default.
+Returns entry IDs matching the filters. The default sort is descending entry ID (`order=id&direction=desc`), independent of the [Get Entries](#endpoint-get-entries) defaults. The default and maximum page size is 10,000 IDs.
 
 Request:
 
-    GET /v1/entries/ids?status=unread
+    GET /v1/entries/ids?status=unread&order=id&direction=desc&limit=2
 
-Available filters:
+Available filters and pagination parameters:
 
-- `status`: Entry status (read or unread)
-- `starred`: true or false
-- `offset`
-- `limit`: Maximum 10,000
+- `status` (string): `read` or `unread`. Repeat this parameter to match any of the supplied statuses, for example `status=read&status=unread`.
+- `starred` (boolean): `true` selects starred entries; `false` selects unstarred entries. Omit this parameter to include both.
+- `feed_id` (int64): Filter by feed ID.
+- `category_id` (int64): Filter by category ID.
+- `tags` (string): Filter by entry tag, case-insensitively. Repeat this parameter to require all supplied tags, for example `tags=technology&tags=go`.
+- `globally_visible` (boolean): Whether to restrict results to globally visible entries. See the visibility rules below.
+- `search` (string): Full-text search query.
+- `before` (int64, Unix timestamp in seconds): Alias for `published_before`.
+- `after` (int64, Unix timestamp in seconds): Alias for `published_after`.
+- `published_before` (int64, Unix timestamp in seconds): Select entries with an earlier publication time.
+- `published_after` (int64, Unix timestamp in seconds): Select entries with a later publication time.
+- `changed_before` (int64, Unix timestamp in seconds): Select entries with an earlier `changed_at` value.
+- `changed_after` (int64, Unix timestamp in seconds): Select entries with a later `changed_at` value.
+- `before_entry_id` (int64): Select entries with a smaller ID.
+- `after_entry_id` (int64): Select entries with a larger ID.
+- `order` (string): `id`, `status`, `changed_at`, `published_at`, `created_at`, `category_title`, `category_id`, `title`, or `author`. Default: `id`.
+- `direction` (string): `asc` or `desc`. Default: `desc`.
+- `offset` (int): Number of matching entries to skip. Default: `0`. Non-positive values skip none.
+- `limit` (int): Maximum IDs per page. Default and maximum: `10000`. Non-positive values or values above the maximum use the default.
 
-Response
+Filters are combined with AND. `globally_visible=true` excludes entries whose feed or category is hidden globally. When `globally_visible=false` or the parameter is omitted, both visible and hidden entries may match the other filters; `false` does not mean "hidden entries only".
+
+Feed IDs, category IDs, and entry ID boundaries must be positive 64-bit integers. Time filters must be non-negative Unix timestamps in seconds within PostgreSQL's finite timestamp range; `0` leaves that time filter inactive. Invalid ID or time values return `400 Bad Request`.
+
+All active boundaries are exclusive:
+
+- `before_entry_id=X` means `id < X`; `after_entry_id=X` means `id > X`.
+- `before` and `published_before` mean `published_at < timestamp`; `after` and `published_after` mean `published_at > timestamp`.
+- `changed_before` means `changed_at < timestamp`; `changed_after` means `changed_at > timestamp`.
+
+Response:
 
 ```json
 {
-    "total": 2,
+    "total": 3,
     "entry_ids": [
         15548,
         15540
@@ -1136,8 +1161,33 @@ Response
 }
 ```
 
+`total` counts entries matching all filters, including entry ID and time boundaries, before applying `limit` or `offset`, not just IDs on the current page. Changing a boundary changes the set counted by `total`.
+
+**ID-boundary pagination**
+
+For the descending ID order above, keep the filters, sort order, and page size unchanged. Set `before_entry_id` to the last ID on the previous page and leave `offset` unset or `0`:
+
+    GET /v1/entries/ids?status=unread&order=id&direction=desc&limit=2&before_entry_id=15540
+
+If the matching entries have not changed, the next response could be:
+
+```json
+{
+    "total": 1,
+    "entry_ids": [
+        15512
+    ]
+}
+```
+
+Continue with `before_entry_id=15512`, and stop when `entry_ids` is empty. For ascending ID pagination, start with `order=id&direction=asc` and no ID boundary, then set `after_entry_id` to the last ID returned on each page. Keep the other filters unchanged and do not increase `offset`.
+
+For non-ID sorting, the entry ID is the final tie-breaker in the same direction, giving deterministic ordering for unchanged data. The last returned ID is **not** a next-page cursor for sorts such as `published_at`: adding an ID boundary can skip matching entries. Use `limit` and `offset` for non-ID sorting, or `order=id` for ID-boundary pagination. Changes to matching entries between requests can still affect pagination; deterministic ordering does not provide a snapshot.
+
+**Compatibility warning:** Older servers may silently ignore unknown query parameters and return broader results. A successful response does not prove that the requested filters or ID boundaries were applied. Confirm server support for additional parameters before relying on them, especially for ID-boundary pagination.
+
 <div class="info">
-This API endpoint is available since Miniflux v2.3.2.
+This API endpoint was introduced in Miniflux v2.3.2. The release supporting the additional filters and sorting options will be documented once confirmed.
 </div>
 
 <h3 id="endpoint-update-entries">Update Entries <a class="anchor" href="#endpoint-update-entries" title="Permalink">¶</a></h3>
