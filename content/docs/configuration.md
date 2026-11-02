@@ -19,22 +19,22 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
 <dl class="configs">
     <dt id="admin-password"><a href="#admin-password"><code>ADMIN_PASSWORD</code></a></dt>
     <dd>
-        <p>Admin user password, it's used only if <code>CREATE_ADMIN</code> is enabled.</p>
+        <p>Admin user password, used only if <code>CREATE_ADMIN</code> is enabled.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="admin-password-file"><a href="#admin-password-file"><code>ADMIN_PASSWORD_FILE</code></a></dt>
     <dd>
-        <p>Path to a secret key exposed as a file, it should contain <code>$ADMIN_PASSWORD</code> value.</p>
+        <p>Path to a secret key exposed as a file, it should contain the <code>ADMIN_PASSWORD</code> value.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="admin-username"><a href="#admin-username"><code>ADMIN_USERNAME</code></a></dt>
     <dd>
-        <p>Admin user login, it's used only if <code>CREATE_ADMIN</code> is enabled.</p>
+        <p>Admin user login, used only if <code>CREATE_ADMIN</code> is enabled.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="admin-username-file"><a href="#admin-username-file"><code>ADMIN_USERNAME_FILE</code></a></dt>
     <dd>
-        <p>Path to a secret key exposed as a file, it should contain <code>$ADMIN_USERNAME</code> value.</p>
+        <p>Path to a secret key exposed as a file, it should contain the <code>ADMIN_USERNAME</code> value.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="auth-proxy-header"><a href="#auth-proxy-header"><code>AUTH_PROXY_HEADER</code></a></dt>
@@ -46,11 +46,13 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     <dt id="auth-proxy-user-creation"><a href="#auth-proxy-user-creation"><code>AUTH_PROXY_USER_CREATION</code></a></dt>
     <dd>
         <p>Set to 1 to create users based on proxy authentication information.</p>
+        <p>When disabled, users must already exist in Miniflux to sign in through the proxy.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="base-url"><a href="#base-url"><code>BASE_URL</code></a></dt>
     <dd>
-        <p>Base URL to generate HTML links and base path for cookies.</p>
+        <p>Base URL to generate HTML links and base path for cookies. The scheme must be <code>http</code> or <code>https</code>.</p>
+        <p>A path component sets the base path when Miniflux is served from a subfolder, for example <code>https://example.org/miniflux/</code>.</p>
         <p><em>Default is <code>http://localhost</code>.</em></p>
     </dd>
     <dt id="batch-size"><a href="#batch-size"><code>BATCH_SIZE</code></a></dt>
@@ -60,12 +62,13 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="cert-domain"><a href="#cert-domain"><code>CERT_DOMAIN</code></a></dt>
     <dd>
-        <p>Use <a href="https://letsencrypt.org/">Let's Encrypt</a> to get automatically a certificate for the domain specified in <code>$CERT_DOMAIN</code>.</p>
+        <p>Use <a href="https://letsencrypt.org/">Let's Encrypt</a> to get automatically a certificate for this domain. Miniflux also listens on port 80 to answer the ACME HTTP challenge. Certificates are cached in the database.</p>
+        <p>This option cannot be used with <code>CERT_FILE</code> and <code>KEY_FILE</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="cert-file"><a href="#cert-file"><code>CERT_FILE</code></a></dt>
     <dd>
-        <p>Path to SSL certificate.</p>
+        <p>Path to SSL certificate. Must be used with <code>KEY_FILE</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="cleanup-archive-batch-size"><a href="#cleanup-archive-batch-size"><code>CLEANUP_ARCHIVE_BATCH_SIZE</code></a></dt>
@@ -75,22 +78,26 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="cleanup-archive-read-days"><a href="#cleanup-archive-read-days"><code>CLEANUP_ARCHIVE_READ_DAYS</code></a></dt>
     <dd>
-        <p>Number of days after marking read entries as removed. Set to <code>-1</code> to keep all read entries.</p>
+        <p>Number of days before the cleanup job archives read entries.</p>
+        <p>Archiving deletes non-bookmarked, non-shared read entries from the database and records a tombstone to prevent the same entry from being imported again during a later feed refresh.</p>
+        <p>Set to <code>-1</code> to disable automatic archiving of read entries.</p>
         <p><em>Default is 60 days.</em></p>
     </dd>
     <dt id="cleanup-archive-unread-days"><a href="#cleanup-archive-unread-days"><code>CLEANUP_ARCHIVE_UNREAD_DAYS</code></a></dt>
     <dd>
-        <p>Number of days after marking unread entries as removed. Set to <code>-1</code> to keep all unread entries.</p>
+        <p>Number of days before the cleanup job archives unread entries.</p>
+        <p>Archiving deletes non-bookmarked, non-shared unread entries from the database and records a tombstone to prevent the same entry from being imported again during a later feed refresh.</p>
+        <p>Set to <code>-1</code> to disable automatic archiving of unread entries.</p>
         <p><em>Default is 180 days.</em></p>
     </dd>
     <dt id="cleanup-frequency-hours"><a href="#cleanup-frequency-hours"><code>CLEANUP_FREQUENCY_HOURS</code></a></dt>
     <dd>
-        <p>Cleanup job frequency. Remove old sessions and archive entries.</p>
+        <p>Interval in hours between cleanup jobs (remove old sessions and archive entries).</p>
         <p><em>Default is 24 hours.</em></p>
     </dd>
     <dt id="cleanup-remove-sessions-days"><a href="#cleanup-remove-sessions-days"><code>CLEANUP_REMOVE_SESSIONS_DAYS</code></a></dt>
     <dd>
-        <p>Number of days after removing old user sessions from the database.</p>
+        <p>Number of days after which sessions are removed from the database.</p>
         <p><em>Default is 30 days.</em></p>
     </dd>
     <dt id="create-admin"><a href="#create-admin"><code>CREATE_ADMIN</code></a></dt>
@@ -100,7 +107,7 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="database-connection-lifetime"><a href="#database-connection-lifetime"><code>DATABASE_CONNECTION_LIFETIME</code></a></dt>
     <dd>
-        <p>Set the maximum amount of time in minutes a connection may be reused.</p>
+        <p>Maximum amount of time in minutes a connection may be reused.</p>
         <p><em>Default is 5 minutes.</em></p>
     </dd>
     <dt id="database-max-conns"><a href="#database-max-conns"><code>DATABASE_MAX_CONNS</code></a></dt>
@@ -110,7 +117,7 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="database-min-conns"><a href="#database-min-conns"><code>DATABASE_MIN_CONNS</code></a></dt>
     <dd>
-        <p>Minimum number of database connections.</p>
+        <p>Minimum number of database connections. Must be less than or equal to <code>DATABASE_MAX_CONNS</code>.</p>
         <p><em>Default is <code>1</code>.</em></p>
     </dd>
     <dt id="database-url"><a href="#database-url"><code>DATABASE_URL</code></a></dt>
@@ -120,34 +127,48 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="database-url-file"><a href="#database-url-file"><code>DATABASE_URL_FILE</code></a></dt>
     <dd>
-        <p>Path to a secret key exposed as a file, it should contain <code>$DATABASE_URL</code> value.</p>
+        <p>Path to a secret key exposed as a file, it should contain the <code>DATABASE_URL</code> value.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="disable-api"><a href="#disable-api"><code>DISABLE_API</code></a></dt>
     <dd>
         <p>Disable miniflux's API.</p>
-        <p><em>Default is false (The API is enabled).</em></p>
+        <p><em>Default is false (the API is enabled).</em></p>
     </dd>
     <dt id="disable-hsts"><a href="#disable-hsts"><code>DISABLE_HSTS</code></a></dt>
     <dd>
         <p>Disable HTTP Strict Transport Security header if <code>HTTPS</code> is set.</p>
-        <p><em>Default is false (The HSTS is enabled).</em></p>
+        <p><em>Default is false (HSTS is enabled).</em></p>
     </dd>
     <dt id="disable-http-service"><a href="#disable-http-service"><code>DISABLE_HTTP_SERVICE</code></a></dt>
     <dd>
         <p>Set the value to 1 to disable the HTTP service.</p>
-        <p><em>Default is false (The HTTP service is enabled).</em></p>
+        <p><em>Default is false (the HTTP service is enabled).</em></p>
     </dd>
     <dt id="disable-local-auth"><a href="#disable-local-auth"><code>DISABLE_LOCAL_AUTH</code></a></dt>
     <dd>
         <p>Disable local authentication.</p>
         <p>When set to true, the username/password form is hidden from the login screen, and the options to change username/password or unlink OAuth2 account are hidden from the settings page.</p>
+        <p>Password authentication is also rejected by the login form and by the REST API HTTP Basic Authentication, and passwords can no longer be changed. API clients must use an API key instead.</p>
+        <p>This option requires an alternative authentication source such as OAuth2, auth proxy, or WebAuthn/Passkeys. If remote user creation is disabled, only existing users can sign in.</p>
+        <p>To use WebAuthn as the only authentication method, register at least one Passkey while another authentication method is available, before enabling <code>DISABLE_LOCAL_AUTH</code>.</p>
         <p><em>Default is false.</em></p>
     </dd>
     <dt id="disable-scheduler-service"><a href="#disable-scheduler-service"><code>DISABLE_SCHEDULER_SERVICE</code></a></dt>
     <dd>
         <p>Set the value to 1 to disable the internal scheduler service.</p>
-        <p><em>Default is false (The internal scheduler service is enabled).</em></p>
+        <p><em>Default is false (the internal scheduler service is enabled).</em></p>
+    </dd>
+    <dt id="fetcher-allow-private-feed-proxy"><a href="#fetcher-allow-private-feed-proxy"><code>FETCHER_ALLOW_PRIVATE_FEED_PROXY</code></a></dt>
+    <dd>
+        <p>Set to 1 to allow feed proxy URLs to use private or loopback network addresses.</p>
+        <p>This option applies to all authenticated users and should only be enabled when the private proxy boundary is trusted.</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
+    <dt id="fetcher-allow-private-networks"><a href="#fetcher-allow-private-networks"><code>FETCHER_ALLOW_PRIVATE_NETWORKS</code></a></dt>
+    <dd>
+        <p>Set to 1 to allow outgoing fetcher requests to private or loopback networks.</p>
+        <p><em>Disabled by default, private networks are refused.</em></p>
     </dd>
     <dt id="fetch-bilibili-watch-time"><a href="#fetch-bilibili-watch-time"><code>FETCH_BILIBILI_WATCH_TIME</code></a></dt>
     <dd>
@@ -169,19 +190,9 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         <p>Set the value to 1 to scrape video duration from YouTube website and use it as a reading time.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
-    <dt id="fetcher-allow-private-networks"><a href="#fetcher-allow-private-networks"><code>FETCHER_ALLOW_PRIVATE_NETWORKS</code></a></dt>
-    <dd>
-        <p>Set to 1 to allow outgoing fetcher requests to private or loopback networks.</p>
-        <p><em>Disabled by default, private networks are refused.</em></p>
-    </dd>
-    <dt id="fetcher-allow-private-feed-proxy"><a href="#fetcher-allow-private-feed-proxy"><code>FETCHER_ALLOW_PRIVATE_FEED_PROXY</code></a></dt>
-    <dd>
-        <p>Set to 1 to allow per-feed proxy URLs that resolve to private or loopback networks.</p>
-        <p><em>Disabled by default, private per-feed proxies are refused.</em></p>
-    </dd>
     <dt id="force-refresh-interval"><a href="#force-refresh-interval"><code>FORCE_REFRESH_INTERVAL</code></a></dt>
     <dd>
-        <p>The minimum interval in minutes for manual refresh.</p>
+        <p>Minimum interval in minutes between two manual refreshes.</p>
         <p><em>Default is 30 minutes.</em></p>
     </dd>
     <dt id="http-client-max-body-size"><a href="#http-client-max-body-size"><code>HTTP_CLIENT_MAX_BODY_SIZE</code></a></dt>
@@ -207,10 +218,8 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="http-client-user-agent"><a href="#http-client-user-agent"><code>HTTP_CLIENT_USER_AGENT</code></a></dt>
     <dd>
-        <p>
-            The default User-Agent header to use for the HTTP client. Can be overridden in per-feed settings.
-            When empty, Miniflux uses a default User-Agent that includes the Miniflux version.
-        </p>
+        <p>The default User-Agent header to use for the HTTP client. It can be overridden in per-feed settings.</p>
+        <p>When empty, Miniflux uses a default User-Agent that includes the Miniflux version.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="http-server-timeout"><a href="#http-server-timeout"><code>HTTP_SERVER_TIMEOUT</code></a></dt>
@@ -235,13 +244,14 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="key-file"><a href="#key-file"><code>KEY_FILE</code></a></dt>
     <dd>
-        <p>Path to SSL private key.</p>
+        <p>Path to SSL private key. Must be used with <code>CERT_FILE</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="listen-addr"><a href="#listen-addr"><code>LISTEN_ADDR</code></a></dt>
     <dd>
-        <p>Address to listen on. Use absolute path to listen on Unix socket (<code>/var/run/miniflux.sock</code>). The socket is created with the permissions <code>0660</code>.</p>
-        <p>Multiple addresses can be specified, separated by commas. For example: <code>127.0.0.1:8080, 127.0.0.1:8081</code>.</p>
+        <p>Address to listen on. Multiple addresses can be specified, separated by commas, for example <code>127.0.0.1:8080, 127.0.0.1:8081</code>.</p>
+        <p>Use an absolute path to listen on a Unix socket (<code>/var/run/miniflux.sock</code>). When Miniflux creates the socket itself, it uses mode <code>0660</code>. This mode is hardcoded and cannot be configured.</p>
+        <p>With systemd socket activation, Miniflux uses the socket passed by systemd and only the first address is taken into account.</p>
         <p><em>Default is <code>127.0.0.1:8080</code>.</em></p>
     </dd>
     <dt id="log-date-time"><a href="#log-date-time"><code>LOG_DATE_TIME</code></a></dt>
@@ -277,7 +287,7 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     <dt id="media-proxy-custom-url"><a href="#media-proxy-custom-url"><code>MEDIA_PROXY_CUSTOM_URL</code></a></dt>
     <dd>
         <p>Sets an external server to proxy media through.</p>
-        <p>Default is empty, Miniflux does the proxying.</p>
+        <p><em>Default is empty, Miniflux does the proxying.</em></p>
     </dd>
     <dt id="media-proxy-http-client-timeout"><a href="#media-proxy-http-client-timeout"><code>MEDIA_PROXY_HTTP_CLIENT_TIMEOUT</code></a></dt>
     <dd>
@@ -286,13 +296,18 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="media-proxy-mode"><a href="#media-proxy-mode"><code>MEDIA_PROXY_MODE</code></a></dt>
     <dd>
-        <p>Possible values: <code>http-only</code>, <code>all</code>, or <code>none</code>.</p>
+        <p>Possible values are:</p>
+        <ul>
+            <li><code>http-only</code>: Proxy only media served over insecure HTTP.</li>
+            <li><code>all</code>: Proxy all media.</li>
+            <li><code>none</code>: Disable the media proxy.</li>
+        </ul>
         <p><em>Default is <code>http-only</code>.</em></p>
     </dd>
     <dt id="media-proxy-private-key"><a href="#media-proxy-private-key"><code>MEDIA_PROXY_PRIVATE_KEY</code></a></dt>
     <dd>
         <p>Set a custom private key used to sign proxified media URLs.</p>
-        <p>By default, a secret key is randomly generated during startup.</p>
+        <p>By default, a secret key is randomly generated during startup. Proxified URLs are therefore invalidated on restart and are not shared between multiple instances. Set this option to keep them stable.</p>
     </dd>
     <dt id="media-proxy-resource-types"><a href="#media-proxy-resource-types"><code>MEDIA_PROXY_RESOURCE_TYPES</code></a></dt>
     <dd>
@@ -306,12 +321,12 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="metrics-collector"><a href="#metrics-collector"><code>METRICS_COLLECTOR</code></a></dt>
     <dd>
-        <p>Set to 1 to enable metrics collector. Expose a <code>/metrics</code> endpoint for Prometheus.</p>
+        <p>Set to 1 to enable the metrics collector and expose a <code>/metrics</code> endpoint for Prometheus.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="metrics-password"><a href="#metrics-password"><code>METRICS_PASSWORD</code></a></dt>
     <dd>
-        <p>Metrics endpoint password for basic HTTP authentication.</p>
+        <p>Metrics endpoint password for basic HTTP authentication. Must be used with <code>METRICS_USERNAME</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="metrics-password-file"><a href="#metrics-password-file"><code>METRICS_PASSWORD_FILE</code></a></dt>
@@ -321,17 +336,27 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="metrics-refresh-interval"><a href="#metrics-refresh-interval"><code>METRICS_REFRESH_INTERVAL</code></a></dt>
     <dd>
-        <p>Refresh interval in seconds to collect database metrics.</p>
+        <p>Interval in seconds between two collections of database metrics.</p>
         <p><em>Default is 60 seconds.</em></p>
     </dd>
     <dt id="metrics-username"><a href="#metrics-username"><code>METRICS_USERNAME</code></a></dt>
     <dd>
-        <p>Metrics endpoint username for basic HTTP authentication.</p>
+        <p>Metrics endpoint username for basic HTTP authentication. Must be used with <code>METRICS_PASSWORD</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="metrics-username-file"><a href="#metrics-username-file"><code>METRICS_USERNAME_FILE</code></a></dt>
     <dd>
         <p>Path to a file that contains the username for the metrics endpoint HTTP authentication.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-additional-scopes"><a href="#oauth2-additional-scopes"><code>OAUTH2_ADDITIONAL_SCOPES</code></a></dt>
+    <dd>
+        <p>Additional OAuth2 scopes to request.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-admin-group"><a href="#oauth2-admin-group"><code>OAUTH2_ADMIN_GROUP</code></a></dt>
+    <dd>
+        <p>Group for administrators. When set, the admin role is mapped based on the specified group.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-client-id"><a href="#oauth2-client-id"><code>OAUTH2_CLIENT_ID</code></a></dt>
@@ -341,7 +366,7 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="oauth2-client-id-file"><a href="#oauth2-client-id-file"><code>OAUTH2_CLIENT_ID_FILE</code></a></dt>
     <dd>
-        <p>Path to a client ID exposed as a file, it should contain <code>$OAUTH2_CLIENT_ID</code> value.</p>
+        <p>Path to a secret key exposed as a file, it should contain the <code>OAUTH2_CLIENT_ID</code> value.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-client-secret"><a href="#oauth2-client-secret"><code>OAUTH2_CLIENT_SECRET</code></a></dt>
@@ -351,12 +376,18 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="oauth2-client-secret-file"><a href="#oauth2-client-secret-file"><code>OAUTH2_CLIENT_SECRET_FILE</code></a></dt>
     <dd>
-        <p>Path to a secret key exposed as a file, it should contain <code>$OAUTH2_CLIENT_SECRET</code> value.</p>
+        <p>Path to a secret key exposed as a file, it should contain the <code>OAUTH2_CLIENT_SECRET</code> value.</p>
+        <p><em>Default is empty.</em></p>
+    </dd>
+    <dt id="oauth2-group-claim"><a href="#oauth2-group-claim"><code>OAUTH2_GROUP_CLAIM</code></a></dt>
+    <dd>
+        <p>Claim that contains user groups, which can be used for mapping the admin role.</p>
+        <p>The claim is read from the user info response, then from the ID token. Users without this claim are not administrators.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="oauth2-oidc-discovery-endpoint"><a href="#oauth2-oidc-discovery-endpoint"><code>OAUTH2_OIDC_DISCOVERY_ENDPOINT</code></a></dt>
     <dd>
-        <p>OpenID Connect discovery endpoint.</p>
+        <p>OpenID Connect discovery endpoint. Required when <code>OAUTH2_PROVIDER</code> is set to <code>oidc</code>.</p>
         <p>Note that the OIDC library automatically appends the <code>.well-known/openid-configuration</code>, this part has to be removed from the URL when setting <code>OAUTH2_OIDC_DISCOVERY_ENDPOINT</code>.</p>
         <p><em>Default is empty.</em></p>
     </dd>
@@ -379,12 +410,13 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     <dt id="oauth2-user-creation"><a href="#oauth2-user-creation"><code>OAUTH2_USER_CREATION</code></a></dt>
     <dd>
         <p>Set to 1 to authorize OAuth2 user creation.</p>
+        <p>When disabled, users must already exist in Miniflux or have a linked OAuth2 account to sign in.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
     <dt id="polling-frequency"><a href="#polling-frequency"><code>POLLING_FREQUENCY</code></a></dt>
     <dd>
-        <p>Interval for the background job scheduler.</p>
-        <p>Determines how often a batch of feeds is selected for refresh, based on their last refresh time.</p>
+        <p>Interval in minutes for the background job scheduler.</p>
+        <p>It determines how often a batch of feeds is selected for refresh, based on their last refresh time.</p>
         <p><em>Default is 60 minutes.</em></p>
     </dd>
     <dt id="polling-limit-per-host"><a href="#polling-limit-per-host"><code>POLLING_LIMIT_PER_HOST</code></a></dt>
@@ -403,25 +435,17 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="polling-scheduler"><a href="#polling-scheduler"><code>POLLING_SCHEDULER</code></a></dt>
     <dd>
-        <p>
-            Determines the strategy used to schedule feed polling.
-            Supported values are <code>round_robin</code> and <code>entry_frequency</code>.
-        </p>
-        <p>
-            - <code>round_robin</code>: Feeds are polled in a fixed, rotating order.
-        </p>
-        <p>
-            - <code>entry_frequency</code>: The polling interval for each feed is based on the average update frequency over the past week.
-        </p>
-        <p>
-            The number of feeds polled in a given period is limited by the <code>POLLING_FREQUENCY</code> and <code>BATCH_SIZE</code> settings.
-            Regardless of the scheduler used, the total number of polled feeds will not exceed the maximum allowed per polling cycle.
-        </p>
+        <p>Determines the strategy used to schedule feed polling. Supported values are:</p>
+        <ul>
+            <li><code>round_robin</code>: Feeds are polled in a fixed, rotating order.</li>
+            <li><code>entry_frequency</code>: The polling interval for each feed is based on the average update frequency over the past week.</li>
+        </ul>
+        <p>The number of feeds polled in a given period is limited by the <code>POLLING_FREQUENCY</code> and <code>BATCH_SIZE</code> settings. Regardless of the scheduler used, the total number of polled feeds will not exceed the maximum allowed per polling cycle.</p>
         <p><em>Default is <code>round_robin</code>.</em></p>
     </dd>
     <dt id="port"><a href="#port"><code>PORT</code></a></dt>
     <dd>
-        <p>Override <code>LISTEN_ADDR</code> to <code>0.0.0.0:$PORT</code> (Automatic configuration for <abbr title="Platform as a service">PaaS</abbr>).</p>
+        <p>Override <code>LISTEN_ADDR</code> with <code>:$PORT</code>, which listens on all network interfaces (automatic configuration for <abbr title="Platform as a service">PaaS</abbr>). The value must be between 1 and 65535.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="run-migrations"><a href="#run-migrations"><code>RUN_MIGRATIONS</code></a></dt>
@@ -441,7 +465,7 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="scheduler-entry-frequency-min-interval"><a href="#scheduler-entry-frequency-min-interval"><code>SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL</code></a></dt>
     <dd>
-        <p>Minimum interval in minutes for the entry frequency scheduler.</p>
+        <p>Minimum interval in minutes for the entry frequency scheduler. Must be less than or equal to <code>SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL</code>.</p>
         <p><em>Default is 5 minutes.</em></p>
     </dd>
     <dt id="scheduler-round-robin-max-interval"><a href="#scheduler-round-robin-max-interval"><code>SCHEDULER_ROUND_ROBIN_MAX_INTERVAL</code></a></dt>
@@ -454,12 +478,12 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     </dd>
     <dt id="scheduler-round-robin-min-interval"><a href="#scheduler-round-robin-min-interval"><code>SCHEDULER_ROUND_ROBIN_MIN_INTERVAL</code></a></dt>
     <dd>
-        <p>Minimum interval in minutes for the round robin scheduler.</p>
+        <p>Minimum interval in minutes for the round robin scheduler. Must be less than or equal to <code>SCHEDULER_ROUND_ROBIN_MAX_INTERVAL</code>.</p>
         <p><em>Default is 60 minutes.</em></p>
     </dd>
     <dt id="trusted-reverse-proxy-networks"><a href="#trusted-reverse-proxy-networks"><code>TRUSTED_REVERSE_PROXY_NETWORKS</code></a></dt>
     <dd>
-        <p>List of networks (CIDR notation) allowed to use the proxy authentication header, <code>X-Forwarded-For</code>, <code>X-Forwarded-Proto</code>, and <code>X-Real-Ip</code> headers.</p>
+        <p>A comma-separated list of networks (CIDR notation) allowed to use the proxy authentication header, <code>X-Forwarded-For</code>, <code>X-Forwarded-Proto</code>, and <code>X-Real-Ip</code> headers.</p>
         <p><em>Default is empty.</em></p>
     </dd>
     <dt id="watchdog"><a href="#watchdog"><code>WATCHDOG</code></a></dt>
@@ -470,9 +494,7 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
     <dt id="webauthn"><a href="#webauthn"><code>WEBAUTHN</code></a></dt>
     <dd>
         <p>Enable or disable WebAuthn/Passkey authentication.</p>
-        <p>
-            You must provide a username on the login page if you are using non-residential keys. However, this is not required for discoverable credentials.
-        </p>
+        <p>You must provide a username on the login page if you are using non-discoverable (non-resident) credentials, such as some hardware security keys. This is not required for discoverable credentials (Passkeys).</p>
         <p><em>Default is disabled.</em></p>
     </dd>
     <dt id="worker-pool-size"><a href="#worker-pool-size"><code>WORKER_POOL_SIZE</code></a></dt>
@@ -494,11 +516,15 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
 
 <h2 id="config-file">Configuration File <a class="anchor" href="#config-file" title="Permalink">¶</a></h2>
 
-The configuration file is optional. It's a text file that follow these rules:
+The configuration file is optional. It's a text file that follows these rules:
 
-- Miniflux expects each line to be in `KEY=VALUE` format.
-- Lines beginning with `#` are processed as comments and ignored.
-- Blank lines are ignored.
+- Each line is in `KEY=VALUE` format.
+- Lines beginning with `#` are comments and are ignored.
+- Blank lines and lines without `=` are ignored.
+- Whitespace around keys and values is removed.
+- Quotes are not removed: values are used as written.
+- An empty value keeps the default value.
+- Unknown keys are ignored.
 - There is no variable interpolation.
 
 Keys are the same as the environment variables described above.
@@ -514,8 +540,8 @@ Environment variables override the values defined in the config file.
 
 To specify a configuration file, use the command line argument `-config-file` or `-c`.
 
-You can also dump interpreted values with the flag `-config-dump` for debugging.
+You can also print the parsed values with the flag `-config-dump` for debugging. The output includes sensitive information like passwords.
 
 <p class="info">
-Systemd uses the file <code>/etc/miniflux.conf</code> to populate environment variables.
+The Debian and RPM packages install the configuration file <code>/etc/miniflux.conf</code>. The systemd service loads it as environment variables.
 </p>

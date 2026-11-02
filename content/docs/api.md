@@ -541,6 +541,10 @@ Request:
 
     PUT /v1/feeds/42/refresh
 
+Optional query parameters:
+
+- `force`: bypass the HTTP cache and reprocess the entries already stored, so changes to rewrite or scraper rules are applied to them, like the forced refresh in the web UI (boolean, available since Miniflux 2.3.5). Example: `PUT /v1/feeds/42/refresh?force=true`
+
 <ul>
     <li>Returns <code>204</code> status code for success.</li>
     <li>This API call is synchronous and can takes hundred of milliseconds.</li>
@@ -1478,6 +1482,11 @@ Response:
 <div class="info">
 You must be an administrator to update users.
 </div>
+
+Notes:
+
+- The `username` may only contain letters, numbers, and the characters `_`, `-`, `@`, and `.`. Since Miniflux 2.3.5, this rule is also enforced when renaming a user.
+- Since Miniflux 2.3.5, changing the `password` signs the user out of all their web sessions. API keys, passkeys, and the Fever and Google Reader credentials are not affected.
 
 <h3 id="endpoint-me">Get Current User <a class="anchor" href="#endpoint-me" title="Permalink">¶</a></h3>
 
