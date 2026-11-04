@@ -185,6 +185,13 @@ For variables ending in <code>_FILE</code>, the value is a path to a file that c
         <p>Set the value to 1 to scrape video duration from Odysee website and use it as a reading time.</p>
         <p><em>Disabled by default.</em></p>
     </dd>
+    <dt id="fetch-tweet-embeds"><a href="#fetch-tweet-embeds"><code>FETCH_TWEET_EMBEDS</code></a></dt>
+    <dd>
+        <p>Set the value to 1 to add the photos and videos of tweets embedded in new entries, and to replace the tweets' <code>t.co</code> links with the URLs they point to. Miniflux fetches each tweet from X's embed service (<code>cdn.syndication.twimg.com</code>).</p>
+        <p>Existing entries with an embedded tweet are not updated on refresh, unless the refresh is forced, so that they keep the media.</p>
+        <p>Videos are loaded from <code>video.twimg.com</code>, which rejects requests that send a <code>Referer</code> header. For API clients that send one, enable the media proxy for videos with <code>MEDIA_PROXY_MODE=all</code> and <code>MEDIA_PROXY_RESOURCE_TYPES=image,video</code>.</p>
+        <p><em>Disabled by default.</em></p>
+    </dd>
     <dt id="fetch-youtube-watch-time"><a href="#fetch-youtube-watch-time"><code>FETCH_YOUTUBE_WATCH_TIME</code></a></dt>
     <dd>
         <p>Set the value to 1 to scrape video duration from YouTube website and use it as a reading time.</p>
