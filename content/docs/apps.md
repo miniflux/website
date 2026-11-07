@@ -31,6 +31,7 @@ Table of Contents
 - [Reminiflux](#reminiflux) (Web frontend)
 - [RSS Guard](https://github.com/martinrotter/rssguard) (Windows, Linux, BSD, OS/2, or macOS / FOSS)
 - [Telegram](https://telegram.org/)
+- [Tinyflux](#tinyflux) (Chrome/Firefox extension / FOSS)
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
 - [SmartRSS](https://vinsonguo.github.io/introducing-smartrss) (iOS/Android / Freemium / Proprietary)
 - [Flux Feed](https://apps.apple.com/app/flux-feed-for-miniflux/id6752505148) (iOS / Paid / Proprietary)
@@ -192,3 +193,9 @@ Reminiflux is an alternative web frontend. It offers a look and feel which is mo
 Google Reader and TT-RSS with a 3-paned display showing the list of feeds, items and an article.
 
 Links: [GitHub](https://github.com/reminiflux/reminiflux)
+
+<h2 id="tinyflux">Tinyflux <a class="anchor" href="#tinyflux" title="Permalink">¶</a></h2>
+
+Tinyflux is a lightweight browser extension that brings a clean reading experience to Miniflux without leaving the current tab. It works with Chrome, Firefox, Edge, and other modern browsers, with an unread count badge, in-browser article reading, optional notifications and sidebar, dark and light themes, bookmarks, quick actions, and translations in English, Spanish, Chinese, French, and German.
+
+Links: [GitHub](https://github.com/jlsalvador/tinyflux), [Chrome Web Store](https://chromewebstore.google.com/detail/tinyflux/ffhphofcfffnehjhcmmgnfolidhdfenl), [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/tinyflux/)
