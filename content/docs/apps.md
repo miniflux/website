@@ -25,7 +25,7 @@ Table of Contents
 - [Panda Reader](#panda-reader) (Windows / macOS / Linux / FOSS)
 - [PoweReader](#powereader) (iOS/macOS / Freemium / Proprietary)
 - [ReactFlux](#ReactFlux) (Web frontend)
-- [Read You](https://github.com/Ashinch/ReadYou) (Android / FOSS)
+- [Read You](#readyou) (Android / FOSS)
 - [ReadKit](https://readkit.app/) (iOS/macOS / Freemium / Proprietary)
 - [Reeder Classic](http://reederapp.com/classic) (iOS/macOS / Paid / Proprietary)
 - [Reminiflux](#reminiflux) (Web frontend)
@@ -199,3 +199,32 @@ Links: [GitHub](https://github.com/reminiflux/reminiflux)
 Tinyflux is a lightweight browser extension that brings a clean reading experience to Miniflux without leaving the current tab. It works with Chrome, Firefox, Edge, and other modern browsers, with an unread count badge, in-browser article reading, optional notifications and sidebar, dark and light themes, bookmarks, quick actions, and translations in English, Spanish, Chinese, French, and German.
 
 Links: [GitHub](https://github.com/jlsalvador/tinyflux), [Chrome Web Store](https://chromewebstore.google.com/detail/tinyflux/ffhphofcfffnehjhcmmgnfolidhdfenl), [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/tinyflux/)
+
+<h2 id="readyou">Read You <a class="anchor" href="#readyou" title="Permalink">¶</a></h2>
+
+Read You is a free and open-source Android RSS reader designed based on Material You.
+
+![Read You](/images/read-you.png)
+
+Features:
+- Subscribe to RSS links
+- Import or export OPML files
+- Notification of new articles
+- Article readability optimization
+- Full content parse for original articles
+- Multi-account
+- Read aloud
+- Android widget
+
+### Configuration
+
+1. In Miniflux: Go to **Settings > Integrations**. Activate the Google Reader integration and define a username and password.
+
+![Google Reader API](/images/google-reader-api.png)
+
+2. In Read You: click on the Settings gear icon ⚙️, go to **"Accounts" > "Add accounts" > "Google Reader"**.  Enter the connection information created in step 1.
+
+<video controls src="/images/read-you-add-account.mp4" />
+
+Links: [GitHub](https://github.com/Ashinch/ReadYou), [F-Droid](https://f-droid.org/packages/me.ash.reader/)
+
