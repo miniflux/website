@@ -202,9 +202,9 @@ Links: [GitHub](https://github.com/jlsalvador/tinyflux), [Chrome Web Store](http
 
 <h2 id="readyou">Read You <a class="anchor" href="#readyou" title="Permalink">¶</a></h2>
 
-## Read You
+Read You is a free and open-source Android RSS reader designed based on Material You.
 
-Read You is a free and open-source Android RSS reader presented in Material You style.
+![Read You](/images/read-you.png)
 
 Features:
 - Subscribe to RSS links
@@ -220,11 +220,11 @@ Features:
 
 1. In Miniflux: Go to **Settings > Integrations**. Activate the Google Reader integration and define a username and password.
 
-![Google Reader API](https://i.imgur.com/UjNhSaf.png)
+![Google Reader API](/images/google-reader-api.png)
 
 2. In Read You: click on the Settings gear icon ⚙️, go to **"Accounts" > "Add accounts" > "Google Reader"**.  Enter the connection information created in step 1.
 
-![Read You add account](https://i.imgur.com/FkZqutb.gif)
+<video controls src="/images/read-you-add-account.mp4" />
 
 Links: [GitHub](https://github.com/Ashinch/ReadYou), [F-Droid](https://f-droid.org/packages/me.ash.reader/)
 
