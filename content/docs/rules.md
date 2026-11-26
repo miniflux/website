@@ -37,6 +37,8 @@ There are two types of rules:
 - **Block Rules**: Ignore articles that match the regex.
 - **Keep Rules**: Retain only articles that match the regex.
 
+In Miniflux 2.3.5, after you remove a feed's entry blocking rule, a regular refresh of that feed with **Ignore HTTP cache** enabled can retrieve previously blocked articles that the source feed still returns. This refresh does not recover articles that the source feed no longer returns.
+
 ### Rules Format and Syntax
 
 Example:
