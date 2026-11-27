@@ -6,6 +6,7 @@ url: /docs/apps.html
 Table of Contents
 
 - [Capy Reader](https://capyreader.com/) (Android / FOSS)
+- [Feedler](https://feedlerapp.com/) (iOS/macOS / Freemium / Proprietary)
 - [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android / Free / Proprietary)
 - [Fleuron](#fleuron) (Android / FOSS)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (All platforms / FOSS except iPhone and Android non-free versions)
