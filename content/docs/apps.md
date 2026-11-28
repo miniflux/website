@@ -6,7 +6,7 @@ url: /docs/apps.html
 Table of Contents
 
 - [Capy Reader](https://capyreader.com/) (Android / FOSS)
-- [Feedler](https://feedlerapp.com/) (iOS/macOS / Freemium / Proprietary)
+- [Feedler](#feedler) (iOS/macOS / Freemium / Proprietary)
 - [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme&hl=en) (Android / Free / Proprietary)
 - [Fleuron](#fleuron) (Android / FOSS)
 - [Fluent Reader](https://hyliu.me/fluent-reader/) (All platforms / FOSS except iPhone and Android non-free versions)
@@ -36,6 +36,27 @@ Table of Contents
 - [Unread](https://www.goldenhillsoftware.com/unread/) (iOS/macOS / Freemium / Proprietary)
 - [SmartRSS](https://vinsonguo.github.io/introducing-smartrss) (iOS/Android / Freemium / Proprietary)
 - [Flux Feed](https://apps.apple.com/app/flux-feed-for-miniflux/id6752505148) (iOS / Paid / Proprietary)
+
+<h2 id="feedler">Feedler <a class="anchor" href="#feedler" title="Permalink">¶</a></h2>
+
+Feedler is an RSS reader for iPhone, iPad and Mac. It connects to Miniflux through the Google Reader API and syncs categories, read and unread states and starred articles in both directions. It also reads the full article from feeds that only give a summary, groups the news your feeds share into Trending Stories, and summarizes articles on device with Apple Intelligence. A Miniflux account requires Feedler Unlimited, an optional subscription.
+
+![Feedler](/images/feedler.jpg)
+
+### Configuration
+
+1. In Miniflux: go to **Settings > Integrations**, activate the Google Reader integration and define a username and password.
+
+![Google Reader API](/images/google-reader-api.png)
+
+2. In Feedler: on the Accounts page, tap **+**, then **Miniflux**. Enter the address of your Miniflux server (for example `https://reader.miniflux.app`), then the username and the password defined in step 1 (in the **Username** and **API password** fields), and tap **Sign In**.
+
+![Feedler Settings](/images/feedler_settings.png)
+
+- Use the server address only, without `/reader/api/0` or any other path.
+- Miniflux keeps every feed in a category: a feed added from Feedler without one is filed under **Feeds**.
+
+Links: [Official website](https://feedlerapp.com/), [App Store](https://apps.apple.com/app/id6777101828)
 
 <h2 id="fleuron">Fleuron <a class="anchor" href="#fleuron" title="Permalink">¶</a></h2>
 
